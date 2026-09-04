@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.vrealtyassistants.com/sitemap.xml
+Sitemap: https://vra.global/sitemap.xml
