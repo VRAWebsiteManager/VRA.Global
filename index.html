@@ -167,6 +167,18 @@
   .pricing-note{background:var(--light-blue);border-radius:14px;padding:22px 26px;font-size:14.5px;color:var(--darker-blue);}
   .pricing-note strong{display:block;margin-bottom:4px;}
   @media(max-width:900px){.pricing-grid{grid-template-columns:1fr;}}
+  .guarantee-callout{background:var(--dark-blue);color:var(--white);border-radius:16px;padding:28px 30px;margin-bottom:28px;text-align:center;}
+  .guarantee-callout .guarantee-badge{display:inline-block;background:var(--light-blue);color:var(--darker-blue);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.5px;padding:6px 16px;border-radius:20px;margin-bottom:12px;}
+  .guarantee-callout p{font-size:16px;line-height:1.55;max-width:700px;margin:0 auto;color:var(--white);}
+  .milestone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .milestone-card{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;gap:10px;}
+  .milestone-day{display:inline-block;background:var(--dark-blue);color:var(--white);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.5px;padding:5px 12px;border-radius:20px;align-self:flex-start;}
+  .milestone-stars{color:#f5b301;font-size:15px;letter-spacing:2px;}
+  .milestone-quote{font-size:15px;font-style:italic;color:var(--darker-blue);line-height:1.5;flex-grow:1;}
+  .milestone-attr{font-size:13px;color:var(--gray);border-top:1px solid var(--border);padding-top:12px;}
+  .milestone-attr strong{display:block;color:var(--darker-blue);font-size:13.5px;}
+  @media(max-width:900px){.milestone-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.milestone-grid{grid-template-columns:1fr;}}
 
   /* TOOLS & PLATFORMS */
   .tools-marquee-wrap{display:flex;flex-direction:column;gap:22px;}
@@ -581,9 +593,53 @@
         <div class="price-best">Best for: easing into delegation, seasonal support, or lighter task loads like social media, email triage, or appointment setting.</div>
       </div>
     </div>
+    <div class="guarantee-callout">
+      <div class="guarantee-badge">No Trial Window. No Fine Print.</div>
+      <p>If your VA isn't the right fit — day 5 or month 5 — we'll match you with someone new at zero extra cost. We're not counting down a trial window; we're building your long-term team.</p>
+    </div>
     <div class="pricing-note">
       <strong>What's included in both tiers:</strong>
-      Your VA's full dedicated time, hands-on matching &amp; onboarding to get you paired with the right person from day one, and ongoing VRA support with check-ins at 14/30/60/90 days — no hidden fees, ever, and everything is walked through upfront in your free consultation. If your VA is not the right fit, you can swap in a different VA at any point, at no extra cost — we're focused on finding you a long-term teammate, not just filling a seat. Need to adjust later? Revisit hours and scope at renewal (end of your 1-year full-time or 6-month part-time term), or switch between full-time and part-time as your VA's availability allows.
+      Your VA's full dedicated time, hands-on matching &amp; onboarding to get you paired with the right person from day one, and ongoing VRA support with check-ins at 14/30/60/90 days — no hidden fees, ever, and everything is walked through upfront in your free consultation. Need to adjust later? Revisit hours and scope at renewal (end of your 1-year full-time or 6-month part-time term), or switch between full-time and part-time as your VA's availability allows.
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS TIMELINE -->
+<section id="results" style="background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);border-top:4px solid var(--light-blue);">
+  <div class="wrap">
+    <div class="section-head" style="max-width:900px;">
+      <div class="kicker">Real Results, On Schedule</div>
+      <h2>Proof at Every Check-In</h2>
+      <p>We check in with every client at 14, 30, 60, and 90 days — here's what business owners are telling us at each milestone.</p>
+    </div>
+    <div class="milestone-grid">
+      <div class="milestone-card">
+        <div class="milestone-day">Day 14</div>
+        <div class="milestone-stars">★★★★★</div>
+        <div class="milestone-quote">"I don't know how I made it this long without even having a VA."</div>
+        <div class="milestone-attr"><strong>Rayan Saleh</strong>Owner, The Butcher's Grille</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-day">Day 30</div>
+        <div class="milestone-stars">★★★★★</div>
+        <div class="milestone-quote">"Instead of this entry-level assistant that I thought I was getting, I got a game changer."</div>
+        <div class="milestone-attr"><strong>Elle Haynes</strong>Texas Title &amp; Escrow Consultant, New Century Title &amp; Escrow</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-day">Day 60</div>
+        <div class="milestone-stars">★★★★★</div>
+        <div class="milestone-quote">"I cannot think of running my business without a virtual assistant."</div>
+        <div class="milestone-attr"><strong>Emily Zakhem</strong>REALTOR®, Keller Williams Memorial — Top 20% Luxury Agent</div>
+      </div>
+      <div class="milestone-card">
+        <div class="milestone-day">Day 90</div>
+        <div class="milestone-stars">★★★★★</div>
+        <div class="milestone-quote">"When we get busy, a lot of things seem to fall between the cracks. Laurenz has been very helpful in keeping on top of those things."</div>
+        <div class="milestone-attr"><strong>James Del Bosque</strong>GFS Home Loans</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="reviews.html" class="btn btn-outline">Watch the Full Video Testimonials</a>
     </div>
   </div>
 </section>
