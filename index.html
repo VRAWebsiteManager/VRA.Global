@@ -1309,7 +1309,7 @@ window.handleImgError = function(img){
 };
 
 function buildCard(i){
-  const a = assistants[i];
+  const a = displayList[i];
   const card = document.createElement('div');
   card.className = 'assistant-card';
   card.setAttribute('role','button');
@@ -1338,16 +1338,27 @@ function buildCard(i){
 }
 
 // --- Live availability sync ---------------------------------------------
-// The "Meet the Team" marquee only shows VAs marked available (waiting to be
-// hired) in the team's shared spreadsheet, and labels each with Full-Time or
-// Part-Time straight from that sheet. The sheet is published read-only and
-// fetched client-side on every page load via Google's CSV export endpoint,
-// so updating the spreadsheet updates the live site with no code changes.
+// The "Meet the Team" marquee shows every VA marked available (waiting to be
+// hired) in the team's shared spreadsheet, labeled Full-Time or Part-Time
+// straight from that sheet. The sheet is published read-only and fetched
+// client-side on every page load via Google's CSV export endpoint.
+//
+// Anyone already hardcoded below (real photo, resume thumbnail, etc.) gets
+// matched up and their badge kept current. Anyone in the sheet who ISN'T
+// hardcoded yet gets an automatic placeholder card generated on the fly —
+// initials avatar, employment type, and a link to their VA Profile Drive
+// folder for resume/DISC/KPA — so a brand-new hire goes live the moment
+// they're added to the sheet, with no code change required. Their card can
+// be upgraded later with a real photo/thumbnail as a polish pass; nothing
+// blocks them from appearing in the meantime. Anyone hardcoded who drops out
+// of the sheet (no longer available) simply stops rendering.
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1S2oToaS9ltgvkL9rsWRKls5UlQO8CgQWOnqdPf_xaX8/gviz/tq?tqx=out:csv&gid=0';
 
 // Last-known-good snapshot of the sheet, used instantly on page load and as
 // a fallback if the live fetch fails (offline, sheet permissions changed,
 // etc.) so the section never renders empty or shows stale/hired-away VAs.
+// Only covers people already hardcoded below — new-hire auto-placeholders
+// need the live sheet, so they simply won't appear until that fetch succeeds.
 const FALLBACK_AVAILABILITY = {
   'jervyn|guianan':'Full-Time', 'john|ilagan':'Full-Time', 'hannah|mirabete':'Full-Time',
   'vincent|roxas':'Full-Time', 'danica|austria':'Full-Time', 'aldrin|bandarlipe':'Part-Time',
@@ -1398,23 +1409,75 @@ function sheetNameKey(raw){
   const first = (rest.split(/\s+/)[0]||'').toLowerCase();
   return first ? (first + '|' + last) : null;
 }
+// Builds a clean "First Last" display name from the sheet's "Last, First
+// [Middle] ["Nickname"]" format, for VAs who don't have a hardcoded profile
+// (and therefore a hand-picked display name) yet.
+function sheetDisplayName(raw){
+  const commaIdx = raw.indexOf(',');
+  if(commaIdx === -1) return raw.trim();
+  const last = raw.slice(0, commaIdx).trim();
+  const rest = raw.slice(commaIdx+1).replace(/"[^"]*"/g,'').trim();
+  const first = (rest.split(/\s+/)[0]||'').trim();
+  return first ? `${first} ${last}` : last;
+}
+// Finds a column by header text (case/whitespace-insensitive), so the sheet's
+// columns can be reordered or have new ones added without breaking this.
+function findCol(headers, name){
+  return headers.findIndex(h => (h||'').trim().toLowerCase() === name.toLowerCase());
+}
 
 const grid = document.getElementById('assistantGrid');
-function renderAssistants(availabilityMap){
+// The array actually being rendered this pass — the hardcoded `assistants`
+// matched against the sheet, plus any auto-generated placeholder cards for
+// new sheet rows with no hardcoded profile yet. buildCard()/openModal() read
+// from this (not `assistants` directly) so both kinds of card work the same.
+let displayList = assistants;
+
+// sheetRows: [{key, name, availability, profileLink}], one per available VA
+// currently in the sheet (see loadAvailabilityAndRender / fallbackSheetRows).
+function renderAssistants(sheetRows){
   grid.innerHTML = '';
-  let indices = [];
-  assistants.forEach((a, i) => {
-    const type = availabilityMap[localNameKey(a.name)];
-    if(type){ a.employmentType = type; indices.push(i); }
+  const byKey = new Map(sheetRows.map(r => [r.key, r]));
+  const usedKeys = new Set();
+  const list = [];
+
+  // Existing hardcoded profiles: keep only those still marked available.
+  assistants.forEach(a => {
+    const row = byKey.get(localNameKey(a.name));
+    if(row){
+      a.employmentType = row.availability;
+      list.push(a);
+      usedKeys.add(row.key);
+    }
   });
-  if(indices.length === 0){
-    // Safety net: never show an empty section if matching produced nothing.
-    indices = assistants.map((a, i) => i);
-  }
+
+  // New sheet rows with no hardcoded profile: auto-generate a placeholder
+  // card (initials avatar; resume/DISC/KPA tabs link to their Drive folder).
+  sheetRows.forEach(row => {
+    if(usedKeys.has(row.key) || !row.name) return;
+    const entry = { name: row.name, employmentType: row.availability };
+    if(row.profileLink){
+      entry.localResume = row.profileLink;
+      entry.localDiscPdf = row.profileLink;
+      entry.localKpaPdf = row.profileLink;
+    }
+    list.push(entry);
+    usedKeys.add(row.key);
+  });
+
+  displayList = list.length ? list : assistants; // safety net: never show an empty section
   // render the set twice back-to-back so the CSS marquee (-50% translate) loops seamlessly
   for(let pass = 0; pass < 2; pass++){
-    indices.forEach(i => grid.appendChild(buildCard(i)));
+    displayList.forEach((_, i) => grid.appendChild(buildCard(i)));
   }
+}
+
+// Adapts the plain {key: availability} fallback snapshot into the same
+// {key, name, availability, profileLink} shape the live sheet produces —
+// name/profileLink are left blank since every fallback key already matches
+// a hardcoded profile (it's a snapshot of exactly those people).
+function fallbackSheetRows(){
+  return Object.entries(FALLBACK_AVAILABILITY).map(([key, availability]) => ({key, name:'', availability, profileLink:''}));
 }
 
 async function loadAvailabilityAndRender(){
@@ -1424,22 +1487,33 @@ async function loadAvailabilityAndRender(){
     const text = await res.text();
     const rows = parseCSV(text);
     if(rows.length < 2) throw new Error('empty sheet');
-    const map = {};
+    const headers = rows[0];
+    const nameCol = findCol(headers, 'Name');
+    const availCol = findCol(headers, 'Current Availability');
+    const profileCol = findCol(headers, 'VA Profile');
+    if(nameCol === -1 || availCol === -1) throw new Error('missing expected columns');
+    const sheetRows = [];
     for(let r = 1; r < rows.length; r++){
-      const nameCell = rows[r][0];
-      const availability = (rows[r][1]||'').trim();
+      const nameCell = rows[r][nameCol];
+      const availability = (rows[r][availCol]||'').trim();
       if(!nameCell || !availability) continue;
       const key = sheetNameKey(nameCell);
-      if(key) map[key] = availability;
+      if(!key) continue;
+      sheetRows.push({
+        key,
+        name: sheetDisplayName(nameCell),
+        availability,
+        profileLink: profileCol !== -1 ? (rows[r][profileCol]||'').trim() : ''
+      });
     }
-    if(Object.keys(map).length === 0) throw new Error('no rows parsed');
-    renderAssistants(map);
+    if(sheetRows.length === 0) throw new Error('no rows parsed');
+    renderAssistants(sheetRows);
   } catch(err){
     console.warn('VA availability sheet unavailable — showing last saved list.', err);
   }
 }
 
-renderAssistants(FALLBACK_AVAILABILITY); // instant paint, no flash of empty content
+renderAssistants(fallbackSheetRows()); // instant paint, no flash of empty content
 loadAvailabilityAndRender(); // then refine with the live sheet
 
 function setImg(elId, path){
@@ -1485,7 +1559,7 @@ function setPanel(imgId, linkId, descId, localImg, remoteImg, localPdf, remotePd
 }
 
 function openModal(i){
-  const a = assistants[i];
+  const a = displayList[i];
   const modalPhoto = document.getElementById('modalPhoto');
   if(a.localPhoto){
     modalPhoto.style.display = '';
