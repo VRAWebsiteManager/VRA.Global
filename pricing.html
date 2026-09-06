@@ -104,14 +104,15 @@
 
   /* FOOTER */
   footer{background:var(--darker-blue);color:#fff;padding:56px 0 28px;}
-  .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:36px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
   .footer-subhead{margin-top:24px;}
   .footer-grid h4{color:#fff;font-size:15px;margin-bottom:16px;}
   .footer-grid p, .footer-grid a{font-size:14px;color:#fff;display:block;margin-bottom:10px;}
   .footer-grid a:hover{color:var(--light-blue);}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#fff;}
-  .social-row{display:flex;gap:14px;}
-  @media(max-width:700px){.footer-grid{grid-template-columns:1fr;}}
+  .social-row{display:flex;gap:14px;flex-wrap:wrap;}
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -201,18 +202,13 @@
       <div>
         <h4>Virtual Realty Assistants</h4>
         <p>Exceptional assistants for exceptional businesses. Based out of Keller Williams Memorial, Houston, TX.</p>
+        <h4 class="footer-subhead">Follow Us</h4>
         <div class="social-row">
-          <a href="https://www.facebook.com/virtualrealtyassistants" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/virtualrealtyassistants" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.tiktok.com/@virtualrealtyassistants" target="_blank" rel="noopener">TikTok</a>
           <a href="https://www.youtube.com/channel/UCjbtac-Lrr86WJzb6PcUq2w" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://www.linkedin.com/company/virtualrealtyassistants/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-        <h4 class="footer-subhead">Contact</h4>
-        <a href="mailto:contact@vrealtyassistants.com" target="_blank" rel="noopener">contact@vrealtyassistants.com</a>
-        <a href="tel:1-281-612-9678" target="_blank" rel="noopener">(281) 612-9678</a>
-        <a href="https://www.vrealtyassistants.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://www.vrealtyassistants.com/apply-now" target="_blank" rel="noopener">Apply as a VA</a>
-        <a href="join-sales-team.html">Join Our Sales Team</a>
       </div>
       <div>
         <h4>Company</h4>
@@ -221,11 +217,27 @@
         <a href="pricing.html">Pricing</a>
         <a href="index.html#process">Hiring Process</a>
         <a href="index.html#assistants">Meet the Team</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
         <a href="reviews.html">Reviews</a>
         <a href="faq.html">FAQ</a>
         <a href="insights.html">Insights</a>
         <a href="needs-assessment.html">Needs Assessment</a>
         <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <a href="mailto:contact@vrealtyassistants.com" target="_blank" rel="noopener">contact@vrealtyassistants.com</a>
+        <a href="tel:1-281-612-9678" target="_blank" rel="noopener">(281) 612-9678</a>
+        <a href="https://www.vrealtyassistants.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+        <h4 class="footer-subhead">Careers</h4>
+        <a href="https://www.vrealtyassistants.com/apply-now" target="_blank" rel="noopener">Apply as a VA</a>
+        <a href="join-sales-team.html">Join Our Sales Team</a>
+        <div class="social-row">
+          <a href="https://www.facebook.com/virtualrealtyassistants" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.linkedin.com/company/virtual-realty-assistants-careers/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
