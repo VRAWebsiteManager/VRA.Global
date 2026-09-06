@@ -1426,6 +1426,23 @@ function findCol(headers, name){
   return headers.findIndex(h => (h||'').trim().toLowerCase() === name.toLowerCase());
 }
 
+// Turns a Google Drive "share" link (file/d/ID/view, or ?id=ID) into a
+// direct, hotlinkable image URL — works for any file shared "Anyone with
+// the link can view". Used so new-hire placeholder cards can show a real
+// photo (and, once the sheet has one, a real resume thumbnail) straight
+// from Drive with no local file and no extraction step required.
+function driveFileId(url){
+  if(!url) return null;
+  let m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if(m) return m[1];
+  m = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  return m ? m[1] : null;
+}
+function driveImageUrl(url, width){
+  const id = driveFileId(url);
+  return id ? `https://lh3.googleusercontent.com/d/${id}=w${width}` : '';
+}
+
 const grid = document.getElementById('assistantGrid');
 // The array actually being rendered this pass — the hardcoded `assistants`
 // matched against the sheet, plus any auto-generated placeholder cards for
@@ -1433,8 +1450,9 @@ const grid = document.getElementById('assistantGrid');
 // from this (not `assistants` directly) so both kinds of card work the same.
 let displayList = assistants;
 
-// sheetRows: [{key, name, availability, profileLink}], one per available VA
-// currently in the sheet (see loadAvailabilityAndRender / fallbackSheetRows).
+// sheetRows: [{key, name, availability, profileLink, photoLink, resumeThumbLink}],
+// one per available VA currently in the sheet (see loadAvailabilityAndRender
+// / fallbackSheetRows).
 function renderAssistants(sheetRows){
   grid.innerHTML = '';
   const byKey = new Map(sheetRows.map(r => [r.key, r]));
@@ -1452,7 +1470,9 @@ function renderAssistants(sheetRows){
   });
 
   // New sheet rows with no hardcoded profile: auto-generate a placeholder
-  // card (initials avatar; resume/DISC/KPA tabs link to their Drive folder).
+  // card (real photo if Drive sharing allows it, else an initials avatar;
+  // resume/DISC/KPA tabs link to their Drive folder, upgraded to a real
+  // rendered thumbnail if/when the sheet has one).
   sheetRows.forEach(row => {
     if(usedKeys.has(row.key) || !row.name) return;
     const entry = { name: row.name, employmentType: row.availability };
@@ -1460,6 +1480,14 @@ function renderAssistants(sheetRows){
       entry.localResume = row.profileLink;
       entry.localDiscPdf = row.profileLink;
       entry.localKpaPdf = row.profileLink;
+    }
+    if(row.photoLink){
+      const img = driveImageUrl(row.photoLink, 400);
+      if(img) entry.localPhoto = img;
+    }
+    if(row.resumeThumbLink){
+      const img = driveImageUrl(row.resumeThumbLink, 800);
+      if(img) entry.localResumeThumb = img;
     }
     list.push(entry);
     usedKeys.add(row.key);
@@ -1477,7 +1505,7 @@ function renderAssistants(sheetRows){
 // name/profileLink are left blank since every fallback key already matches
 // a hardcoded profile (it's a snapshot of exactly those people).
 function fallbackSheetRows(){
-  return Object.entries(FALLBACK_AVAILABILITY).map(([key, availability]) => ({key, name:'', availability, profileLink:''}));
+  return Object.entries(FALLBACK_AVAILABILITY).map(([key, availability]) => ({key, name:'', availability, profileLink:'', photoLink:'', resumeThumbLink:''}));
 }
 
 async function loadAvailabilityAndRender(){
@@ -1491,6 +1519,11 @@ async function loadAvailabilityAndRender(){
     const nameCol = findCol(headers, 'Name');
     const availCol = findCol(headers, 'Current Availability');
     const profileCol = findCol(headers, 'VA Profile');
+    const photoCol = findCol(headers, 'Photo');
+    // Optional column, not in the sheet yet: add a "Resume Thumbnail" column
+    // with a Drive link (shared "Anyone with the link") to a PNG/JPG export
+    // of resume page 1, and new-hire cards will start using it automatically.
+    const resumeThumbCol = findCol(headers, 'Resume Thumbnail');
     if(nameCol === -1 || availCol === -1) throw new Error('missing expected columns');
     const sheetRows = [];
     for(let r = 1; r < rows.length; r++){
@@ -1503,7 +1536,9 @@ async function loadAvailabilityAndRender(){
         key,
         name: sheetDisplayName(nameCell),
         availability,
-        profileLink: profileCol !== -1 ? (rows[r][profileCol]||'').trim() : ''
+        profileLink: profileCol !== -1 ? (rows[r][profileCol]||'').trim() : '',
+        photoLink: photoCol !== -1 ? (rows[r][photoCol]||'').trim() : '',
+        resumeThumbLink: resumeThumbCol !== -1 ? (rows[r][resumeThumbCol]||'').trim() : ''
       });
     }
     if(sheetRows.length === 0) throw new Error('no rows parsed');
@@ -1542,7 +1577,10 @@ function setPanel(imgId, linkId, descId, localImg, remoteImg, localPdf, remotePd
   const hasPdf = localPdf || remotePdf;
   if(hasImg){
     img.style.display = '';
-    if(localImg) img.src = localImg; else setImg(imgId, remoteImg);
+    if(localImg){
+      img.onerror = () => { img.style.display = 'none'; };
+      img.src = localImg;
+    } else setImg(imgId, remoteImg);
   } else {
     img.removeAttribute('src');
     img.style.display = 'none';
@@ -1563,6 +1601,7 @@ function openModal(i){
   const modalPhoto = document.getElementById('modalPhoto');
   if(a.localPhoto){
     modalPhoto.style.display = '';
+    modalPhoto.onerror = () => { modalPhoto.style.display = 'none'; };
     modalPhoto.src = a.localPhoto;
   } else if(a.photo){
     modalPhoto.style.display = '';
