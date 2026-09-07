@@ -461,6 +461,11 @@ INDUSTRIES = [
         "service_type": "Virtual Assistant Services for Keller Williams Market Center Leadership",
         "service_description": "Virtual assistants trained for Keller Williams market center back-office operations — CDA processing, accounts receivable, agent billing, and KW Command database management.",
     },
+]
+
+# Not an "industry" — a cross-cutting task/specialty deep-dive page, linked from the
+# Virtual Assistant Tasks section on the homepage rather than listed among Industries.
+TASK_PAGES = [
     {
         "slug": "digital-marketing-virtual-assistant",
         "nav_label": "Digital Marketing",
@@ -766,6 +771,14 @@ def build_page(data, all_industries):
 def main():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     for data in INDUSTRIES:
+        html = build_page(data, INDUSTRIES)
+        out_path = os.path.join(repo_root, f"{data['slug']}.html")
+        with open(out_path, "w") as f:
+            f.write(html)
+        print(f"wrote {out_path}")
+    # Task/specialty deep-dive pages: not industries, so pills/footer are built
+    # against the real INDUSTRIES list (the page itself isn't added to it).
+    for data in TASK_PAGES:
         html = build_page(data, INDUSTRIES)
         out_path = os.path.join(repo_root, f"{data['slug']}.html")
         with open(out_path, "w") as f:

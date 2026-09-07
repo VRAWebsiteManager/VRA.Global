@@ -95,6 +95,90 @@
   }
 }
 </script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Administrative Work Virtual Assistant Support",
+    "serviceType": "Administrative Work",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Scheduling meetings and appointments, data entry, organizing daily to-do lists and calendars, responding to customer emails, and gathering customer reviews.",
+    "url": "https://vra.global/#administrative-work"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Email Management Virtual Assistant Support",
+    "serviceType": "Email Management",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Filtering spam, answering inquiries and follow-ups, organizing inboxes, and running email marketing campaigns and list management.",
+    "url": "https://vra.global/#email-management"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Social Media Management Virtual Assistant Support",
+    "serviceType": "Social Media Management",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Creating and scheduling content for business social pages, engaging followers and groups, and analyzing performance for marketing strategy.",
+    "url": "https://vra.global/#social-media-management"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website Management Virtual Assistant Support",
+    "serviceType": "Website Management",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Developing and updating websites, managing site content, images, and listings, coordinating with designers and developers, and monitoring site performance.",
+    "url": "https://vra.global/#website-management"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Lead Management Virtual Assistant Support",
+    "serviceType": "Lead Management",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Following up with new leads and inquiries, CRM and database entry and tagging, scheduling appointments and showings, and nurture campaigns.",
+    "url": "https://vra.global/#lead-management"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Customer Service Virtual Assistant Support",
+    "serviceType": "Customer Service",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Responding to customer inquiries and requests, day-to-day client communication, tracking open items, and gathering and responding to customer reviews.",
+    "url": "https://vra.global/#customer-service"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI-Enabled Support Virtual Assistant Services",
+    "serviceType": "AI-Enabled Support",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "VRA Skills Accelerator-certified AI tool support (Anthropic, OpenAI Academy, and more) — drafting and research with AI assistants, automating reporting and repetitive admin work, and building AI-supported workflows.",
+    "url": "https://vra.global/#ai-enabled-support"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Graphic Design Virtual Assistant Support",
+    "serviceType": "Graphic Design",
+    "provider": {"@type": "ProfessionalService", "name": "Virtual Realty Assistants", "url": "https://vra.global/"},
+    "areaServed": "US",
+    "description": "Canva-certified graphic design support — social media graphics, branded templates, listing flyers and marketing materials, and consistent on-brand visuals across platforms.",
+    "url": "https://vra.global/#graphic-design"
+  }
+]
+</script>
 <style>
   :root{
     --light-blue:#9ecfe7;
@@ -204,6 +288,8 @@
   .service-card.wide ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
   .service-card.wide ul a{color:var(--blue);font-weight:600;}
   .service-card.wide ul a:hover{text-decoration:underline;}
+  .service-card ul li a{color:var(--blue);font-weight:600;}
+  .service-card ul li a:hover{text-decoration:underline;}
   @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
 
   /* PRICING */
@@ -533,7 +619,7 @@
       <p>Every VRA assistant is trained to support the day-to-day of your business, whatever industry you're in.</p>
     </div>
     <div class="service-grid">
-      <div class="service-card">
+      <div class="service-card" id="administrative-work">
         <h3>Administrative Work</h3>
         <ul>
           <li>Schedule important meetings and set appointments</li>
@@ -543,7 +629,7 @@
           <li>Gather customer reviews</li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="email-management">
         <h3>Email Management</h3>
         <ul>
           <li>Weed out any spam</li>
@@ -552,16 +638,17 @@
           <li>Carry out email marketing campaigns and manage email lists</li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="social-media-management">
         <h3>Social Media Management</h3>
         <ul>
           <li>Create content to share on your business pages</li>
           <li>Schedule daily posts</li>
           <li>Engage with your followers and groups</li>
           <li>Analyze weekly statistics and reports for the next marketing strategy</li>
+          <li><a href="digital-marketing-virtual-assistant.html">See our full Digital Marketing VA page &rarr;</a></li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="website-management">
         <h3>Website Management</h3>
         <ul>
           <li>Develop and update your website</li>
@@ -570,7 +657,7 @@
           <li>Monitor site performance and fix broken links</li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="lead-management">
         <h3>Lead Management</h3>
         <ul>
           <li>Follow up with new leads and inquiries</li>
@@ -579,7 +666,7 @@
           <li>Nurture campaigns &amp; drip follow-ups</li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="customer-service">
         <h3>Customer Service</h3>
         <ul>
           <li>Respond to customer inquiries &amp; requests</li>
@@ -588,7 +675,7 @@
           <li>Gather &amp; respond to customer reviews</li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="ai-enabled-support">
         <h3>AI-Enabled Support</h3>
         <ul>
           <li>VRA Skills Accelerator-certified in AI tools (Anthropic, OpenAI Academy, and more)</li>
@@ -597,13 +684,14 @@
           <li>Build AI-supported workflows for your business</li>
         </ul>
       </div>
-      <div class="service-card compact">
+      <div class="service-card compact" id="graphic-design">
         <h3>Graphic Design</h3>
         <ul>
           <li>Canva-certified design support</li>
           <li>Social media graphics &amp; branded templates</li>
           <li>Listing flyers &amp; marketing materials</li>
           <li>Consistent, on-brand visuals across platforms</li>
+          <li><a href="digital-marketing-virtual-assistant.html">See our full Digital Marketing VA page &rarr;</a></li>
         </ul>
       </div>
       <div class="service-card wide">
@@ -616,7 +704,6 @@
           <li><a href="restaurant-virtual-assistant.html">Restaurants</a> — reservations, vendor coordination, online ordering, menu updates</li>
           <li><a href="small-business-virtual-assistant.html">Small business</a> — client communication, scheduling, invoicing, reporting</li>
           <li><a href="keller-williams-virtual-assistant.html">KW market center leadership</a> — CDA processing, accounts receivable, marketing support</li>
-          <li><a href="digital-marketing-virtual-assistant.html">Digital marketing</a> — social media, content creation, paid ads, email marketing</li>
           <li>Custom workflows tailored to your industry</li>
         </ul>
       </div>
@@ -1252,7 +1339,6 @@
         <a href="restaurant-virtual-assistant.html">Restaurants</a>
         <a href="small-business-virtual-assistant.html">Small Business</a>
         <a href="keller-williams-virtual-assistant.html">KW Leadership</a>
-        <a href="digital-marketing-virtual-assistant.html">Digital Marketing</a>
       </div>
       <div>
         <h4>Get in Touch</h4>
