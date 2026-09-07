@@ -293,6 +293,8 @@ INDUSTRIES = [
         "service_bullets": [
             "Closing coordination and scheduling",
             "Document preparation and organization in Qualia",
+            "Hyperlinking title commitments for easy reference",
+            "File auditing and quality-control checks",
             "Client and agent update calls/emails",
             "CRM and file-tracking database management",
             "Invoicing and closing statement support",
@@ -341,7 +343,7 @@ INDUSTRIES = [
             "duration": None,
         },
         "second_video": {
-            "name": "Erica",
+            "name": "Erica Lopez",
             "role": "High Point Mortgage",
             "quote": "Kate is phenomenal — quick, eager, and she does everything we ask her to do efficiently. I'd rate her a 10 out of 10.",
             "youtube_id": "_eQJNl00gK4",
