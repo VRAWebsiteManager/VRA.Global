@@ -82,6 +82,10 @@ STYLE = """
   .service-card ul li a:hover{text-decoration:underline;}
   @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
 
+  /* TRUST / DATA BOUNDARIES */
+  .trust-no ul li:before{content:"\\2715";color:#b33a3a;}
+  .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
+
   /* VIDEO TESTIMONIAL */
   .video-feature{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
   .video-card{display:block;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(1,1,16,.14);}
@@ -361,6 +365,38 @@ INDUSTRIES = [
         },
         "service_type": "Virtual Assistant Services for Mortgage &amp; Lending",
         "service_description": "Virtual assistants for mortgage and lending office support — administrative work, marketing support, borrower communication, and appointment scheduling.",
+        "trust_section": {
+            "kicker": "Data &amp; Security Boundaries",
+            "heading": "What Your Mortgage VA Can (and Can&rsquo;t) Access",
+            "intro": "Mortgage offices are right to be careful about who touches borrower data. Here&rsquo;s exactly where the line is drawn &mdash; and why it&rsquo;s there.",
+            "can_bullets": [
+                "Manage your calendar, CRM, and loan pipeline database",
+                "Handle borrower follow-up calls, emails, and appointment scheduling",
+                "Build and run social media, email, and ad campaigns",
+                "Handle general admin &mdash; data entry, inbox management, document organization, invoicing and reporting",
+            ],
+            "cannot_bullets": [
+                "Never logs into your Loan Origination System (LOS)",
+                "Never collects, stores, or views Social Security numbers, credit reports, or other sensitive borrower financial data",
+                "Never quotes rates, discusses loan terms, or advises a borrower on which loan product to choose",
+                "Never touches underwriting, loan file setup, or condition-clearing work",
+            ],
+            "closing": "That boundary isn&rsquo;t a limitation &mdash; it&rsquo;s the reason you don&rsquo;t need to build compliance infrastructure around a VRA virtual assistant in the first place.",
+        },
+        "faq": [
+            {
+                "q": "Does a mortgage virtual assistant have access to my borrower's Social Security number or loan file?",
+                "a": "No. VRA's mortgage and lending virtual assistants provide administrative and marketing support only — scheduling, CRM management, borrower follow-up, and marketing campaigns. They never log into a Loan Origination System (LOS) and never handle sensitive borrower data such as Social Security numbers, credit reports, or loan file documents.",
+            },
+            {
+                "q": "Does a mortgage virtual assistant need to be SOC 2 compliant?",
+                "a": "SOC 2 compliance matters for vendors who handle sensitive borrower data directly inside a Loan Origination System. Because VRA's mortgage VAs are never given that access, that specific compliance requirement doesn't apply the same way it would to a vendor working inside your LOS. Every VRA engagement is backed by a $1 million Errors and Omissions insurance policy, and VAs complete a mandatory 28-day training and screening process before touching client work.",
+            },
+            {
+                "q": "What does a VRA mortgage and lending virtual assistant actually do?",
+                "a": "A VRA mortgage and lending VA handles borrower communication and follow-up, appointment scheduling and calendar management, CRM and pipeline database management, invoicing and reporting support, general admin support, and social media and marketing campaign support — the day-to-day workload of a busy lending office, without touching sensitive loan file work.",
+            },
+        ],
     },
     {
         "slug": "restaurant-virtual-assistant",
@@ -573,6 +609,60 @@ def build_page(data, all_industries):
 
     v1 = data["video"]
 
+    faq_schema_block = ""
+    if data.get("faq"):
+        faq_items = ",\n".join(
+            f"""    {{
+      "@type": "Question",
+      "name": "{q['q']}",
+      "acceptedAnswer": {{"@type": "Answer", "text": "{q['a']}"}}
+    }}"""
+            for q in data["faq"]
+        )
+        faq_schema_block = f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+{faq_items}
+  ]
+}}
+</script>
+"""
+
+    trust_html = ""
+    ts = data.get("trust_section")
+    if ts:
+        can_html = "\n".join(f"          <li>{b}</li>" for b in ts["can_bullets"])
+        cannot_html = "\n".join(f"          <li>{b}</li>" for b in ts["cannot_bullets"])
+        trust_html = f"""
+<!-- DATA & SECURITY BOUNDARIES -->
+<section id="trust" class="alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">{ts['kicker']}</div>
+      <h2>{ts['heading']}</h2>
+      <p>{ts['intro']}</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>What Your VA Handles</h3>
+        <ul>
+{can_html}
+        </ul>
+      </div>
+      <div class="service-card trust-no">
+        <h3>What Your VA Never Touches</h3>
+        <ul>
+{cannot_html}
+        </ul>
+      </div>
+    </div>
+    <p class="trust-closing">{ts['closing']}</p>
+  </div>
+</section>
+"""
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -643,7 +733,7 @@ def build_page(data, all_industries):
 {video_schema}
 ]
 </script>
-<style>
+{faq_schema_block}<style>
 {STYLE}
 </style>
 </head>
@@ -715,7 +805,7 @@ def build_page(data, all_industries):
     </div>
   </div>
 </section>
-
+{trust_html}
 <!-- VIDEO TESTIMONIAL -->
 <section>
   <div class="wrap">

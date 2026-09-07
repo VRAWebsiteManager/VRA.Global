@@ -109,6 +109,29 @@
   }
 ]
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does a mortgage virtual assistant have access to my borrower's Social Security number or loan file?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. VRA's mortgage and lending virtual assistants provide administrative and marketing support only — scheduling, CRM management, borrower follow-up, and marketing campaigns. They never log into a Loan Origination System (LOS) and never handle sensitive borrower data such as Social Security numbers, credit reports, or loan file documents."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does a mortgage virtual assistant need to be SOC 2 compliant?",
+      "acceptedAnswer": {"@type": "Answer", "text": "SOC 2 compliance matters for vendors who handle sensitive borrower data directly inside a Loan Origination System. Because VRA's mortgage VAs are never given that access, that specific compliance requirement doesn't apply the same way it would to a vendor working inside your LOS. Every VRA engagement is backed by a $1 million Errors and Omissions insurance policy, and VAs complete a mandatory 28-day training and screening process before touching client work."}
+    },
+    {
+      "@type": "Question",
+      "name": "What does a VRA mortgage and lending virtual assistant actually do?",
+      "acceptedAnswer": {"@type": "Answer", "text": "A VRA mortgage and lending VA handles borrower communication and follow-up, appointment scheduling and calendar management, CRM and pipeline database management, invoicing and reporting support, general admin support, and social media and marketing campaign support — the day-to-day workload of a busy lending office, without touching sensitive loan file work."}
+    }
+  ]
+}
+</script>
 <style>
 
   :root{
@@ -184,6 +207,10 @@
   .service-card ul li a{color:var(--blue);font-weight:600;}
   .service-card ul li a:hover{text-decoration:underline;}
   @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
+
+  /* TRUST / DATA BOUNDARIES */
+  .trust-no ul li:before{content:"\2715";color:#b33a3a;}
+  .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
 
   /* VIDEO TESTIMONIAL */
   .video-feature{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
@@ -333,6 +360,38 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- DATA & SECURITY BOUNDARIES -->
+<section id="trust" class="alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Data &amp; Security Boundaries</div>
+      <h2>What Your Mortgage VA Can (and Can&rsquo;t) Access</h2>
+      <p>Mortgage offices are right to be careful about who touches borrower data. Here&rsquo;s exactly where the line is drawn &mdash; and why it&rsquo;s there.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>What Your VA Handles</h3>
+        <ul>
+          <li>Manage your calendar, CRM, and loan pipeline database</li>
+          <li>Handle borrower follow-up calls, emails, and appointment scheduling</li>
+          <li>Build and run social media, email, and ad campaigns</li>
+          <li>Handle general admin &mdash; data entry, inbox management, document organization, invoicing and reporting</li>
+        </ul>
+      </div>
+      <div class="service-card trust-no">
+        <h3>What Your VA Never Touches</h3>
+        <ul>
+          <li>Never logs into your Loan Origination System (LOS)</li>
+          <li>Never collects, stores, or views Social Security numbers, credit reports, or other sensitive borrower financial data</li>
+          <li>Never quotes rates, discusses loan terms, or advises a borrower on which loan product to choose</li>
+          <li>Never touches underwriting, loan file setup, or condition-clearing work</li>
+        </ul>
+      </div>
+    </div>
+    <p class="trust-closing">That boundary isn&rsquo;t a limitation &mdash; it&rsquo;s the reason you don&rsquo;t need to build compliance infrastructure around a VRA virtual assistant in the first place.</p>
   </div>
 </section>
 
