@@ -305,7 +305,13 @@ INDUSTRIES = [
             "youtube_id": "9j_BsGEmU4U",
             "duration": None,
         },
-        "second_video": None,
+        "second_video": {
+            "name": "Debbie Yates",
+            "role": "President | Key Title Group",
+            "quote": "I wasn't sure how it was going to work out in the beginning, but she's taken direction really well. She's a self-starter, finding things we didn't even expect her to find.",
+            "youtube_id": "sL5ETpuB8Tg",
+            "duration": None,
+        },
         "service_type": "Virtual Assistant Services for Title &amp; Escrow",
         "service_description": "Virtual assistants trained for title and escrow work — closing coordination, document preparation, and client updates.",
     },
@@ -334,7 +340,20 @@ INDUSTRIES = [
             "youtube_id": "QOPZY8aWNNY",
             "duration": None,
         },
-        "second_video": None,
+        "second_video": {
+            "name": "Erica",
+            "role": "High Point Mortgage",
+            "quote": "Kate is phenomenal — quick, eager, and she does everything we ask her to do efficiently. I'd rate her a 10 out of 10.",
+            "youtube_id": "_eQJNl00gK4",
+            "duration": None,
+        },
+        "third_video": {
+            "name": "Ronalyn Barut",
+            "role": "GFS Home Loans",
+            "quote": "She's a great asset to my marketing team, and that helps the entire team and company. I'd definitely suggest other institutions look into hiring a VA.",
+            "youtube_id": "_woVVc-XaOg",
+            "duration": None,
+        },
         "service_type": "Virtual Assistant Services for Mortgage &amp; Lending",
         "service_description": "Virtual assistants trained for mortgage and lending work — loan file organization, borrower communication, and appointment scheduling.",
     },
@@ -386,10 +405,10 @@ INDUSTRIES = [
             "Custom workflows tailored to your business",
         ],
         "video": {
-            "name": "Quinton Randel",
-            "role": "Co-Founder &amp; EVP, Operations and Technology | EidleExit",
-            "quote": "I have no reservations about them communicating with clients with minimal to no oversight.",
-            "youtube_id": "jcVkz2-Ms4Y",
+            "name": "Austin Galvez",
+            "role": "CPA",
+            "quote": "He's been fantastic — things that used to fall through the cracks no longer do, and he keeps me honest on everything I have going on.",
+            "youtube_id": "ri45R6VEWCI",
             "duration": None,
         },
         "second_video": None,
@@ -424,10 +443,10 @@ INDUSTRIES = [
             "duration": None,
         },
         "second_video": {
-            "name": "Victoria Williams",
-            "role": "Market Center Administrator | Keller Williams Memorial",
-            "quote": "He's like the perfect puzzle piece that we were missing — he just fits right in.",
-            "youtube_id": "cdOGwwdqktg",
+            "name": "Hannah DuBose",
+            "role": "Marketing Team | Keller Williams Heritage",
+            "quote": "She's been way more self-sufficient than I could have ever asked for. After learning our brand and processes, she took the tasks I gave her and really ran with it.",
+            "youtube_id": "EmsjM5hEGeg",
             "duration": None,
         },
         "service_type": "Virtual Assistant Services for Keller Williams Market Center Leadership",
@@ -464,9 +483,11 @@ def build_page(data, all_industries):
     plain_title = data['page_title'].replace('&amp;', '&')
     title_tag = f"{plain_title} | Virtual Realty Assistants"
 
+    extra_videos = [v for v in (data.get("second_video"), data.get("third_video")) if v]
+
     video_objects = [video_block(data["video"])]
-    if data["second_video"]:
-        video_objects.append(video_block(data["second_video"]))
+    for v in extra_videos:
+        video_objects.append(video_block(v))
     video_schema = ",\n".join(video_objects)
 
     service_bullets_html = "\n".join(f"          <li>{b}</li>" for b in data["service_bullets"])
@@ -490,19 +511,19 @@ def build_page(data, all_industries):
         </a>
       </div>"""
 
-    second_video_html = ""
-    if data["second_video"]:
-        v2 = data["second_video"]
-        second_video_html = f"""
+    def extra_video_block(v):
+        return f"""
     <div class="video-feature" style="margin-top:32px;">
-{video_feature(v2, v2['youtube_id'])}
+{video_feature(v, v['youtube_id'])}
       <div>
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-quote-lg">&ldquo;{v2['quote']}&rdquo;</p>
-        <div class="testimonial-name-lg">{v2['name']}</div>
-        <div class="testimonial-role-lg">{v2['role']}</div>
+        <p class="testimonial-quote-lg">&ldquo;{v['quote']}&rdquo;</p>
+        <div class="testimonial-name-lg">{v['name']}</div>
+        <div class="testimonial-role-lg">{v['role']}</div>
       </div>
     </div>"""
+
+    second_video_html = "".join(extra_video_block(v) for v in extra_videos)
 
     v1 = data["video"]
 
