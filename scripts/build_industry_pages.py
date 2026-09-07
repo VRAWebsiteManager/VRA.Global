@@ -461,6 +461,36 @@ INDUSTRIES = [
         "service_type": "Virtual Assistant Services for Keller Williams Market Center Leadership",
         "service_description": "Virtual assistants trained for Keller Williams market center back-office operations — CDA processing, accounts receivable, agent billing, and KW Command database management.",
     },
+    {
+        "slug": "digital-marketing-virtual-assistant",
+        "nav_label": "Digital Marketing",
+        "page_title": "Virtual Assistant for Digital Marketing",
+        "meta_description": "Hire a virtual assistant trained in digital marketing — social media management, content creation, paid ads, and email marketing. Flat-rate pricing, hands-on matching, no long trial periods.",
+        "kicker": "Virtual Assistants for Digital Marketing",
+        "h1": "The Virtual Assistant Built for Digital Marketing",
+        "hero_p": "Consistent content, active social channels, and campaigns that actually get reported on — marketing is the first thing to slip when a team gets busy. A VRA virtual assistant trained in digital marketing keeps your channels active and your campaigns moving, so your brand stays visible without eating up your week.",
+        "why_card1": "Every VRA digital marketing VA completes certified training in paid ads and marketing analytics, SEO and content marketing, social media marketing and brand awareness, and social selling — plus hands-on graphic design in Canva — before they ever touch client work. Because mastering one platform means picking up another quickly, we commit to having your VA fluent in whatever marketing tools and channels you use within 5 days of hire.",
+        "service_intro": "Every VRA digital marketing VA is trained to run the day-to-day of a marketing calendar — not just general admin.",
+        "service_bullets": [
+            "Social media content creation and scheduling",
+            "Graphic design in Canva for social posts, flyers, and ads",
+            "Paid ad campaign support (PPC, social ads) and reporting",
+            "Email marketing campaign creation and scheduling",
+            "SEO and content marketing support",
+            "Marketing analytics and performance reporting",
+            "Social selling and LinkedIn prospecting support",
+            "Custom workflows tailored to your marketing stack",
+        ],
+        "video": {
+            "name": "Hannah DuBose",
+            "role": "Marketing Team | Keller Williams Heritage",
+            "quote": "She's been way more self-sufficient than I could have ever asked for. After learning our brand and processes, she took the tasks I gave her and really ran with it.",
+            "youtube_id": "EmsjM5hEGeg",
+            "duration": None,
+        },
+        "service_type": "Virtual Assistant Services for Digital Marketing",
+        "service_description": "Virtual assistants trained in digital marketing — social media management, content creation, paid ads, and email marketing.",
+    },
 ]
 
 
