@@ -325,7 +325,7 @@ INDUSTRIES = [
         "kicker": "Virtual Assistants for Mortgage &amp; Lending",
         "h1": "The Virtual Assistant Built for Mortgage &amp; Lending Professionals",
         "hero_p": "Between loan files, borrower calls, and appointment scheduling, busy season can bury a lending team in admin. A VRA virtual assistant trained for mortgage and lending work keeps files organized and borrowers in the loop — so nothing falls through the cracks when volume picks up.",
-        "why_card1": "Only the top 1% of applicants make it through our screening and mandatory 28-day training program — covering document preparation, e-signature workflows in dotloop and DocuSign, and file organization — before they ever touch client work. Every mortgage VA also completes our certified Encompass training track, covering compliance and the full loan lifecycle, so they're fluent in the industry's leading LOS from day one.",
+        "why_card1": "Only the top 1% of applicants make it through our screening and mandatory 28-day training program — covering document preparation, e-signature workflows in dotloop and DocuSign, and file organization — before they ever touch client work. Every mortgage VA also completes certified training through Ocrolus's AI-Empowered Mortgage Pro Certification and LendingPad's certification program, covering AI-assisted underwriting, compliance, and the full loan lifecycle — plus hands-on practice in Encompass, the industry's leading LOS.",
         "service_intro": "Every VRA mortgage &amp; lending VA is trained on the day-to-day of a loan file — not just general admin.",
         "service_bullets": [
             "Loan file organization and document tracking in Encompass",
@@ -333,7 +333,7 @@ INDUSTRIES = [
             "Appointment scheduling and calendar management",
             "CRM and pipeline database management",
             "Invoicing and reporting support",
-            "Certified training in Encompass compliance and loan lifecycle management",
+            "Certified in AI-assisted underwriting (Ocrolus) and LOS processing (LendingPad)",
             "Custom workflows tailored to your loan origination system",
         ],
         "video": {
