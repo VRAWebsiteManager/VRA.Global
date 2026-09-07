@@ -202,6 +202,8 @@
   .service-card.compact ul li{font-size:12.5px;padding-left:18px;}
   .service-card.wide{grid-column:1 / -1;}
   .service-card.wide ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
+  .service-card.wide ul a{color:var(--blue);font-weight:600;}
+  .service-card.wide ul a:hover{text-decoration:underline;}
   @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
 
   /* PRICING */
@@ -335,15 +337,16 @@
 
   /* FOOTER */
   footer{background:var(--darker-blue);color:#fff;padding:56px 0 28px;}
-  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+  .footer-grid{display:grid;grid-template-columns:1.1fr 0.9fr 0.9fr 0.9fr 1fr;gap:24px;margin-bottom:36px;}
   .footer-subhead{margin-top:24px;}
   .footer-grid h4{color:#fff;font-size:15px;margin-bottom:16px;}
   .footer-grid p, .footer-grid a{font-size:14px;color:#fff;display:block;margin-bottom:10px;}
   .footer-grid a:hover{color:var(--light-blue);}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#fff;}
   .social-row{display:flex;gap:14px;flex-wrap:wrap;}
-  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+  @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr 1fr;}}
+  @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -607,10 +610,10 @@
         <h3>Industry-Specific Support</h3>
         <ul>
           <li>Open house preparation, promotion &amp; management</li>
-          <li>Real estate — pre-listing docs, buyer updates, transaction coordination, CRM/database management</li>
-          <li>Title &amp; escrow — closing coordination, document prep, client updates</li>
-          <li>Mortgage &amp; lending — loan file organization, borrower communication, appointment scheduling</li>
-          <li>Restaurants — reservations, vendor coordination, online ordering, menu updates</li>
+          <li><a href="real-estate-virtual-assistant.html">Real estate</a> — pre-listing docs, buyer updates, transaction coordination, CRM/database management</li>
+          <li><a href="title-escrow-virtual-assistant.html">Title &amp; escrow</a> — closing coordination, document prep, client updates</li>
+          <li><a href="mortgage-virtual-assistant.html">Mortgage &amp; lending</a> — loan file organization, borrower communication, appointment scheduling</li>
+          <li><a href="restaurant-virtual-assistant.html">Restaurants</a> — reservations, vendor coordination, online ordering, menu updates</li>
           <li>Business operations — invoicing, reporting, client onboarding, vendor lists</li>
           <li>Custom workflows tailored to your industry</li>
         </ul>
@@ -1210,6 +1213,13 @@
         <a href="insights.html">Insights</a>
         <a href="needs-assessment.html">Needs Assessment</a>
         <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <a href="real-estate-virtual-assistant.html">Real Estate</a>
+        <a href="title-escrow-virtual-assistant.html">Title & Escrow</a>
+        <a href="mortgage-virtual-assistant.html">Mortgage & Lending</a>
+        <a href="restaurant-virtual-assistant.html">Restaurants</a>
       </div>
       <div>
         <h4>Get in Touch</h4>
