@@ -78,6 +78,8 @@ STYLE = """
   .service-card ul li:before{content:"—";position:absolute;left:0;color:var(--blue);}
   .service-card.wide{grid-column:1 / -1;}
   .service-card.wide ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
+  .service-card ul li a{color:var(--blue);font-weight:600;}
+  .service-card ul li a:hover{text-decoration:underline;}
   @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
 
   /* VIDEO TESTIMONIAL */
@@ -321,20 +323,20 @@ INDUSTRIES = [
         "slug": "mortgage-virtual-assistant",
         "nav_label": "Mortgage &amp; Lending",
         "page_title": "Virtual Assistant for Mortgage &amp; Lending",
-        "meta_description": "Hire a virtual assistant trained for mortgage and lending work — loan file organization in Encompass, borrower communication, and appointment scheduling. Flat-rate pricing, no long trial periods.",
+        "meta_description": "Hire a virtual assistant for your mortgage or lending office — administrative support, marketing support, borrower communication, and appointment scheduling. Flat-rate pricing, no long trial periods.",
         "kicker": "Virtual Assistants for Mortgage &amp; Lending",
-        "h1": "The Virtual Assistant Built for Mortgage &amp; Lending Professionals",
-        "hero_p": "Between loan files, borrower calls, and appointment scheduling, busy season can bury a lending team in admin. A VRA virtual assistant trained for mortgage and lending work keeps files organized and borrowers in the loop — so nothing falls through the cracks when volume picks up.",
-        "why_card1": "Only the top 1% of applicants make it through our screening and mandatory 28-day training program — covering document preparation, e-signature workflows in dotloop and DocuSign, and file organization — before they ever touch client work. Every mortgage VA also completes certified training through Ocrolus's AI-Empowered Mortgage Pro Certification, covering AI-assisted underwriting and decisioning — plus hands-on practice in Encompass, the industry's leading LOS.",
-        "service_intro": "Every VRA mortgage &amp; lending VA is trained on the day-to-day of a loan file — not just general admin.",
+        "h1": "The Virtual Assistant Built for Mortgage &amp; Lending Offices",
+        "hero_p": "Between borrower calls, scheduling, marketing, and the daily admin that keeps a lending office running, busy season can bury a small team fast. A VRA virtual assistant handles the administrative and marketing workload for your office — so your loan officers can focus on originating, not paperwork.",
+        "why_card1": "Only the top 1% of applicants make it through our screening and mandatory 28-day training program — covering document preparation, e-signature workflows in dotloop and DocuSign, calendar and CRM management, and marketing support — before they ever touch client work. Because loan file data involves sensitive borrower information like Social Security numbers, VRA VAs handle the administrative and marketing side of your office rather than working inside your LOS — so you get real leverage without the compliance risk.",
+        "service_intro": "Every VRA mortgage &amp; lending VA is trained on the day-to-day of a busy lending office — scheduling, marketing, and client communication, not sensitive loan file work.",
         "service_bullets": [
-            "Loan file organization and document tracking in Encompass",
             "Borrower communication and follow-up",
             "Appointment scheduling and calendar management",
             "CRM and pipeline database management",
             "Invoicing and reporting support",
-            "Certified in AI-assisted underwriting and decisioning (Ocrolus)",
-            "Custom workflows tailored to your loan origination system",
+            "General admin support — data entry, inbox management, document organization",
+            "<a href=\"digital-marketing-virtual-assistant.html\">Social media content creation and marketing campaign support</a>",
+            "Custom workflows tailored to your office's admin and marketing needs",
         ],
         "video": {
             "name": "James Del Bosque",
@@ -358,7 +360,7 @@ INDUSTRIES = [
             "duration": None,
         },
         "service_type": "Virtual Assistant Services for Mortgage &amp; Lending",
-        "service_description": "Virtual assistants trained for mortgage and lending work — loan file organization, borrower communication, and appointment scheduling.",
+        "service_description": "Virtual assistants for mortgage and lending office support — administrative work, marketing support, borrower communication, and appointment scheduling.",
     },
     {
         "slug": "restaurant-virtual-assistant",
