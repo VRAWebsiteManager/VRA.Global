@@ -1336,7 +1336,7 @@
         <a href="join-sales-team.html">Join Our Sales Team</a>
         <div class="social-row">
           <a href="https://www.facebook.com/virtualrealtyassistants" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.linkedin.com/company/virtual-realty-assistants-careers/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/company/virtual-realty-assistants-careers/posts/?feedView=all" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -1483,6 +1483,42 @@ window.handleImgError = function(img){
   }
 };
 
+// Maps the sheet's free-text "Country" column to a flag emoji. Keyed
+// lowercase/trimmed so casing/whitespace in the sheet doesn't matter.
+// Covers the current roster (Philippines) plus the Latin American countries
+// VRA is actively hiring bilingual VAs from; add more here as new countries
+// come on board. Falls back to the Philippines flag for a blank cell (every
+// row predates this column being wired up) or an unrecognized value, rather
+// than guessing wrong or leaving the badge empty.
+const FLAG_BY_COUNTRY = {
+  'philippines':'\u{1F1F5}\u{1F1ED}',
+  'mexico':'\u{1F1F2}\u{1F1FD}',
+  'colombia':'\u{1F1E8}\u{1F1F4}',
+  'argentina':'\u{1F1E6}\u{1F1F7}',
+  'peru':'\u{1F1F5}\u{1F1EA}',
+  'bolivia':'\u{1F1E7}\u{1F1F4}',
+  'paraguay':'\u{1F1F5}\u{1F1FE}',
+  'venezuela':'\u{1F1FB}\u{1F1EA}',
+  'ecuador':'\u{1F1EA}\u{1F1E8}',
+  'guatemala':'\u{1F1EC}\u{1F1F9}',
+  'honduras':'\u{1F1ED}\u{1F1F3}',
+  'el salvador':'\u{1F1F8}\u{1F1FB}',
+  'nicaragua':'\u{1F1F3}\u{1F1EE}',
+  'costa rica':'\u{1F1E8}\u{1F1F7}',
+  'panama':'\u{1F1F5}\u{1F1E6}',
+  'dominican republic':'\u{1F1E9}\u{1F1F4}',
+  'chile':'\u{1F1E8}\u{1F1F1}',
+  'brazil':'\u{1F1E7}\u{1F1F7}',
+  'uruguay':'\u{1F1FA}\u{1F1FE}',
+  'puerto rico':'\u{1F1F5}\u{1F1F7}',
+  'united states':'\u{1F1FA}\u{1F1F8}',
+  'usa':'\u{1F1FA}\u{1F1F8}'
+};
+function flagFor(country){
+  const key = (country||'').trim().toLowerCase();
+  return FLAG_BY_COUNTRY[key] || FLAG_BY_COUNTRY['philippines'];
+}
+
 function buildCard(i){
   const a = displayList[i];
   const card = document.createElement('div');
@@ -1497,12 +1533,13 @@ function buildCard(i){
   const badgeHtml = a.employmentType
     ? `<div class="assistant-type-badge${a.employmentType === 'Part-Time' ? ' part-time' : ''}">${a.employmentType}</div>`
     : '';
+  const countryLabel = a.country || 'Philippines';
   card.innerHTML = `
     <div class="assistant-photo">
       <div class="assistant-initials">${initials(a.name)}</div>
       ${photoHtml}
       ${badgeHtml}
-      <div class="assistant-flag" title="Philippines">\u{1F1F5}\u{1F1ED}</div>
+      <div class="assistant-flag" title="${countryLabel}">${flagFor(a.country)}</div>
       <div class="assistant-overlay">View Resume, DISC &amp; KPA</div>
     </div>
     <div class="assistant-name">${a.name}</div>
@@ -1639,6 +1676,7 @@ function renderAssistants(sheetRows){
     const row = byKey.get(localNameKey(a.name));
     if(row){
       a.employmentType = row.availability;
+      if(row.country) a.country = row.country;
       list.push(a);
       usedKeys.add(row.key);
     }
@@ -1650,7 +1688,7 @@ function renderAssistants(sheetRows){
   // rendered thumbnail if/when the sheet has one).
   sheetRows.forEach(row => {
     if(usedKeys.has(row.key) || !row.name) return;
-    const entry = { name: row.name, employmentType: row.availability };
+    const entry = { name: row.name, employmentType: row.availability, country: row.country };
     if(row.profileLink){
       entry.localResume = row.profileLink;
       entry.localDiscPdf = row.profileLink;
@@ -1695,6 +1733,7 @@ async function loadAvailabilityAndRender(){
     const availCol = findCol(headers, 'Current Availability');
     const profileCol = findCol(headers, 'VA Profile');
     const photoCol = findCol(headers, 'Photo');
+    const countryCol = findCol(headers, 'Country');
     // Optional column, not in the sheet yet: add a "Resume Thumbnail" column
     // with a Drive link (shared "Anyone with the link") to a PNG/JPG export
     // of resume page 1, and new-hire cards will start using it automatically.
@@ -1713,7 +1752,8 @@ async function loadAvailabilityAndRender(){
         availability,
         profileLink: profileCol !== -1 ? (rows[r][profileCol]||'').trim() : '',
         photoLink: photoCol !== -1 ? (rows[r][photoCol]||'').trim() : '',
-        resumeThumbLink: resumeThumbCol !== -1 ? (rows[r][resumeThumbCol]||'').trim() : ''
+        resumeThumbLink: resumeThumbCol !== -1 ? (rows[r][resumeThumbCol]||'').trim() : '',
+        country: countryCol !== -1 ? (rows[r][countryCol]||'').trim() : ''
       });
     }
     if(sheetRows.length === 0) throw new Error('no rows parsed');
