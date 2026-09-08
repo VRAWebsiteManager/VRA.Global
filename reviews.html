@@ -655,9 +655,37 @@
   var nextBtn = carousel && carousel.querySelector('.testimonial-arrow-next');
   if(!track || !dotsWrap || !prevBtn || !nextBtn) return;
 
-  var cards = Array.prototype.slice.call(track.children);
+  // Real reviews, in source order. We clone this set once before and once
+  // after itself so the track can be scrolled endlessly in either direction
+  // with no visible "first" or "last" card and no dead-end arrow.
+  var realCards = Array.prototype.slice.call(track.children);
+  var n = realCards.length;
+  if(n === 0) return;
 
-  cards.forEach(function(card, i){
+  function cloneSet(){
+    return realCards.map(function(card){
+      var clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('inert', '');
+      Array.prototype.forEach.call(clone.querySelectorAll('a, button'), function(el){
+        el.setAttribute('tabindex', '-1');
+      });
+      return clone;
+    });
+  }
+
+  var beforeFrag = document.createDocumentFragment();
+  cloneSet().forEach(function(c){ beforeFrag.appendChild(c); });
+  track.insertBefore(beforeFrag, track.firstChild);
+
+  var afterClones = cloneSet();
+  var afterFrag = document.createDocumentFragment();
+  afterClones.forEach(function(c){ afterFrag.appendChild(c); });
+  track.appendChild(afterFrag);
+
+  var allCards = Array.prototype.slice.call(track.children); // [before x n][real x n][after x n]
+
+  realCards.forEach(function(card, i){
     var dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'testimonial-dot';
@@ -669,28 +697,41 @@
   });
   var dots = Array.prototype.slice.call(dotsWrap.children);
 
-  function closestIndex(){
+  function closestAllIndex(){
     var pos = track.scrollLeft;
     var best = 0, bestDist = Infinity;
-    cards.forEach(function(card, i){
+    allCards.forEach(function(card, i){
       var dist = Math.abs((card.offsetLeft - track.offsetLeft) - pos);
       if(dist < bestDist){ bestDist = dist; best = i; }
     });
     return best;
   }
 
+  function setWidth(){
+    return afterClones[0].offsetLeft - realCards[0].offsetLeft;
+  }
+
   function updateUI(){
-    var idx = closestIndex();
-    dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
-    var maxScroll = track.scrollWidth - track.clientWidth - 1;
-    prevBtn.disabled = track.scrollLeft <= 0;
-    nextBtn.disabled = track.scrollLeft >= maxScroll;
+    var idx = closestAllIndex();
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === (idx % n)); });
+
+    // Loop seamlessly: if we've drifted into a clone group, silently snap
+    // back to the equivalent spot in the real group (same visual position).
+    if(idx < n){
+      track.scrollTo({left: track.scrollLeft + setWidth(), behavior: 'auto'});
+    } else if(idx >= 2 * n){
+      track.scrollTo({left: track.scrollLeft - setWidth(), behavior: 'auto'});
+    }
   }
 
   function step(dir){
-    var cardWidth = cards[0].getBoundingClientRect().width + 22;
+    var cardWidth = realCards[0].getBoundingClientRect().width + 22;
     track.scrollBy({left: dir * cardWidth, behavior: 'smooth'});
   }
+
+  // Start on the first real card — arrows and swipe work endlessly in
+  // either direction from here, with no enabled/disabled state.
+  track.scrollTo({left: realCards[0].offsetLeft - track.offsetLeft, behavior: 'auto'});
 
   var scrollTimer;
   track.addEventListener('scroll', function(){
