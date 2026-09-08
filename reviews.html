@@ -691,7 +691,7 @@
     dot.className = 'testimonial-dot';
     dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
     dot.addEventListener('click', function(){
-      track.scrollTo({left: card.offsetLeft - track.offsetLeft, behavior: 'smooth'});
+      animateScrollTo(card.offsetLeft - track.offsetLeft);
     });
     dotsWrap.appendChild(dot);
   });
@@ -726,7 +726,34 @@
 
   function step(dir){
     var cardWidth = realCards[0].getBoundingClientRect().width + 22;
-    track.scrollBy({left: dir * cardWidth, behavior: 'smooth'});
+    animateScrollTo(track.scrollLeft + dir * cardWidth);
+  }
+
+  // This track's CSS pairs scroll-snap-type with scroll-behavior:smooth,
+  // and in some browsers that combination silently swallows any 'smooth'
+  // or 'auto' scrollTo/scrollBy/scrollLeft call — it just never moves. Only
+  // an explicit 'instant' behavior reliably updates the position, so all
+  // JS-driven movement (clicks, dots, keyboard) is animated by hand here,
+  // frame by frame, using repeated instant sets. Native touch/trackpad
+  // swiping is untouched and always worked fine.
+  var animTimer = null;
+  function animateScrollTo(target){
+    if(animTimer) clearTimeout(animTimer);
+    var start = track.scrollLeft;
+    var change = target - start;
+    var duration = 320;
+    var startTime = Date.now();
+    function frame(){
+      var t = Math.min((Date.now() - startTime) / duration, 1);
+      var eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      track.scrollTo({left: start + change * eased, behavior: 'instant'});
+      if(t < 1){
+        animTimer = setTimeout(frame, 16);
+      } else {
+        animTimer = null;
+      }
+    }
+    frame();
   }
 
   // Start on the first real card — arrows and swipe work endlessly in
