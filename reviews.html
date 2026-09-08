@@ -718,9 +718,9 @@
     // Loop seamlessly: if we've drifted into a clone group, silently snap
     // back to the equivalent spot in the real group (same visual position).
     if(idx < n){
-      track.scrollTo({left: track.scrollLeft + setWidth(), behavior: 'auto'});
+      track.scrollTo({left: track.scrollLeft + setWidth(), behavior: 'instant'});
     } else if(idx >= 2 * n){
-      track.scrollTo({left: track.scrollLeft - setWidth(), behavior: 'auto'});
+      track.scrollTo({left: track.scrollLeft - setWidth(), behavior: 'instant'});
     }
   }
 
@@ -731,7 +731,7 @@
 
   // Start on the first real card — arrows and swipe work endlessly in
   // either direction from here, with no enabled/disabled state.
-  track.scrollTo({left: realCards[0].offsetLeft - track.offsetLeft, behavior: 'auto'});
+  track.scrollTo({left: realCards[0].offsetLeft - track.offsetLeft, behavior: 'instant'});
 
   var scrollTimer;
   track.addEventListener('scroll', function(){
