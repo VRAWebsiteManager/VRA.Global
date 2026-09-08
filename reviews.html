@@ -226,17 +226,25 @@
   .video-info p{font-size:13px;color:var(--gray);}
   @media(max-width:700px){.video-grid{grid-template-columns:1fr;}}
 
-  /* TESTIMONIALS */
-  .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .testimonial-card{background:var(--white);border:none;border-top:1px solid var(--border);padding:24px;display:flex;flex-direction:column;gap:14px;}
+  /* TESTIMONIALS CAROUSEL */
+  .testimonial-carousel{display:flex;align-items:center;gap:14px;}
+  .testimonial-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;flex:1;padding:4px 2px 14px;scrollbar-width:none;-ms-overflow-style:none;}
+  .testimonial-track::-webkit-scrollbar{display:none;}
+  .testimonial-card{background:var(--white);border:none;border-top:1px solid var(--border);padding:24px;display:flex;flex-direction:column;gap:14px;scroll-snap-align:start;flex:0 0 calc((100% - 44px)/3);}
   .testimonial-stars{color:#f5b400;font-size:15px;letter-spacing:2px;}
   .testimonial-quote{font-size:15px;color:var(--black);line-height:1.6;flex:1;}
   .testimonial-attrib{display:flex;align-items:center;gap:12px;margin-top:4px;}
   .testimonial-avatar{width:42px;height:42px;border-radius:50%;background:var(--light-blue);color:var(--dark-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;}
   .testimonial-name{font-size:14px;font-weight:700;color:var(--darker-blue);}
   .testimonial-role{font-size:13px;color:var(--gray);}
-  @media(max-width:900px){.testimonial-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.testimonial-grid{grid-template-columns:1fr;}}
+  .testimonial-arrow{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:2px solid var(--dark-blue);background:var(--white);color:var(--dark-blue);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,opacity .2s ease;}
+  .testimonial-arrow:hover{background:var(--light-blue);}
+  .testimonial-arrow:disabled{opacity:.35;cursor:default;background:var(--white);}
+  .testimonial-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;}
+  .testimonial-dot{width:9px;height:9px;border-radius:50%;background:var(--border);border:none;padding:0;cursor:pointer;transition:background .2s ease,transform .2s ease;}
+  .testimonial-dot.active{background:var(--blue);transform:scale(1.2);}
+  @media(max-width:900px){.testimonial-card{flex:0 0 calc((100% - 22px)/2);}}
+  @media(max-width:560px){.testimonial-card{flex:0 0 100%;}.testimonial-arrow{width:34px;height:34px;font-size:17px;}}
   .trustpilot-link{font-size:13px;font-weight:700;color:var(--blue);border-top:1px solid var(--border);padding-top:12px;margin-top:2px;}
 
   /* CTA BANNER */
@@ -469,7 +477,9 @@
       <h2>What Clients Say on Trustpilot</h2>
       <p>Real, unedited reviews from clients — verified and hosted on Trustpilot.</p>
     </div>
-    <div class="testimonial-grid">
+    <div class="testimonial-carousel" role="region" aria-label="Trustpilot client reviews">
+      <button type="button" class="testimonial-arrow testimonial-arrow-prev" aria-label="Previous review">&#8249;</button>
+      <div class="testimonial-track" id="testimonialTrack" tabindex="0">
       <div class="testimonial-card">
         <div class="testimonial-stars">★★★★★</div>
         <p class="testimonial-quote">"I've been working with VRA for several years, and they have truly transformed the way I operate. My VA has become my right hand. […] She is proactive, creative, and constantly thinking ahead. She brings ideas, anticipates needs, improves systems, and takes ownership of implementation. […] The result for me has been better communication, stronger organization, greater consistency, and significantly less stress. […] If you're looking for a proactive, well-trained professional who can think with you, grow with you, and become an integral part of your business, I highly recommend VRA."</p>
@@ -518,7 +528,10 @@
         </div>
         <a class="trustpilot-link" href="https://www.trustpilot.com/reviews/6a9d845e7e0e63e008072934" target="_blank" rel="noopener">Read on Trustpilot &#8599;</a>
       </div>
+      </div>
+      <button type="button" class="testimonial-arrow testimonial-arrow-next" aria-label="Next review">&#8250;</button>
     </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
   </div>
 </section>
 
@@ -609,5 +622,66 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var carousel = document.querySelector('.testimonial-carousel');
+  var track = carousel && carousel.querySelector('.testimonial-track');
+  var dotsWrap = document.getElementById('testimonialDots');
+  var prevBtn = carousel && carousel.querySelector('.testimonial-arrow-prev');
+  var nextBtn = carousel && carousel.querySelector('.testimonial-arrow-next');
+  if(!track || !dotsWrap || !prevBtn || !nextBtn) return;
+
+  var cards = Array.prototype.slice.call(track.children);
+
+  cards.forEach(function(card, i){
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'testimonial-dot';
+    dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+    dot.addEventListener('click', function(){
+      track.scrollTo({left: card.offsetLeft - track.offsetLeft, behavior: 'smooth'});
+    });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function closestIndex(){
+    var pos = track.scrollLeft;
+    var best = 0, bestDist = Infinity;
+    cards.forEach(function(card, i){
+      var dist = Math.abs((card.offsetLeft - track.offsetLeft) - pos);
+      if(dist < bestDist){ bestDist = dist; best = i; }
+    });
+    return best;
+  }
+
+  function updateUI(){
+    var idx = closestIndex();
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+    var maxScroll = track.scrollWidth - track.clientWidth - 1;
+    prevBtn.disabled = track.scrollLeft <= 0;
+    nextBtn.disabled = track.scrollLeft >= maxScroll;
+  }
+
+  function step(dir){
+    var cardWidth = cards[0].getBoundingClientRect().width + 22;
+    track.scrollBy({left: dir * cardWidth, behavior: 'smooth'});
+  }
+
+  var scrollTimer;
+  track.addEventListener('scroll', function(){
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateUI, 80);
+  });
+  prevBtn.addEventListener('click', function(){ step(-1); });
+  nextBtn.addEventListener('click', function(){ step(1); });
+  track.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ step(1); }
+    else if(e.key === 'ArrowLeft'){ step(-1); }
+  });
+  window.addEventListener('resize', updateUI);
+  updateUI();
+})();
+</script>
 </body>
 </html>
