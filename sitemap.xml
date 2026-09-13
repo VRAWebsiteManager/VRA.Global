@@ -102,4 +102,16 @@
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
+<url>
+<loc>https://vra.global/keller-williams-agent-virtual-assistant</loc>
+<lastmod>2026-09-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://vra.global/insights/keller-williams-agent-14-and-60-day-results</loc>
+<lastmod>2026-09-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
 </urlset>
