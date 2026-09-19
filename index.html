@@ -1553,6 +1553,21 @@ function flagFor(country){
   return FLAG_BY_COUNTRY[key] || FLAG_BY_COUNTRY['philippines'];
 }
 
+// Photos that already have the VRA ring baked into the image file. Everyone else
+// (plain headshots, and cards generated straight from the availability sheet) gets the
+// same ring applied in CSS, so the roster reads as one set.
+const BAKED_RING_PHOTOS = new Set([
+  'photos/buen-talabon-headshot.png',
+  'photos/jahaziel-dimas-headshot.png',
+  'photos/jayvee-guiruela-headshot.png',
+  'photos/jerico-burdios-sharp.png',
+  'photos/jesswin-siegel-headshot.png',
+  'photos/junada-palman-headshot.png',
+  'photos/kyla-tayoan-headshot.png',
+  'photos/rodolfo-rueca-headshot.png',
+  'photos/samantha-baloloy-headshot.png',
+]);
+
 function buildCard(i){
   const a = displayList[i];
   const card = document.createElement('div');
@@ -1569,7 +1584,7 @@ function buildCard(i){
     : '';
   const countryLabel = a.country || 'Philippines';
   card.innerHTML = `
-    <div class="assistant-photo${a.autoCard ? ' auto' : ''}">
+    <div class="assistant-photo${(a.autoCard || (a.localPhoto && !BAKED_RING_PHOTOS.has(a.localPhoto))) ? ' auto' : ''}">
       <div class="assistant-initials">${initials(a.name)}</div>
       ${photoHtml}
       <div class="assistant-flag" title="${countryLabel}">${flagFor(a.country)}</div>
