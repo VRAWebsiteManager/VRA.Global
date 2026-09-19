@@ -380,11 +380,16 @@
   .assistant-photo img{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
   .assistant-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:var(--dark-blue);background:var(--light-blue);}
   .assistant-flag{position:absolute;bottom:6px;right:6px;width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.25);border:2px solid #fff;}
-  .assistant-type-badge{position:absolute;top:6px;left:6px;z-index:2;background:var(--dark-blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:.3px;padding:3px 7px;border-radius:20px;text-transform:uppercase;box-shadow:0 2px 6px rgba(0,0,0,.25);}
+  .assistant-type-badge{display:inline-block;margin-top:10px;background:var(--dark-blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:.3px;padding:3px 9px;border-radius:20px;text-transform:uppercase;}
+  /* Auto-generated cards (VAs pulled straight from the availability sheet, without a
+     hardcoded profile) get a matching circular blue frame so the roster reads as one set. */
+  .assistant-photo.auto{background:#fff;}
+  .assistant-photo.auto img{inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);border-radius:50%;border:3px solid var(--blue);background:#fff;}
+  .assistant-photo.auto .assistant-initials{inset:9px;border-radius:50%;border:3px solid var(--blue);}
   .assistant-type-badge.part-time{background:var(--blue);}
   .assistant-overlay{position:absolute;inset:0;background:rgba(1,1,16,.72);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s ease;color:#fff;font-size:11.5px;font-weight:700;text-align:center;padding:10px;}
   .assistant-card:hover .assistant-overlay{opacity:1;}
-  .assistant-name{margin-top:14px;font-size:13.5px;font-weight:700;color:var(--darker-blue);}
+  .assistant-name{margin-top:8px;font-size:13.5px;font-weight:700;color:var(--darker-blue);}
   @media(max-width:560px){.assistant-card,.assistant-photo{width:110px;height:110px;}}
 
   /* MODAL */
@@ -492,7 +497,7 @@
     <div class="section-head">
       <div class="kicker">Meet the Team</div>
       <h2>Meet Our Virtual Assistants</h2>
-      <p>Click on a photo to view their Resume, DISC Assessment, and Keller Personality Assessment (KPA).</p>
+      <p>Our assistants work from the Philippines and across Latin America, and include Spanish&ndash;English bilingual assistants for teams with Spanish-speaking clients. Click on a photo to view their Resume, DISC Assessment, and Keller Personality Assessment (KPA).</p>
     </div>
   </div>
   <div class="assistant-marquee">
@@ -517,7 +522,7 @@
       <div class="card">
         <div class="icon">✓</div>
         <h3>Dedicated Matching</h3>
-        <p>Matching starts with your free Needs Assessment — a two-minute breakdown of where you actually need help. From there, every VA is screened with a DISC Assessment (we look for high Steadiness and Conscientiousness — reliability, attention to detail, consistency) and a Keller Personality Assessment for fit and fast-learning ability. You get matched to how your business actually runs, not just the next available assistant.</p>
+        <p>Matching starts with your free Needs Assessment — a two-minute breakdown of where you actually need help. From there, every VA is screened with a DISC Assessment (we look for high Steadiness and Conscientiousness — reliability, attention to detail, consistency) and a Keller Personality Assessment for fit and fast-learning ability. You get matched to how your business actually runs, not just the next available assistant. If your clients speak Spanish, we can match you with a Spanish&ndash;English bilingual assistant.</p>
       </div>
       <div class="card">
         <div class="icon">✓</div>
@@ -1564,13 +1569,13 @@ function buildCard(i){
     : '';
   const countryLabel = a.country || 'Philippines';
   card.innerHTML = `
-    <div class="assistant-photo">
+    <div class="assistant-photo${a.autoCard ? ' auto' : ''}">
       <div class="assistant-initials">${initials(a.name)}</div>
       ${photoHtml}
-      ${badgeHtml}
       <div class="assistant-flag" title="${countryLabel}">${flagFor(a.country)}</div>
       <div class="assistant-overlay">View Resume, DISC &amp; KPA</div>
     </div>
+    ${badgeHtml}
     <div class="assistant-name">${a.name}</div>
   `;
   card.addEventListener('click', () => openModal(i));
@@ -1717,7 +1722,7 @@ function renderAssistants(sheetRows){
   // rendered thumbnail if/when the sheet has one).
   sheetRows.forEach(row => {
     if(usedKeys.has(row.key) || !row.name) return;
-    const entry = { name: row.name, employmentType: row.availability, country: row.country };
+    const entry = { name: row.name, employmentType: row.availability, country: row.country, autoCard: true };
     if(row.profileLink){
       entry.localResume = row.profileLink;
       entry.localDiscPdf = row.profileLink;
