@@ -120,18 +120,43 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does a mortgage virtual assistant have access to my borrower's Social Security number or loan file?",
-      "acceptedAnswer": {"@type": "Answer", "text": "No. VRA's mortgage and lending virtual assistants provide administrative and marketing support only — scheduling, CRM management, borrower follow-up, and marketing campaigns. They never log into a Loan Origination System (LOS) and never handle sensitive borrower data such as Social Security numbers, credit reports, or loan file documents."}
+      "name": "What does a VRA mortgage and lending virtual assistant actually do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A VRA mortgage and lending VA handles borrower communication and follow-up, appointment scheduling and calendar management, CRM and pipeline database management, invoicing and reporting support, general admin support, and social media and marketing campaign support — the day-to-day workload of a busy lending office, without touching sensitive loan file work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a mortgage virtual assistant have access to my borrower’s Social Security number or loan file?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. VRA’s mortgage and lending virtual assistants provide administrative and marketing support only — scheduling, CRM management, borrower follow-up, and marketing campaigns. They never log into a Loan Origination System (LOS), and never collect, view or store sensitive borrower data such as Social Security numbers, credit reports, or loan file documents."
+      }
     },
     {
       "@type": "Question",
       "name": "Does a mortgage virtual assistant need to be SOC 2 compliant?",
-      "acceptedAnswer": {"@type": "Answer", "text": "SOC 2 compliance matters for vendors who handle sensitive borrower data directly inside a Loan Origination System. Because VRA's mortgage VAs are never given that access, that specific compliance requirement doesn't apply the same way it would to a vendor working inside your LOS. Every VRA engagement is backed by a $1 million Errors and Omissions insurance policy, and VAs complete a mandatory 4-week training and screening process before touching client work."}
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VRA is not SOC 2 certified. SOC 2 is generally scoped to vendors who handle sensitive borrower data inside systems like a Loan Origination System, and VRA’s mortgage assistants are never given LOS access — they don’t collect, view or store Social Security numbers, credit reports or loan file documents. Access and permissions are set by you and can be revoked at any time, and every engagement is backed by VRA’s $1 million Errors & Omissions insurance policy. Whether that satisfies your vendor management policy is your call to make."
+      }
     },
     {
       "@type": "Question",
-      "name": "What does a VRA mortgage and lending virtual assistant actually do?",
-      "acceptedAnswer": {"@type": "Answer", "text": "A VRA mortgage and lending VA handles borrower communication and follow-up, appointment scheduling and calendar management, CRM and pipeline database management, invoicing and reporting support, general admin support, and social media and marketing campaign support — the day-to-day workload of a busy lending office, without touching sensitive loan file work."}
+      "name": "What if my VA needs a skill we didn’t anticipate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is what the check-ins are for. If a 14, 30, 60 or 90-day check-in surfaces a skill your office needs, VRA gives your assistant access to the matching course and trains them in it — so you keep the person who already knows your pipeline instead of starting over with someone new."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can a mortgage assistant start, and what do they cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matching typically takes about a week to put candidates in front of you, and once you select your assistant they can realistically start within 24 hours. Pricing is flat: $1,500 a month for a full-time assistant (40 hours a week, 1-year agreement) or $800 a month for part-time (20 hours a week, 6-month agreement), with no hidden fees and no upcharge for industry specialization, subject to applicable agreement terms."
+      }
     }
   ]
 }
@@ -268,6 +293,13 @@
   @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
 
+  .faq-list{max-width:820px;margin:0 auto;}
+  .faq-list details{border-bottom:1px solid var(--border);padding:18px 0;}
+  .faq-list summary{cursor:pointer;font-weight:700;font-size:16px;color:var(--darker-blue);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .faq-list summary::-webkit-details-marker{display:none;}
+  .faq-list summary:after{content:"+";font-size:22px;color:var(--blue);font-weight:400;flex-shrink:0;}
+  .faq-list details[open] summary:after{content:"\2013";}
+  .faq-list details p{margin-top:12px;color:var(--gray);font-size:14.5px;}
 </style>
 </head>
 <body>
@@ -395,7 +427,7 @@
         </ul>
       </div>
     </div>
-    <p class="trust-closing">That boundary isn&rsquo;t a limitation &mdash; it&rsquo;s the reason you don&rsquo;t need to build compliance infrastructure around a VRA virtual assistant in the first place.</p>
+    <p class="trust-closing">That boundary isn&rsquo;t a limitation &mdash; it keeps your VA outside the systems that carry sensitive borrower data, so the work they do sits well away from your loan file.</p>
   </div>
 </section>
 
@@ -491,6 +523,40 @@
       <strong>Part-time and full-time both include:</strong>
       Your VA's full dedicated time, hands-on matching &amp; onboarding to get you paired with the right person from day one, and ongoing VRA support with check-ins at 14/30/60/90 days &mdash; no hidden fees, ever. If your VA is not the right fit, you can swap in a different VA at any point, at no extra cost.
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">FAQ</div>
+      <h2>Questions Lending Offices Ask</h2>
+      <p>What a VRA assistant does in a mortgage office, where the line sits around borrower data, and what it costs.</p>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>What does a VRA mortgage and lending virtual assistant actually do?</summary>
+        <p>A VRA mortgage and lending VA handles borrower communication and follow-up, appointment scheduling and calendar management, CRM and pipeline database management, invoicing and reporting support, general admin support, and social media and marketing campaign support &mdash; the day-to-day workload of a busy lending office, without touching sensitive loan file work.</p>
+      </details>
+      <details>
+        <summary>Does a mortgage virtual assistant have access to my borrower&rsquo;s Social Security number or loan file?</summary>
+        <p>No. VRA&rsquo;s mortgage and lending virtual assistants provide administrative and marketing support only &mdash; scheduling, CRM management, borrower follow-up, and marketing campaigns. They never log into a Loan Origination System (LOS), and never collect, view or store sensitive borrower data such as Social Security numbers, credit reports, or loan file documents.</p>
+      </details>
+      <details>
+        <summary>Does a mortgage virtual assistant need to be SOC 2 compliant?</summary>
+        <p>VRA is not SOC 2 certified. SOC 2 is generally scoped to vendors who handle sensitive borrower data inside systems like a Loan Origination System, and VRA&rsquo;s mortgage assistants are never given LOS access &mdash; they don&rsquo;t collect, view or store Social Security numbers, credit reports or loan file documents. Access and permissions are set by you and can be revoked at any time, and every engagement is backed by VRA&rsquo;s $1 million Errors &amp; Omissions insurance policy. Whether that satisfies your vendor management policy is your call to make.</p>
+      </details>
+      <details>
+        <summary>What if my VA needs a skill we didn&rsquo;t anticipate?</summary>
+        <p>That is what the check-ins are for. If a 14, 30, 60 or 90-day check-in surfaces a skill your office needs, VRA gives your assistant access to the matching course and trains them in it &mdash; so you keep the person who already knows your pipeline instead of starting over with someone new.</p>
+      </details>
+      <details>
+        <summary>How quickly can a mortgage assistant start, and what do they cost?</summary>
+        <p>Matching typically takes about a week to put candidates in front of you, and once you select your assistant they can realistically start within 24 hours. Pricing is flat: $1,500 a month for a full-time assistant (40 hours a week, 1-year agreement) or $800 a month for part-time (20 hours a week, 6-month agreement), with no hidden fees and no upcharge for industry specialization, subject to applicable agreement terms.</p>
+      </details>
+    </div>
+    <p style="text-align:center;margin-top:26px;font-size:14px;"><a href="faq.html">See all frequently asked questions &rarr;</a></p>
   </div>
 </section>
 
