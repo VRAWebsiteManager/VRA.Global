@@ -173,6 +173,7 @@
 
       <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="src" id="src-field" value="">
         <div style="position:absolute;left:-9999px;" aria-hidden="true">
           <label>Don't fill this out if you're human: <input name="bot-field"></label>
         </div>
@@ -316,6 +317,22 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
     alert('Something went wrong sending your message. Please try again, or email us directly at contact@vrealtyassistants.com.');
   });
 });
+
+// Referral source passthrough: needs-assessment?src=partner-name is recorded with the submission.
+(function(){
+  try{
+    var p=new URLSearchParams(window.location.search);
+    var v=(p.get('src')||p.get('ref')||p.get('utm_source')||'').slice(0,80);
+    if(v){ try{ sessionStorage.setItem('vra_src', v); }catch(e){} }
+    else { try{ v=sessionStorage.getItem('vra_src')||''; }catch(e){} }
+    if(!v && document.referrer){
+      try{ var h=new URL(document.referrer).hostname.replace(/^www\./,'');
+           if(h && h.indexOf('vra.global')===-1) v='ref:'+h; }catch(e){}
+    }
+    var f=document.getElementById('src-field');
+    if(f) f.value=v;
+  }catch(e){}
+})();
 </script>
 
 </body>
