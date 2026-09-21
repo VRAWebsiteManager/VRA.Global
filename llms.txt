@@ -25,6 +25,8 @@
 - [Restaurants](https://vra.global/restaurant-virtual-assistant)
 - [Small business](https://vra.global/small-business-virtual-assistant)
 - [Digital marketing](https://vra.global/digital-marketing-virtual-assistant)
+- [Accounting and tax practices](https://vra.global/accounting-virtual-assistant): client document collection, scheduling, deadline tracking, invoicing and AR follow-up for accounting and tax firms.
+- [Newly acquired businesses](https://vra.global/just-bought-a-business): what to delegate in the first 90 days after buying a small business, and the cost of an assistant versus a hire.
 
 ## Company
 - [Home](https://vra.global/)
