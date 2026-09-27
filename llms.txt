@@ -33,6 +33,7 @@
 ## Company
 - [Home](https://vra.global/)
 - [Pricing](https://vra.global/pricing)
+- [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a guarantee of 90% proficiency in a client's own software within 5 business days.
 - [Frequently asked questions](https://vra.global/faq)
 - [Client reviews and video testimonials](https://vra.global/reviews)
 - [Insights](https://vra.global/insights)
