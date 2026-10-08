@@ -259,19 +259,6 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="q"><span class="step-num">3</span>Where do you need Spanish?</label>
-        <span class="hint">Select all that apply.</span>
-        <div class="option-grid two-col">
-          <label class="option"><input type="checkbox" name="spanish_for" value="Customers and clients"><span>Customers and clients</span></label>
-          <label class="option"><input type="checkbox" name="spanish_for" value="Crews or field staff"><span>Crews or field staff</span></label>
-          <label class="option"><input type="checkbox" name="spanish_for" value="Vendors and suppliers"><span>Vendors and suppliers</span></label>
-          <label class="option"><input type="checkbox" name="spanish_for" value="Our own team"><span>Our own team</span></label>
-          <label class="option"><input type="checkbox" name="spanish_for" value="Marketing and content"><span>Marketing and content</span></label>
-          <label class="option"><input type="checkbox" name="spanish_for" value="Other" id="spanish-other-check"><span>Other</span></label>
-        </div>
-        <input type="text" name="spanish_for_other" id="spanish-other-text" placeholder="Tell us more..." style="display:none;margin-top:12px;width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;">
-      </div>
 
 
 
@@ -372,12 +359,6 @@ function encodeFormData(form){
   // FormData has no .length, so map returns [] and the POST body comes out empty.
   return new URLSearchParams(new FormData(form)).toString();
 }
-
-// "Other" free-text reveal
-(function(){
-  var chk=document.getElementById('spanish-other-check'), txt=document.getElementById('spanish-other-text');
-  if(chk&&txt){ chk.addEventListener('change', function(){ txt.style.display = chk.checked ? 'block' : 'none'; }); }
-})();
 
 document.getElementById('waitlist-form').addEventListener('submit', function(e){
   e.preventDefault();
