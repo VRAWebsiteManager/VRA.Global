@@ -181,7 +181,7 @@
     <p>Our next cohort of Spanish&ndash;English bilingual virtual assistants graduates soon, and they get matched in the order clients ask. Tell us what you need and we&rsquo;ll come to you first &mdash; at the same flat rate as any other VRA assistant, with no upcharge for bilingual talent. The list isn&rsquo;t a commitment &mdash; it&rsquo;s first chance to hire one.</p>
     <div class="tags">
       <span class="tag">No Obligation</span>
-      <span class="tag">Takes 2 Minutes</span>
+      <span class="tag">Takes 1 Minute</span>
       <span class="tag">No Bilingual Upcharge</span>
     </div>
   </div>
@@ -221,7 +221,7 @@
     <div class="section-head">
       <div class="kicker">Join the Waitlist</div>
       <h2>Tell Us What You Need</h2>
-      <p>Two minutes now means we already know who to call when the cohort graduates. Nothing here commits you to hiring, to a start date, or to an agreement &mdash; you decide after you meet candidates.</p>
+      <p>A minute now means we already know who to call when the cohort graduates. Nothing here commits you to hiring, to a start date, or to an agreement &mdash; you decide after you meet candidates.</p>
     </div>
 
     <form class="assessment-form" id="waitlist-form" name="bilingual-waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
@@ -233,10 +233,10 @@
 
       <div class="form-group">
         <label class="q"><span class="step-num">1</span>Your Information</label>
-        <span class="hint">* Required</span>
+        <span class="hint">Name and email are all we need.</span>
         <div class="field-row" style="margin-bottom:12px;">
           <input type="text" id="f-name" name="name" placeholder="Full name *" required>
-          <input type="text" id="f-business" name="business" placeholder="Business name *" required>
+          <input type="text" id="f-business" name="business" placeholder="Business name (optional)">
         </div>
         <div class="field-row">
           <input type="email" id="f-email" name="email" placeholder="Email address *" required>
@@ -273,30 +273,8 @@
         <input type="text" name="spanish_for_other" id="spanish-other-text" placeholder="Tell us more..." style="display:none;margin-top:12px;width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;">
       </div>
 
-      <div class="form-group">
-        <label class="q"><span class="step-num">4</span>What would your assistant take on?</label>
-        <span class="hint">A sentence or two is plenty &mdash; it is what we match against.</span>
-        <textarea id="f-work" name="work" placeholder="Answering calls in Spanish and English, scheduling, following up on quotes..." style="width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;min-height:110px;"></textarea>
-      </div>
 
-      <div class="form-group">
-        <label class="q"><span class="step-num">5</span>Full-time or part-time?</label>
-        <div class="option-grid">
-          <label class="option"><input type="radio" name="hours" value="Full-time (40 hrs/week, $1,500/mo)"><span>Full-time &mdash; 40 hours a week, $1,500/month</span></label>
-          <label class="option"><input type="radio" name="hours" value="Part-time (20 hrs/week, $800/mo)"><span>Part-time &mdash; 20 hours a week, $800/month</span></label>
-          <label class="option"><input type="radio" name="hours" value="Not sure yet"><span>Not sure yet</span></label>
-        </div>
-      </div>
 
-      <div class="form-group">
-        <label class="q"><span class="step-num">6</span>When do you need someone?</label>
-        <div class="option-grid">
-          <label class="option"><input type="radio" name="timeline" value="As soon as the cohort graduates"><span>As soon as the cohort graduates</span></label>
-          <label class="option"><input type="radio" name="timeline" value="Within 30 days"><span>Within 30 days</span></label>
-          <label class="option"><input type="radio" name="timeline" value="60 to 90 days"><span>In 60 to 90 days</span></label>
-          <label class="option"><input type="radio" name="timeline" value="Just exploring for now"><span>Just exploring for now</span></label>
-        </div>
-      </div>
 
       <p style="text-align:center;color:var(--gray);font-size:14px;margin:6px 0 2px;">No commitment. Joining the list just means we come to you first.</p>
       <button type="submit" class="btn btn-primary" id="waitlist-submit-btn">Join the Waitlist</button>
@@ -405,10 +383,9 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e){
   e.preventDefault();
   var form = e.target;
   var name = document.getElementById('f-name').value.trim();
-  var business = document.getElementById('f-business').value.trim();
   var email = document.getElementById('f-email').value.trim();
-  if(!name || !business || !email){
-    alert('Please fill in your name, business name, and email before submitting.');
+  if(!name || !email){
+    alert('Please fill in your name and email before submitting.');
     return;
   }
   var btn = document.getElementById('waitlist-submit-btn');
