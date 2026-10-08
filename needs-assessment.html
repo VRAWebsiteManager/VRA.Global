@@ -429,8 +429,19 @@ document.getElementById('assessment-form').addEventListener('submit', function(e
   .then(function(res){
     if(!res.ok){ throw new Error('Form POST failed: ' + res.status); }
     form.style.display = 'none';
-    document.getElementById('assessment-success').style.display = 'block';
-    document.getElementById('assessment-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var okBox = document.getElementById('assessment-success');
+    okBox.style.display = 'block';
+    // Hiding the form reflows the page, so measure on the next tick, not this one.
+    setTimeout(function(){
+      var top = Math.max(okBox.getBoundingClientRect().top + window.pageYOffset - 80, 0);
+      try { window.scrollTo({ top: top, behavior: 'smooth' }); } catch(e) {}
+      // Some browsers ignore smooth scrolling outright instead of falling back to an
+      // instant one. Left unchecked the page never moves and the visitor sits below a
+      // confirmation they cannot see, which is what happened here. Verify, then jump.
+      setTimeout(function(){
+        if (Math.abs(window.pageYOffset - top) > 4) { window.scrollTo(0, top); }
+      }, 350);
+    }, 0);
   })
   .catch(function(){
     btn.disabled = false;
