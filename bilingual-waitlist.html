@@ -390,10 +390,9 @@
 
 <script>
 function encodeFormData(form){
-  var data = new FormData(form);
-  return Array.prototype.map.call(data, function(pair){
-    return encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]);
-  }).join('&');
+  // URLSearchParams iterates FormData correctly. Array.prototype.map does not:
+  // FormData has no .length, so map returns [] and the POST body comes out empty.
+  return new URLSearchParams(new FormData(form)).toString();
 }
 
 // "Other" free-text reveal
@@ -420,7 +419,8 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e){
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encodeFormData(form)
   })
-  .then(function(){
+  .then(function(res){
+    if(!res.ok){ throw new Error('Form POST failed: ' + res.status); }
     form.style.display = 'none';
     document.getElementById('waitlist-success').style.display = 'block';
     document.getElementById('waitlist-success').scrollIntoView({ behavior: 'smooth', block: 'start' });
