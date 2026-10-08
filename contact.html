@@ -331,22 +331,9 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   });
 });
 
-// Referral source passthrough: needs-assessment?src=partner-name is recorded with the submission.
-(function(){
-  try{
-    var p=new URLSearchParams(window.location.search);
-    var v=(p.get('src')||p.get('ref')||p.get('utm_source')||'').slice(0,80);
-    if(v){ try{ sessionStorage.setItem('vra_src', v); }catch(e){} }
-    else { try{ v=sessionStorage.getItem('vra_src')||''; }catch(e){} }
-    if(!v && document.referrer){
-      try{ var h=new URL(document.referrer).hostname.replace(/^www\./,'');
-           if(h && h.indexOf('vra.global')===-1) v='ref:'+h; }catch(e){}
-    }
-    var f=document.getElementById('src-field');
-    if(f) f.value=v;
-  }catch(e){}
-})();
+// Source attribution now lives in /js/attribution.js (first-touch, site-wide).
 </script>
 
+  <script src="/js/attribution.js" defer></script>
 </body>
 </html>
