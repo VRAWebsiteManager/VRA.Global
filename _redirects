@@ -2,3 +2,10 @@
 /why-vra.html         /real-estate-virtual-assistant   301!
 /keller-williams-virtual-assistant       /keller-williams-leadership-virtual-assistant   301!
 /keller-williams-virtual-assistant.html  /keller-williams-leadership-virtual-assistant   301!
+
+# Short, postable aliases for the Delegation Mastery guides.
+# Netlify carries the query string through, so ?src= still reaches attribution.js.
+/guide                /delegation-guide                      301!
+/agent-guide          /delegation-guide-real-estate          301!
+/lender-guide         /delegation-guide-mortgage             301!
+/mc-guide             /delegation-guide-market-center        301!
