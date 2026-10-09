@@ -220,8 +220,8 @@
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": "Frank McCumber — Virtual Realty Assistants Testimonial",
-    "description": "Frank McCumber, Keller Williams San Antonio, on his 60-day check-in with a Virtual Realty Assistants (VRA) virtual assistant: “It transitions into your business so seamlessly, and it squares everything away for you.”",
+    "name": "Roz McCumber — Virtual Realty Assistants Testimonial",
+    "description": "Roz McCumber of The McCumber Group at Keller Williams Heritage, on her 60-day check-in with a Virtual Realty Assistants (VRA) virtual assistant: “It transitions into your business so seamlessly, and it squares everything away for you.”",
     "thumbnailUrl": [
       "https://i.ytimg.com/vi/jTHc58V9YpY/maxresdefault.jpg"
     ],
@@ -455,6 +455,14 @@
   .alt-bg{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);border-top:4px solid var(--light-blue);border-bottom:4px solid var(--light-blue);}
 
   /* VIDEO TESTIMONIALS */
+  /* auto-fit so the row stays centred and tidy whatever the clip count */
+  .shorts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,240px));gap:22px;justify-content:center;}
+  .short-card{display:block;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--white);}
+  .short-thumb{position:relative;aspect-ratio:9/16;background:var(--light-blue);overflow:hidden;}
+  .short-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .short-info{padding:14px 16px;}
+  .short-info h3{font-size:15px;margin-bottom:3px;}
+  .short-info p{font-size:12.5px;color:var(--gray);}
   .video-group-head{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin:0 0 18px;}
   .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .video-review-pair{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--white);}
@@ -651,30 +659,6 @@
             <div class="testimonial-avatar"><img src="logos/deason-trustbar.png" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
             <div>
               <div class="testimonial-name">Founder | Deason Realty Solutions</div>
-              <div class="testimonial-role">Texas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="video-review-pair">
-        <a class="video-card" href="https://www.youtube.com/watch?v=jTHc58V9YpY" target="_blank" rel="noopener">
-          <div class="video-thumb">
-            <img src="https://i.ytimg.com/vi/jTHc58V9YpY/maxresdefault.jpg" alt="Frank McCumber testimonial" loading="lazy">
-            <div class="video-play"><div class="video-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
-            <div class="video-duration">00:22</div>
-          </div>
-          <div class="video-info">
-            <h3>Frank McCumber</h3>
-            <p>Client Testimonial</p>
-          </div>
-        </a>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="testimonial-quote">&ldquo;It transitions into your business so seamlessly, and it squares everything away for you.&rdquo;</p>
-          <div class="testimonial-attrib">
-            <div class="testimonial-avatar"><img src="logos/kw-san-antonio.png" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-            <div>
-              <div class="testimonial-name">Keller Williams, San Antonio</div>
               <div class="testimonial-role">Texas</div>
             </div>
           </div>
@@ -999,6 +983,52 @@
     </div>
   </div>
 </section>
+
+<section class="alt-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">From the Field</div>
+      <h2>Quick Check-Ins</h2>
+      <p>Short updates from clients we ran into at events, rather than in front of a camera in an office.</p>
+    </div>
+    <div class="shorts-row">
+      <a class="short-card" href="https://www.youtube.com/shorts/PTDc6OLAHTE" target="_blank" rel="noopener">
+        <div class="short-thumb">
+          <img src="https://i.ytimg.com/vi/PTDc6OLAHTE/oardefault.jpg" alt="Jen Tran testimonial" loading="lazy"
+               onerror="this.src='https://i.ytimg.com/vi/PTDc6OLAHTE/hqdefault.jpg';">
+          <div class="video-play"><div class="video-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <div class="short-info">
+          <h3>Jen Tran</h3>
+          <p>REALTOR&reg;</p>
+        </div>
+      </a>
+      <a class="short-card" href="https://www.youtube.com/shorts/jTHc58V9YpY" target="_blank" rel="noopener">
+        <div class="short-thumb">
+          <img src="https://i.ytimg.com/vi/jTHc58V9YpY/oardefault.jpg" alt="Roz McCumber testimonial" loading="lazy"
+               onerror="this.src='https://i.ytimg.com/vi/jTHc58V9YpY/hqdefault.jpg';">
+          <div class="video-play"><div class="video-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <div class="short-info">
+          <h3>Roz McCumber</h3>
+          <p>The McCumber Group | KW Heritage</p>
+        </div>
+      </a>
+      <a class="short-card" href="https://www.youtube.com/shorts/_eU4ust8Ez8" target="_blank" rel="noopener">
+        <div class="short-thumb">
+          <img src="https://i.ytimg.com/vi/_eU4ust8Ez8/oardefault.jpg" alt="Debbie Yates testimonial" loading="lazy"
+               onerror="this.src='https://i.ytimg.com/vi/_eU4ust8Ez8/hqdefault.jpg';">
+          <div class="video-play"><div class="video-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div></div>
+        </div>
+        <div class="short-info">
+          <h3>Debbie Yates</h3>
+          <p>President | Key Title of Texas</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <!-- YOUTUBE CHANNEL LINK -->
 <section style="padding:24px 0;">
