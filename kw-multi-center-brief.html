@@ -21,6 +21,12 @@
 <meta name="twitter:description" content="Ten back-office functions &mdash; marketing, recruiting, accounting support, agent services, tech support, commercial and executive operations &mdash; run by dedicated virtual assistants at one KW market center. Flat-rate pricing, one assistant at a time.">
 <meta name="twitter:image" content="https://vra.global/photos/hero-globe.png">
 <style>
+/* Anchor landings: the header is sticky, so a jump to #id must stop short of it
+   or the section heading lands underneath. Values track the real header height
+   (132.6px wide, 71px once the nav collapses at 1150px) plus breathing room. */
+html{scroll-padding-top:148px;}
+@media (max-width:1150px){html{scroll-padding-top:88px;}}
+
 
   :root{
     --light-blue:#9ecfe7;
