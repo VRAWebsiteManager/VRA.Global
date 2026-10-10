@@ -393,7 +393,6 @@ html{scroll-padding-top:148px;}
   .assistant-photo.auto{background:#fff;}
   .assistant-photo.auto img{inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);border-radius:50%;border:3px solid var(--blue);background:#fff;}
   .assistant-photo.auto .assistant-initials{inset:9px;border-radius:50%;border:3px solid var(--blue);}
-  .assistant-flag{position:absolute;bottom:6px;right:6px;width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.25);border:2px solid #fff;}
   .assistant-type-badge.part-time{background:var(--blue);}
   .assistant-overlay{position:absolute;inset:0;background:rgba(1,1,16,.72);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s ease;color:#fff;font-size:11.5px;font-weight:700;text-align:center;padding:10px;}
   .assistant-card:hover .assistant-overlay{opacity:1;}
@@ -1694,39 +1693,6 @@ const assistants = [
 
 ];
 
-// Maps the sheet's free-text "Country" column to a flag emoji. Keyed
-// lowercase/trimmed so casing/whitespace in the sheet doesn't matter.
-// NO FALLBACK ON PURPOSE: a blank or unrecognized cell returns '' and the
-// badge is simply not rendered. Country is only filled in for a minority of
-// rows, so defaulting to a flag would publish a guess as fact.
-const FLAG_BY_COUNTRY = {
-  'philippines':'\u{1F1F5}\u{1F1ED}',
-  'mexico':'\u{1F1F2}\u{1F1FD}',
-  'colombia':'\u{1F1E8}\u{1F1F4}',
-  'argentina':'\u{1F1E6}\u{1F1F7}',
-  'peru':'\u{1F1F5}\u{1F1EA}',
-  'bolivia':'\u{1F1E7}\u{1F1F4}',
-  'paraguay':'\u{1F1F5}\u{1F1FE}',
-  'venezuela':'\u{1F1FB}\u{1F1EA}',
-  'ecuador':'\u{1F1EA}\u{1F1E8}',
-  'guatemala':'\u{1F1EC}\u{1F1F9}',
-  'honduras':'\u{1F1ED}\u{1F1F3}',
-  'el salvador':'\u{1F1F8}\u{1F1FB}',
-  'nicaragua':'\u{1F1F3}\u{1F1EE}',
-  'costa rica':'\u{1F1E8}\u{1F1F7}',
-  'panama':'\u{1F1F5}\u{1F1E6}',
-  'dominican republic':'\u{1F1E9}\u{1F1F4}',
-  'chile':'\u{1F1E8}\u{1F1F1}',
-  'brazil':'\u{1F1E7}\u{1F1F7}',
-  'uruguay':'\u{1F1FA}\u{1F1FE}',
-  'puerto rico':'\u{1F1F5}\u{1F1F7}',
-  'united states':'\u{1F1FA}\u{1F1F8}',
-  'usa':'\u{1F1FA}\u{1F1F8}'
-};
-function flagFor(country){
-  const key = (country||'').trim().toLowerCase();
-  return FLAG_BY_COUNTRY[key] || '';
-}
 function initials(name){
   return name.split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase();
 }
@@ -1777,17 +1743,11 @@ function buildCard(i){
   const badgeHtml = a.employmentType
     ? `<div class="assistant-type-badge${a.employmentType === 'Part-Time' ? ' part-time' : ''}">${a.employmentType}</div>`
     : '';
-  // Only rows that actually carry a country get a flag; no default.
-  const flagEmoji = flagFor(a.country);
-  const flagHtml = flagEmoji
-    ? `<div class="assistant-flag" title="${a.country.trim()}">${flagEmoji}</div>`
-    : '';
   card.innerHTML = `
     <div class="assistant-photo${(a.autoCard || (a.localPhoto && !BAKED_RING_PHOTOS.has(a.localPhoto))) ? ' auto' : ''}">
       <div class="assistant-initials">${initials(a.name)}</div>
       ${photoHtml}
       <div class="assistant-overlay">View Resume, DISC &amp; KPA</div>
-      ${flagHtml}
     </div>
     ${badgeHtml}
     <div class="assistant-name">${a.name}</div>
