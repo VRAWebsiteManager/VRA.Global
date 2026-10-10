@@ -1738,7 +1738,7 @@ function buildCard(i){
   // Assistants with a real local photo on file get an <img>. Everyone else shows a
   // clean initials avatar rather than a broken image (their headshot isn't loaded yet).
   const photoHtml = a.localPhoto
-    ? `<img src="${a.localPhoto}" alt="${a.name}" onerror="this.style.display='none';">`
+    ? `<img src="${a.localPhoto}" alt="${cardName(a.name)}" onerror="this.style.display='none';">`
     : '';
   const badgeHtml = a.employmentType
     ? `<div class="assistant-type-badge${a.employmentType === 'Part-Time' ? ' part-time' : ''}">${a.employmentType}</div>`
@@ -1750,7 +1750,7 @@ function buildCard(i){
       <div class="assistant-overlay">View Resume, DISC &amp; KPA</div>
     </div>
     ${badgeHtml}
-    <div class="assistant-name">${a.name}</div>
+    <div class="assistant-name">${cardName(a.name)}</div>
   `;
   card.addEventListener('click', () => openModal(i));
   card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') openModal(i); });
@@ -1832,6 +1832,16 @@ function sheetNameKey(raw){
 // Builds a clean "First Last" display name from the sheet's "Last, First
 // [Middle] ["Nickname"]" format, for VAs who don't have a hardcoded profile
 // (and therefore a hand-picked display name) yet.
+// Card labels show first name + last initial only. The full name stays in
+// the modal, where someone evaluating an assistant needs it. Surnames are
+// the strongest origin signal on the page and a grid of 32 of them reads at
+// a glance; this keeps the cards personal without publishing that pattern.
+function cardName(displayName){
+  const parts = (displayName||'').trim().split(/\s+/);
+  if(parts.length < 2) return parts[0] || '';
+  const last = parts[parts.length-1];
+  return parts.slice(0,-1).join(' ') + ' ' + last.charAt(0).toUpperCase() + '.';
+}
 function sheetDisplayName(raw){
   const commaIdx = raw.indexOf(',');
   if(commaIdx === -1) return raw.trim();
