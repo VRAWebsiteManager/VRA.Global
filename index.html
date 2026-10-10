@@ -386,7 +386,6 @@ html{scroll-padding-top:148px;}
   .assistant-card:hover .assistant-photo{transform:translateY(-4px);box-shadow:0 12px 26px rgba(1,1,16,.22);}
   .assistant-photo img{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
   .assistant-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:var(--dark-blue);background:var(--light-blue);}
-  .assistant-flag{position:absolute;bottom:6px;right:6px;width:28px;height:28px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.25);border:2px solid #fff;}
   .assistant-type-badge{display:inline-block;margin-top:10px;background:var(--dark-blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:.3px;padding:3px 9px;border-radius:20px;text-transform:uppercase;}
   /* Auto-generated cards (VAs pulled straight from the availability sheet, without a
      hardcoded profile) get a matching circular blue frame so the roster reads as one set. */
@@ -596,7 +595,7 @@ html{scroll-padding-top:148px;}
     <div class="section-head">
       <div class="kicker">Meet the Team</div>
       <h2>Meet Our Virtual Assistants</h2>
-      <p>Our assistants work from the Philippines and across Latin America, and include Spanish&ndash;English bilingual assistants for teams with Spanish-speaking clients. Click on a photo to view their Resume, DISC Assessment, and Keller Personality Assessment (KPA).</p>
+      <p>Every assistant works US business hours, Monday to Friday, and the bench includes Spanish&ndash;English bilingual assistants for teams with Spanish-speaking clients. Click on a photo to view their Resume, DISC Assessment, and Keller Personality Assessment (KPA).</p>
     </div>
   </div>
   <div class="assistant-marquee">
@@ -1713,41 +1712,6 @@ window.handleImgError = function(img){
   }
 };
 
-// Maps the sheet's free-text "Country" column to a flag emoji. Keyed
-// lowercase/trimmed so casing/whitespace in the sheet doesn't matter.
-// Covers the current roster (Philippines) plus the Latin American countries
-// VRA is actively hiring bilingual VAs from; add more here as new countries
-// come on board. Falls back to the Philippines flag for a blank cell (every
-// row predates this column being wired up) or an unrecognized value, rather
-// than guessing wrong or leaving the badge empty.
-const FLAG_BY_COUNTRY = {
-  'philippines':'\u{1F1F5}\u{1F1ED}',
-  'mexico':'\u{1F1F2}\u{1F1FD}',
-  'colombia':'\u{1F1E8}\u{1F1F4}',
-  'argentina':'\u{1F1E6}\u{1F1F7}',
-  'peru':'\u{1F1F5}\u{1F1EA}',
-  'bolivia':'\u{1F1E7}\u{1F1F4}',
-  'paraguay':'\u{1F1F5}\u{1F1FE}',
-  'venezuela':'\u{1F1FB}\u{1F1EA}',
-  'ecuador':'\u{1F1EA}\u{1F1E8}',
-  'guatemala':'\u{1F1EC}\u{1F1F9}',
-  'honduras':'\u{1F1ED}\u{1F1F3}',
-  'el salvador':'\u{1F1F8}\u{1F1FB}',
-  'nicaragua':'\u{1F1F3}\u{1F1EE}',
-  'costa rica':'\u{1F1E8}\u{1F1F7}',
-  'panama':'\u{1F1F5}\u{1F1E6}',
-  'dominican republic':'\u{1F1E9}\u{1F1F4}',
-  'chile':'\u{1F1E8}\u{1F1F1}',
-  'brazil':'\u{1F1E7}\u{1F1F7}',
-  'uruguay':'\u{1F1FA}\u{1F1FE}',
-  'puerto rico':'\u{1F1F5}\u{1F1F7}',
-  'united states':'\u{1F1FA}\u{1F1F8}',
-  'usa':'\u{1F1FA}\u{1F1F8}'
-};
-function flagFor(country){
-  const key = (country||'').trim().toLowerCase();
-  return FLAG_BY_COUNTRY[key] || FLAG_BY_COUNTRY['philippines'];
-}
 
 // Photos that already have the VRA ring baked into the image file. Everyone else
 // (plain headshots, and cards generated straight from the availability sheet) gets the
@@ -1778,12 +1742,10 @@ function buildCard(i){
   const badgeHtml = a.employmentType
     ? `<div class="assistant-type-badge${a.employmentType === 'Part-Time' ? ' part-time' : ''}">${a.employmentType}</div>`
     : '';
-  const countryLabel = a.country || 'Philippines';
   card.innerHTML = `
     <div class="assistant-photo${(a.autoCard || (a.localPhoto && !BAKED_RING_PHOTOS.has(a.localPhoto))) ? ' auto' : ''}">
       <div class="assistant-initials">${initials(a.name)}</div>
       ${photoHtml}
-      <div class="assistant-flag" title="${countryLabel}">${flagFor(a.country)}</div>
       <div class="assistant-overlay">View Resume, DISC &amp; KPA</div>
     </div>
     ${badgeHtml}
