@@ -9,3 +9,10 @@
 /agent-guide          /delegation-guide-real-estate          301!
 /lender-guide         /delegation-guide-mortgage             301!
 /mc-guide             /delegation-guide-market-center        301!
+
+# Google indexed the .html form of this page and never indexed the clean URL,
+# splitting its authority (GSC: .html ranking, extensionless 'Discovered -
+# currently not indexed'). Force the duplicate onto the canonical URL.
+# NOTE: do not add a blanket /*.html rule - it would break the Search Console
+# verification file google78814ed0913c2d09_1.html.
+/keller-williams-leadership-virtual-assistant.html   /keller-williams-leadership-virtual-assistant   301!
