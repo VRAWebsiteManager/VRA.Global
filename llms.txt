@@ -8,6 +8,7 @@
 > Contact: contact@vrealtyassistants.com
 
 ## Case studies
+- [What a virtual assistant actually costs](https://vra.global/insights/virtual-assistant-cost): published industry rates run $4-$79/hour; the four ways providers obscure price (no price, "starting at", inconsistent figures, and tiers buyers cannot place themselves in), what genuinely drives the rate, and VRA’s flat $1,500/month full-time or $800/month part-time. Includes a cost FAQ.
 - [She already paid for her first year](https://vra.global/insights/vacation-rental-assistant-paid-for-herself): a Guadalupe River vacation rental operator's assistant built his website and social presence and took on the books within 60 days.
 - [Fifteen virtual assistants, four functions](https://vra.global/insights/fifteen-virtual-assistants-outside-real-estate): a nationwide services firm runs sales, client service, marketing and HR on fifteen VRA assistants, with no real estate involved.
 - [From One VA to Three: title and escrow professionals](https://vra.global/insights/title-company-virtual-assistants): A compliance leader who advises Texas title agencies grew from one VRA assistant to three and refers her own clients; plus the Qualia production work VRA assistants handle for title offices.
@@ -25,7 +26,9 @@
 - [Home services and trades](https://vra.global/home-services-virtual-assistant)
 - [Hospitality, vacation rentals and resorts](https://vra.global/hospitality-virtual-assistant)
 - [Restaurants](https://vra.global/restaurant-virtual-assistant)
-- [Small business](https://vra.global/small-business-virtual-assistant)
+- [Small business](https://vra.global/small-business-virtual-assistant): the deliberate catch-all — admin, executive and office support for any industry, including those with no page here.
+- [Real estate investors and landlords](https://vra.global/real-estate-investor-virtual-assistant): rentals and property management, fix-and-flip and rehab coordination, and deal back-office work.
+- [Bilingual (Spanish–English) assistants](https://vra.global/bilingual-virtual-assistant): client communication in Spanish and English for teams with Spanish-speaking clients.
 - [Digital marketing](https://vra.global/digital-marketing-virtual-assistant)
 - [Accounting and tax practices](https://vra.global/accounting-virtual-assistant): client document collection, scheduling, deadline tracking, invoicing and AR follow-up for accounting and tax firms.
 - [Newly acquired businesses](https://vra.global/just-bought-a-business): what to delegate in the first 90 days after buying a small business, and the cost of an assistant versus a hire.
@@ -38,4 +41,5 @@
 - [Client reviews and video testimonials](https://vra.global/reviews)
 - [Insights](https://vra.global/insights)
 - [Needs Assessment](https://vra.global/needs-assessment)
+- [Bilingual VA waitlist](https://vra.global/bilingual-waitlist)
 - [Contact](https://vra.global/contact)
