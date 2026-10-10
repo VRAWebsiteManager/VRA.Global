@@ -186,4 +186,10 @@
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
+<url>
+<loc>https://vra.global/insights/what-a-virtual-assistant-actually-costs</loc>
+<lastmod>2026-10-10</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
