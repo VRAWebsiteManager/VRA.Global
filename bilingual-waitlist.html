@@ -230,11 +230,10 @@ html{scroll-padding-top:148px;}
       <p>A minute now means we already know who to call when the cohort graduates. Nothing here commits you to hiring, to a start date, or to an agreement &mdash; you decide after you meet candidates.</p>
     </div>
 
-    <form class="assessment-form" id="waitlist-form" name="bilingual-waitlist" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="bilingual-waitlist">
+    <form class="assessment-form" id="waitlist-form" name="bilingual-waitlist" method="POST" action="https://formspree.io/f/moejnpjy">
       <input type="hidden" name="src" id="src-field" value="">
       <div style="position:absolute;left:-9999px;" aria-hidden="true">
-        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        <label>Don't fill this out if you're human: <input name="_gotcha"></label>
       </div>
 
       <div class="form-group">
@@ -379,9 +378,9 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e){
   var btn = document.getElementById('waitlist-submit-btn');
   btn.disabled = true;
   btn.textContent = 'Submitting\u2026';
-  fetch('/', {
+  fetch('https://formspree.io/f/moejnpjy', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
     body: encodeFormData(form)
   })
   .then(function(res){

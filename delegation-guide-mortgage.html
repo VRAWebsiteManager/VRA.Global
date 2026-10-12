@@ -219,12 +219,11 @@ html{scroll-padding-top:148px;}
       <p>One field, and the download starts straight away &mdash; you don't have to wait on an email or dig through a spam folder.</p>
     </div>
 
-    <form class="assessment-form" id="guide-form" name="guide-mortgage" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" style="max-width:560px;">
-      <input type="hidden" name="form-name" value="guide-mortgage">
+    <form class="assessment-form" id="guide-form" name="guide-mortgage" method="POST" action="https://formspree.io/f/xjygepgg" style="max-width:560px;">
       <input type="hidden" name="src" id="src-field" value="">
       <input type="hidden" name="guide" value="Delegation Mastery - Mortgage &amp; Lending Edition">
       <div style="position:absolute;left:-9999px;" aria-hidden="true">
-        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+        <label>Don't fill this out if you're human: <input name="_gotcha"></label>
       </div>
 
       <div class="form-group">
@@ -360,9 +359,9 @@ document.getElementById('guide-form').addEventListener('submit', function(e){
     }, 400);
   }
 
-  fetch('/', {
+  fetch('https://formspree.io/f/xjygepgg', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
     body: encodeFormData(form)
   })
   .then(function(res){
@@ -370,9 +369,17 @@ document.getElementById('guide-form').addEventListener('submit', function(e){
     reveal();
   })
   .catch(function(){
-    // The guide was promised in exchange for an email that we may have just lost.
-    // Breaking that promise is worse than losing the lead, so hand over the file
-    // anyway and let the failure show up in the logs rather than to the visitor.
+    // The guide was promised in exchange for an email we may have just lost.
+    // Breaking that promise is worse than losing the lead, so hand the file over
+    // anyway - but say how to reach us, so a dropped submission has a second
+    // path instead of disappearing in silence.
+    var box = document.getElementById('guide-success');
+    if (box) {
+      var note = document.createElement('p');
+      note.style.cssText = 'color:var(--gray);font-size:14px;margin:18px 0 0;';
+      note.innerHTML = 'If you don&rsquo;t hear from us within a day, email <a href="mailto:contact@vrealtyassistants.com">contact@vrealtyassistants.com</a> &mdash; your details may not have reached us.';
+      box.appendChild(note);
+    }
     reveal();
   });
 });

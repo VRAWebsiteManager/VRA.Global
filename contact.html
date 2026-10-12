@@ -177,11 +177,10 @@ html{scroll-padding-top:148px;}
         </div>
       </div>
 
-      <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
+      <form class="contact-form" id="contact-form" name="contact" method="POST" action="https://formspree.io/f/mrpeaogz">
       <input type="hidden" name="src" id="src-field" value="">
         <div style="position:absolute;left:-9999px;" aria-hidden="true">
-          <label>Don't fill this out if you're human: <input name="bot-field"></label>
+          <label>Don't fill this out if you're human: <input name="_gotcha"></label>
         </div>
 
         <div class="form-group field-row">
@@ -309,9 +308,9 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
-  fetch('/', {
+  fetch('https://formspree.io/f/mrpeaogz', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
     body: encodeFormData(form)
   })
   .then(function(res){
