@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url>
 <loc>https://vra.global/</loc>
 <lastmod>2026-10-10</lastmod>
@@ -17,18 +18,42 @@
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/p3tuPRwhen4/hqdefault.jpg</video:thumbnail_loc>
+<video:title>Kim Dixon-Dudley — Virtual Realty Assistants Testimonial</video:title>
+<video:description>Kim Dixon-Dudley, Broker Associate with Compass and founder of Kimberly Lane Properties, on her 30-day check-in with a Virtual Realty Assistants (VRA) virtual assistant: “My VA is amazing. I love the energy and the synergy, and she is the epitome of my top three Ps — prompt, pleasant, and productive.”</video:description>
+<video:player_loc>https://www.youtube.com/embed/p3tuPRwhen4</video:player_loc>
+<video:publication_date>2026-03-05T07:35:29-08:00</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/title-escrow-virtual-assistant</loc>
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/sL5ETpuB8Tg/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Debbie Yates — Virtual Realty Assistants Testimonial</video:title>
+<video:description>Debbie Yates, President | Key Title of Texas, on working with a Virtual Realty Assistants (VRA) virtual assistant: “I wasn't sure how it was going to work out in the beginning, but she's taken direction really well. She's a self-starter, finding things we didn't even expect her to find.”</video:description>
+<video:player_loc>https://www.youtube.com/embed/sL5ETpuB8Tg</video:player_loc>
+<video:publication_date>2025-07-23</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/mortgage-virtual-assistant</loc>
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/QOPZY8aWNNY/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>James Del Bosque — Virtual Realty Assistants Testimonial</video:title>
+<video:description>James Del Bosque, GFS Home Loans, on working with a Virtual Realty Assistants (VRA) virtual assistant: “When we get busy, a lot of things seem to fall between the cracks. Laurenz has been very helpful in keeping on top of those things.”</video:description>
+<video:player_loc>https://www.youtube.com/embed/QOPZY8aWNNY</video:player_loc>
+<video:publication_date>2026-05-19</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/restaurant-virtual-assistant</loc>
@@ -59,6 +84,14 @@
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/SzLDWizkKMc/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Victoria Williams — Virtual Realty Assistants Testimonial</video:title>
+<video:description>Victoria Williams, Market Center Administrator | Keller Williams Memorial, on working with a Virtual Realty Assistants (VRA) virtual assistant: “He handles all of our CDAs — this month we've had over 400 — and he reaches out to 60 to 75-plus people a month for accounts receivable. It's been great to have that leverage.”</video:description>
+<video:player_loc>https://www.youtube.com/embed/SzLDWizkKMc</video:player_loc>
+<video:publication_date>2025-07-23</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/digital-marketing-virtual-assistant</loc>
@@ -131,6 +164,14 @@
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/kKX-915tQVA/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Emily Zakhem — Virtual Realty Assistants Testimonial</video:title>
+<video:description>Emily Zakhem, REALTOR | Keller Williams Memorial | Top 20% | Luxury Agent, on working with a Virtual Realty Assistants (VRA) virtual assistant: “I cannot think of running my business without a virtual assistant.”</video:description>
+<video:player_loc>https://www.youtube.com/embed/kKX-915tQVA</video:player_loc>
+<video:publication_date>2025-07-23</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/insights/keller-williams-agent-14-and-60-day-results</loc>
