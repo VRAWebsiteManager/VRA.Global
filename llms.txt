@@ -52,6 +52,7 @@
 - [Exit planning advisors](https://vra.global/exit-planning-advisors): implementation capacity behind a readiness recommendation the owner has agreed to but has no hours to act on.
 
 ## Free guides
+- [How to hire a virtual assistant](https://vra.global/how-to-hire-a-virtual-assistant): what to decide before hiring, part-time versus full-time versus hourly, six questions to ask any VA company before signing, and how long hiring actually takes.
 - [Delegation scripts and templates](https://vra.global/delegation-guide): 10 delegation scripts and 11 templates for handing work to an assistant.
 - [Real estate edition](https://vra.global/delegation-guide-real-estate)
 - [KW market center edition](https://vra.global/delegation-guide-market-center)
@@ -59,6 +60,7 @@
 
 ## Company
 - [Home](https://vra.global/)
+- [About VRA](https://vra.global/about): the leadership and support team by name, how assistants are screened and trained (DISC and Keller assessments, a mandatory four-week instructor-led program, 0.89% of applicants through the most recent cohort), and what VRA commits to after placement.
 - [Pricing](https://vra.global/pricing)
 - [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a guarantee of 90% proficiency in a client's own software within 5 business days.
 - [Frequently asked questions](https://vra.global/faq)
