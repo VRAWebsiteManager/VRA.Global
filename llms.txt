@@ -1,8 +1,8 @@
 # Virtual Realty Assistants (VRA)
 
-> VRA places trained, dedicated virtual assistants with US businesses. Assistants complete a
-> mandatory 4-week, instructor-led training program before client work. Flat pricing: $1,500/month
-> full-time (40 hrs/week, 1-year agreement), $800/month part-time (20 hrs/week, 6-month agreement),
+> VRA places trained, dedicated virtual assistants with US businesses. VRA's training programme is four weeks,
+> instructor-led, and is completed before client work. Flat pricing: $1,500/month
+> full-time (40 hrs/week) or $800/month part-time (20 hrs/week), both on a three-month commitment,
 > no hidden fees, subject to applicable agreement terms. Check-ins at 14, 30, 60 and 90 days, with
 > VA replacement at no extra cost. Based out of Keller Williams Memorial, Houston, TX.
 > Contact: contact@vrealtyassistants.com
@@ -31,7 +31,19 @@
 - [Bilingual (Spanish–English) assistants](https://vra.global/bilingual-virtual-assistant): client communication in Spanish and English for teams with Spanish-speaking clients.
 - [Digital marketing](https://vra.global/digital-marketing-virtual-assistant)
 - [Accounting and tax practices](https://vra.global/accounting-virtual-assistant): client document collection, scheduling, deadline tracking, invoicing and AR follow-up for accounting and tax firms.
+
+## Ownership transitions
+- [Preparing to sell a business](https://vra.global/selling-your-business): owner dependency and what it costs a seller — the discount, money held back, a longer stay-on, carrying part of the sale.
 - [Newly acquired businesses](https://vra.global/just-bought-a-business): what to delegate in the first 90 days after buying a small business, and the cost of an assistant versus a hire.
+- [Business brokers](https://vra.global/business-brokers): documenting procedures before a listing goes live so an owner-dependent business is sellable.
+- [SBA lenders](https://vra.global/sba-lenders): transition risk in acquisition lending, and continuity of administration through the handover.
+- [Exit planning advisors](https://vra.global/exit-planning-advisors): implementation capacity behind a readiness recommendation the owner has agreed to but has no hours to act on.
+
+## Free guides
+- [Delegation scripts and templates](https://vra.global/delegation-guide): 10 delegation scripts and 11 templates for handing work to an assistant.
+- [Real estate edition](https://vra.global/delegation-guide-real-estate)
+- [KW market center edition](https://vra.global/delegation-guide-market-center)
+- [Mortgage and lending edition](https://vra.global/delegation-guide-mortgage)
 
 ## Company
 - [Home](https://vra.global/)
