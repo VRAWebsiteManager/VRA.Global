@@ -1,0 +1,106 @@
+name: IndexNow
+
+# Tells Bing (and Yandex, Seznam, Naver) that pages changed, so they recrawl in
+# hours instead of whenever they next wander by. Google ignores IndexNow.
+#
+# Runs automatically on every push to main that touches a page, the sitemap or
+# llms.txt. Can also be run by hand from the Actions tab — tick "all" to
+# resubmit every URL in the sitemap.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+      - 'llms.txt'
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Submit every URL in sitemap.xml instead of just what changed'
+        type: boolean
+        default: false
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Work out which URLs to submit
+        id: urls
+        run: |
+          python3 - <<'PY' > urls.txt
+          import subprocess, re, sys, os, pathlib
+
+          SITE = "https://vra.global"
+          submit_all = os.environ.get("ALL") == "true"
+
+          def to_url(p: str):
+              if p == "index.html":
+                  return SITE + "/"
+              if p.endswith(".html"):
+                  return SITE + "/" + p[:-5]          # canonical form is extensionless
+              if p in ("sitemap.xml", "llms.txt"):
+                  return SITE + "/" + p
+              return None
+
+          urls = []
+          if submit_all:
+              xml = pathlib.Path("sitemap.xml").read_text(encoding="utf-8")
+              urls = re.findall(r"<loc>\s*([^<]+?)\s*</loc>", xml)
+          else:
+              diff = subprocess.run(
+                  ["git", "diff", "--name-only", "--diff-filter=d", "HEAD~1", "HEAD"],
+                  capture_output=True, text=True, check=False).stdout.split()
+              for p in diff:
+                  u = to_url(p)
+                  if u and os.path.exists(p):
+                      urls.append(u)
+
+          seen, out = set(), []
+          for u in urls:
+              if u not in seen:
+                  seen.add(u); out.append(u)
+          print("\n".join(out[:10000]))
+          PY
+          echo "count=$(grep -c . urls.txt || true)" >> "$GITHUB_OUTPUT"
+          echo "--- URLs to submit ---"; cat urls.txt
+        env:
+          ALL: ${{ inputs.all }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+
+      - name: Wait for Netlify to finish deploying
+        if: steps.urls.outputs.count != '0'
+        run: sleep 120
+
+      - name: Submit to IndexNow
+        if: steps.urls.outputs.count != '0'
+        run: |
+          python3 - <<'PY' > payload.json
+          import json, pathlib
+          urls = [l.strip() for l in pathlib.Path("urls.txt").read_text().splitlines() if l.strip()]
+          print(json.dumps({
+              "host": "vra.global",
+              "key": "1711b477c7d2896d691d47cb6dc36faf",
+              "keyLocation": "https://vra.global/1711b477c7d2896d691d47cb6dc36faf.txt",
+              "urlList": urls,
+          }))
+          PY
+          code=$(curl -sS -o response.txt -w '%{http_code}' \
+            -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data @payload.json)
+          echo "HTTP $code"
+          cat response.txt || true
+          # 200 = accepted, 202 = accepted, key validation pending. Anything else is a real failure.
+          case "$code" in
+            200|202) echo "Submitted ${{ steps.urls.outputs.count }} URL(s)." ;;
+            *) echo "::error::IndexNow returned HTTP $code"; exit 1 ;;
+          esac
