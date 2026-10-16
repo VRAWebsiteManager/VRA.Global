@@ -168,6 +168,20 @@ html{scroll-padding-top:148px;}
   @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr 1fr;}}
   @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+  .cmp{width:100%;border-collapse:collapse;margin:0 auto;font-size:15px;background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  .cmp caption{caption-side:top;text-align:left;font-weight:800;color:var(--dark-blue);padding:0 0 12px;font-size:16px;}
+  .cmp th,.cmp td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+  .cmp thead th{background:var(--light-blue);color:var(--darker-blue);font-weight:800;font-size:13.5px;letter-spacing:.3px;text-transform:uppercase;}
+  .cmp tbody th{font-weight:700;color:var(--dark-blue);width:34%;}
+  .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none;}
+  .cmp tbody tr:nth-child(even){background:#fbfdff;}
+  .cmp td strong{color:var(--darker-blue);}
+  @media(max-width:700px){.cmp,.cmp thead,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto;}
+    .cmp thead{display:none;}
+    .cmp tbody tr{border-bottom:2px solid var(--border);padding:6px 0;}
+    .cmp tbody th{width:auto;padding-bottom:4px;}
+    .cmp tbody td{padding-top:0;padding-bottom:10px;}
+    .cmp tbody td:before{content:attr(data-label) ": ";font-weight:700;color:var(--dark-blue);}}
 </style>
 </head>
 <body>
@@ -249,6 +263,39 @@ html{scroll-padding-top:148px;}
     </div>
   </div>
 </section>
+
+<!-- PLAN COMPARISON -->
+<section class="alt-bg" id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Side by Side</div>
+      <h2>What is the difference between part-time and full-time?</h2>
+    </div>
+    <table class="cmp">
+      <caption>VRA virtual assistant plans, compared</caption>
+      <thead>
+        <tr><th scope="col">&nbsp;</th><th scope="col">Part-Time</th><th scope="col">Full-Time</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Monthly rate</th><td data-label="Part-Time"><strong>$800</strong></td><td data-label="Full-Time"><strong>$1,500</strong></td></tr>
+        <tr><th scope="row">Hours per week</th><td data-label="Part-Time">20</td><td data-label="Full-Time">40</td></tr>
+        <tr><th scope="row">Billing</th><td data-label="Part-Time">Flat monthly, invoiced on the 20th</td><td data-label="Full-Time">Flat monthly, invoiced on the 20th</td></tr>
+        <tr><th scope="row">Minimum commitment</th><td data-label="Part-Time">Three months</td><td data-label="Full-Time">Three months</td></tr>
+        <tr><th scope="row">Setup or onboarding fee</th><td data-label="Part-Time">None</td><td data-label="Full-Time">None</td></tr>
+        <tr><th scope="row">Overage or per-task charges</th><td data-label="Part-Time">None</td><td data-label="Full-Time">None</td></tr>
+        <tr><th scope="row">Hours outside standard business hours</th><td data-label="Part-Time">Can be arranged, no upcharge</td><td data-label="Full-Time">Can be arranged, no upcharge</td></tr>
+        <tr><th scope="row">Bilingual assistant</th><td data-label="Part-Time">Same rate, no upcharge</td><td data-label="Full-Time">Same rate, no upcharge</td></tr>
+        <tr><th scope="row">Is the assistant yours alone?</th><td data-label="Part-Time">Your own named assistant; may hold one other part-time placement</td><td data-label="Full-Time">Works for your business and no one else</td></tr>
+        <tr><th scope="row">Training before placement</th><td data-label="Part-Time">Four weeks, instructor-led</td><td data-label="Full-Time">Four weeks, instructor-led</td></tr>
+        <tr><th scope="row">Check-ins</th><td data-label="Part-Time">14, 30, 60 and 90 days</td><td data-label="Full-Time">14, 30, 60 and 90 days</td></tr>
+        <tr><th scope="row">If the fit is wrong</th><td data-label="Part-Time">Swap at any time, no extra cost</td><td data-label="Full-Time">Swap at any time, no extra cost</td></tr>
+        <tr><th scope="row">Time from selection to start</th><td data-label="Part-Time">24 hours</td><td data-label="Full-Time">24 hours</td></tr>
+        <tr><th scope="row">Best for</th><td data-label="Part-Time">Easing into delegation, seasonal support, lighter task loads</td><td data-label="Full-Time">Full inbox and calendar ownership, phone coverage, transaction coordination</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 
 <!-- CTA BANNER -->
 <section>

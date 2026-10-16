@@ -278,6 +278,20 @@ html{scroll-padding-top:148px;}
   .faq-list summary:after{content:"+";font-size:22px;color:var(--blue);font-weight:400;flex-shrink:0;}
   .faq-list details[open] summary:after{content:"\2013";}
   .faq-list details p{margin-top:12px;color:var(--gray);font-size:14.5px;}
+  .cmp{width:100%;border-collapse:collapse;margin:0 auto;font-size:15px;background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  .cmp caption{caption-side:top;text-align:left;font-weight:800;color:var(--dark-blue);padding:0 0 12px;font-size:16px;}
+  .cmp th,.cmp td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+  .cmp thead th{background:var(--light-blue);color:var(--darker-blue);font-weight:800;font-size:13.5px;letter-spacing:.3px;text-transform:uppercase;}
+  .cmp tbody th{font-weight:700;color:var(--dark-blue);width:34%;}
+  .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none;}
+  .cmp tbody tr:nth-child(even){background:#fbfdff;}
+  .cmp td strong{color:var(--darker-blue);}
+  @media(max-width:700px){.cmp,.cmp thead,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto;}
+    .cmp thead{display:none;}
+    .cmp tbody tr{border-bottom:2px solid var(--border);padding:6px 0;}
+    .cmp tbody th{width:auto;padding-bottom:4px;}
+    .cmp tbody td{padding-top:0;padding-bottom:10px;}
+    .cmp tbody td:before{content:attr(data-label) ": ";font-weight:700;color:var(--dark-blue);}}
 </style>
 </head>
 <body>
@@ -424,18 +438,23 @@ html{scroll-padding-top:148px;}
       </div>
       <div class="service-card wide">
         <h3>Our answers to the questions above</h3>
-        <ul>
-          <li><strong>Training before placement.</strong> Four weeks, instructor-led, mandatory, finished before any client work &mdash; CRM and database work, contract and e-signature workflows, and documenting procedures as standard operating procedures (SOPs).</li>
-          <li><strong>And training after it.</strong> Every assistant keeps access to the VRA Skills Accelerator: specialty tracks, hands-on challenges, and professional certifications from platforms including Anthropic, Google, IBM, HubSpot, Semrush and PMI. When your business needs a skill your assistant does not have yet, they go and get it &mdash; and we commit to 90% proficiency in your own software within five business days.</li>
-          <li><strong>How many make it through.</strong> In our most recent cohort, 0.89% of applicants finished training and passed the final evaluation.</li>
-          <li><strong>How they are screened.</strong> A DISC assessment weighted toward Steadiness and Conscientiousness &mdash; reliability, attention to detail, consistency &mdash; plus a Keller Personality Assessment for fit and speed of learning, and mock client interviews before anyone is put in front of a client.</li>
-          <li><strong>Who supervises.</strong> You do. Assistants administer the back office under your direction; you still run the business and supervise your people.</li>
-          <li><strong>Whether the assistant is yours.</strong> Always a named person rather than a pool or a rotating queue. A full-time assistant works for your business and no one else; a part-time assistant may hold one other part-time placement to make up a full week, with your hours reserved for you. Worth asking elsewhere too &mdash; some providers run a pooled model on certain services, where your work joins a queue rather than going to someone you know by name.</li>
-          <li><strong>If the fit is wrong.</strong> Check-ins at 14, 30, 60 and 90 days, and a swap to a different assistant at no extra cost &mdash; no trial window to miss, no fine print.</li>
-          <li><strong>What they arrive knowing.</strong> Every assistant completes the Essential Toolkit before they are put in front of a client &mdash; so the person you interview has already finished it, not someone who will start it once you sign. It covers Claude and ChatGPT, Canva, a brand-agnostic CRM, Zapier and Asana: the tools that make an assistant useful in week one whatever the industry. <a href="/tools-and-platforms">The software they work in &rarr;</a></li>
-          <li><strong>How fast it moves.</strong> Twenty-four hours from selection to placement &mdash; once you pick your assistant, they start the next day. The clock that matters runs from your decision, not from your first enquiry.</li>
-          <li><strong>Whether the price is the price.</strong> $1,500 a month full-time or $800 part-time on a three-month commitment. No setup or onboarding fee, no overage charge, no hourly billing, no per-task menu, and no upcharge for after-hours shifts or a bilingual assistant. Ask the same question of anyone else you are considering &mdash; setup fees and payment-processing fees are common and are usually published somewhere other than the pricing page.</li>
-        </ul>
+        <table class="cmp">
+          <caption>What to ask any VA company, and how VRA answers</caption>
+          <thead>
+            <tr><th scope="col">What to ask</th><th scope="col">VRA&rsquo;s answer</th></tr>
+          </thead>
+          <tbody>
+          <tr><th scope="row">What training happens before placement, and how long is it?</th><td data-label="Our answer">Four weeks, instructor-led and mandatory, finished before any client work. The Essential Toolkit is completed before the first client interview, so the person you meet has already done it.</td></tr>
+          <tr><th scope="row">How many applicants actually make it through?</th><td data-label="Our answer">0.89% of applicants in our most recent cohort finished training and passed the final evaluation.</td></tr>
+          <tr><th scope="row">How are they screened?</th><td data-label="Our answer">A DISC assessment weighted toward Steadiness and Conscientiousness, a Keller Personality Assessment for fit and speed of learning, and mock client interviews.</td></tr>
+          <tr><th scope="row">What do they arrive knowing?</th><td data-label="Our answer">The Essential Toolkit: Claude and ChatGPT, Canva, a brand-agnostic CRM, Zapier and Asana &mdash; plus 90% proficiency in your own software within five business days.</td></tr>
+          <tr><th scope="row">Who supervises the assistant day to day?</th><td data-label="Our answer">You do. Assistants administer the back office under your direction; you still run the business and supervise your people.</td></tr>
+          <tr><th scope="row">Is the assistant mine alone?</th><td data-label="Our answer">A full-time assistant works for your business and no one else. A part-time assistant is your own named person with your hours reserved, and may hold one other part-time placement.</td></tr>
+          <tr><th scope="row">What happens if the fit is wrong?</th><td data-label="Our answer">Check-ins at 14, 30, 60 and 90 days, and a swap to a different assistant at no extra cost. No trial window to miss and no fine print.</td></tr>
+          <tr><th scope="row">How fast does it move?</th><td data-label="Our answer">Twenty-four hours from selection to placement. The clock runs from your decision, not your first enquiry.</td></tr>
+          <tr><th scope="row">Is the price the price?</th><td data-label="Our answer">$1,500 a month full-time or $800 part-time, three-month commitment. No setup fee, no onboarding fee, no overage, no per-task menu, and no upcharge for after-hours shifts or a bilingual assistant.</td></tr>
+          </tbody>
+        </table>
         <p style="margin-top:12px;"><a href="/about">How we select and train them &rarr;</a> &middot; <a href="/pricing">Full pricing &rarr;</a></p>
       </div>
     </div>
