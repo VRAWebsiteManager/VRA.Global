@@ -6,6 +6,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#275ea3">
+<link rel="preload" as="image" href="photos/hero-globe-1600.webp" imagesrcset="photos/hero-globe-800.webp 800w, photos/hero-globe-1600.webp 1600w" imagesizes="(max-width:900px) calc(100vw - 48px), 480px" fetchpriority="high">
 <title>Virtual Realty Assistants | Hire a Virtual Assistant</title>
 <meta name="description" content="Dedicated virtual assistants for real estate, title &amp; escrow, mortgage, restaurants, and small businesses — trained in MLS, DocuSign, social media, and more.">
 <meta name="robots" content="index, follow">
@@ -544,7 +545,11 @@ html{scroll-padding-top:148px;}
       </ul>
     </div>
     <div class="hero-img">
-      <img src="photos/hero-globe.png" alt="Vintage desk globe on a wooden table">
+      <img src="photos/hero-globe-1600.webp"
+           srcset="photos/hero-globe-800.webp 800w, photos/hero-globe-1600.webp 1600w"
+           sizes="(max-width:900px) calc(100vw - 48px), 480px"
+           width="1600" height="1068" fetchpriority="high" decoding="async"
+           alt="Vintage desk globe on a wooden table">
     </div>
   </div>
 </section>
