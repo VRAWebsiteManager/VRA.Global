@@ -299,4 +299,10 @@
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
+<url>
+<loc>https://vra.global/insights/ninety-days-with-one-virtual-assistant</loc>
+<lastmod>2026-10-16</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
