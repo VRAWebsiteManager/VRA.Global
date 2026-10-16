@@ -18,42 +18,18 @@
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
-<video:video>
-<video:thumbnail_loc>https://i.ytimg.com/vi/p3tuPRwhen4/hqdefault.jpg</video:thumbnail_loc>
-<video:title>Kim Dixon-Dudley — Virtual Realty Assistants Testimonial</video:title>
-<video:description>Kim Dixon-Dudley, Broker Associate with Compass and founder of Kimberly Lane Properties, on her 30-day check-in with a Virtual Realty Assistants (VRA) virtual assistant: “My VA is amazing. I love the energy and the synergy, and she is the epitome of my top three Ps — prompt, pleasant, and productive.”</video:description>
-<video:player_loc>https://www.youtube.com/embed/p3tuPRwhen4</video:player_loc>
-<video:publication_date>2026-03-05T07:35:29-08:00</video:publication_date>
-<video:family_friendly>yes</video:family_friendly>
-</video:video>
 </url>
 <url>
 <loc>https://vra.global/title-escrow-virtual-assistant</loc>
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
-<video:video>
-<video:thumbnail_loc>https://i.ytimg.com/vi/sL5ETpuB8Tg/maxresdefault.jpg</video:thumbnail_loc>
-<video:title>Debbie Yates — Virtual Realty Assistants Testimonial</video:title>
-<video:description>Debbie Yates, President | Key Title of Texas, on working with a Virtual Realty Assistants (VRA) virtual assistant: “I wasn't sure how it was going to work out in the beginning, but she's taken direction really well. She's a self-starter, finding things we didn't even expect her to find.”</video:description>
-<video:player_loc>https://www.youtube.com/embed/sL5ETpuB8Tg</video:player_loc>
-<video:publication_date>2025-07-23</video:publication_date>
-<video:family_friendly>yes</video:family_friendly>
-</video:video>
 </url>
 <url>
 <loc>https://vra.global/mortgage-virtual-assistant</loc>
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
-<video:video>
-<video:thumbnail_loc>https://i.ytimg.com/vi/QOPZY8aWNNY/maxresdefault.jpg</video:thumbnail_loc>
-<video:title>James Del Bosque — Virtual Realty Assistants Testimonial</video:title>
-<video:description>James Del Bosque, GFS Home Loans, on working with a Virtual Realty Assistants (VRA) virtual assistant: “When we get busy, a lot of things seem to fall between the cracks. Laurenz has been very helpful in keeping on top of those things.”</video:description>
-<video:player_loc>https://www.youtube.com/embed/QOPZY8aWNNY</video:player_loc>
-<video:publication_date>2026-05-19</video:publication_date>
-<video:family_friendly>yes</video:family_friendly>
-</video:video>
 </url>
 <url>
 <loc>https://vra.global/restaurant-virtual-assistant</loc>
@@ -188,14 +164,6 @@
 <lastmod>2026-10-10</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
-<video:video>
-<video:thumbnail_loc>https://i.ytimg.com/vi/kKX-915tQVA/maxresdefault.jpg</video:thumbnail_loc>
-<video:title>Emily Zakhem — Virtual Realty Assistants Testimonial</video:title>
-<video:description>Emily Zakhem, REALTOR | Keller Williams Memorial | Top 20% | Luxury Agent, on working with a Virtual Realty Assistants (VRA) virtual assistant: “I cannot think of running my business without a virtual assistant.”</video:description>
-<video:player_loc>https://www.youtube.com/embed/kKX-915tQVA</video:player_loc>
-<video:publication_date>2025-07-23</video:publication_date>
-<video:family_friendly>yes</video:family_friendly>
-</video:video>
 </url>
 <url>
 <loc>https://vra.global/insights/keller-williams-agent-14-and-60-day-results</loc>
@@ -310,107 +278,237 @@
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/3LyKU7NhM6g/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Ken Foster — 14-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Ken Foster rates his virtual assistant Jerome an A+ two weeks in, and describes the calendaring, email triage and follow-up Jerome had already taken on.</video:description>
+<video:player_loc>https://www.youtube.com/embed/3LyKU7NhM6g</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/ken-foster-30-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/cuKUq4fhDoc/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Ken Foster — 30-day check-in | Virtual Realty Assistants</video:title>
+<video:description>At 30 days, Ken Foster's assistant has taken the marketing effort up a level in a short period of time.</video:description>
+<video:player_loc>https://www.youtube.com/embed/cuKUq4fhDoc</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/ken-foster-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/t-ENWPH7U2Q/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Ken Foster — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>At 60 days, Ken Foster describes the training VRA continues to give assistants after they are placed with a client.</video:description>
+<video:player_loc>https://www.youtube.com/embed/t-ENWPH7U2Q</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/montse-foster-90-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/8almj7AhmN8/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Montse Foster — 90-day check-in | Virtual Realty Assistants</video:title>
+<video:description>After 19 years in business together and 22 years combined in the industry, Montse Foster describes the business going to the next level at her 90-day check-in.</video:description>
+<video:player_loc>https://www.youtube.com/embed/8almj7AhmN8</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/debbie-yates-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/sL5ETpuB8Tg/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Debbie Yates — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Debbie Yates had questions about where the value would come from. Sixty days in, she answers them.</video:description>
+<video:player_loc>https://www.youtube.com/embed/sL5ETpuB8Tg</video:player_loc>
+<video:publication_date>2025-07-23T00:00:00-07:00</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/elle-haynes-30-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/9j_BsGEmU4U/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Elle Haynes — 30-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Elle Haynes expected an entry-level associate. Her assistant led a full company rebrand, including the research behind the colour and imagery choices.</video:description>
+<video:player_loc>https://www.youtube.com/embed/9j_BsGEmU4U</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/clay-stagg-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/5Zj9ZzxxMc4/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Clay Stagg — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Clay Stagg's assistant built his website and social accounts and is learning QuickBooks. Sixty days in, he says she has already paid for her first year.</video:description>
+<video:player_loc>https://www.youtube.com/embed/5Zj9ZzxxMc4</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/rayan-saleh-14-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/rJZMNtqjTz8/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Rayan Saleh — 14-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Two weeks in, Rayan Saleh of The Butcher's Grille cannot work out how he managed without an assistant.</video:description>
+<video:player_loc>https://www.youtube.com/embed/rJZMNtqjTz8</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/kim-dixon-dudley-30-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/p3tuPRwhen4/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Kim Dixon-Dudley — 30-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Kim Dixon-Dudley measures her assistant against her own three Ps — and has already made a referral.</video:description>
+<video:player_loc>https://www.youtube.com/embed/p3tuPRwhen4</video:player_loc>
+<video:publication_date>2026-03-05T07:35:29-08:00</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/hannah-dubose-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/EmsjM5hEGeg/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Hannah DuBose — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Hannah DuBose's assistant records every meeting and keeps her own notes, so the questions stopped coming.</video:description>
+<video:player_loc>https://www.youtube.com/embed/EmsjM5hEGeg</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/emily-zakhem-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/kKX-915tQVA/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Emily Zakhem — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Emily Zakhem was against the idea, tried it, went six months without one, and came back.</video:description>
+<video:player_loc>https://www.youtube.com/embed/kKX-915tQVA</video:player_loc>
+<video:publication_date>2025-07-23T00:00:00-07:00</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/alexandra-pocora-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/GDM9RUGLIgA/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Alexandra Pocora — check-in | Virtual Realty Assistants</video:title>
+<video:description>Alexandra Pocora works in business brokerage and commercial real estate. Her assistant is there at 8:30 every morning.</video:description>
+<video:player_loc>https://www.youtube.com/embed/GDM9RUGLIgA</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/melanne-carpenter-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/y5Xth2E7TS4/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Melanne Carpenter — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Melanne Carpenter's assistant spent month one on organisation and month two on the listings. She has the most listings she has ever had.</video:description>
+<video:player_loc>https://www.youtube.com/embed/y5Xth2E7TS4</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/quinton-randel-eidlexit-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/jcVkz2-Ms4Y/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Quinton Randel — client check-in | Virtual Realty Assistants</video:title>
+<video:description>Quinton Randel runs EIDLexit, which has nothing to do with real estate, and works with ten VRA virtual assistants. He has no reservations about them speaking to his clients with minimal oversight.</video:description>
+<video:player_loc>https://www.youtube.com/embed/jcVkz2-Ms4Y</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/james-del-bosque-90-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/QOPZY8aWNNY/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>James Del Bosque — 90-day check-in | Virtual Realty Assistants</video:title>
+<video:description>James Del Bosque works in mortgage. Ninety days in, his assistant Lawrence has taken complete ownership of the inbox and replies to clients and referral partners.</video:description>
+<video:player_loc>https://www.youtube.com/embed/QOPZY8aWNNY</video:player_loc>
+<video:publication_date>2026-05-19T00:00:00-07:00</video:publication_date>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/courtney-okanlomo-60-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/U44D9JZSpKk/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Courtney Okanlomo — 60-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Courtney Okanlomo manages around 72 agents and a small staff, and did not believe in virtual assistants. Sixty days in, she says her assistant has revamped the entire operation.</video:description>
+<video:player_loc>https://www.youtube.com/embed/U44D9JZSpKk</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/austin-galvez-30-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/ri45R6VEWCI/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Austin Galvez — 30-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Austin Galvez is a CPA. Thirty days in, the things that used to fall through the cracks no longer do.</video:description>
+<video:player_loc>https://www.youtube.com/embed/ri45R6VEWCI</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 <url>
 <loc>https://vra.global/watch/brandon-lara-90-day-check-in</loc>
 <lastmod>2026-10-16</lastmod>
 <changefreq>yearly</changefreq>
 <priority>0.6</priority>
+<video:video>
+<video:thumbnail_loc>https://i.ytimg.com/vi/y9NaVLyKVnU/maxresdefault.jpg</video:thumbnail_loc>
+<video:title>Brandon Lara — 90-day check-in | Virtual Realty Assistants</video:title>
+<video:description>Brandon Lara's assistant read his KPA and understands his DISC, so she works his pain points first. He had previously spent hours training assistants and writing SOPs for them.</video:description>
+<video:player_loc>https://www.youtube.com/embed/y9NaVLyKVnU</video:player_loc>
+<video:family_friendly>yes</video:family_friendly>
+</video:video>
 </url>
 </urlset>
