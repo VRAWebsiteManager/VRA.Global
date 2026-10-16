@@ -277,7 +277,7 @@ html{scroll-padding-top:148px;}
   @media(max-width:1150px){.navlinks{display:none;}}
 
   /* HERO */
-  .hero{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);padding:80px 0 60px;}
+  .hero{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);padding:52px 0 40px;}
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
   .eyebrow{display:inline-block;background:var(--white);color:var(--dark-blue);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:15px;font-weight:700;margin-bottom:18px;}
   .hero h1{font-size:44px;margin-bottom:18px;}
@@ -288,6 +288,7 @@ html{scroll-padding-top:148px;}
   .hero-bullets li:before{content:"✓";background:var(--dark-blue);color:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
   .hero-img{border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(1,1,16,.18);}
   @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  @media(max-height:800px) and (min-width:901px){.hero{padding:36px 0 28px;}.hero h1{font-size:40px;}}
 
   /* SECTION HEADS */
   .section-head{text-align:center;max-width:720px;margin:0 auto 48px;}
@@ -307,10 +308,10 @@ html{scroll-padding-top:148px;}
   .alt-bg{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);}
 
   /* TRUST BAR (formation matches Remote Leverage's "Trusted by..." logo row: flat row of even-height logo tiles, moving + edge-fading like the assistant marquee, but in the opposite direction) */
-  .trust-bar{padding:40px 0;background:var(--white);border-top:4px solid var(--light-blue);border-bottom:4px solid var(--light-blue);}
+  .trust-bar{padding:26px 0;background:var(--white);border-top:4px solid var(--light-blue);border-bottom:4px solid var(--light-blue);}
   .trust-label{text-align:center;font-size:12.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray);margin-bottom:26px;}
   .trust-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);}
-  .trust-track{display:flex;align-items:center;gap:40px;width:max-content;animation:scrollTrack 45s linear infinite reverse;}
+  .trust-track{display:flex;align-items:center;gap:40px;width:max-content;animation:scrollTrack 60s linear infinite reverse;}
   .trust-marquee:hover .trust-track{animation-play-state:paused;}
   .trust-slot{height:42px;display:flex;align-items:center;justify-content:center;flex:none;}
   .trust-slot img{height:100%;width:auto;max-width:150px;object-fit:contain;}
