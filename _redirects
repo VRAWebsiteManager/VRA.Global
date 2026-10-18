@@ -21,3 +21,71 @@
 # its own page and rejecting it ("Crawled - currently not indexed", last crawled
 # Sep 12) instead of folding it into the clean URL via canonical.
 /insights/one-market-center-ten-virtual-assistants.html   /insights/one-market-center-ten-virtual-assistants   301!
+
+# Consolidate every .html twin onto its clean URL. Canonicals already point
+# the right way; a 301 folds the signals faster. Listed one per page on
+# purpose -- a blanket /*.html rule would catch the Search Console
+# verification file (google78814ed0913c2d09_1.html).
+
+/about.html                                                      /about                                                           301!
+/accounting-virtual-assistant.html                               /accounting-virtual-assistant                                    301!
+/bilingual-virtual-assistant.html                                /bilingual-virtual-assistant                                     301!
+/bilingual-waitlist.html                                         /bilingual-waitlist                                              301!
+/business-brokers.html                                           /business-brokers                                                301!
+/commercial-real-estate-virtual-assistant.html                   /commercial-real-estate-virtual-assistant                        301!
+/contact.html                                                    /contact                                                         301!
+/delegation-guide-market-center.html                             /delegation-guide-market-center                                  301!
+/delegation-guide-mortgage.html                                  /delegation-guide-mortgage                                       301!
+/delegation-guide-real-estate.html                               /delegation-guide-real-estate                                    301!
+/delegation-guide.html                                           /delegation-guide                                                301!
+/digital-marketing-virtual-assistant.html                        /digital-marketing-virtual-assistant                             301!
+/exit-planning-advisors.html                                     /exit-planning-advisors                                          301!
+/faq.html                                                        /faq                                                             301!
+/home-services-virtual-assistant.html                            /home-services-virtual-assistant                                 301!
+/hospitality-virtual-assistant.html                              /hospitality-virtual-assistant                                   301!
+/how-to-hire-a-virtual-assistant.html                            /how-to-hire-a-virtual-assistant                                 301!
+/insights.html                                                   /insights                                                        301!
+/join-sales-team.html                                            /join-sales-team                                                 301!
+/just-bought-a-business.html                                     /just-bought-a-business                                          301!
+/keller-williams-agent-virtual-assistant.html                    /keller-williams-agent-virtual-assistant                         301!
+/kw-multi-center-brief.html                                      /kw-multi-center-brief                                           301!
+/mortgage-virtual-assistant.html                                 /mortgage-virtual-assistant                                      301!
+/needs-assessment.html                                           /needs-assessment                                                301!
+/pricing.html                                                    /pricing                                                         301!
+/real-estate-investor-virtual-assistant.html                     /real-estate-investor-virtual-assistant                          301!
+/real-estate-virtual-assistant.html                              /real-estate-virtual-assistant                                   301!
+/restaurant-virtual-assistant.html                               /restaurant-virtual-assistant                                    301!
+/reviews.html                                                    /reviews                                                         301!
+/sales-service-teams-virtual-assistant.html                      /sales-service-teams-virtual-assistant                           301!
+/sba-lenders.html                                                /sba-lenders                                                     301!
+/selling-your-business.html                                      /selling-your-business                                           301!
+/small-business-virtual-assistant.html                           /small-business-virtual-assistant                                301!
+/title-escrow-virtual-assistant.html                             /title-escrow-virtual-assistant                                  301!
+/title-va-brief.html                                             /title-va-brief                                                  301!
+/tools-and-platforms.html                                        /tools-and-platforms                                             301!
+/insights/breaking-the-growth-ceiling.html                       /insights/breaking-the-growth-ceiling                            301!
+/insights/fifteen-virtual-assistants-outside-real-estate.html    /insights/fifteen-virtual-assistants-outside-real-estate         301!
+/insights/keller-williams-agent-14-and-60-day-results.html       /insights/keller-williams-agent-14-and-60-day-results            301!
+/insights/ninety-days-with-one-virtual-assistant.html            /insights/ninety-days-with-one-virtual-assistant                 301!
+/insights/title-company-virtual-assistants.html                  /insights/title-company-virtual-assistants                       301!
+/insights/vacation-rental-assistant-paid-for-herself.html        /insights/vacation-rental-assistant-paid-for-herself             301!
+/insights/virtual-assistant-cost.html                            /insights/virtual-assistant-cost                                 301!
+/insights/virtual-assistant-or-first-employee.html               /insights/virtual-assistant-or-first-employee                    301!
+/watch/alexandra-pocora-check-in.html                            /watch/alexandra-pocora-check-in                                 301!
+/watch/austin-galvez-30-day-check-in.html                        /watch/austin-galvez-30-day-check-in                             301!
+/watch/brandon-lara-90-day-check-in.html                         /watch/brandon-lara-90-day-check-in                              301!
+/watch/clay-stagg-60-day-check-in.html                           /watch/clay-stagg-60-day-check-in                                301!
+/watch/courtney-okanlomo-60-day-check-in.html                    /watch/courtney-okanlomo-60-day-check-in                         301!
+/watch/debbie-yates-60-day-check-in.html                         /watch/debbie-yates-60-day-check-in                              301!
+/watch/elle-haynes-30-day-check-in.html                          /watch/elle-haynes-30-day-check-in                               301!
+/watch/emily-zakhem-60-day-check-in.html                         /watch/emily-zakhem-60-day-check-in                              301!
+/watch/hannah-dubose-60-day-check-in.html                        /watch/hannah-dubose-60-day-check-in                             301!
+/watch/james-del-bosque-90-day-check-in.html                     /watch/james-del-bosque-90-day-check-in                          301!
+/watch/ken-foster-14-day-check-in.html                           /watch/ken-foster-14-day-check-in                                301!
+/watch/ken-foster-30-day-check-in.html                           /watch/ken-foster-30-day-check-in                                301!
+/watch/ken-foster-60-day-check-in.html                           /watch/ken-foster-60-day-check-in                                301!
+/watch/kim-dixon-dudley-30-day-check-in.html                     /watch/kim-dixon-dudley-30-day-check-in                          301!
+/watch/melanne-carpenter-60-day-check-in.html                    /watch/melanne-carpenter-60-day-check-in                         301!
+/watch/montse-foster-90-day-check-in.html                        /watch/montse-foster-90-day-check-in                             301!
+/watch/quinton-randel-eidlexit-check-in.html                     /watch/quinton-randel-eidlexit-check-in                          301!
+/watch/rayan-saleh-14-day-check-in.html                          /watch/rayan-saleh-14-day-check-in                               301!
