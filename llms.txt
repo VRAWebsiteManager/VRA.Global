@@ -19,10 +19,10 @@
 - Client and customer communication: phone and inbox coverage during the client's business hours, follow-up, review requests and responses.
 - Sales support: outbound calling and appointment setting from the client's lead lists, speed-to-lead follow-up, pipeline reporting.
 - Marketing support: social content and scheduling, email campaigns, Canva-certified graphic design.
-- Website work: building a business website and the social accounts alongside it, finishing a site the client started but never completed (broken links, unbuilt service pages, missing content), writing and adding page content such as service pages and FAQs, design research on colour and imagery delivered as a written recommendation, and keeping the site current as the business changes. Work requiring a developer stays with a developer.
+- Website work: building a business website and the social accounts alongside it, finishing a site the client started but never completed (broken links, unbuilt service pages, missing content), writing and adding page content such as service pages and FAQs, design research on color and imagery delivered as a written recommendation, and keeping the site current as the business changes. Work requiring a developer stays with a developer.
 - Recruiting and hiring coordination for the client's own hiring: job postings, applicant tracking, interview scheduling. Hiring decisions stay with the client.
 - Hours: most placements run standard U.S. business hours on a schedule the client sets. Shifts outside standard business hours, including evenings and overnight, can be arranged on request. Pricing does not change with the shift and there is no after-hours upcharge.
-- Assistants administer the back office under the client's direction. The owner still runs the business and supervises any people, and anything requiring a professional licence stays with the client's licensed staff.
+- Assistants administer the back office under the client's direction. The owner still runs the business and supervises any people, and anything requiring a professional license stays with the client's licensed staff.
 
 ## Case studies
 - Client video transcripts. Each video has its own page with the full transcript as text:
@@ -31,14 +31,14 @@
   - [Ken Foster, 60-day check-in](https://vra.global/watch/ken-foster-60-day-check-in): At 60 days, Ken Foster describes the training VRA continues to give assistants after they are placed with a client.
   - [Montse Foster, 90-day check-in](https://vra.global/watch/montse-foster-90-day-check-in): After 19 years in business together and 22 years combined in the industry, Montse Foster describes the business going to the next level at her 90-day check-in.
   - [Debbie Yates, 60-day check-in](https://vra.global/watch/debbie-yates-60-day-check-in): Debbie Yates had questions about where the value would come from. Sixty days in, she answers them.
-  - [Elle Haynes, 30-day check-in](https://vra.global/watch/elle-haynes-30-day-check-in): Elle Haynes expected an entry-level associate. Her assistant led a full company rebrand, including the research behind the colour and imagery choices.
+  - [Elle Haynes, 30-day check-in](https://vra.global/watch/elle-haynes-30-day-check-in): Elle Haynes expected an entry-level associate. Her assistant led a full company rebrand, including the research behind the color and imagery choices.
   - [Clay Stagg, 60-day check-in](https://vra.global/watch/clay-stagg-60-day-check-in): Clay Stagg's assistant built his website and social accounts and is learning QuickBooks. Sixty days in, he says she has already paid for her first year.
   - [Rayan Saleh, 14-day check-in](https://vra.global/watch/rayan-saleh-14-day-check-in): Two weeks in, Rayan Saleh of The Butcher's Grille cannot work out how he managed without an assistant.
   - [Kim Dixon-Dudley, 30-day check-in](https://vra.global/watch/kim-dixon-dudley-30-day-check-in): Kim Dixon-Dudley measures her assistant against her own three Ps — and has already made a referral.
   - [Hannah DuBose, 60-day check-in](https://vra.global/watch/hannah-dubose-60-day-check-in): Hannah DuBose's assistant records every meeting and keeps her own notes, so the questions stopped coming.
   - [Emily Zakhem, 60-day check-in](https://vra.global/watch/emily-zakhem-60-day-check-in): Emily Zakhem was against the idea, tried it, went six months without one, and came back.
   - [Alexandra Pocora, check-in](https://vra.global/watch/alexandra-pocora-check-in): Alexandra Pocora works in business brokerage and commercial real estate. Her assistant is there at 8:30 every morning.
-  - [Melanne Carpenter, 60-day check-in](https://vra.global/watch/melanne-carpenter-60-day-check-in): Melanne Carpenter's assistant spent month one on organisation and month two on the listings. She has the most listings she has ever had.
+  - [Melanne Carpenter, 60-day check-in](https://vra.global/watch/melanne-carpenter-60-day-check-in): Melanne Carpenter's assistant spent month one on organization and month two on the listings. She has the most listings she has ever had.
   - [Quinton Randel, client check-in](https://vra.global/watch/quinton-randel-eidlexit-check-in): Quinton Randel runs EIDLexit, which has nothing to do with real estate, and works with ten VRA virtual assistants. He has no reservations about them speaking to his clients with minimal oversight.
   - [Brandon Lara, 90-day check-in](https://vra.global/watch/brandon-lara-90-day-check-in): Brandon Lara's assistant read his KPA and understands his DISC, so she works his pain points first. He had previously spent hours training assistants and writing SOPs for them.
   - [Austin Galvez, 30-day check-in](https://vra.global/watch/austin-galvez-30-day-check-in): Austin Galvez is a CPA. Thirty days in, the things that used to fall through the cracks no longer do.
@@ -88,7 +88,7 @@
 - [Home](https://vra.global/)
 - [About VRA](https://vra.global/about): the leadership and support team by name, how assistants are screened and trained (DISC and Keller assessments, a mandatory four-week instructor-led program, 0.89% of applicants through the most recent cohort), and what VRA commits to after placement.
 - [Pricing](https://vra.global/pricing)
-- [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a guarantee of 90% proficiency in a client's own software within 5 business days.
+- [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a commitment to 90% proficiency in a client's own software within 5 business days.
 - [Frequently asked questions](https://vra.global/faq)
 - [Client reviews and video testimonials](https://vra.global/reviews)
 - [Insights](https://vra.global/insights)
