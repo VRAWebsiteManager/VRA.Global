@@ -1,0 +1,4 @@
+# Lead-magnet PDFs: crawlable (so Google reads this header) but never indexed,
+# so the file can't rank in place of the landing page that captures the email.
+/guides/*
+  X-Robots-Tag: noindex

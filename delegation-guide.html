@@ -248,7 +248,7 @@ html{scroll-padding-top:148px;}
       <div style="width:56px;height:56px;border-radius:50%;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;margin:0 auto 16px;">&#10003;</div>
       <h2 style="margin-bottom:10px;">Your download is starting</h2>
       <p style="color:var(--gray);margin-bottom:22px;">If it doesn't open on its own, use the button below. Keep the file &mdash; the scripts are meant to be copied straight into your email.</p>
-      <a id="guide-download" class="btn btn-primary" href="/guides/delegation-mastery-business.pdf" download>Download the PDF</a>
+      <a id="guide-download" class="btn btn-primary" data-pdf="/guides/delegation-mastery-business.pdf" download>Download the PDF</a>
     </div>
   </div>
 </section>
@@ -357,6 +357,10 @@ document.getElementById('guide-form').addEventListener('submit', function(e){
   btn.textContent = 'One moment\u2026';
 
   function reveal(){
+    // The href is held in data-pdf rather than the markup, so the file path is
+    // not sitting in page source for anyone who skips the form.
+    var dl = document.getElementById('guide-download');
+    if (dl && dl.getAttribute('data-pdf')) { dl.href = dl.getAttribute('data-pdf'); }
     form.style.display = 'none';
     var okBox = document.getElementById('guide-success');
     okBox.style.display = 'block';
