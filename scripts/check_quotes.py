@@ -35,6 +35,30 @@ def sentences(text):
     parts = re.split(r'(?<=[.!?])\s+', text.strip())
     return [p.strip() for p in parts if p.strip()]
 
+
+def longest_run(a, b):
+    """Longest run of consecutive words shared by two strings.
+
+    A quote that drifted from a transcript still shares a long unbroken run with
+    it; unrelated prose shares only a few words. That separates the two cleanly,
+    where a similarity ratio does not -- any two English sentences of a similar
+    length score around 0.5.
+    """
+    A, B = a.split(), b.split()
+    if not A or not B:
+        return 0
+    prev = [0] * (len(B) + 1)
+    best = 0
+    for i in range(1, len(A) + 1):
+        cur = [0] * (len(B) + 1)
+        for j in range(1, len(B) + 1):
+            if A[i - 1] == B[j - 1]:
+                cur[j] = prev[j - 1] + 1
+                if cur[j] > best:
+                    best = cur[j]
+        prev = cur
+    return best
+
 # ---------------------------------------------------------------- transcripts
 def load_transcripts():
     out = {}
@@ -80,11 +104,12 @@ def site_quotes():
                 q = soft(re.sub(r'<[^>]+>', '', body))
                 if len(q.split()) < 8:
                     continue
-                attr = soft(re.sub(r'<[^>]+>', ' ', raw[m.end():m.end() + 260]))
+                after = soft(re.sub(r'<[^>]+>', ' ', raw[m.end():m.end() + 260]))
+                before = soft(re.sub(r'<[^>]+>', ' ', raw[max(m.start() - 260, 0):m.start()]))
                 if (f, key(q)) in seen:
                     continue
                 seen.add((f, key(q)))
-                out.append((f, q, attr))
+                out.append((f, q, before, after))
     return out
 
 def main():
@@ -103,32 +128,60 @@ def main():
     quotes = site_quotes()
 
     # Only judge quotes that belong to a video speaker; written reviews have no transcript.
-    def credited(attr):
-        hits = [s for s in speakers if all(w.lower() in attr.lower() for w in s.split() if len(w) > 2)]
-        return hits[0] if len(hits) == 1 else None
+    def credited(before, after):
+        """Who the page credits. Most pages name the speaker under the quote, but
+        some articles name them above it, so both sides are searched and the
+        nearer name wins."""
+        def find(blob, from_end):
+            best, pos = None, None
+            for sp in speakers:
+                ws = [w.lower() for w in sp.split() if len(w) > 2]
+                if not ws or not all(w in blob.lower() for w in ws):
+                    continue
+                at = blob.lower().rindex(ws[0]) if from_end else blob.lower().index(ws[0])
+                d = (len(blob) - at) if from_end else at
+                if pos is None or d < pos:
+                    best, pos = sp, d
+            return best, (pos if pos is not None else 10**6)
+        a, da = find(after, False)
+        b, db = find(before, True)
+        return a if da <= db else b
+
+    # Attribution by proximity proved unreliable: some articles credit above the
+    # quote, some below, and a written review often sits next to a video client's
+    # name. So the source is decided by the text itself, not by who is named.
+    #
+    #   faithful excerpt of any transcript  -> pass
+    #   clearly a mangled version of one    -> fail, with the faithful wording
+    #   resembles no transcript             -> skip; it is a written review,
+    #                                          live on Trustpilot or captured
+    #                                          here before removal, and the
+    #                                          capture is the source of truth.
+    # Six consecutive words in common means it came from that transcript.
+    MIN_RUN = 6
 
     passed, failed, skipped = [], [], 0
-    for f, q, attr in quotes:
-        who = credited(attr)
+    for f, q, before, after in quotes:
         hit = runs.get(key(q))
         if hit:
             slug, spk, _ = hit
+            who = credited(before, after)
             if who and who.lower() != spk.lower():
                 failed.append((f, q, 'credited to %s but spoken by %s' % (who, spk), ''))
             else:
                 passed.append((f, q))
             continue
-        if not who:
-            skipped += 1          # no named video speaker: treat as a written review
-            continue
-        best, ratio = '', 0.0
+        qk = key(q)
+        best, run, owner = '', 0, None
         for k, (slug, spk, txt) in runs.items():
-            if spk.lower() != who.lower():
-                continue
-            r = difflib.SequenceMatcher(None, key(q), k).ratio()
-            if r > ratio:
-                ratio, best = r, txt
-        failed.append((f, q, 'not a whole-sentence run of %s\'s transcript (closest %.0f%%)' % (who, ratio * 100), best))
+            n = longest_run(qk, k)
+            if n > run:
+                run, best, owner = n, txt, spk
+        if run >= MIN_RUN:
+            failed.append((f, q, "not a whole-sentence run of %s's transcript "
+                           "(shares %d consecutive words with it)" % (owner, run), best))
+        else:
+            skipped += 1
 
     print('Transcripts loaded:        %d' % len(transcripts))
     print('Quotes checked:            %d' % (len(passed) + len(failed)))
