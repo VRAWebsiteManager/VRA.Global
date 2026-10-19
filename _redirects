@@ -14,7 +14,7 @@
 # splitting its authority (GSC: .html ranking, extensionless 'Discovered -
 # currently not indexed'). Force the duplicate onto the canonical URL.
 # NOTE: do not add a blanket /*.html rule - it would break the Search Console
-# verification file google78814ed0913c2d09_1.html.
+# verification files (google*.html at the root).
 /keller-williams-leadership-virtual-assistant.html   /keller-williams-leadership-virtual-assistant   301!
 
 # Same problem as the KW leadership page: Google is treating the .html form as
@@ -25,7 +25,7 @@
 # Consolidate every .html twin onto its clean URL. Canonicals already point
 # the right way; a 301 folds the signals faster. Listed one per page on
 # purpose -- a blanket /*.html rule would catch the Search Console
-# verification file (google78814ed0913c2d09_1.html).
+# verification files (google*.html at the root).
 
 /about.html                                                      /about                                                           301!
 /accounting-virtual-assistant.html                               /accounting-virtual-assistant                                    301!
