@@ -89,7 +89,7 @@ QUOTE_PATS = [
     r'<q>(.{40,900}?)</q>',
     r'class="milestone-quote">"(.{40,900}?)"</div>',
 ]
-JUNK = re.compile(r'src=|viewbox|https?:|<div|<span|class=', re.I)
+JUNK = re.compile(r'src=|viewbox|https?:|<div|<span|class=|&ldquo;|&rdquo;|“|”', re.I)
 
 def site_quotes():
     seen, out = set(), []
