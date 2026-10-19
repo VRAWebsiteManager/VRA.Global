@@ -547,4 +547,16 @@
 <video:family_friendly>yes</video:family_friendly>
 </video:video>
 </url>
+<url>
+<loc>https://vra.global/how-it-works</loc>
+<lastmod>2026-10-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://vra.global/site-map</loc>
+<lastmod>2026-10-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.3</priority>
+</url>
 </urlset>

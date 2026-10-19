@@ -218,27 +218,162 @@
 <body>
 
 <header>
+  <style>
+  /* Nav styles live with the nav because the site has no build step and no
+     shared stylesheet; keeping them here means one file to edit. */
+  .navitem{position:relative;}
+  .navtop{font-family:inherit;font-size:13.5px;font-weight:600;color:var(--gray);background:none;border:none;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+  .navtop:hover,.navtop[aria-expanded="true"]{color:var(--dark-blue);}
+  .navtop::after{content:"";border:4px solid transparent;border-top-color:currentColor;margin-top:3px;}
+  .navpanel{display:none;position:absolute;top:calc(100% + 14px);left:0;background:var(--white);border:1px solid var(--border);border-radius:14px;box-shadow:0 14px 34px rgba(1,1,16,.16);padding:20px 24px;z-index:120;}
+  .navitem.open .navpanel{display:block;}
+  /* Invisible bridge across the gap between button and panel. Without it the
+     pointer leaves .navitem on the way down and the menu shuts. */
+  .navpanel::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px;}
+  .navpanel.cols2{display:none;grid-template-columns:1fr 1fr;gap:10px 36px;min-width:560px;}
+  .navitem.open .navpanel.cols2{display:grid;}
+  .navpanel h4{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+  .navpanel a{display:block;padding:5px 0;font-size:14px;color:var(--gray);white-space:nowrap;}
+  .navpanel a:hover{color:var(--dark-blue);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:8px;padding:9px 11px;cursor:pointer;}
+  .nav-toggle span{display:block;width:20px;height:2px;background:var(--dark-blue);margin:4px 0;}
+  @media(max-width:1150px){
+    header nav.wrap{flex-wrap:wrap;}
+    .nav-toggle{display:block;}
+    .navlinks{display:none;width:100%;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;padding:14px 0 18px;}
+    .navlinks.open{display:flex;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-bottom:calc(80px + env(safe-area-inset-bottom));}
+    .navlinks > a,.navtop{padding:11px 2px;font-size:16px;border-bottom:1px solid var(--border);width:100%;}
+    .navtop{justify-content:space-between;}
+    .navpanel,.navpanel.cols2{position:static;display:none;border:none;box-shadow:none;border-radius:0;padding:4px 0 10px 14px;min-width:0;}
+    .navitem.open .navpanel,.navitem.open .navpanel.cols2{display:block;}
+    .navpanel.cols2{grid-template-columns:1fr;}
+    .col-spacer{display:none;}
+    .navlinks a.btn-primary{margin-top:14px;text-align:center;}
+  }
+  </style>
   <nav class="wrap">
     <a class="brand" href="/">
       <img src="/brand/vra-logo.png" alt="VRA logo">
       VIRTUAL REALTY ASSISTANTS
     </a>
-    <div class="navlinks">
-      <a href="/#why">Why VRA</a>
-      <a href="/#services">Services</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="navlinks">
+      <div class="navitem">
+        <button class="navtop" aria-expanded="false" aria-haspopup="true">Who We Serve</button>
+        <div class="navpanel cols2">
+          <div>
+            <h4>Industries</h4>
+            <a href="/real-estate-virtual-assistant">Real Estate</a>
+            <a href="/commercial-real-estate-virtual-assistant">Commercial Real Estate</a>
+            <a href="/real-estate-investor-virtual-assistant">Real Estate Investors</a>
+            <a href="/keller-williams-agent-virtual-assistant">Keller Williams Agents</a>
+            <a href="/keller-williams-leadership-virtual-assistant">KW Leadership &amp; Market Centers</a>
+            <a href="/mortgage-virtual-assistant">Mortgage &amp; Lending</a>
+            <a href="/title-escrow-virtual-assistant">Title &amp; Escrow</a>
+            <a href="/accounting-virtual-assistant">Accounting &amp; Tax</a>
+          </div>
+          <div>
+            <h4 class="col-spacer" aria-hidden="true">&nbsp;</h4>
+            <a href="/home-services-virtual-assistant">Home Services &amp; the Trades</a>
+            <a href="/hospitality-virtual-assistant">Hospitality &amp; Vacation Rentals</a>
+            <a href="/restaurant-virtual-assistant">Restaurants</a>
+            <a href="/small-business-virtual-assistant">Small Business</a>
+            <a href="/sales-service-teams-virtual-assistant">Sales &amp; Service Teams</a>
+            <a href="/digital-marketing-virtual-assistant">Digital Marketing</a>
+            <a href="/bilingual-virtual-assistant">Bilingual Assistants</a>
+            <h4 style="margin-top:16px;">Buying or Selling a Business</h4>
+            <a href="/just-bought-a-business">Just Bought a Business</a>
+            <a href="/selling-your-business">Selling Your Business</a>
+            <a href="/business-brokers">Business Brokers</a>
+            <a href="/sba-lenders">SBA Lenders</a>
+            <a href="/exit-planning-advisors">Exit Planning Advisors</a>
+          </div>
+        </div>
+      </div>
+      <a href="/how-it-works">How It Works</a>
       <a href="/pricing">Pricing</a>
-      <a href="/#process">Hiring Process</a>
-      <a href="/#assistants">Meet the Team</a>
       <a href="/reviews">Reviews</a>
-      <a href="/faq">FAQ</a>
-      <a href="/insights">Insights</a>
-      <a href="/needs-assessment">Needs Assessment</a>
+      <div class="navitem">
+        <button class="navtop" aria-expanded="false" aria-haspopup="true">Resources</button>
+        <div class="navpanel">
+          <a href="/insights">Insights</a>
+          <a href="/delegation-guide">Delegation Guide</a>
+          <a href="/how-to-hire-a-virtual-assistant">How to Hire a VA</a>
+          <a href="/needs-assessment">Needs Assessment</a>
+          <a href="/tools-and-platforms">Tools &amp; Platforms</a>
+          <a href="/faq">FAQ</a>
+          <a href="/site-map">Site Map</a>
+        </div>
+      </div>
       <a href="/contact">Contact</a>
-      <a href="/join-sales-team">Join Our Sales Team</a>
-      <a href="https://www.vrealtyassistants.com/apply-now" target="_blank" rel="noopener">Apply as a VA</a>
       <a href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=insights-first-100-days" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consult</a>
     </div>
-    </nav>
+  </nav>
+  <script>
+  (function(){
+    var items  = [].slice.call(document.querySelectorAll('.navitem'));
+    var toggle = document.getElementById('navToggle');
+    var menu   = document.getElementById('navlinks');
+
+    /* The desktop and mobile menus are the same markup behaving differently.
+       Everything that differs hangs off this one test. */
+    function desktop(){
+      return window.matchMedia('(hover: hover)').matches && window.innerWidth > 1150;
+    }
+    function close(it){
+      it.classList.remove('open');
+      it.querySelector('.navtop').setAttribute('aria-expanded','false');
+    }
+    function open(it){
+      items.forEach(close);               /* opening one closes the others */
+      it.classList.add('open');
+      it.querySelector('.navtop').setAttribute('aria-expanded','true');
+    }
+
+    items.forEach(function(it){
+      var btn = it.querySelector('.navtop');
+
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        /* On desktop hover has usually opened this already, so a click that
+           closed it would read as the button being broken. Click only ever
+           opens; leaving, clicking away, Escape and tabbing out close it.
+           On touch there is no hover, so the button has to toggle. */
+        if(desktop()){ open(it); return; }
+        it.classList.contains('open') ? close(it) : open(it);
+      });
+
+      it.addEventListener('mouseenter', function(){ if(desktop()) open(it); });
+      it.addEventListener('mouseleave', function(){ if(desktop()) close(it); });
+
+      /* Desktop only. On touch, a tap on another accordion moves focus first,
+         and closing on focusout reflowed the menu out from under the finger,
+         so the tap landed on whatever row had moved into that spot. */
+      it.addEventListener('focusout', function(e){
+        if(desktop() && !it.contains(e.relatedTarget)) close(it);
+      });
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key !== 'Escape') return;
+      var opened = items.filter(function(i){ return i.classList.contains('open'); })[0];
+      if(opened){ opened.querySelector('.navtop').focus(); close(opened); }
+    });
+
+    document.addEventListener('click', function(e){
+      items.forEach(function(it){ if(!it.contains(e.target)) close(it); });
+    });
+
+    if(toggle){
+      toggle.addEventListener('click', function(){
+        var on = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    }
+  })();
+  </script>
 </header>
 
 <!-- ARTICLE HERO -->
@@ -391,74 +526,65 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h4>Virtual Realty Assistants</h4>
-        <p>Exceptional assistants for exceptional businesses. Based out of Keller Williams Memorial, Houston, TX.</p>
-        <h4 class="footer-subhead">Follow Us</h4>
-        <div class="social-row">
-          <a href="https://www.instagram.com/virtualrealtyassistants" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.tiktok.com/@virtualrealtyassistants" target="_blank" rel="noopener">TikTok</a>
-          <a href="https://www.youtube.com/channel/UCjbtac-Lrr86WJzb6PcUq2w" target="_blank" rel="noopener">YouTube</a>
-          <a href="https://www.linkedin.com/company/virtualrealtyassistants/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+        <h4>Industries</h4>
+        <a href="/real-estate-virtual-assistant">Real Estate</a>
+        <a href="/commercial-real-estate-virtual-assistant">Commercial Real Estate</a>
+        <a href="/mortgage-virtual-assistant">Mortgage &amp; Lending</a>
+        <a href="/title-escrow-virtual-assistant">Title &amp; Escrow</a>
+        <a href="/keller-williams-agent-virtual-assistant">Keller Williams</a>
+        <a href="/accounting-virtual-assistant">Accounting &amp; Tax</a>
+        <a href="/home-services-virtual-assistant">Home Services &amp; the Trades</a>
+        <a href="/hospitality-virtual-assistant">Hospitality &amp; Vacation Rentals</a>
+        <a href="/restaurant-virtual-assistant">Restaurants</a>
+        <a href="/small-business-virtual-assistant">Small Business</a>
+        <a href="/site-map#industries">All industries &rarr;</a>
       </div>
       <div>
-        <h4>Company</h4>
-        <a href="/about">About Us</a>
-        <a href="/#why">Why VRA</a>
-        <a href="/#services">Services</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/#process">Hiring Process</a>
-        <a href="/#assistants">Meet the Team</a>
+        <h4>Buying or Selling a Business</h4>
+        <a href="/just-bought-a-business">Just Bought a Business</a>
+        <a href="/selling-your-business">Selling Your Business</a>
+        <a href="/business-brokers">Business Brokers</a>
+        <a href="/sba-lenders">SBA Lenders</a>
+        <a href="/exit-planning-advisors">Exit Planning Advisors</a>
       </div>
       <div>
         <h4>Resources</h4>
-        <a href="/reviews">Reviews</a>
-        <a href="/faq">FAQ</a>
         <a href="/insights">Insights</a>
-        <a href="/insights/title-company-virtual-assistants">Case Study: Title &amp; Escrow</a>
-        <a href="/insights/one-market-center-ten-virtual-assistants">Case Study: KW Market Center</a>
-        <a href="/how-to-hire-a-virtual-assistant">How to Hire a Virtual Assistant</a>
+        <a href="/how-to-hire-a-virtual-assistant">How to Hire a VA</a>
+        <a href="/delegation-guide">Delegation Guide</a>
         <a href="/needs-assessment">Needs Assessment</a>
-        <a href="/bilingual-virtual-assistant">Bilingual Assistants</a>
-        <a href="/bilingual-waitlist">Bilingual VA Waitlist</a>
-        <a href="/just-bought-a-business">Just Bought a Business?</a>
-        <a href="/exit-planning-advisors">For Exit Planning Advisors</a>
-        <a href="/business-brokers">For Business Brokers</a>
-        <a href="/selling-your-business">Preparing to Sell a Business</a>
-        <a href="/sba-lenders">For SBA Lenders</a>
+        <a href="/tools-and-platforms">Tools &amp; Platforms</a>
+        <a href="/faq">FAQ</a>
+        <a href="/site-map">Site Map</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about">About</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/reviews">Reviews</a>
         <a href="/contact">Contact</a>
       </div>
       <div>
-        <h4>Industries</h4>
-        <a href="/real-estate-virtual-assistant">Real Estate</a>
-          <a href="/commercial-real-estate-virtual-assistant">Commercial Real Estate</a>
-        <a href="/title-escrow-virtual-assistant">Title &amp; Escrow</a>
-        <a href="/mortgage-virtual-assistant">Mortgage &amp; Lending</a>
-        <a href="/restaurant-virtual-assistant">Restaurants</a>
-        <a href="/hospitality-virtual-assistant">Hospitality &amp; Resorts</a>
-        <a href="/home-services-virtual-assistant">Home Services &amp; Trades</a>
-        <a href="/sales-service-teams-virtual-assistant">Sales &amp; Service Teams</a>
-        <a href="/small-business-virtual-assistant">Small Business</a>
-        <a href="/accounting-virtual-assistant">Accounting &amp; Tax</a>
-        <a href="/keller-williams-leadership-virtual-assistant">KW Leadership</a>
-        <a href="/keller-williams-agent-virtual-assistant">KW Agents</a>
-      </div>
-      <div>
-        <h4>Get in Touch</h4>
-        <a href="mailto:contact@vrealtyassistants.com" target="_blank" rel="noopener">contact@vrealtyassistants.com</a>
-        <a href="tel:1-281-612-9678" target="_blank" rel="noopener">(281) 612-9678</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <h4 class="footer-subhead">Careers</h4>
-        <a href="https://www.vrealtyassistants.com/apply-now" target="_blank" rel="noopener">Apply as a VA</a>
+        <h4>Join VRA</h4>
         <a href="/join-sales-team">Join Our Sales Team</a>
-        <div class="social-row">
-          <a href="https://www.facebook.com/virtualrealtyassistants" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.linkedin.com/company/virtual-realty-assistants-careers/posts/?feedView=all" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
+        <a href="https://www.vrealtyassistants.com/apply-now" target="_blank" rel="noopener">Apply as a VA</a>
+        <a href="https://www.linkedin.com/company/virtual-realty-assistants-careers/posts/?feedView=all" target="_blank" rel="noopener">Careers on LinkedIn</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Virtual Realty Assistants &mdash; All Rights Reserved</span>
+      <span>&copy; 2026 Virtual Realty Assistants</span>
+      <a href="mailto:contact@vrealtyassistants.com">contact@vrealtyassistants.com</a>
+      <a href="tel:1-281-612-9678">(281) 612-9678</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/site-map">Site Map</a>
+      <span class="social-row">
+        <a href="https://www.instagram.com/virtualrealtyassistants" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@virtualrealtyassistants" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/channel/UCjbtac-Lrr86WJzb6PcUq2w" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/company/virtualrealtyassistants/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/virtualrealtyassistants" target="_blank" rel="noopener">Facebook</a>
+      </span>
     </div>
   </div>
 </footer>
