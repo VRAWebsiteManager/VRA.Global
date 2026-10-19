@@ -1257,6 +1257,15 @@ window.handleImgError = function(img){
     img.src = img.dataset.full;
   } else {
     img.style.display = 'none';
+    // Both URLs failed, so the file is gone rather than slow. Take the button
+    // and the description with it: a dead "Open Full Report" is worse than an
+    // honest "not ready yet".
+    var pLink = img.dataset.panelLink ? document.getElementById(img.dataset.panelLink) : null;
+    var pDesc = img.dataset.panelDesc ? document.getElementById(img.dataset.panelDesc) : null;
+    if(pLink) pLink.style.display = 'none';
+    if(pDesc && img.dataset.panelLabel){
+      pDesc.textContent = img.dataset.panelLabel + ' for this VA is still being finalized \u2014 check back soon.';
+    }
   }
 };
 
@@ -1560,7 +1569,16 @@ function setPanel(imgId, linkId, descId, localImg, remoteImg, localPdf, remotePd
     if(localImg){
       img.onerror = () => { img.style.display = 'none'; };
       img.src = localImg;
-    } else setImg(imgId, remoteImg);
+    } else {
+      // Remote asset. Record which button and description belong to it, so that
+      // if it ever stops loading the whole panel can step back together rather
+      // than leaving a hidden image beside a live button pointing at nothing.
+      const rEl = document.getElementById(imgId);
+      rEl.dataset.panelLink = linkId;
+      rEl.dataset.panelDesc = descId;
+      rEl.dataset.panelLabel = label;
+      setImg(imgId, remoteImg);
+    }
   } else {
     img.removeAttribute('src');
     img.style.display = 'none';
