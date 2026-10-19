@@ -218,7 +218,7 @@ html{scroll-padding-top:148px;}
   @media(max-width:1150px){
     header nav.wrap{flex-wrap:wrap;}
     .nav-toggle{display:block;}
-    .navlinks{display:none;width:100%;flex-direction:column;align-items:stretch;gap:2px;padding:14px 0 18px;}
+    .navlinks{display:none;width:100%;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:2px;padding:14px 0 18px;}
     .navlinks.open{display:flex;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
     .navlinks > a,.navtop{padding:11px 2px;font-size:16px;border-bottom:1px solid var(--border);width:100%;}
     .navtop{justify-content:space-between;}
@@ -290,46 +290,59 @@ html{scroll-padding-top:148px;}
   </nav>
   <script>
   (function(){
-    var items = [].slice.call(document.querySelectorAll('.navitem'));
+    var items  = [].slice.call(document.querySelectorAll('.navitem'));
     var toggle = document.getElementById('navToggle');
-    var menu = document.getElementById('navlinks');
-    function close(it){ it.dataset.viaHover = '0'; it.classList.remove('open'); it.querySelector('.navtop').setAttribute('aria-expanded','false'); }
-    function open(it){ items.forEach(close); it.classList.add('open'); it.querySelector('.navtop').setAttribute('aria-expanded','true'); }
+    var menu   = document.getElementById('navlinks');
+
+    /* The desktop and mobile menus are the same markup behaving differently.
+       Everything that differs hangs off this one test. */
+    function desktop(){
+      return window.matchMedia('(hover: hover)').matches && window.innerWidth > 1150;
+    }
+    function close(it){
+      it.classList.remove('open');
+      it.querySelector('.navtop').setAttribute('aria-expanded','false');
+    }
+    function open(it){
+      items.forEach(close);               /* opening one closes the others */
+      it.classList.add('open');
+      it.querySelector('.navtop').setAttribute('aria-expanded','true');
+    }
+
     items.forEach(function(it){
       var btn = it.querySelector('.navtop');
+
       btn.addEventListener('click', function(e){
         e.preventDefault();
-        /* Hover may already have opened this. A click then means "I want it
-           open", not "close it", so the first click after a hover-open keeps
-           it and only the next one closes. */
-        if(it.dataset.viaHover === '1'){ it.dataset.viaHover = '0'; return; }
+        /* On desktop hover has usually opened this already, so a click that
+           closed it would read as the button being broken. Click only ever
+           opens; leaving, clicking away, Escape and tabbing out close it.
+           On touch there is no hover, so the button has to toggle. */
+        if(desktop()){ open(it); return; }
         it.classList.contains('open') ? close(it) : open(it);
       });
-      /* Hover is a desktop convenience; the button still works on its own, so
-         keyboard and touch are never dependent on it. */
-      it.addEventListener('mouseenter', function(){
-        if(window.matchMedia('(hover: hover)').matches && window.innerWidth > 1150){
-          open(it); it.dataset.viaHover = '1';
-        }
-      });
-      it.addEventListener('mouseleave', function(){
-        if(window.matchMedia('(hover: hover)').matches && window.innerWidth > 1150){
-          close(it); it.dataset.viaHover = '0';
-        }
-      });
+
+      it.addEventListener('mouseenter', function(){ if(desktop()) open(it); });
+      it.addEventListener('mouseleave', function(){ if(desktop()) close(it); });
+
+      /* Desktop only. On touch, a tap on another accordion moves focus first,
+         and closing on focusout reflowed the menu out from under the finger,
+         so the tap landed on whatever row had moved into that spot. */
       it.addEventListener('focusout', function(e){
-        if(!it.contains(e.relatedTarget)) close(it);
+        if(desktop() && !it.contains(e.relatedTarget)) close(it);
       });
     });
+
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape'){
-        var open_ = items.filter(function(i){ return i.classList.contains('open'); })[0];
-        if(open_){ open_.querySelector('.navtop').focus(); close(open_); }
-      }
+      if(e.key !== 'Escape') return;
+      var opened = items.filter(function(i){ return i.classList.contains('open'); })[0];
+      if(opened){ opened.querySelector('.navtop').focus(); close(opened); }
     });
+
     document.addEventListener('click', function(e){
       items.forEach(function(it){ if(!it.contains(e.target)) close(it); });
     });
+
     if(toggle){
       toggle.addEventListener('click', function(){
         var on = menu.classList.toggle('open');
