@@ -1,321 +1,325 @@
 [
- {
-  "group": "Industries",
-  "pages": [
-   {
-    "title": "The Virtual Assistant Built for Real Estate Agents, Teams & Brokerages",
-    "path": "/real-estate-virtual-assistant"
-   },
-   {
-    "title": "The Back Office for Investors Who Own, Rent and Renovate",
-    "path": "/real-estate-investor-virtual-assistant"
-   },
-   {
-    "title": "The Virtual Assistant Built for Commercial Real Estate",
-    "path": "/commercial-real-estate-virtual-assistant"
-   },
-   {
-    "title": "Keller Williams Agents",
-    "path": "/keller-williams-agent-virtual-assistant"
-   },
-   {
-    "title": "Keller Williams Leadership & Market Centers",
-    "path": "/keller-williams-leadership-virtual-assistant"
-   },
-   {
-    "title": "Mortgage & Lending",
-    "path": "/mortgage-virtual-assistant"
-   },
-   {
-    "title": "Title & Escrow",
-    "path": "/title-escrow-virtual-assistant"
-   },
-   {
-    "title": "Accounting & Tax",
-    "path": "/accounting-virtual-assistant"
-   },
-   {
-    "title": "Home Services & the Trades",
-    "path": "/home-services-virtual-assistant"
-   },
-   {
-    "title": "Hospitality & Vacation Rentals",
-    "path": "/hospitality-virtual-assistant"
-   },
-   {
-    "title": "The Virtual Assistant Built for Restaurant Owners and Chefs",
-    "path": "/restaurant-virtual-assistant"
-   },
-   {
-    "title": "A Virtual Assistant for Small Business Owners Ready to Scale",
-    "path": "/small-business-virtual-assistant"
-   },
-   {
-    "title": "Sales & Service Teams",
-    "path": "/sales-service-teams-virtual-assistant"
-   },
-   {
-    "title": "The Virtual Assistant Built for Digital Marketing",
-    "path": "/digital-marketing-virtual-assistant"
-   },
-   {
-    "title": "An Assistant Your Spanish-Speaking Clients Can Actually Talk To",
-    "path": "/bilingual-virtual-assistant"
-   },
-   {
-    "title": "Bilingual VA Waitlist",
-    "path": "/bilingual-waitlist"
-   }
-  ]
- },
- {
-  "group": "Buying or Selling a Business",
-  "pages": [
-   {
-    "title": "You Just Bought a Business. Now Make It Run Without You.",
-    "path": "/just-bought-a-business"
-   },
-   {
-    "title": "Preparing to Sell? Make the Business Run Without You.",
-    "path": "/selling-your-business"
-   },
-   {
-    "title": "Your Listings Shouldn’t Depend on the Owner",
-    "path": "/business-brokers"
-   },
-   {
-    "title": "Everyone Else Is Paid at Closing. You’re There for Ten Years.",
-    "path": "/sba-lenders"
-   },
-   {
-    "title": "Your Assessment Was Right. Nobody Had Time to Act on It.",
-    "path": "/exit-planning-advisors"
-   }
-  ]
- },
- {
-  "group": "Guides & Tools",
-  "pages": [
-   {
-    "title": "How to Hire a Virtual Assistant",
-    "path": "/how-to-hire-a-virtual-assistant"
-   },
-   {
-    "title": "What’s Really Holding Your Business Back?",
-    "path": "/needs-assessment"
-   },
-   {
-    "title": "Delegation Mastery: Free Scripts and Templates for Owners",
-    "path": "/delegation-guide"
-   },
-   {
-    "title": "Delegation Mastery for KW Market Centers",
-    "path": "/delegation-guide-market-center"
-   },
-   {
-    "title": "Delegation Mastery for Real Estate Agents",
-    "path": "/delegation-guide-real-estate"
-   },
-   {
-    "title": "Delegation Mastery for Loan Officers",
-    "path": "/delegation-guide-mortgage"
-   },
-   {
-    "title": "Tools & Platforms",
-    "path": "/tools-and-platforms"
-   },
-   {
-    "title": "FAQ",
-    "path": "/faq"
-   }
-  ]
- },
- {
-  "group": "Insights",
-  "pages": [
-   {
-    "title": "Insights for Growing Businesses",
-    "path": "/insights"
-   },
-   {
-    "title": "Breaking the Growth Ceiling: When Admin Is What Caps Growth",
-    "path": "/insights/breaking-the-growth-ceiling"
-   },
-   {
-    "title": "Fifteen Virtual Assistants, Four Functions, No Real Estate in Sight",
-    "path": "/insights/fifteen-virtual-assistants-outside-real-estate"
-   },
-   {
-    "title": "Your First 100 Days After Buying a Business: A Week-by-Week Plan",
-    "path": "/insights/first-100-days-after-buying-a-business"
-   },
-   {
-    "title": "How to Make Your Business Run Without You",
-    "path": "/insights/how-to-make-your-business-run-without-you"
-   },
-   {
-    "title": "14 to 90 Days In: Real Results From Keller Williams Agents",
-    "path": "/insights/keller-williams-agent-14-and-60-day-results"
-   },
-   {
-    "title": "Ninety Days With One Virtual Assistant: Every Check-In, On Camera",
-    "path": "/insights/ninety-days-with-one-virtual-assistant"
-   },
-   {
-    "title": "One Market Center, Ten Virtual Assistants",
-    "path": "/insights/one-market-center-ten-virtual-assistants"
-   },
-   {
-    "title": "Virtual Assistant for Restaurants and Chefs: What to Hand Off, and What to Keep",
-    "path": "/insights/restaurant-virtual-assistant-tasks"
-   },
-   {
-    "title": "SOPs for Small Business: How to Write Procedures People Follow",
-    "path": "/insights/sops-for-small-business"
-   },
-   {
-    "title": "From One VA to Three: Virtual Assistants in Title and Escrow",
-    "path": "/insights/title-company-virtual-assistants"
-   },
-   {
-    "title": "“I would say, honestly, she's already paid for her first year of work.”",
-    "path": "/insights/vacation-rental-assistant-paid-for-herself"
-   },
-   {
-    "title": "How Much Does a Virtual Assistant Cost? An Honest 2026 Breakdown",
-    "path": "/insights/virtual-assistant-cost"
-   },
-   {
-    "title": "Virtual Assistant or First Employee?",
-    "path": "/insights/virtual-assistant-or-first-employee"
-   }
-  ]
- },
- {
-  "group": "Client Check-In Videos",
-  "pages": [
-   {
-    "title": "Alexandra Pocora — check-in",
-    "path": "/watch/alexandra-pocora-check-in"
-   },
-   {
-    "title": "Austin Galvez — 30-day check-in",
-    "path": "/watch/austin-galvez-30-day-check-in"
-   },
-   {
-    "title": "Brandon Lara — 90-day check-in",
-    "path": "/watch/brandon-lara-90-day-check-in"
-   },
-   {
-    "title": "Clay Stagg — 60-day check-in",
-    "path": "/watch/clay-stagg-60-day-check-in"
-   },
-   {
-    "title": "Courtney Okanlomo — 60-day check-in",
-    "path": "/watch/courtney-okanlomo-60-day-check-in"
-   },
-   {
-    "title": "Debbie Yates — 60-day check-in",
-    "path": "/watch/debbie-yates-60-day-check-in"
-   },
-   {
-    "title": "Elle Haynes — 30-day check-in",
-    "path": "/watch/elle-haynes-30-day-check-in"
-   },
-   {
-    "title": "Emily Zakhem — 60-day check-in",
-    "path": "/watch/emily-zakhem-60-day-check-in"
-   },
-   {
-    "title": "Hannah DuBose — 60-day check-in",
-    "path": "/watch/hannah-dubose-60-day-check-in"
-   },
-   {
-    "title": "James Del Bosque — 90-day check-in",
-    "path": "/watch/james-del-bosque-90-day-check-in"
-   },
-   {
-    "title": "Ken Foster — 14-day check-in",
-    "path": "/watch/ken-foster-14-day-check-in"
-   },
-   {
-    "title": "Ken Foster — 30-day check-in",
-    "path": "/watch/ken-foster-30-day-check-in"
-   },
-   {
-    "title": "Ken Foster — 60-day check-in",
-    "path": "/watch/ken-foster-60-day-check-in"
-   },
-   {
-    "title": "Kim Dixon-Dudley — 30-day check-in",
-    "path": "/watch/kim-dixon-dudley-30-day-check-in"
-   },
-   {
-    "title": "Melanne Carpenter — 60-day check-in",
-    "path": "/watch/melanne-carpenter-60-day-check-in"
-   },
-   {
-    "title": "Montse Foster — 90-day check-in",
-    "path": "/watch/montse-foster-90-day-check-in"
-   },
-   {
-    "title": "Quinton Randel — client check-in",
-    "path": "/watch/quinton-randel-eidlexit-check-in"
-   },
-   {
-    "title": "Rayan Saleh — 14-day check-in",
-    "path": "/watch/rayan-saleh-14-day-check-in"
-   }
-  ]
- },
- {
-  "group": "Company",
-  "pages": [
-   {
-    "title": "Home",
-    "path": "/"
-   },
-   {
-    "title": "The People Behind Your Assistant",
-    "path": "/about"
-   },
-   {
-    "title": "How It Works",
-    "path": "/how-it-works"
-   },
-   {
-    "title": "Transparent, Flat-Rate Virtual Assistant Pricing",
-    "path": "/pricing"
-   },
-   {
-    "title": "Results, Not Promises",
-    "path": "/reviews"
-   },
-   {
-    "title": "Contact Us",
-    "path": "/contact"
-   },
-   {
-    "title": "Privacy Policy",
-    "path": "/privacy-policy"
-   },
-   {
-    "title": "Site Map",
-    "path": "/site-map"
-   }
-  ]
- },
- {
-  "group": "Careers",
-  "pages": [
-   {
-    "title": "Join Our Sales Team",
-    "path": "/join-sales-team"
-   },
-   {
-    "title": "Apply as a VA",
-    "path": "https://www.vrealtyassistants.com/apply-now"
-   }
-  ]
- }
+  {
+    "group": "Industries",
+    "pages": [
+      {
+        "title": "The Virtual Assistant Built for Real Estate Agents, Teams & Brokerages",
+        "path": "/real-estate-virtual-assistant"
+      },
+      {
+        "title": "The Back Office for Investors Who Own, Rent and Renovate",
+        "path": "/real-estate-investor-virtual-assistant"
+      },
+      {
+        "title": "The Virtual Assistant Built for Commercial Real Estate",
+        "path": "/commercial-real-estate-virtual-assistant"
+      },
+      {
+        "title": "Keller Williams Agents",
+        "path": "/keller-williams-agent-virtual-assistant"
+      },
+      {
+        "title": "Keller Williams Leadership & Market Centers",
+        "path": "/keller-williams-leadership-virtual-assistant"
+      },
+      {
+        "title": "Mortgage & Lending",
+        "path": "/mortgage-virtual-assistant"
+      },
+      {
+        "title": "Title & Escrow",
+        "path": "/title-escrow-virtual-assistant"
+      },
+      {
+        "title": "Insurance Agencies",
+        "path": "/insurance-agency-virtual-assistant"
+      },
+      {
+        "title": "Accounting & Tax",
+        "path": "/accounting-virtual-assistant"
+      },
+      {
+        "title": "Home Services & the Trades",
+        "path": "/home-services-virtual-assistant"
+      },
+      {
+        "title": "Hospitality & Vacation Rentals",
+        "path": "/hospitality-virtual-assistant"
+      },
+      {
+        "title": "The Virtual Assistant Built for Restaurant Owners and Chefs",
+        "path": "/restaurant-virtual-assistant"
+      },
+      {
+        "title": "A Virtual Assistant for Small Business Owners Ready to Scale",
+        "path": "/small-business-virtual-assistant"
+      },
+      {
+        "title": "Sales & Service Teams",
+        "path": "/sales-service-teams-virtual-assistant"
+      },
+      {
+        "title": "The Virtual Assistant Built for Digital Marketing",
+        "path": "/digital-marketing-virtual-assistant"
+      },
+      {
+        "title": "An Assistant Your Spanish-Speaking Clients Can Actually Talk To",
+        "path": "/bilingual-virtual-assistant"
+      },
+      {
+        "title": "Bilingual VA Waitlist",
+        "path": "/bilingual-waitlist"
+      }
+    ]
+  },
+  {
+    "group": "Buying or Selling a Business",
+    "pages": [
+      {
+        "title": "You Just Bought a Business. Now Make It Run Without You.",
+        "path": "/just-bought-a-business"
+      },
+      {
+        "title": "Preparing to Sell? Make the Business Run Without You.",
+        "path": "/selling-your-business"
+      },
+      {
+        "title": "Your Listings Shouldn’t Depend on the Owner",
+        "path": "/business-brokers"
+      },
+      {
+        "title": "Everyone Else Is Paid at Closing. You’re There for Ten Years.",
+        "path": "/sba-lenders"
+      },
+      {
+        "title": "Your Assessment Was Right. Nobody Had Time to Act on It.",
+        "path": "/exit-planning-advisors"
+      }
+    ]
+  },
+  {
+    "group": "Guides & Tools",
+    "pages": [
+      {
+        "title": "How to Hire a Virtual Assistant",
+        "path": "/how-to-hire-a-virtual-assistant"
+      },
+      {
+        "title": "What’s Really Holding Your Business Back?",
+        "path": "/needs-assessment"
+      },
+      {
+        "title": "Delegation Mastery: Free Scripts and Templates for Owners",
+        "path": "/delegation-guide"
+      },
+      {
+        "title": "Delegation Mastery for KW Market Centers",
+        "path": "/delegation-guide-market-center"
+      },
+      {
+        "title": "Delegation Mastery for Real Estate Agents",
+        "path": "/delegation-guide-real-estate"
+      },
+      {
+        "title": "Delegation Mastery for Loan Officers",
+        "path": "/delegation-guide-mortgage"
+      },
+      {
+        "title": "Tools & Platforms",
+        "path": "/tools-and-platforms"
+      },
+      {
+        "title": "FAQ",
+        "path": "/faq"
+      }
+    ]
+  },
+  {
+    "group": "Insights",
+    "pages": [
+      {
+        "title": "Insights for Growing Businesses",
+        "path": "/insights"
+      },
+      {
+        "title": "Breaking the Growth Ceiling: When Admin Is What Caps Growth",
+        "path": "/insights/breaking-the-growth-ceiling"
+      },
+      {
+        "title": "Fifteen Virtual Assistants, Four Functions, No Real Estate in Sight",
+        "path": "/insights/fifteen-virtual-assistants-outside-real-estate"
+      },
+      {
+        "title": "Your First 100 Days After Buying a Business: A Week-by-Week Plan",
+        "path": "/insights/first-100-days-after-buying-a-business"
+      },
+      {
+        "title": "How to Make Your Business Run Without You",
+        "path": "/insights/how-to-make-your-business-run-without-you"
+      },
+      {
+        "title": "14 to 90 Days In: Real Results From Keller Williams Agents",
+        "path": "/insights/keller-williams-agent-14-and-60-day-results"
+      },
+      {
+        "title": "Ninety Days With One Virtual Assistant: Every Check-In, On Camera",
+        "path": "/insights/ninety-days-with-one-virtual-assistant"
+      },
+      {
+        "title": "One Market Center, Ten Virtual Assistants",
+        "path": "/insights/one-market-center-ten-virtual-assistants"
+      },
+      {
+        "title": "Virtual Assistant for Restaurants and Chefs: What to Hand Off, and What to Keep",
+        "path": "/insights/restaurant-virtual-assistant-tasks"
+      },
+      {
+        "title": "SOPs for Small Business: How to Write Procedures People Follow",
+        "path": "/insights/sops-for-small-business"
+      },
+      {
+        "title": "From One VA to Three: Virtual Assistants in Title and Escrow",
+        "path": "/insights/title-company-virtual-assistants"
+      },
+      {
+        "title": "“I would say, honestly, she's already paid for her first year of work.”",
+        "path": "/insights/vacation-rental-assistant-paid-for-herself"
+      },
+      {
+        "title": "How Much Does a Virtual Assistant Cost? An Honest 2026 Breakdown",
+        "path": "/insights/virtual-assistant-cost"
+      },
+      {
+        "title": "Virtual Assistant or First Employee?",
+        "path": "/insights/virtual-assistant-or-first-employee"
+      }
+    ]
+  },
+  {
+    "group": "Client Check-In Videos",
+    "pages": [
+      {
+        "title": "Alexandra Pocora — check-in",
+        "path": "/watch/alexandra-pocora-check-in"
+      },
+      {
+        "title": "Austin Galvez — 30-day check-in",
+        "path": "/watch/austin-galvez-30-day-check-in"
+      },
+      {
+        "title": "Brandon Lara — 90-day check-in",
+        "path": "/watch/brandon-lara-90-day-check-in"
+      },
+      {
+        "title": "Clay Stagg — 60-day check-in",
+        "path": "/watch/clay-stagg-60-day-check-in"
+      },
+      {
+        "title": "Courtney Okanlomo — 60-day check-in",
+        "path": "/watch/courtney-okanlomo-60-day-check-in"
+      },
+      {
+        "title": "Debbie Yates — 60-day check-in",
+        "path": "/watch/debbie-yates-60-day-check-in"
+      },
+      {
+        "title": "Elle Haynes — 30-day check-in",
+        "path": "/watch/elle-haynes-30-day-check-in"
+      },
+      {
+        "title": "Emily Zakhem — 60-day check-in",
+        "path": "/watch/emily-zakhem-60-day-check-in"
+      },
+      {
+        "title": "Hannah DuBose — 60-day check-in",
+        "path": "/watch/hannah-dubose-60-day-check-in"
+      },
+      {
+        "title": "James Del Bosque — 90-day check-in",
+        "path": "/watch/james-del-bosque-90-day-check-in"
+      },
+      {
+        "title": "Ken Foster — 14-day check-in",
+        "path": "/watch/ken-foster-14-day-check-in"
+      },
+      {
+        "title": "Ken Foster — 30-day check-in",
+        "path": "/watch/ken-foster-30-day-check-in"
+      },
+      {
+        "title": "Ken Foster — 60-day check-in",
+        "path": "/watch/ken-foster-60-day-check-in"
+      },
+      {
+        "title": "Kim Dixon-Dudley — 30-day check-in",
+        "path": "/watch/kim-dixon-dudley-30-day-check-in"
+      },
+      {
+        "title": "Melanne Carpenter — 60-day check-in",
+        "path": "/watch/melanne-carpenter-60-day-check-in"
+      },
+      {
+        "title": "Montse Foster — 90-day check-in",
+        "path": "/watch/montse-foster-90-day-check-in"
+      },
+      {
+        "title": "Quinton Randel — client check-in",
+        "path": "/watch/quinton-randel-eidlexit-check-in"
+      },
+      {
+        "title": "Rayan Saleh — 14-day check-in",
+        "path": "/watch/rayan-saleh-14-day-check-in"
+      }
+    ]
+  },
+  {
+    "group": "Company",
+    "pages": [
+      {
+        "title": "Home",
+        "path": "/"
+      },
+      {
+        "title": "The People Behind Your Assistant",
+        "path": "/about"
+      },
+      {
+        "title": "How It Works",
+        "path": "/how-it-works"
+      },
+      {
+        "title": "Transparent, Flat-Rate Virtual Assistant Pricing",
+        "path": "/pricing"
+      },
+      {
+        "title": "Results, Not Promises",
+        "path": "/reviews"
+      },
+      {
+        "title": "Contact Us",
+        "path": "/contact"
+      },
+      {
+        "title": "Privacy Policy",
+        "path": "/privacy-policy"
+      },
+      {
+        "title": "Site Map",
+        "path": "/site-map"
+      }
+    ]
+  },
+  {
+    "group": "Careers",
+    "pages": [
+      {
+        "title": "Join Our Sales Team",
+        "path": "/join-sales-team"
+      },
+      {
+        "title": "Apply as a VA",
+        "path": "https://www.vrealtyassistants.com/apply-now"
+      }
+    ]
+  }
 ]
