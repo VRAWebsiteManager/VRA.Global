@@ -26,7 +26,13 @@ TIMESTAMP=$(date "+%Y-%m-%d %-l-%M%p" | tr '[:upper:]' '[:lower:]' | sed 's/^ */
 BACKUP_DIR="$ROOT/$TIMESTAMP"
 
 mkdir -p "$BACKUP_DIR"
-rsync -a --exclude='.git' --exclude='deploy-*/' --exclude='.DS_Store' "$REPO_DIR/" "$BACKUP_DIR/"
+# Excludes: .git (recoverable from the remote), Netlify deploy dirs, and two
+# folders that live in the repo but are not part of the website -- 'Claude
+# outputs' and the nested July 2026 backup. Together they were ~90MB of every
+# 239MB snapshot, re-copied on each commit.
+rsync -a --exclude='.git' --exclude='deploy-*/' --exclude='.DS_Store' \
+  --exclude='Claude outputs/' --exclude='website-backup-2026-07-18/' \
+  "$REPO_DIR/" "$BACKUP_DIR/"
 
 # Keep the 2 most recent snapshots. Never let pruning fail the commit:
 # deleting is not always permitted from inside a Claude session.
