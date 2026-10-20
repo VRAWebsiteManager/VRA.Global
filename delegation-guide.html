@@ -536,6 +536,18 @@ document.getElementById('guide-form').addEventListener('submit', function(e){
     // not sitting in page source for anyone who skips the form.
     var dl = document.getElementById('guide-download');
     if (dl && dl.getAttribute('data-pdf')) { dl.href = dl.getAttribute('data-pdf'); }
+    // GA4: one event per guide handed over, carrying first-touch attribution.
+    // Fires here rather than on the POST, so a guide delivered after a failed
+    // Formspree call is still counted -- the download is what happened.
+    try {
+      if (typeof gtag === 'function') {
+        var pdf = (dl && dl.getAttribute('data-pdf')) || '';
+        gtag('event', 'guide_download', {
+          guide: pdf.split('/').pop().replace(/\.pdf$/, ''),
+          source: (typeof window.vraSource === 'function' ? window.vraSource() : '')
+        });
+      }
+    } catch (e) {}
     form.style.display = 'none';
     var okBox = document.getElementById('guide-success');
     okBox.style.display = 'block';
