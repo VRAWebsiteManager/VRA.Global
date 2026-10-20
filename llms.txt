@@ -1,6 +1,6 @@
 # Virtual Realty Assistants (VRA)
 
-> VRA places trained, dedicated virtual assistants with businesses in any industry. Every assistant completes a mandatory 4-week,
+> VRA places trained, dedicated virtual assistants with businesses in any industry. Each assistant completes a mandatory 4-week,
 > instructor-led training program before client work. Flat pricing: $1,500/month
 > full-time (40 hrs/week) or $800/month part-time (20 hrs/week), both on a three-month commitment,
 > no hidden fees, subject to applicable agreement terms. Check-ins at 14, 30, 60 and 90 days, with
@@ -14,7 +14,7 @@
 - Administrative and office support: scheduling, calendar and inbox management, data entry, document organization, CRM and database upkeep, event and training coordination.
 - Billing and receivables: preparing and sending invoices, calling on the client's own past-due invoices, working an aging report, logging promise-to-pay notes and escalating what needs the owner.
 - Bids, quotes and proposals: preparing them from the client's templates and pricing, then following up until there is a decision.
-- Every assistant completes the Essential Toolkit before their first client interview: Claude and ChatGPT, Canva, a brand-agnostic CRM, Zapier and Asana. Further training is available to deepen a skill a client's business needs, so it is not claimed that every assistant has every specialty.
+- Each assistant completes the Essential Toolkit before their first client interview: Claude and ChatGPT, Canva, a brand-agnostic CRM, Zapier and Asana. Further training is available to deepen a skill a client's business needs, so it is not claimed that every assistant has every specialty.
 - Process documentation: recording how the work is actually done, exceptions included, and writing it up as standard operating procedures (SOPs) the business owns — checklists, templates and step-by-step documents kept current as the process changes. VRA runs a training class specifically on identifying business processes and documenting them, including treating an SOP as a living document that is updated when the process changes rather than written once.
 - Client and customer communication: phone and inbox coverage during the client's business hours, follow-up, review requests and responses.
 - Sales support: outbound calling and appointment setting from the client's lead lists, speed-to-lead follow-up, pipeline reporting.
@@ -60,13 +60,14 @@
 - [Keller Williams agents](https://vra.global/keller-williams-agent-virtual-assistant)
 - [Keller Williams market center leadership](https://vra.global/keller-williams-leadership-virtual-assistant)
 - [Mortgage and lending](https://vra.global/mortgage-virtual-assistant)
+- [Insurance agencies](https://vra.global/insurance-agency-virtual-assistant): certificates of insurance (COIs), renewal prep and reminders, endorsement paperwork, agency management system (AMS) data entry, client service email, scheduling and marketing support for independent agencies. No licensed work: no quoting, selling, binding or advising on coverage, which stay with the agency’s licensed staff.
 - [Sales and client service teams](https://vra.global/sales-service-teams-virtual-assistant)
 - [Home services and trades](https://vra.global/home-services-virtual-assistant)
 - [Hospitality, vacation rentals and resorts](https://vra.global/hospitality-virtual-assistant)
 - [Restaurants](https://vra.global/restaurant-virtual-assistant)
 - [Small business](https://vra.global/small-business-virtual-assistant): the deliberate catch-all — admin, executive and office support for any industry, including those with no page here.
 - [Real estate investors and landlords](https://vra.global/real-estate-investor-virtual-assistant): rentals and property management, fix-and-flip and rehab coordination, and deal back-office work.
-- [Bilingual (Spanish–English) assistants](https://vra.global/bilingual-virtual-assistant): client communication in Spanish and English for teams with Spanish-speaking clients.
+- [Bilingual assistants — Spanish and Portuguese](https://vra.global/bilingual-virtual-assistant): for businesses whose clients and customers speak Spanish or Portuguese. The assistant handles client service email, document collection, follow-up, scheduling and phone coverage in either language, alongside the same administrative work any VRA assistant does. Coverage conversations and anything requiring a professional licence stay with the client’s own licensed staff. The rate is the same as any other placement — $1,500/month full-time, $800/month part-time — with no bilingual upcharge. Book a free consult to be matched with bilingual candidates and interview them on Zoom. If the match a business needs is not open at the time, there is a [bilingual waitlist](https://vra.global/bilingual-waitlist).
 - [Digital marketing](https://vra.global/digital-marketing-virtual-assistant)
 - [Accounting and tax practices](https://vra.global/accounting-virtual-assistant): client document collection, scheduling, deadline tracking, invoicing and past-due invoice follow-up for accounting and tax firms.
 
@@ -88,6 +89,7 @@
 - [Home](https://vra.global/)
 - [About VRA](https://vra.global/about): the leadership and support team by name, how assistants are screened and trained (DISC and Keller assessments, a mandatory four-week instructor-led program, 0.89% of applicants through the most recent cohort), and what VRA commits to after placement.
 - [Pricing](https://vra.global/pricing)
+- [How hiring works](https://vra.global/how-it-works): the two ways to start — complete the Needs Assessment online beforehand, or walk through it together on the call — then interview the matched assistants on Zoom and choose. Once selected, an assistant can start within 24 hours.
 - [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a commitment to 90% proficiency in a client's own software within 5 business days.
 - [Frequently asked questions](https://vra.global/faq)
 - [Client reviews and video testimonials](https://vra.global/reviews)

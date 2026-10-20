@@ -25,6 +25,14 @@
      doesn't end up with six spellings of LinkedIn. */
   function label(host) {
     if (!host) return '';
+    /* AI assistants. Grouped under an 'ai/' prefix so the sheet can filter the whole
+       channel, while still showing which assistant sent them. These must come before
+       the google test below, or gemini.google.com is swallowed as plain google. */
+    if (/(^|\.)chatgpt\.com$/.test(host) || /(^|\.)openai\.com$/.test(host)) return 'ai/chatgpt';
+    if (/(^|\.)perplexity\.ai$/.test(host)) return 'ai/perplexity';
+    if (/(^|\.)claude\.ai$/.test(host)) return 'ai/claude';
+    if (/(^|\.)copilot\.microsoft\.com$/.test(host)) return 'ai/copilot';
+    if (/(^|\.)gemini\.google\.com$/.test(host)) return 'ai/gemini';
     if (host === 'lnkd.in' || /(^|\.)linkedin\.com$/.test(host)) return 'linkedin';
     if (/(^|\.)google\./.test(host)) return 'google';
     if (/(^|\.)bing\.com$/.test(host)) return 'bing';
