@@ -154,6 +154,22 @@
   .mid-cta p strong{color:var(--darker-blue);}
   .mid-cta a{color:var(--blue);font-weight:700;}
 
+  /* COMPARISON TABLE */
+  .cmp{width:100%;border-collapse:collapse;margin:0 auto 26px;font-size:15px;background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  .cmp caption{caption-side:top;text-align:left;font-weight:800;color:var(--dark-blue);padding:0 0 12px;font-size:16px;}
+  .cmp th,.cmp td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+  .cmp thead th{background:var(--light-blue);color:var(--darker-blue);font-weight:800;font-size:13.5px;letter-spacing:.3px;text-transform:uppercase;}
+  .cmp tbody th{font-weight:700;color:var(--dark-blue);width:24%;}
+  .cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none;}
+  .cmp tbody tr:nth-child(even){background:#fbfdff;}
+  .cmp td strong{color:var(--darker-blue);}
+  @media(max-width:700px){.cmp,.cmp thead,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto;}
+    .cmp thead{display:none;}
+    .cmp tbody tr{border-bottom:2px solid var(--border);padding:6px 0;}
+    .cmp tbody th{width:auto;padding-bottom:4px;}
+    .cmp tbody td{padding-top:0;padding-bottom:10px;}
+    .cmp tbody td:before{content:attr(data-label) ": ";font-weight:700;color:var(--dark-blue);}}
+
   /* FAQ */
   .faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
   .faq-item summary{cursor:pointer;font-weight:700;font-size:16.5px;color:var(--darker-blue);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
@@ -211,6 +227,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "In pure subscription terms, yes. The comparison that matters is against your own hours, or against a salary with payroll taxes and benefits on top. A part-time assistant is $800 a month for 20 hours a week at one flat rate, which is why part-time exists for businesses where the work is there before another salary is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the risks of using AI instead of a virtual assistant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI is fluent whether or not it is right, so a wrong date or figure arrives in the same even tone as a correct one, and anything a client is going to act on has to be checked against the source. There is also the question of which client information goes into a prompt at all, which is a judgment call about the obligations your business works under. And accountability does not divide: a tool cannot be answerable to your client, so the checking and the owning stay with a person either way."
       }
     },
     {
@@ -419,14 +443,51 @@
 
       <p>That pattern repeats across much of what an owner hands off:</p>
 
-      <ul>
-        <li><strong>The email.</strong> AI writes it. You still send it, track the reply, and follow up.</li>
-        <li><strong>The data.</strong> AI can format it. Someone still enters it in the system you actually use, and notices the client who appears three times under slightly different names.</li>
-        <li><strong>The document.</strong> AI can draft it. Someone still collects the signatures and chases the person who has not signed.</li>
-        <li><strong>The schedule.</strong> AI can suggest one. Someone still books it, confirms it, and rearranges it when the contractor moves.</li>
-      </ul>
+      <table class="cmp">
+        <caption>AI or a virtual assistant, task by task</caption>
+        <thead>
+          <tr><th scope="col">The task</th><th scope="col">What AI gives you</th><th scope="col">What still has to happen</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">A renewal or follow-up email</th>
+            <td data-label="What AI gives you">A draft in the right tone, in seconds</td>
+            <td data-label="What still has to happen">Deciding who it goes to, sending it, noticing who did not reply, and chasing them on Thursday</td>
+          </tr>
+          <tr>
+            <th scope="row">A list to work from</th>
+            <td data-label="What AI gives you">A tidy format, once it has the data</td>
+            <td data-label="What still has to happen">Pulling the data out of your CRM or management system, and spotting the client sitting in it three times under different names</td>
+          </tr>
+          <tr>
+            <th scope="row">Data entry</th>
+            <td data-label="What AI gives you">A clean, paste-ready block</td>
+            <td data-label="What still has to happen">Entering it in the system you actually use, and catching the line that does not reconcile</td>
+          </tr>
+          <tr>
+            <th scope="row">A document or signature packet</th>
+            <td data-label="What AI gives you">A first draft of the wording</td>
+            <td data-label="What still has to happen">Assembling it, sending it out for signature, and chasing whoever has not signed</td>
+          </tr>
+          <tr>
+            <th scope="row">Scheduling</th>
+            <td data-label="What AI gives you">A suggested time and a polite note</td>
+            <td data-label="What still has to happen">Booking it, confirming it, and rearranging it when the contractor moves</td>
+          </tr>
+          <tr>
+            <th scope="row">An inbound call</th>
+            <td data-label="What AI gives you">A script, or an automated voice that takes a message</td>
+            <td data-label="What still has to happen">Someone who can answer the question the caller actually has, book the job, and call Tuesday&rsquo;s customer back</td>
+          </tr>
+          <tr>
+            <th scope="row">An outstanding quote</th>
+            <td data-label="What AI gives you">A well-judged nudge, drafted</td>
+            <td data-label="What still has to happen">Knowing which quotes are still open, calling the ones worth calling, and recording what the customer said</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <p>In each of those the draft is the fast part. The follow-through is the slow part, and the follow-through is what was taking your hours in the first place.</p>
+      <p>In each row the draft is the fast part. The follow-through is the slow part, and the follow-through is what was taking your hours in the first place.</p>
 
       <p>Using AI yourself also costs more time than people count. You have to know what to ask for, read what comes back, catch where it is wrong, and ask again. That is a skill, and it is a real one, but it is a skill you are exercising in hours you said you did not have.</p>
 
@@ -462,6 +523,13 @@
       </ul>
 
       <p>In none of those is AI the thing standing between you and your evening. The coordination is.</p>
+
+      <h2>What AI Gets Wrong, and Who Answers for It</h2>
+      <p>AI is fluent whether or not it is right. It will give you a renewal date, a commission split or a contract deadline in the same even tone whether it read the document correctly or filled the gap with something plausible, and the mistakes do not announce themselves. That matters most in exactly the work where being wrong is expensive: dates, figures, names on a document, anything a client is going to act on. Someone has to check it against the source, and that someone is either you or a person you are paying.</p>
+
+      <p>Then there is the question of what goes into the prompt in the first place. Client files, contracts, policy details and transaction records are not yours to paste wherever is convenient, and the obligations you work under do not relax because a tool is useful. Deciding what may be handed to which tool is a judgment call about your own business, and it is better made deliberately than by whoever is in a hurry.</p>
+
+      <p>And when something does go wrong, accountability does not divide. A tool cannot be answerable to your client, because it has no stake in the consequence. The practical difference when a task sits with a person is that one named individual owns the outcome, is reachable when it slips, and carries what happened into the next one. None of this is an argument against using AI. It is the reason the tool and the person are not substitutes for each other.</p>
 
       <h2>The Part Nobody Says Out Loud</h2>
       <p>Your problem probably isn&rsquo;t output. It&rsquo;s the number of things sitting on your own plate.</p>
@@ -512,6 +580,10 @@
       <details class="faq-item">
         <summary>Isn&rsquo;t a virtual assistant more expensive than an AI subscription?</summary>
         <p>In pure subscription terms, yes. The comparison that matters is against your own hours, or against a salary with payroll taxes and benefits on top. A part-time assistant is $800 a month for 20 hours a week at one flat rate, which is why part-time exists for businesses where the work is there before another salary is.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What are the risks of using AI instead of a virtual assistant?</summary>
+        <p>AI is fluent whether or not it is right, so a wrong date or figure arrives in the same even tone as a correct one, and anything a client is going to act on has to be checked against the source. There is also the question of which client information goes into a prompt at all, which is a judgment call about the obligations your business works under. And accountability does not divide: a tool cannot be answerable to your client, so the checking and the owning stay with a person either way.</p>
       </details>
       <details class="faq-item">
         <summary>What can an assistant do that AI cannot?</summary>
