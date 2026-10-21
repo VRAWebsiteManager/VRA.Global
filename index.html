@@ -817,7 +817,7 @@ html{scroll-padding-top:148px;}
     <div class="section-head">
       <div class="kicker">Meet the Team</div>
       <h2>Meet Our Virtual Assistants</h2>
-      <p>Your assistant works the hours you set, evenings or overnight if you need them, and the bench includes Spanish&ndash;English and Portuguese&ndash;English bilingual assistants for teams whose clients speak Spanish or Portuguese. Click on a photo to view their Resume, DISC Assessment, and Keller Personality Assessment (KPA).</p>
+      <p>Your assistant works the hours you set, evenings or overnight if you need them, and the bench includes Spanish&ndash;English and Portuguese&ndash;English bilingual assistants for teams whose clients speak Spanish or Portuguese. Click on a photo to view their DISC Assessment and Keller Personality Assessment (KPA).</p>
     </div>
   </div>
   <div class="assistant-marquee">
@@ -1657,11 +1657,10 @@ function setImg(elId, path){
 
 const overlay = document.getElementById('modalOverlay');
 
-// Fills one modal tab (resume/DISC/KPA). Falls back to a "coming soon" note
+// Fills one modal tab (DISC/KPA). Falls back to a "coming soon" note
 // in place of the normal description when a VA (like a brand-new hire) is
 // missing that file, instead of showing a broken image or dead link.
 const PANEL_DEFAULTS = {
-  resumeDesc: document.getElementById('resumeDesc').textContent,
   discDesc: document.getElementById('discDesc').textContent,
   kpaDesc: document.getElementById('kpaDesc').textContent
 };
@@ -1728,8 +1727,8 @@ function openModal(i){
   setPanel('kpaImg', 'kpaLink', 'kpaDesc', a.localKpaImg, a.kpaImg, a.localKpaPdf, a.kpaPdf, 'KPA');
   document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.modal-panel').forEach(p => p.classList.remove('active'));
-  document.querySelector('.modal-tab[data-tab="resume"]').classList.add('active');
-  document.querySelector('.modal-panel[data-panel="resume"]').classList.add('active');
+  document.querySelector('.modal-tab[data-tab="disc"]').classList.add('active');
+  document.querySelector('.modal-panel[data-panel="disc"]').classList.add('active');
   overlay.classList.add('open');
 }
 document.getElementById('modalClose').addEventListener('click', () => overlay.classList.remove('open'));
