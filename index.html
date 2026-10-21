@@ -1415,7 +1415,7 @@ function buildCard(i){
     <div class="assistant-photo auto">
       <div class="assistant-initials">${initials(a.name)}</div>
       ${photoHtml}
-      <div class="assistant-overlay">View Resume, DISC &amp; KPA</div>
+      <div class="assistant-overlay">View DISC &amp; KPA</div>
     </div>
     ${badgeHtml}
     <div class="assistant-name">${cardName(a.name)}</div>
@@ -1434,8 +1434,8 @@ function buildCard(i){
 // Anyone already hardcoded below (real photo, resume thumbnail, etc.) gets
 // matched up and their badge kept current. Anyone in the sheet who ISN'T
 // hardcoded yet gets an automatic placeholder card generated on the fly —
-// initials avatar, employment type, and a link to their VA Profile Drive
-// folder for resume/DISC/KPA — so a brand-new hire goes live the moment
+// initials avatar and employment type, with no profile document link —
+// so a brand-new hire goes live the moment
 // they're added to the sheet, with no code change required. Their card can
 // be upgraded later with a real photo/thumbnail as a polish pass; nothing
 // blocks them from appearing in the meantime. Anyone hardcoded who drops out
@@ -1569,9 +1569,11 @@ function renderAssistants(sheetRows){
   });
 
   // New sheet rows with no hardcoded profile: auto-generate a placeholder
-  // card (real photo if Drive sharing allows it, else an initials avatar;
-  // resume/DISC/KPA tabs link to their Drive folder, upgraded to a real
-  // rendered thumbnail if/when the sheet has one).
+  // card (real photo if Drive sharing allows it, else an initials avatar).
+  // Profile documents are deliberately NOT linked: the Drive profile file
+  // has the assistant's resume as page 1, so linking it from the DISC or
+  // KPA tab republished the resume. Those tabs fall through to their
+  // explainer text until a real DISC/KPA report exists in docs/.
   sheetRows.forEach(row => {
     if(usedKeys.has(row.key) || !row.name) return;
     const entry = { name: row.name, employmentType: row.availability, country: row.country, autoCard: true };
