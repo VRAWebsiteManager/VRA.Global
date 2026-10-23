@@ -473,7 +473,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
     var okBox = document.getElementById('contact-success');
     okBox.style.display = 'block';
     /* GA4 conversion: success only -- Formspree has returned ok by here. */
-    if (window.vraTrack) { window.vraTrack('form_submit_contact', {}); }
+    if (window.vraTrack) { window.vraTrack('form_submit_contact', { src: window.vraEventSource ? window.vraEventSource() : 'unknown' }); }
     // Hiding the form reflows the page, so measure on the next tick, not this one.
     setTimeout(function(){
       var top = Math.max(okBox.getBoundingClientRect().top + window.pageYOffset - 80, 0);
