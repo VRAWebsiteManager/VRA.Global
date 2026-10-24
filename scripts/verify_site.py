@@ -100,6 +100,18 @@ def check_pages():
                 bad.append('%s: British spelling "%s" (use "%s")' % (f, w, BRITISH[w]))
     return len(files), bad
 
+def check_plaintext():
+    """llms.txt is read by AI crawlers but is not HTML, so check_pages never sees it."""
+    bad = []
+    for f in ('llms.txt',):
+        if not os.path.exists(f):
+            continue
+        t = io.open(f, encoding='utf-8').read()
+        for w in sorted({m.group(1).lower() for m in BRITISH_RE.finditer(t)}):
+            bad.append('%s: British spelling "%s" (use "%s")' % (f, w, BRITISH[w]))
+    return bad
+
+
 def run(script, *args):
     r = subprocess.run([sys.executable, '-I', os.path.join('scripts', script)] + list(args),
                        capture_output=True, text=True, cwd=ROOT)
@@ -113,6 +125,11 @@ def main():
     for b in bad[:30]:
         print('        ' + b)
     fails += bool(bad)
+    pbad = check_plaintext()
+    print('TEXT    %s' % ('ok - llms.txt' if not pbad else '%d problem(s)' % len(pbad)))
+    for b in pbad[:10]:
+        print('        ' + b)
+    fails += bool(pbad)
     for label, script in (('NAV', 'build_nav.py'), ('QUOTES', 'check_quotes.py')):
         code, out = run(script, '--check') if script == 'build_nav.py' else run(script)
         head = out.splitlines()[0] if out else ''
