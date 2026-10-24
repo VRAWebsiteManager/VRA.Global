@@ -67,6 +67,62 @@
   "image": "https://vra.global/photos/hero-globe.png"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What can a Keller Williams agent expect in the first two weeks with a virtual assistant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Less than a finished system, and more than you would think. Fourteen days is early — the assistant is still learning your workflow — so what shows up first is the recurring admin that eats evenings and weekends starting to move. At his 14-day check-in one Heritage agent described getting things done in two weeks that had been sitting for a year, and an inbox that went from 29,000 emails to 12,000. The useful signal at day 14 is direction, not output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long before a virtual assistant is actually productive for an agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By 30 days the assistant has learned enough of the real workflow to show up in the details: transactions that do not slip, campaigns that go out on schedule, an inbox that stays caught up. By 60 days they are past onboarding and into the rhythm of your production, which is the point agents start describing marketing that runs like clockwork rather than marketing they have to remember. VRA commits to 90% proficiency in your systems within 5 business days, but proficiency in your tools and fluency in your business are two different clocks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does VRA check in at 14, 30, 60 and 90 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "So that nobody is assuming the fit is working. The schedule comes with the match, and the point is to surface a problem while it is still small — a task that was handed over badly, a skill the business needs that nobody anticipated, a communication habit that is not landing. If the fit is wrong at any check-in you can swap in a different assistant at no extra cost, with no trial window and no fine print."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these results from one market center, or several?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Five: KW Elite, KW Heritage, KW Memorial, KW San Antonio and KW New Braunfels. That matters because a result from a single office can be a single good assistant. The same pattern at the same milestones across five market centers, with different assistants and different agents, is the arrangement rather than the individual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an agent add a second assistant once the first one is working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is a common second step rather than an unusual one. One Memorial luxury agent in the top 20% filmed her 60-day check-in for her second assistant, not her first. Each seat is the same flat monthly rate, so a second assistant is a known number rather than a renegotiation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a virtual assistant work for agents outside residential?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The same article covers an agent working in business brokerage and commercial real estate at Keller Williams Memorial, whose assistant handles document organization and marketing. Commercial files carry more entity paperwork and more parties, so the admin looks different, but the delegation works the same way."
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --light-blue:#9ecfe7;
@@ -129,6 +185,14 @@
   .mid-cta p{margin:0;font-size:15.5px;color:var(--gray);}
   .mid-cta p strong{color:var(--darker-blue);}
   .mid-cta a{color:var(--blue);font-weight:700;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+  .faq-item summary{cursor:pointer;font-weight:700;font-size:16.5px;color:var(--darker-blue);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary:after{content:"+";font-size:22px;color:var(--blue);font-weight:400;flex-shrink:0;}
+  .faq-item[open] summary:after{content:"\2013";}
+  .faq-item p{margin:12px 0 0;font-size:15.5px;}
 
   /* FOOTER */
   footer{background:var(--darker-blue);color:#fff;padding:56px 0 28px;}
@@ -369,6 +433,33 @@
 
       <h2>What This Means for Keller Williams Agents Considering a VA</h2>
       <p>Nine different stories, four different milestones, five different market centers &mdash; and the same pattern each time: relief in the first two weeks, reliability by day 30, reliance by day 60, and a genuine sense of leverage by day 90. <a href="/keller-williams-agent-virtual-assistant">See what a VRA virtual assistant for Keller Williams agents actually covers</a> &mdash; from transaction coordination to KW Command management &mdash; or, if you are not with Keller Williams, what the same assistant does for <a href="/real-estate-virtual-assistant">agents at any brokerage</a>. You can also take the Needs Assessment below to see where you need help most.</p>
+
+
+      <h2>Questions Agents Ask About the First 90 Days</h2>
+      <details class="faq-item">
+        <summary>What can a Keller Williams agent expect in the first two weeks with a virtual assistant?</summary>
+        <p>Less than a finished system, and more than you would think. Fourteen days is early &mdash; the assistant is still learning your workflow &mdash; so what shows up first is the recurring admin that eats evenings and weekends starting to move. At his 14-day check-in one Heritage agent described getting things done in two weeks that had been sitting for a year, and an inbox that went from 29,000 emails to 12,000. The useful signal at day 14 is direction, not output.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long before a virtual assistant is actually productive for an agent?</summary>
+        <p>By 30 days the assistant has learned enough of the real workflow to show up in the details: transactions that do not slip, campaigns that go out on schedule, an inbox that stays caught up. By 60 days they are past onboarding and into the rhythm of your production, which is the point agents start describing marketing that runs like clockwork rather than marketing they have to remember. VRA commits to 90% proficiency in your systems within 5 business days, but proficiency in your tools and fluency in your business are two different clocks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why does VRA check in at 14, 30, 60 and 90 days?</summary>
+        <p>So that nobody is assuming the fit is working. The schedule comes with the match, and the point is to surface a problem while it is still small &mdash; a task that was handed over badly, a skill the business needs that nobody anticipated, a communication habit that is not landing. If the fit is wrong at any check-in you can swap in a different assistant at no extra cost, with no trial window and no fine print.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are these results from one market center, or several?</summary>
+        <p>Five: KW Elite, KW Heritage, KW Memorial, KW San Antonio and KW New Braunfels. That matters because a result from a single office can be a single good assistant. The same pattern at the same milestones across five market centers, with different assistants and different agents, is the arrangement rather than the individual.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can an agent add a second assistant once the first one is working?</summary>
+        <p>Yes, and it is a common second step rather than an unusual one. One Memorial luxury agent in the top 20% filmed her 60-day check-in for her second assistant, not her first. Each seat is the same flat monthly rate, so a second assistant is a known number rather than a renegotiation.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does a virtual assistant work for agents outside residential?</summary>
+        <p>Yes. The same article covers an agent working in business brokerage and commercial real estate at Keller Williams Memorial, whose assistant handles document organization and marketing. Commercial files carry more entity paperwork and more parties, so the admin looks different, but the delegation works the same way.</p>
+      </details>
 
       <div class="article-cta">
         <p><strong>Ready to see what a VRA virtual assistant could take off your plate?</strong></p>

@@ -67,6 +67,62 @@
   "image": "https://vra.global/photos/hero-globe.png"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I tell an admin bottleneck from a market problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look at what your own week is full of. A market problem shows up as demand you cannot win; an admin bottleneck shows up as demand you cannot process — client communication, backend data entry and email expanding until the strategic work that built the business has nowhere left to sit. If the hours that used to go into growth are now going into servicing what you already won, the ceiling is administrative."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does operational leverage actually mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Somebody owning a lane of the business rather than completing tasks you hand them. In practice that is full ownership of a leader’s calendar and inbox, hands-on CRM and database management, Canva-certified graphic design and branded content, social media support, and website builds and maintenance in Wix. The distinction one Keller Williams team leader drew about his own assistant was between completing tasks and being proactive, creative and thinking ahead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are VRA assistants selected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Through a stricter model than a freelance marketplace, which sources from a generic pool of unvetted talent. Every candidate goes through deep resume vetting, a DISC assessment weighted toward high Steadiness and Conscientiousness for reliable attention to detail, and a Keller Personality Assessment to verify fast-learning capacity. Before interfacing with a client, every assistant completes a mandatory four-week, instructor-led training program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which industries does this apply to outside real estate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Title and escrow teams handling file organization and client updates, mortgage and lending offices needing administrative and marketing support without touching sensitive loan file data, financial services firms managing back-office data and reporting, restaurant and hospitality groups coordinating vendors, reservations and online ordering, and B2B small businesses automating repetitive work. Administrative bottlenecks look remarkably similar across sectors, which is why the training transfers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the ceiling is me rather than the admin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Then it is the same fix, applied earlier. When every quote, invoice and follow-up runs through one person, the business can only grow as far as that person’s week — and that is the condition a buyer looks for at a sale and a new owner inherits the week after closing. Written procedures and an administrative lane somebody else owns are what move the limit off a single calendar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much training does an assistant have before our first day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four weeks of mandatory instructor-led training, completed before the assistant touches client work, covering database management, contract writing and e-signature workflows among others. Assistants headed for particular industries go deeper: the title and escrow track includes a 36-module study of transaction coordination and contract law covering deadline tracking, earnest money, option periods and disclosure timing."
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --light-blue:#9ecfe7;
@@ -124,6 +180,14 @@
   .article-body ul li strong{color:var(--darker-blue);}
   .article-cta{background:var(--light-blue);border-radius:16px;padding:32px;margin-top:48px;text-align:center;}
   .article-cta p{color:var(--darker-blue);font-size:16px;margin-bottom:18px;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--border);padding:16px 0;}
+  .faq-item summary{cursor:pointer;font-weight:700;font-size:16.5px;color:var(--darker-blue);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary:after{content:"+";font-size:22px;color:var(--blue);font-weight:400;flex-shrink:0;}
+  .faq-item[open] summary:after{content:"\2013";}
+  .faq-item p{margin:12px 0 0;font-size:15.5px;}
 
   /* FOOTER */
   footer{background:var(--darker-blue);color:#fff;padding:56px 0 28px;}
@@ -356,6 +420,33 @@
 
       <h2>When the Ceiling Is the Owner</h2>
       <p>When every quote, invoice and follow-up runs through one person, the business can only grow as far as that person&rsquo;s week. The fix is the same one a buyer looks for at a sale and a new owner needs the week after closing: written procedures and an administrative lane somebody else owns. See how to <a href="/insights/how-to-make-your-business-run-without-you">make your business run without you</a>, what it takes to <a href="/selling-your-business">prepare a business for sale</a>, and <a href="/insights/first-100-days-after-buying-a-business">your first 100 days after buying one</a>.</p>
+
+
+      <h2>Questions Owners Ask About Plateaus</h2>
+      <details class="faq-item">
+        <summary>How do I tell an admin bottleneck from a market problem?</summary>
+        <p>Look at what your own week is full of. A market problem shows up as demand you cannot win; an admin bottleneck shows up as demand you cannot process &mdash; client communication, backend data entry and email expanding until the strategic work that built the business has nowhere left to sit. If the hours that used to go into growth are now going into servicing what you already won, the ceiling is administrative.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does operational leverage actually mean?</summary>
+        <p>Somebody owning a lane of the business rather than completing tasks you hand them. In practice that is full ownership of a leader&rsquo;s calendar and inbox, hands-on CRM and database management, Canva-certified graphic design and branded content, social media support, and website builds and maintenance in Wix. The distinction one Keller Williams team leader drew about his own assistant was between completing tasks and being proactive, creative and thinking ahead.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How are VRA assistants selected?</summary>
+        <p>Through a stricter model than a freelance marketplace, which sources from a generic pool of unvetted talent. Every candidate goes through deep resume vetting, a DISC assessment weighted toward high Steadiness and Conscientiousness for reliable attention to detail, and a Keller Personality Assessment to verify fast-learning capacity. Before interfacing with a client, every assistant completes a mandatory four-week, instructor-led training program.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Which industries does this apply to outside real estate?</summary>
+        <p>Title and escrow teams handling file organization and client updates, mortgage and lending offices needing administrative and marketing support without touching sensitive loan file data, financial services firms managing back-office data and reporting, restaurant and hospitality groups coordinating vendors, reservations and online ordering, and B2B small businesses automating repetitive work. Administrative bottlenecks look remarkably similar across sectors, which is why the training transfers.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if the ceiling is me rather than the admin?</summary>
+        <p>Then it is the same fix, applied earlier. When every quote, invoice and follow-up runs through one person, the business can only grow as far as that person&rsquo;s week &mdash; and that is the condition a buyer looks for at a sale and a new owner inherits the week after closing. Written procedures and an administrative lane somebody else owns are what move the limit off a single calendar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much training does an assistant have before our first day?</summary>
+        <p>Four weeks of mandatory instructor-led training, completed before the assistant touches client work, covering database management, contract writing and e-signature workflows among others. Assistants headed for particular industries go deeper: the title and escrow track includes a 36-module study of transaction coordination and contract law covering deadline tracking, earnest money, option periods and disclosure timing.</p>
+      </details>
 
       <div class="article-cta">
         <p><strong>Ready to see what operational leverage looks like for your business?</strong></p>
