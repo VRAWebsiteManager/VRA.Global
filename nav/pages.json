@@ -23,6 +23,10 @@
         "path": "/keller-williams-leadership-virtual-assistant"
       },
       {
+        "title": "Virtual MCA Assistant (KW Market Centers)",
+        "path": "/kw-virtual-mca-assistant"
+      },
+      {
         "title": "Mortgage & Lending",
         "path": "/mortgage-virtual-assistant"
       },
@@ -69,6 +73,10 @@
       {
         "title": "Bilingual VA Waitlist",
         "path": "/bilingual-waitlist"
+      },
+      {
+        "title": "Executive Virtual Assistant",
+        "path": "/executive-virtual-assistant"
       }
     ]
   },
@@ -142,8 +150,24 @@
         "path": "/insights"
       },
       {
+        "title": "Should You Just Use AI Instead of Hiring a Virtual Assistant?",
+        "path": "/insights/ai-or-virtual-assistant"
+      },
+      {
+        "title": "AI Tools for Insurance Agencies: What to Use and What to Delegate",
+        "path": "/insights/ai-tools-for-insurance-agencies"
+      },
+      {
+        "title": "AI Tools for Real Estate Agents: What to Use and What to Delegate",
+        "path": "/insights/ai-tools-for-real-estate-agents"
+      },
+      {
         "title": "Breaking the Growth Ceiling: When Admin Is What Caps Growth",
         "path": "/insights/breaking-the-growth-ceiling"
+      },
+      {
+        "title": "How Commercial Agents Use a Virtual Assistant",
+        "path": "/insights/commercial-real-estate-virtual-assistants"
       },
       {
         "title": "Fifteen Virtual Assistants, Four Functions, No Real Estate in Sight",
@@ -160,6 +184,14 @@
       {
         "title": "14 to 90 Days In: Real Results From Keller Williams Agents",
         "path": "/insights/keller-williams-agent-14-and-60-day-results"
+      },
+      {
+        "title": "Loan Officer Assistant vs Virtual Assistant: What Each Costs",
+        "path": "/insights/loan-officer-assistant-vs-virtual-assistant"
+      },
+      {
+        "title": "Managing Your Assistant With DISC and KPA",
+        "path": "/insights/managing-an-assistant-with-disc-and-kpa"
       },
       {
         "title": "Ninety Days With One Virtual Assistant: Every Check-In, On Camera",
@@ -190,20 +222,12 @@
         "path": "/insights/virtual-assistant-cost"
       },
       {
+        "title": "Virtual Assistant for Loan Officers: What to Hand Off",
+        "path": "/insights/virtual-assistant-for-loan-officers"
+      },
+      {
         "title": "Virtual Assistant or First Employee?",
         "path": "/insights/virtual-assistant-or-first-employee"
-      },
-      {
-        "title": "Should You Just Use AI Instead of Hiring a Virtual Assistant?",
-        "path": "/insights/ai-or-virtual-assistant"
-      },
-      {
-        "title": "AI Tools for Real Estate Agents: What to Use and What to Delegate",
-        "path": "/insights/ai-tools-for-real-estate-agents"
-      },
-      {
-        "title": "AI Tools for Insurance Agencies: What to Use and What to Delegate",
-        "path": "/insights/ai-tools-for-insurance-agencies"
       }
     ]
   },
@@ -245,6 +269,10 @@
       {
         "title": "Hannah DuBose — 60-day check-in",
         "path": "/watch/hannah-dubose-60-day-check-in"
+      },
+      {
+        "title": "Isaac Saldaña — 60-day check-in",
+        "path": "/watch/isaac-saldana-60-day-check-in"
       },
       {
         "title": "James Del Bosque — 90-day check-in",
