@@ -57,7 +57,7 @@
 
 ## Industries
 - [Title and escrow](https://vra.global/title-escrow-virtual-assistant): Qualia title production, pre-closing file review support, underwriter and lender document coordination. Includes a title-specific FAQ.
-- [Commercial real estate and business brokerage](https://vra.global/commercial-real-estate-virtual-assistant): deal document control across long-cycle files, listing and pipeline follow-up, property and market research, administrative underwriting support, transaction coordination. Judgment, valuation and licensed work stay with the client.
+- [Commercial real estate and business brokerage](https://vra.global/commercial-real-estate-virtual-assistant): assistants placed with Keller Williams commercial agents work in CoStar for property and market data, LoopNet for listings, KW Command for contacts, tasks and documents, RealNex as the CRM, and DocuSign or Authentisign for signatures. Deal document control across long-cycle files, listing and pipeline follow-up, property and market research, administrative underwriting support, transaction coordination. Judgment, valuation and licensed work stay with the client.
 - [Real estate](https://vra.global/real-estate-virtual-assistant)
 - [Keller Williams agents](https://vra.global/keller-williams-agent-virtual-assistant)
 - [Keller Williams market center leadership](https://vra.global/keller-williams-leadership-virtual-assistant)
