@@ -242,6 +242,10 @@
         "path": "/insights/policy-checking-virtual-assistant"
       },
       {
+        "title": "Commercial Real Estate Deal Coordination",
+        "path": "/insights/commercial-real-estate-transaction-coordinator"
+      },
+      {
         "title": "Virtual Assistant for Loan Officers: What to Hand Off",
         "path": "/insights/virtual-assistant-for-loan-officers"
       },
