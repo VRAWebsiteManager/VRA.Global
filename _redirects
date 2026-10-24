@@ -95,3 +95,23 @@
 /privacy-policy.html   /privacy-policy   301!
 /how-it-works.html                                               /how-it-works                                                    301!
 /site-map.html                                                   /site-map                                                        301!
+
+# Pages added since the consolidation above. Same one-per-page convention:
+# a blanket /*.html rule would catch the google*.html verification files.
+
+/executive-virtual-assistant.html                            /executive-virtual-assistant                                 301!
+/insurance-agency-virtual-assistant.html                     /insurance-agency-virtual-assistant                          301!
+/kw-virtual-mca-assistant.html                               /kw-virtual-mca-assistant                                    301!
+/insights/ai-or-virtual-assistant.html                       /insights/ai-or-virtual-assistant                            301!
+/insights/ai-tools-for-insurance-agencies.html               /insights/ai-tools-for-insurance-agencies                    301!
+/insights/ai-tools-for-real-estate-agents.html               /insights/ai-tools-for-real-estate-agents                    301!
+/insights/commercial-real-estate-virtual-assistants.html     /insights/commercial-real-estate-virtual-assistants          301!
+/insights/loan-officer-assistant-vs-virtual-assistant.html   /insights/loan-officer-assistant-vs-virtual-assistant        301!
+/insights/managing-an-assistant-with-disc-and-kpa.html       /insights/managing-an-assistant-with-disc-and-kpa            301!
+/insights/restaurant-virtual-assistant-tasks.html            /insights/restaurant-virtual-assistant-tasks                 301!
+/insights/title-assistant-alta-best-practices.html           /insights/title-assistant-alta-best-practices                301!
+/insights/title-virtual-assistant-order-to-close.html        /insights/title-virtual-assistant-order-to-close             301!
+/insights/virtual-assistant-for-catering-and-events.html     /insights/virtual-assistant-for-catering-and-events          301!
+/insights/virtual-assistant-for-loan-officers.html           /insights/virtual-assistant-for-loan-officers                301!
+/insights/virtual-assistant-for-vacation-rentals.html        /insights/virtual-assistant-for-vacation-rentals             301!
+/watch/isaac-saldana-60-day-check-in.html                    /watch/isaac-saldana-60-day-check-in                         301!
