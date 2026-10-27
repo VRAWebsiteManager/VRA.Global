@@ -179,6 +179,20 @@ html{scroll-padding-top:148px;}
   .guide-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(1,1,16,.10);}
   .guide-card h2{font-size:22px;margin-bottom:8px;}
   .guide-card .assessment-form{max-width:none;}
+  /* Reviews sit in the hero's left column, filling the space beside the
+     form card instead of waiting below the fold. The hero is already a
+     two-column grid; this is simply the third thing in the left column. */
+  .guide-hero .review-spot{max-width:none;margin:26px 0 0;}
+  .guide-hero .review-stage{min-height:150px;padding:22px 24px;text-align:left;align-items:flex-start;}
+  .guide-hero .review-spot .stars{margin-bottom:10px;}
+  .guide-hero .review-spot q{font-size:16.5px;margin-bottom:12px;}
+  .guide-hero .review-all{text-align:left;margin-top:12px;font-size:14px;}
+  @media(max-width:860px){
+    .guide-hero .review-spot{order:7;margin-top:4px;}
+    .guide-hero .review-all{order:8;}
+    .guide-hero .review-stage{text-align:center;align-items:center;min-height:186px;}
+    .guide-hero .review-all{text-align:center;}
+  }
   .guide-proof{margin-top:20px;padding-left:14px;border-left:3px solid var(--light-blue);font-size:14.5px;color:var(--gray);}
   .guide-proof cite{display:block;margin-top:8px;font-style:normal;font-weight:700;font-size:13px;color:var(--darker-blue);}
   .guide-strip{text-align:center;}
@@ -392,6 +406,14 @@ html{scroll-padding-top:148px;}
       <span class="tag">Instant download</span>
       <span class="tag">No sales call</span>
     </div>
+    <div class="review-spot" id="reviewSpotlight" data-start="3" hidden aria-label="What clients say">
+      <div class="review-stage">
+        <span class="stars"></span>
+        <q></q>
+        <span class="by"></span>
+      </div>
+    </div>
+    <p class="review-all"><a href="/reviews">Read every review and watch the video testimonials &rarr;</a></p>
     </div>
     <div class="guide-card">
       <h2>Get the free guide</h2>
@@ -423,7 +445,6 @@ html{scroll-padding-top:148px;}
       <a class="btn btn-outline" href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=delegation-guide-real-estate-thankyou" target="_blank" rel="noopener">Book a Free Consult</a>
     </div>
 
-      <div class="guide-proof">&ldquo;Michael, my VA is amazing. I love the energy and the synergy, and she is the epitome of my top three Ps. She is prompt, she&rsquo;s pleasant, and she&rsquo;s productive.&rdquo;<cite>Kim Dixon-Dudley, Broker Associate, Compass &middot; 30-day check-in</cite></div>
     </div>
   </div>
 </section>
@@ -471,24 +492,6 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- CTA BANNER -->
-<!-- CLIENT REVIEWS -->
-<section class="alt-bg">
-  <div class="wrap">
-    <div class="review-head">
-      <div class="kicker">Client Reviews</div>
-      <h2>What Clients Say</h2>
-      <p>Business owners at their 14, 30, 60 and 90-day check-ins, in their own words.</p>
-    </div>
-    <div class="review-spot" id="reviewSpotlight" data-start="3" hidden aria-label="What clients say">
-      <div class="review-stage">
-        <span class="stars"></span>
-        <q></q>
-        <span class="by"></span>
-      </div>
-    </div>
-    <p class="review-all"><a href="/reviews">Read every review and watch the video testimonials &rarr;</a></p>
-  </div>
-</section>
 
 <section>
   <div class="wrap">
