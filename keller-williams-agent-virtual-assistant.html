@@ -87,6 +87,38 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to hire a virtual assistant for your Keller Williams business",
+  "description": "The three steps to hire a trained virtual assistant for a Keller Williams real estate business through Virtual Realty Assistants.",
+  "totalTime": "P5D",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Schedule a Zoom",
+      "text": "Book a call of under 30 minutes to talk through how your business runs and where your hours are going, including KW Command upkeep, transaction coordination, listing paperwork and lead follow-up.",
+      "url": "https://vra.global/keller-williams-agent-virtual-assistant#how"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Interview the assistants matched to you",
+      "text": "Meet the assistants matched to your business on Zoom and choose the one you want. Every assistant has already cleared screening and a mandatory four-week training program before the interview.",
+      "url": "https://vra.global/keller-williams-agent-virtual-assistant#how"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Hire and onboard",
+      "text": "VRA handles hiring and onboarding. Your assistant can start within 24 hours of your selection, and VRA commits to 90% proficiency in your systems within 5 business days.",
+      "url": "https://vra.global/keller-williams-agent-virtual-assistant#how"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -183,8 +215,17 @@ html{scroll-padding-top:148px;}
   .card-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 22px;text-align:left;}
 
+  /* HOW IT WORKS */
+  .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:26px;}
+  .step-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px 22px;}
+  .step-num{width:38px;height:38px;border-radius:50%;background:var(--dark-blue);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .step-card h3{font-size:16.5px;margin-bottom:8px;}
+  .step-card p{font-size:14.5px;color:var(--gray);line-height:1.55;}
+  .step-after{text-align:center;color:var(--gray);font-size:14.5px;max-width:660px;margin:0 auto;}
+  @media(max-width:860px){.step-grid{grid-template-columns:1fr;}}
+
   /* ASSISTANT STRIP */
-  .va-strip{overflow:hidden;position:relative;margin:0 0 30px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);}
+  .va-strip{overflow:hidden;position:relative;margin:0 0 34px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);}
   .va-strip-track{display:flex;gap:24px;width:max-content;animation:scrollTrack 55s linear infinite;animation-play-state:paused;}
   .va-strip.in-view .va-strip-track{animation-play-state:running;}
   .va-strip:hover .va-strip-track{animation-play-state:paused;}
@@ -193,7 +234,6 @@ html{scroll-padding-top:148px;}
   .va-chip img,.va-chip .va-ini{width:92px;height:92px;border-radius:50%;object-fit:cover;background:var(--light-blue);}
   .va-chip .va-ini{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;color:var(--darker-blue);}
   .va-chip .nm{font-size:13.5px;font-weight:700;color:var(--darker-blue);line-height:1.25;text-align:center;min-height:17px;}
-  .strip-note{text-align:center;color:var(--gray);font-size:14.5px;max-width:620px;margin:0 auto 30px;}
   .va-chip .av{font-size:10.5px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--blue);}
   @media(prefers-reduced-motion: reduce){
     .va-strip-track{animation:none;}
@@ -484,7 +524,7 @@ html{scroll-padding-top:148px;}
   </div>
 </section>
 <!-- THE PROBLEM -->
-<section class="alt-bg">
+<section>
   <div class="wrap">
     <div class="section-head" style="max-width:840px;margin-bottom:0;">
       <h2>Where a KW Agent&rsquo;s Hours Go</h2>
@@ -496,7 +536,7 @@ html{scroll-padding-top:148px;}
 
 
 <!-- WHY VRA -->
-<section id="why">
+<section class="alt-bg" id="why">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Why VRA</div>
@@ -506,7 +546,6 @@ html{scroll-padding-top:148px;}
     <div class="va-strip" id="vaStrip" hidden aria-label="Assistants available to interview">
       <div class="va-strip-track"></div>
     </div>
-    <p class="strip-note">These are assistants on the bench right now. You interview the ones matched to your business on Zoom and pick the one you want.</p>
     <div class="card-grid">
       <div class="card">
         <div class="icon">&#10003;</div>
@@ -532,8 +571,37 @@ html{scroll-padding-top:148px;}
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How It Works</div>
+      <h2>How to Hire a Virtual Assistant for Your Keller Williams Business</h2>
+      <p>Three steps from first call to a trained assistant working your business. No assessment to fill out before you talk to anyone.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Schedule a Zoom</h3>
+        <p>A call of under 30 minutes to talk through how your business runs and where the hours are going &mdash; KW Command upkeep, transaction coordination, listing paperwork, lead follow-up.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Interview the Assistants Matched to You</h3>
+        <p>Meet the assistants matched to your business on Zoom and choose the one you want. Every assistant you meet has already cleared screening and a four-week training program, so the interview is you choosing, not screening.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Hire and Onboard</h3>
+        <p>VRA handles the hiring and onboarding. Your assistant can start within 24 hours of your selection, and we commit to 90% proficiency in your systems within 5 business days.</p>
+      </div>
+    </div>
+    <p class="step-after">After your assistant starts there are check-ins at 14, 30, 60 and 90 days, and if the fit is wrong you can swap at no extra cost. <a href="/how-it-works" style="color:var(--blue);font-weight:700;">See the full process &rarr;</a></p>
+  </div>
+</section>
+
 <!-- SERVICES -->
-<section id="services" class="alt-bg">
+<section class="alt-bg" id="services">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">What Your VA Can Do</div>
@@ -730,7 +798,7 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- PRICING -->
-<section class="alt-bg">
+<section>
   <div class="wrap">
     <div class="section-head" style="max-width:900px;">
       <div class="kicker">Pricing at a Glance</div>
@@ -765,7 +833,7 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- FAQ -->
-<section>
+<section class="alt-bg">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">FAQ</div>
@@ -791,7 +859,7 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- OTHER INDUSTRIES -->
-<section class="alt-bg">
+<section>
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Every Industry</div>
@@ -815,7 +883,7 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- FREE GUIDE BAND -->
-<section style="padding:34px 0;background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+<section class="alt-bg" style="padding:34px 0;">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
     <div style="flex:1 1 440px;">
       <div class="kicker" style="margin-bottom:6px;">Free Guide</div>
