@@ -58,9 +58,19 @@
     var sby   = spot.querySelector('.by');
     var sst   = spot.querySelector('.stars');
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    /* Always opens on the first review in the list, so the strongest line
-       is the one every visitor sees; reorder the list to change it. */
-    var i = 0, timer = null;
+    /* Which review a page opens on. A visitor clicking through two or three
+       pages should not be met by the same quote each time, so each page sets
+       its own start with data-start -- picked for that page where a client
+       fits it (the market-center guide opens on the market center
+       administrator). A page that sets nothing gets a stable start derived
+       from its own path, so new pages vary without anyone choosing. */
+    var i = parseInt(spot.getAttribute('data-start'), 10);
+    if(isNaN(i) || i < 0 || i >= REVIEWS.length){
+      var path = location.pathname, sum = 0;
+      for(var c = 0; c < path.length; c++) sum = (sum * 31 + path.charCodeAt(c)) % 100000;
+      i = sum % REVIEWS.length;
+    }
+    var timer = null;
 
     function paint(){
       var r = REVIEWS[i];
