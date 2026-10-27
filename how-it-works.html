@@ -197,6 +197,25 @@ html{scroll-padding-top:148px;}
   .cta-banner .btn-primary{background:#fff;color:var(--dark-blue);}
   .cta-banner .btn-primary:hover{background:var(--light-blue);}
 
+  /* ASSISTANT CAROUSEL */
+  .va-carousel{margin-top:40px;}
+  .va-head{text-align:center;margin-bottom:18px;}
+  .va-head h3{font-size:18px;margin-bottom:4px;}
+  .va-head p{font-size:14px;color:var(--gray);}
+  .va-rail{display:flex;align-items:center;gap:12px;}
+  .va-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;flex:1;padding:4px 2px 10px;}
+  .va-track::-webkit-scrollbar{display:none;}
+  .va-card{flex:0 0 146px;scroll-snap-align:start;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px 12px;text-align:center;}
+  .va-pic{width:84px;height:84px;border-radius:50%;margin:0 auto 10px;overflow:hidden;background:var(--light-blue);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--darker-blue);font-size:22px;}
+  .va-pic img{width:100%;height:100%;object-fit:cover;display:block;}
+  .va-nm{font-size:13.5px;font-weight:700;color:var(--darker-blue);}
+  .va-badge{display:inline-block;margin-top:7px;background:var(--dark-blue);color:#fff;font-size:11px;font-weight:700;letter-spacing:.3px;padding:3px 10px;border-radius:999px;}
+  .va-badge.pt{background:var(--light-blue);color:var(--darker-blue);}
+  .va-line{font-size:12.5px;color:var(--gray);margin-top:8px;line-height:1.35;}
+  .va-arrow{flex:0 0 auto;width:38px;height:38px;border-radius:50%;border:2px solid var(--dark-blue);background:var(--white);color:var(--dark-blue);font-size:19px;line-height:1;cursor:pointer;}
+  .va-arrow:hover{background:var(--light-blue);}
+  .va-arrow:disabled{opacity:.35;cursor:default;background:var(--white);}
+  @media(max-width:560px){.va-arrow{width:32px;height:32px;font-size:16px;}}
   /* TWO-PATH CARDS */
   .path-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .path-card{background:var(--white);border:2px solid var(--blue);border-radius:16px;padding:32px;}
@@ -475,6 +494,18 @@ html{scroll-padding-top:148px;}
         <a href="/needs-assessment" class="btn btn-outline" style="width:100%;text-align:center;margin-top:26px;">Take the Needs Assessment</a>
       </div>
     </div>
+    <div class="va-carousel" id="vaCarousel" hidden>
+      <div class="va-head">
+        <h3>The assistants you could be interviewing</h3>
+        <p>Availability updates as the bench does.</p>
+      </div>
+      <div class="va-rail">
+        <button type="button" class="va-arrow va-prev" aria-label="Previous assistants">&#8249;</button>
+        <div class="va-track" id="vaTrack" tabindex="0" role="region" aria-label="Available assistants"></div>
+        <button type="button" class="va-arrow va-next" aria-label="More assistants">&#8250;</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -582,5 +613,6 @@ html{scroll-padding-top:148px;}
   <script src="/js/attribution.js" defer></script>
   <script src="/js/analytics-events.js" defer></script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1962ebe458e14bbf999d2b9759090384"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="/js/va-carousel.js" defer></script>
 </body>
 </html>
