@@ -8,9 +8,17 @@
    checks each one against its transcript, so an edit that rewords a client
    fails the build rather than going live. Leave the words alone.
 
-   Markup a page needs:
+   Two layouts off the one list. A page supplies whichever markup it wants:
+
+     a scrolling row --
      <div class="review-marquee" id="reviewMarquee" aria-label="What clients say">
        <div class="review-track"></div>
+     </div>
+
+     or one review at a time, for a page where a row of moving text boxes
+     competes with the thing the visitor came to do --
+     <div class="review-spot" id="reviewSpotlight" aria-label="What clients say">
+       <div class="review-stage"><span class="stars"></span><q></q><span class="by"></span></div>
      </div> */
 (function(){
   var REVIEWS = [
@@ -42,7 +50,44 @@
       by: "Quinton Randel &middot; EIDLexit" }
   ];
 
-  var m = document.getElementById('reviewMarquee');
+  var STARS = '&#9733;&#9733;&#9733;&#9733;&#9733;';
+  var m    = document.getElementById('reviewMarquee');
+  var spot = document.getElementById('reviewSpotlight');
+  if(!m && !spot) return;
+
+  /* One at a time. Long enough on each to actually read it, and it stops
+     whenever the visitor might be reading or is not looking: hover, keyboard
+     focus, hidden tab. Reduced motion gets a single review and no cycling. */
+  if(spot){
+    var stage = spot.querySelector('.review-stage');
+    var sq    = spot.querySelector('q');
+    var sby   = spot.querySelector('.by');
+    var sst   = spot.querySelector('.stars');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* Always opens on the first review in the list, so the strongest line
+       is the one every visitor sees; reorder the list to change it. */
+    var i = 0, timer = null;
+
+    function paint(){
+      var r = REVIEWS[i];
+      stage.classList.add('fading');
+      setTimeout(function(){
+        sst.innerHTML = STARS;
+        sq.innerHTML  = r.quote;
+        sby.innerHTML = r.by;
+        stage.classList.remove('fading');
+      }, reduce ? 0 : 220);
+    }
+    function play(){ if(!reduce && !timer) timer = setInterval(function(){ i=(i+1)%REVIEWS.length; paint(); }, 6500); }
+    function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+    spot.addEventListener('mouseenter', stop);
+    spot.addEventListener('mouseleave', play);
+    spot.addEventListener('focusin', stop);
+    spot.addEventListener('focusout', play);
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : play(); });
+    paint(); spot.hidden = false; play();
+  }
+
   if(!m) return;
   var track = m.querySelector('.review-track');
   if(!track) return;
@@ -51,7 +96,7 @@
     var d = document.createElement('div');
     d.className = 'review-card';
     if(dupe) d.setAttribute('aria-hidden','true');
-    d.innerHTML = '<span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>'
+    d.innerHTML = '<span class="stars">' + STARS + '</span>'
                 + '<q>' + r.quote + '</q>'
                 + '<span class="by">' + r.by + '</span>';
     return d;
