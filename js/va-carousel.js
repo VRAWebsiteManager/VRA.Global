@@ -39,7 +39,6 @@
   var pic   = wrap.querySelector('.va-pic');
   var nm    = wrap.querySelector('.va-nm');
   var badge = wrap.querySelector('.va-badge');
-  var line  = wrap.querySelector('.va-line');
 
   function key(n){ var w=(n||'').trim().split(/\s+/); return ((w[0]||'')+'|'+(w[w.length-1]||'')).toLowerCase(); }
   function shortName(n){
@@ -81,7 +80,6 @@
         nm.textContent = shortName(p.name);
         badge.textContent = p.availability || '';
         badge.className = 'va-badge' + (p.availability === 'Part-Time' ? ' pt' : '') + (p.availability ? '' : ' empty');
-        line.textContent = p.line || '';
         stage.classList.remove('fading');
       }, reduce ? 0 : 180);
     }
@@ -105,7 +103,7 @@
     var rows = parseCSV(t);
     if(rows.length < 2) throw new Error('empty');
     var h = rows[0];
-    var cN=col(h,'Name'), cA=col(h,'Availability'), cL=col(h,'Carousel line');
+    var cN=col(h,'Name'), cA=col(h,'Availability');
     var cP=col(h,'Photo'); if(cP===-1) cP=col(h,'Photo Link');
     var out=[];
     for(var r=1;r<rows.length;r++){
@@ -115,8 +113,7 @@
       var photo = LOCAL[key(name)] || '';
       if(!photo && cP!==-1){ var id=driveId((rows[r][cP]||'').trim());
         if(id) photo='https://lh3.googleusercontent.com/d/'+id+'=w320'; }
-      out.push({name:name, availability:avail, photo:photo,
-                line: cL!==-1 ? (rows[r][cL]||'').trim() : ''});
+      out.push({name:name, availability:avail, photo:photo,});
     }
     start(out);
   }).catch(function(){ /* leave hidden */ });
