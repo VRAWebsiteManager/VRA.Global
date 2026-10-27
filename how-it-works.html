@@ -211,9 +211,7 @@ html{scroll-padding-top:148px;}
   .va-badge.pt{background:var(--light-blue);color:var(--darker-blue);}
   .va-badge.empty{display:none;}
   .va-line{font-size:13.5px;color:var(--gray);margin-top:10px;line-height:1.4;min-height:19px;}
-  .va-arrow{flex:0 0 auto;width:38px;height:38px;border-radius:50%;border:2px solid var(--dark-blue);background:var(--white);color:var(--dark-blue);font-size:19px;line-height:1;cursor:pointer;}
-  .va-arrow:hover{background:var(--light-blue);}
-  @media(max-width:560px){.va-stage{width:230px;padding:22px 16px;}.va-pic{width:108px;height:108px;}.va-arrow{width:32px;height:32px;font-size:16px;}}
+  @media(max-width:560px){.va-stage{width:230px;padding:22px 16px;}.va-pic{width:108px;height:108px;}}
   /* TWO-PATH CARDS */
   .path-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .path-card{background:var(--white);border:2px solid var(--blue);border-radius:16px;padding:32px;}
@@ -497,14 +495,12 @@ html{scroll-padding-top:148px;}
         <h3>The assistants you could be interviewing</h3>
       </div>
       <div class="va-rail">
-        <button type="button" class="va-arrow va-prev" aria-label="Previous assistant">&#8249;</button>
         <div class="va-stage" aria-live="polite">
           <div class="va-pic"></div>
           <div class="va-nm"></div>
           <span class="va-badge empty"></span>
           <p class="va-line"></p>
         </div>
-        <button type="button" class="va-arrow va-next" aria-label="Next assistant">&#8250;</button>
       </div>
     </div>
 

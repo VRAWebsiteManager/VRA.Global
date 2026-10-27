@@ -5,9 +5,10 @@
    shows who is actually on the bench rather than a fixed lineup. Names render
    as "First L."; nothing about where an assistant is based is read or shown.
 
-   Motion: cycling pauses on hover and on keyboard focus, and does not start
-   at all for visitors who have asked for reduced motion -- they get the
-   arrows instead. Photos are preloaded so a change never flashes. */
+   Motion: this is illustrative, not a control, so there is nothing to click.
+   Cycling pauses on hover, on keyboard focus and when the tab is hidden, and
+   never starts for visitors who have asked for reduced motion -- they simply
+   see one assistant. Photos are preloaded so a change never flashes. */
 (function(){
   var SHEET = 'https://docs.google.com/spreadsheets/d/1S2oToaS9ltgvkL9rsWRKls5UlQO8CgQWOnqdPf_xaX8/gviz/tq?tqx=out:csv&gid=0';
   var LOCAL = {
@@ -88,8 +89,6 @@
     function play(){ if(!reduce && !timer) timer = setInterval(function(){ go(1); }, EVERY); }
     function stop(){ if(timer){ clearInterval(timer); timer = null; } }
 
-    wrap.querySelector('.va-prev').addEventListener('click', function(){ stop(); go(-1); });
-    wrap.querySelector('.va-next').addEventListener('click', function(){ stop(); go(1); });
     wrap.addEventListener('mouseenter', stop);
     wrap.addEventListener('mouseleave', play);
     wrap.addEventListener('focusin', stop);
