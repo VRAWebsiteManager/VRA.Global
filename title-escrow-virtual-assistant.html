@@ -235,13 +235,11 @@ html{scroll-padding-top:148px;}
   .alt-bg{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);}
 
   /* VALUE CARDS */
-  .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .card-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 22px;text-align:left;}
   .card .icon{width:46px;height:46px;border-radius:10px;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
   .card p{font-size:14px;color:var(--gray);}
-  @media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.card-grid{grid-template-columns:1fr;}}
 
   /* SERVICES */
   .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
@@ -259,6 +257,7 @@ html{scroll-padding-top:148px;}
 
   /* TRUST / DATA BOUNDARIES */
   .trust-no ul li:before{content:"\2715";color:#b33a3a;}
+  .lead-problem{font-size:19px;font-weight:600;color:var(--darker-blue);max-width:700px;margin:0 auto 26px;}
   .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
 
   /* VIDEO TESTIMONIAL */
@@ -494,9 +493,10 @@ html{scroll-padding-top:148px;}
   <div class="wrap">
     <div class="kicker">Virtual Assistants for Title &amp; Escrow</div>
     <h1>The Virtual Assistant Built for Title &amp; Escrow Professionals</h1>
-    <p>Closings don't wait, and neither does the paperwork behind them. A VRA virtual assistant trained for title and escrow work keeps closing files organized, documents moving, and clients updated. It is back office support for a closing team, so your people can focus on getting deals to the table on time.</p>
+    
     <p class="lead-problem">Nobody opens a title company because they love chasing payoff statements. Keeping files moving doesn’t have to mean another salary.</p>
-    <p>VRA was founded by Michael Bossart, who managed title insurance operations for a county before becoming a licensed Texas broker. The workflows on this page come from that side of the business.</p>
+    <p>A VRA assistant trained for title and escrow keeps closing files organized, documents moving and clients updated.</p>
+    
     <div class="hero-ctas">
       <a href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=title-escrow-virtual-assistant" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consult</a>
       <a href="/delegation-guide" class="btn btn-outline">Get the Free Guide</a>
@@ -510,6 +510,17 @@ html{scroll-padding-top:148px;}
 
   </div>
 </section>
+<!-- THE PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="section-head" style="max-width:840px;margin-bottom:0;">
+      <h2>Closings Don&rsquo;t Wait</h2>
+      <p>Closings don't wait, and neither does the paperwork behind them. A VRA virtual assistant trained for title and escrow work keeps closing files organized, documents moving, and clients updated. It is back office support for a closing team, so your people can focus on getting deals to the table on time.</p>
+      <p>VRA was founded by Michael Bossart, who managed title insurance operations for a county before becoming a licensed Texas broker. The workflows on this page come from that side of the business.</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- WHY NOW -->
 <section class="alt-bg">

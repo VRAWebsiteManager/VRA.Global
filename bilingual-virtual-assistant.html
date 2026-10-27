@@ -199,13 +199,11 @@ html{scroll-padding-top:148px;}
   .alt-bg{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);}
 
   /* VALUE CARDS */
-  .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .card-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 22px;text-align:left;}
   .card .icon{width:46px;height:46px;border-radius:10px;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
   .card p{font-size:14px;color:var(--gray);}
-  @media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.card-grid{grid-template-columns:1fr;}}
 
   /* SERVICES */
   .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
@@ -223,6 +221,7 @@ html{scroll-padding-top:148px;}
 
   /* TRUST / DATA BOUNDARIES */
   .trust-no ul li:before{content:"\2715";color:#b33a3a;}
+  .lead-problem{font-size:19px;font-weight:600;color:var(--darker-blue);max-width:700px;margin:0 auto 26px;}
   .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
 
   /* VIDEO TESTIMONIAL */
@@ -454,14 +453,25 @@ html{scroll-padding-top:148px;}
   <div class="wrap">
     <div class="kicker">Bilingual Spanish&ndash;English Assistants</div>
     <h1>An Assistant Your Spanish-Speaking Clients Can Actually Talk To</h1>
-    <p>When half your calls come in Spanish and your office answers in English, you lose people before anyone looks at a file. A VRA bilingual virtual assistant takes the calls, the emails, the texts and the paperwork in whichever language your client prefers &mdash; at the same flat rate as any other assistant.</p>
+    
     <p class="lead-problem">Covering both languages doesn’t have to mean hiring a second person.</p>
+    <p>A VRA bilingual assistant takes the calls, emails and paperwork in whichever language your client prefers, at the same flat rate.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=bilingual-virtual-assistant" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consult</a>
       <a href="/delegation-guide" class="btn btn-outline">Get the Free Guide</a>
     </div>
   </div>
 </section>
+<!-- THE PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="section-head" style="max-width:840px;margin-bottom:0;">
+      <h2>What Happens When the Call Comes in Spanish</h2>
+      <p>When half your calls come in Spanish and your office answers in English, you lose people before anyone looks at a file. A VRA bilingual virtual assistant takes the calls, the emails, the texts and the paperwork in whichever language your client prefers &mdash; at the same flat rate as any other assistant.</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- WHY VRA -->
 <section id="why">

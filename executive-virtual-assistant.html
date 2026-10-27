@@ -225,13 +225,11 @@ html{scroll-padding-top:148px;}
   .alt-bg{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);}
 
   /* VALUE CARDS */
-  .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .card-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 22px;text-align:left;}
   .card .icon{width:46px;height:46px;border-radius:10px;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
   .card p{font-size:14px;color:var(--gray);}
-  @media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.card-grid{grid-template-columns:1fr;}}
 
   /* SERVICES */
   .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
@@ -249,6 +247,7 @@ html{scroll-padding-top:148px;}
 
   /* TRUST / DATA BOUNDARIES */
   .trust-no ul li:before{content:"\2715";color:#b33a3a;}
+  .lead-problem{font-size:19px;font-weight:600;color:var(--darker-blue);max-width:700px;margin:0 auto 26px;}
   .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
 
   /* VIDEO TESTIMONIAL */
@@ -480,8 +479,9 @@ html{scroll-padding-top:148px;}
   <div class="wrap">
     <div class="kicker">Executive Virtual Assistants</div>
     <h1>An Executive Assistant Who Thinks One Step Ahead</h1>
-    <p>Running the business and running your own day are two jobs, and the second one quietly eats the first. A virtual executive assistant from VRA takes the inbox, the calendar, the travel and the follow-up, and learns how you work well enough to handle them the way you would.</p>
+    
     <p class="lead-problem">Nobody takes on running a business because they enjoy rescheduling the same meeting for the third time and clearing an inbox that refills overnight. Getting those hours back doesn&rsquo;t have to mean another salary.</p>
+    <p>A virtual executive assistant takes the inbox, the calendar, the travel and the follow-up, and handles them the way you would.</p>
     <div class="hero-ctas">
       <a href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=executive-virtual-assistant" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consult</a>
       <a href="/delegation-guide" class="btn btn-outline">Get the Free Guide</a>
@@ -493,6 +493,16 @@ html{scroll-padding-top:148px;}
     </div>
   </div>
 </section>
+<!-- THE PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="section-head" style="max-width:840px;margin-bottom:0;">
+      <h2>The Second Job That Eats the First</h2>
+      <p>Running the business and running your own day are two jobs, and the second one quietly eats the first. A virtual executive assistant from VRA takes the inbox, the calendar, the travel and the follow-up, and learns how you work well enough to handle them the way you would.</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- WHY VRA -->
 <section id="why">
