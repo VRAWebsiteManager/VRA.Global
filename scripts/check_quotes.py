@@ -109,7 +109,13 @@ def site_quotes():
                 q = soft(re.sub(r'<[^>]+>', '', body))
                 if len(q.split()) < 8:
                     continue
-                after = soft(re.sub(r'<[^>]+>', ' ', raw[m.end():m.end() + 260]))
+                # Stop the lookahead at the next heading: a name there starts
+                # the NEXT person's section and is not this quote's credit.
+                tail = raw[m.end():m.end() + 260]
+                cut = re.search(r'<h[1-4][\s>]', tail, re.I)
+                if cut:
+                    tail = tail[:cut.start()]
+                after = soft(re.sub(r'<[^>]+>', ' ', tail))
                 before = soft(re.sub(r'<[^>]+>', ' ', raw[max(m.start() - 260, 0):m.start()]))
                 if (f, key(q)) in seen:
                     continue
