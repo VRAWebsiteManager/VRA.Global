@@ -1,5 +1,9 @@
-/* VRA assistant spotlight.
-   One assistant at a time, cycling while the visitor is on the page.
+/* VRA assistant photos -- two layouts off one data source.
+
+   #vaSpotlight: one assistant at a time, cycling, for a block with enough
+   running prose to wrap around it.
+   #vaStrip: a scrolling row of assistants, for a section that has no body
+   copy to carry a single large photo.
 
    Data comes from the same published sheet the homepage gallery reads, so it
    shows who is actually on the bench rather than a fixed lineup. Names render
@@ -33,18 +37,27 @@
 };
   var EVERY = 4500;
 
-  var wrap = document.getElementById('vaSpotlight');
-  if(!wrap) return;
-  var stage = wrap.querySelector('.va-stage');
-  var pic   = wrap.querySelector('.va-pic');
-  var nm    = wrap.querySelector('.va-nm');
-  var badge = wrap.querySelector('.va-badge');
+  var wrap  = document.getElementById('vaSpotlight');
+  var strip = document.getElementById('vaStrip');
+  if(!wrap && !strip) return;
+  var stage, pic, nm, badge;
+  if(wrap){
+    stage = wrap.querySelector('.va-stage');
+    pic   = wrap.querySelector('.va-pic');
+    nm    = wrap.querySelector('.va-nm');
+    badge = wrap.querySelector('.va-badge');
+  }
 
   function key(n){ var w=(n||'').trim().split(/\s+/); return ((w[0]||'')+'|'+(w[w.length-1]||'')).toLowerCase(); }
   function shortName(n){
     var p=(n||'').trim().split(/\s+/);
     if(p.length<2) return p[0]||'';
     return p.slice(0,-1).join(' ')+' '+p[p.length-1].charAt(0).toUpperCase()+'.';
+  }
+  function firstLast(n){
+    var p=(n||'').trim().split(/\s+/);
+    if(p.length<2) return p[0]||'';
+    return p[0]+' '+p[p.length-1].charAt(0).toUpperCase()+'.';
   }
   function initials(n){ return (n||'').split(/\s+/).map(function(w){return w[0];}).slice(0,2).join('').toUpperCase(); }
   function driveId(u){ var r=/\/d\/([-\w]{20,})/.exec(u||'')||/[?&]id=([-\w]{20,})/.exec(u||''); return r?r[1]:''; }
@@ -65,7 +78,7 @@
   }
 
   function start(people){
-    if(!people.length) return;
+    if(!wrap || !people.length) return;
     people.forEach(function(p){ if(p.photo){ var i=new Image(); i.src=p.photo; } });
     var i = 0, timer = null;
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -96,6 +109,39 @@
     paint(); wrap.hidden = false; play();
   }
 
+  /* A row of assistants, duplicated once so the scroll loop is seamless.
+     Nothing here is clickable -- it shows the range of the bench, it is not
+     a picker. The row holds still until it is scrolled into view, so a
+     visitor always meets it as a full line rather than mid-slide. */
+  function startStrip(people){
+    if(!strip || people.length < 3) return;
+    var track = strip.querySelector('.va-strip-track');
+    function chip(p){
+      var d = document.createElement('div');
+      d.className = 'va-chip';
+      d.setAttribute('aria-hidden','true');
+      var face = p.photo
+        ? '<img src="'+p.photo+'" alt="" loading="lazy">'
+        : '<span class="va-ini">'+initials(p.name)+'</span>';
+      d.innerHTML = face
+        + '<span class="nm">'+firstLast(p.name)+'</span>'
+        + '<span class="av'+(p.availability==='Part-Time'?' pt':'')+'">'+(p.availability||'')+'</span>';
+      return d;
+    }
+    people.forEach(function(p){ track.appendChild(chip(p)); });
+    people.forEach(function(p){ track.appendChild(chip(p)); });
+    strip.hidden = false;
+
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ strip.classList.add('in-view'); io.unobserve(e.target); } });
+      }, {threshold:0.25});
+      io.observe(strip);
+    } else {
+      strip.classList.add('in-view');
+    }
+  }
+
   fetch(SHEET, {cache:'no-store'}).then(function(r){
     if(!r.ok) throw new Error('HTTP '+r.status);
     return r.text();
@@ -116,5 +162,6 @@
       out.push({name:name, availability:avail, photo:photo,});
     }
     start(out);
+    startStrip(out);
   }).catch(function(){ /* leave hidden */ });
 })();

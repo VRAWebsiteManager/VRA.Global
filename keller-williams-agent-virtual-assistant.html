@@ -182,6 +182,23 @@ html{scroll-padding-top:148px;}
   /* VALUE CARDS */
   .card-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 22px;text-align:left;}
+
+  /* ASSISTANT STRIP */
+  .va-strip{overflow:hidden;position:relative;margin:0 0 30px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);}
+  .va-strip-track{display:flex;gap:24px;width:max-content;animation:scrollTrack 55s linear infinite;animation-play-state:paused;}
+  .va-strip.in-view .va-strip-track{animation-play-state:running;}
+  .va-strip:hover .va-strip-track{animation-play-state:paused;}
+  @keyframes scrollTrack{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .va-chip{flex:0 0 auto;width:108px;display:flex;flex-direction:column;align-items:center;gap:7px;}
+  .va-chip img,.va-chip .va-ini{width:92px;height:92px;border-radius:50%;object-fit:cover;background:var(--light-blue);}
+  .va-chip .va-ini{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;color:var(--darker-blue);}
+  .va-chip .nm{font-size:13.5px;font-weight:700;color:var(--darker-blue);line-height:1.25;text-align:center;min-height:17px;}
+  .strip-note{text-align:center;color:var(--gray);font-size:14.5px;max-width:620px;margin:0 auto 30px;}
+  .va-chip .av{font-size:10.5px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--blue);}
+  @media(prefers-reduced-motion: reduce){
+    .va-strip-track{animation:none;}
+    .va-strip{overflow-x:auto;}
+  }
   .card .icon{width:46px;height:46px;border-radius:10px;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
   .card p{font-size:14px;color:var(--gray);}
@@ -486,6 +503,10 @@ html{scroll-padding-top:148px;}
       <h2>Virtual Assistants Trained for Keller Williams Agents</h2>
       <p>VRA was founded to give Keller Williams agents trained virtual assistance for transaction coordination, KW Command management, and listing support &mdash; with a hassle-free process from search to onboarding.</p>
     </div>
+    <div class="va-strip" id="vaStrip" hidden aria-label="Assistants available to interview">
+      <div class="va-strip-track"></div>
+    </div>
+    <p class="strip-note">These are assistants on the bench right now. You interview the ones matched to your business on Zoom and pick the one you want.</p>
     <div class="card-grid">
       <div class="card">
         <div class="icon">&#10003;</div>
@@ -924,6 +945,7 @@ html{scroll-padding-top:148px;}
 
   <script src="/js/attribution.js" defer></script>
   <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/va-carousel.js" defer></script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1962ebe458e14bbf999d2b9759090384"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
