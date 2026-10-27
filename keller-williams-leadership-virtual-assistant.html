@@ -86,30 +86,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Victoria Williams — Virtual Realty Assistants Testimonial",
-  "description": "Victoria Williams, Market Center Administrator | Keller Williams Memorial, on working with a Virtual Realty Assistants (VRA) virtual assistant: “He handles all of our CDAs — this month we've had over 400 — and he reaches out to 60 to 75-plus people a month for accounts receivable. It's been great to have that leverage.”",
-  "thumbnailUrl": [
-    "https://i.ytimg.com/vi/SzLDWizkKMc/maxresdefault.jpg"
-  ],
-  "contentUrl": "https://www.youtube.com/watch?v=SzLDWizkKMc",
-  "embedUrl": "https://www.youtube.com/embed/SzLDWizkKMc",
-  "uploadDate": "2025-07-23",
-  "duration": "PT3M13S",
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://vra.global/#organization",
-    "name": "Virtual Realty Assistants",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://vra.global/brand/vra-logo.png"
-    }
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -270,6 +246,7 @@ html{scroll-padding-top:148px;}
   .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
 
   /* VIDEO TESTIMONIAL */
+  .video-feature.one-up{grid-template-columns:1fr;max-width:760px;margin-inline:auto;}
   .video-feature{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
   .video-card{display:block;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(1,1,16,.14);}
   .video-thumb{position:relative;aspect-ratio:16/9;background:#000;}
@@ -684,17 +661,7 @@ html{scroll-padding-top:148px;}
       <div class="kicker">Hear From a Client</div>
       <h2>Real Results, In Their Own Words</h2>
     </div>
-    <div class="video-feature">
-    <div class="video-card-wrap">
-        <div class="video-card">
-          <div class="video-thumb">
-            <iframe src="https://www.youtube.com/embed/SzLDWizkKMc" title="Victoria Williams - Virtual Realty Assistants Testimonial" loading="lazy"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-              style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
-          </div>
-        </div>
-      </div>
+    <div class="video-feature one-up">
       <div>
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="testimonial-quote-lg">&ldquo;He handles all of our CDAs — this month we've had over 400 — and he reaches out to 60 to 75-plus people a month for accounts receivable. It's been great to have that leverage.&rdquo;</p>
