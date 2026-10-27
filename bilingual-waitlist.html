@@ -106,7 +106,7 @@ html{scroll-padding-top:148px;}
   /* PAGE HERO */
   .page-hero{background:linear-gradient(135deg,var(--light-blue) 0%,var(--white) 100%);padding:64px 0 56px;text-align:center;}
   .page-hero .kicker{color:var(--blue);font-weight:800;font-size:15px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px;}
-  .page-hero h1{font-size:36px;margin-bottom:14px;}
+  .page-hero h1{font-size:36px;margin-bottom:14px;text-wrap:balance;}
   .page-hero p{color:var(--gray);font-size:16px;max-width:680px;margin:0 auto;}
   .page-hero .tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
   .tag{color:var(--dark-blue);font-weight:700;font-size:15px;padding:8px 4px;display:inline-flex;align-items:center;gap:6px;}
@@ -394,7 +394,26 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- WAITLIST FORM -->
+<!-- CLIENT REVIEWS -->
 <section class="alt-bg">
+  <div class="wrap">
+    <div class="review-head">
+      <div class="kicker">Client Reviews</div>
+      <h2>What Clients Say</h2>
+      <p>Business owners at their 14, 30, 60 and 90-day check-ins, in their own words.</p>
+    </div>
+    <div class="review-spot" id="reviewSpotlight" data-start="4" hidden aria-label="What clients say">
+      <div class="review-stage">
+        <span class="stars"></span>
+        <q></q>
+        <span class="by"></span>
+      </div>
+    </div>
+    <p class="review-all"><a href="/reviews">Read every review and watch the video testimonials &rarr;</a></p>
+  </div>
+</section>
+
+<section>
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Join the Waitlist</div>
@@ -453,24 +472,6 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- CTA BANNER -->
-<!-- CLIENT REVIEWS -->
-<section>
-  <div class="wrap">
-    <div class="review-head">
-      <div class="kicker">Client Reviews</div>
-      <h2>What Clients Say</h2>
-      <p>Business owners at their 14, 30, 60 and 90-day check-ins, in their own words.</p>
-    </div>
-    <div class="review-spot" id="reviewSpotlight" data-start="4" hidden aria-label="What clients say">
-      <div class="review-stage">
-        <span class="stars"></span>
-        <q></q>
-        <span class="by"></span>
-      </div>
-    </div>
-    <p class="review-all"><a href="/reviews">Read every review and watch the video testimonials &rarr;</a></p>
-  </div>
-</section>
 
 <section class="alt-bg">
   <div class="wrap">
