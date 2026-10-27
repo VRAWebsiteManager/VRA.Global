@@ -166,6 +166,10 @@ def main():
     MIN_RUN = 6
 
     passed, failed, skipped = [], [], 0
+    # Rule 4 -- no ellipsis -- needs no transcript to check, so it is checked on
+    # every quote. Without this, a quote from a client with no video (a written
+    # review) is skipped entirely and can carry an ellipsis indefinitely.
+    ellipsis = [(f, q) for f, q, _b, _a in quotes if '\u2026' in q or '...' in q]
     for f, q, before, after in quotes:
         hit = runs.get(key(q))
         if hit:
@@ -193,6 +197,12 @@ def main():
     print('Faithful excerpts:         %d' % len(passed))
     print('Need recutting:            %d' % len(failed))
     print('Skipped (no video speaker): %d' % skipped)
+    print('Quotes with an ellipsis:   %d' % len(ellipsis))
+    if ellipsis:
+        print()
+        for f, q in ellipsis:
+            print('ELLIPSIS  %s' % f)
+            print('          %s' % (q[:150] + ('...' if len(q) > 150 else '')))
     if failed:
         print()
         for f, q, why, best in failed:
@@ -202,7 +212,7 @@ def main():
             if best:
                 print('      FAITHFUL: %s' % best[:200])
             print()
-    return 1 if failed else 0
+    return 1 if (failed or ellipsis) else 0
 
 if __name__ == '__main__':
     sys.exit(main())
