@@ -48,6 +48,20 @@
     badge = wrap.querySelector('.va-badge');
   }
 
+  /* The sheet stores names as "Last, First [Middle] ["Nickname"] [Maiden]".
+     Everything below expects "First Last", so rows are converted once here --
+     the same conversion the homepage gallery does. Get this wrong and no row
+     matches a photo and no name renders, which is silent: the block just
+     stays hidden. */
+  function sheetName(raw){
+    raw = (raw||'').trim();
+    var c = raw.indexOf(',');
+    if(c === -1) return raw;
+    var last  = raw.slice(0, c).trim();
+    var rest  = raw.slice(c + 1).replace(/"[^"]*"/g, '').trim();
+    var first = (rest.split(/\s+/)[0] || '').trim();
+    return first ? (first + ' ' + last) : last;
+  }
   function key(n){ var w=(n||'').trim().split(/\s+/); return ((w[0]||'')+'|'+(w[w.length-1]||'')).toLowerCase(); }
   function shortName(n){
     var p=(n||'').trim().split(/\s+/);
@@ -149,11 +163,12 @@
     var rows = parseCSV(t);
     if(rows.length < 2) throw new Error('empty');
     var h = rows[0];
-    var cN=col(h,'Name'), cA=col(h,'Availability');
+    var cN=col(h,'Name');
+    var cA=col(h,'Current Availability'); if(cA===-1) cA=col(h,'Availability');
     var cP=col(h,'Photo'); if(cP===-1) cP=col(h,'Photo Link');
     var out=[];
     for(var r=1;r<rows.length;r++){
-      var name = cN!==-1 ? (rows[r][cN]||'').trim() : '';
+      var name = cN!==-1 ? sheetName(rows[r][cN]) : '';
       var avail = cA!==-1 ? (rows[r][cA]||'').trim() : '';
       if(!name || !avail) continue;
       var photo = LOCAL[key(name)] || '';
