@@ -1711,7 +1711,7 @@ function openModal(i){
     modalPhoto.style.display = 'none';
     modalPhoto.removeAttribute('src');
   }
-  document.getElementById('modalName').textContent = a.name;
+  document.getElementById('modalName').textContent = cardName(a.name);
   const modalBadge = document.getElementById('modalBadge');
   if(a.employmentType){
     modalBadge.textContent = a.employmentType;
