@@ -88,7 +88,7 @@ QUOTE_PATS = [
     r'&ldquo;(.{40,900}?)&rdquo;',
     r'<q>(.{40,900}?)</q>',
     r'class="milestone-quote">"(.{40,900}?)"</div>',
-    # js/reviews-marquee.js holds the review carousel's lines as data rather
+    # js/reviews.js holds the review carousel's lines as data rather
     # than markup. They are client words like any other, so they are checked
     # like any other -- the attribution sits on the next line, inside the
     # window the credit lookup already reads.

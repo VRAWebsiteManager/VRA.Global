@@ -198,25 +198,22 @@ html{scroll-padding-top:148px;}
     .guide-sticky.on{display:block;}
   }
 
-  /* CLIENT REVIEWS (js/reviews-marquee.js fills this) */
-  .review-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);}
-  .review-track{display:flex;gap:20px;width:max-content;animation:scrollTrack 80s linear infinite;animation-play-state:paused;}
-  .review-marquee.in-view .review-track{animation-play-state:running;}
-  .review-marquee:hover .review-track{animation-play-state:paused;}
-  @keyframes scrollTrack{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .review-card{flex:0 0 auto;width:300px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;flex-direction:column;}
-  .review-card .stars{color:#f5b301;font-size:13px;letter-spacing:2px;margin-bottom:9px;}
-  .review-card q{font-size:14.5px;font-style:italic;color:var(--darker-blue);line-height:1.5;margin-bottom:12px;flex-grow:1;}
-  .review-card .by{font-size:12.5px;color:var(--gray);border-top:1px solid var(--border);padding-top:11px;}
+  /* CLIENT REVIEWS (js/reviews.js fills this) */
+  .review-spot{max-width:600px;margin:0 auto;}
+  .review-stage{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px 32px;text-align:center;
+                min-height:186px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+                opacity:1;transition:opacity .22s ease;}
+  .review-stage.fading{opacity:0;}
+  .review-spot .stars{color:#f5b301;font-size:14px;letter-spacing:3px;margin-bottom:12px;}
+  .review-spot q{display:block;font-size:18px;font-style:italic;color:var(--darker-blue);line-height:1.5;margin-bottom:14px;}
+  .review-spot .by{font-size:13px;color:var(--gray);}
   .review-head{text-align:center;max-width:640px;margin:0 auto 26px;}
   .review-head h2{font-size:25px;margin-bottom:9px;}
   .review-head p{color:var(--gray);font-size:15.5px;}
-  .review-all{text-align:center;margin-top:22px;font-size:14.5px;}
+  .review-all{text-align:center;margin-top:18px;font-size:14.5px;}
   .review-all a{color:var(--blue);font-weight:700;}
-  @media(prefers-reduced-motion: reduce){
-    .review-track{animation:none;}
-    .review-marquee{overflow-x:auto;}
-  }
+  @media(prefers-reduced-motion: reduce){ .review-stage{transition:none;} }
+  @media(max-width:560px){ .review-stage{padding:24px 20px;min-height:222px;} .review-spot q{font-size:16.5px;} }
 </style>
 </head>
 <body>
@@ -482,8 +479,12 @@ html{scroll-padding-top:148px;}
       <h2>What Clients Say</h2>
       <p>Business owners at their 14, 30, 60 and 90-day check-ins, in their own words.</p>
     </div>
-    <div class="review-marquee" id="reviewMarquee" aria-label="What clients say">
-      <div class="review-track"></div>
+    <div class="review-spot" id="reviewSpotlight" hidden aria-label="What clients say">
+      <div class="review-stage">
+        <span class="stars"></span>
+        <q></q>
+        <span class="by"></span>
+      </div>
     </div>
     <p class="review-all"><a href="/reviews">Read every review and watch the video testimonials &rarr;</a></p>
   </div>
@@ -646,7 +647,7 @@ document.getElementById('guide-form').addEventListener('submit', function(e){
 </script>
   <script src="/js/attribution.js" defer></script>
   <script src="/js/analytics-events.js" defer></script>
-  <script src="/js/reviews-marquee.js" defer></script>
+  <script src="/js/reviews.js" defer></script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1962ebe458e14bbf999d2b9759090384"}'></script><!-- End Cloudflare Web Analytics -->
 <div class="guide-sticky" id="guideSticky"><a class="btn btn-primary" href="#guide-form">Get the free guide</a></div>
 
