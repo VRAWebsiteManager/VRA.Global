@@ -41,6 +41,54 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a virtual assistant cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$800 a month part-time and $1,500 a month full-time, invoiced on the 20th. The rate does not change with your industry, with the skills your assistant specializes in, or with the hours you pick."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there setup fees, overage charges or per-task pricing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no setup or onboarding fee, no overage charge, and nothing is billed per task. The monthly rate covers the reserved hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum commitment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three months, on both the part-time and the full-time plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a bilingual assistant or evening coverage cost more?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A bilingual assistant is the same rate, and hours outside standard business hours can be arranged with no after-hours upcharge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between part-time and full-time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Part-time is 20 hours a week at $800 a month; full-time is 40 hours a week at $1,500 a month. Everything else is the same: four weeks of instructor-led training before placement, check-ins at 14, 30, 60 and 90 days, a swap at any time at no extra cost, and a start within 24 hours of your selection."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vra.global/"},
@@ -186,6 +234,17 @@ html{scroll-padding-top:148px;}
   @media(max-width:1100px){.footer-grid{grid-template-columns:1fr 1fr 1fr;}}
   @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+  .alt-bg{background:#dfeaf1;}
+  .lead-problem{font-size:19px;font-weight:600;color:var(--darker-blue);max-width:700px;margin:0 auto 20px;}
+  .val-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto;}
+  .val-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;}
+  .val-card .stars{color:#f5b301;font-size:14px;letter-spacing:2px;margin-bottom:10px;}
+  .val-card q{font-size:16px;font-style:italic;color:var(--darker-blue);line-height:1.55;margin-bottom:14px;flex-grow:1;}
+  .val-card .by{font-size:13px;color:var(--gray);border-top:1px solid var(--border);padding-top:12px;}
+  @media(max-width:860px){.val-grid{grid-template-columns:1fr;}}
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px;}
+  .faq-q{font-size:17px;font-weight:700;color:var(--darker-blue);margin-bottom:6px;}
+  .faq-a{font-size:15.5px;color:var(--gray);line-height:1.6;}
   .cmp{width:100%;border-collapse:collapse;margin:0 auto;font-size:15px;background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
   .cmp caption{caption-side:top;text-align:left;font-weight:800;color:var(--dark-blue);padding:0 0 12px;font-size:16px;}
   .cmp th,.cmp td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
@@ -380,8 +439,20 @@ html{scroll-padding-top:148px;}
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- THE PROBLEM -->
 <section>
+  <div class="wrap">
+    <div class="section-head" style="max-width:760px;">
+      <div class="kicker">Before the Price</div>
+      <h2>When the Work Is There but the Salary Isn&rsquo;t</h2>
+      <p class="lead-problem">The inbox, the scheduling, the invoicing and the follow-up all still need doing, and none of it is the work you are good at. The business does not support another salary yet, so it lands on your evenings instead.</p>
+      <p>That is the gap these two plans are built for. Hiring means payroll taxes, benefits, equipment and weeks of recruiting before anyone does a day&rsquo;s work. A trained virtual assistant on a flat monthly rate sits between enduring the admin and hiring for it &mdash; a named assistant, reserved hours you set, and the time back that growing the business actually takes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="alt-bg">
   <div class="wrap">
     <div class="pricing-grid">
       <div class="pricing-card">
@@ -420,7 +491,7 @@ html{scroll-padding-top:148px;}
 </section>
 
 <!-- PLAN COMPARISON -->
-<section class="alt-bg" id="compare">
+<section id="compare">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker">Side by Side</div>
@@ -452,8 +523,58 @@ html{scroll-padding-top:148px;}
 </section>
 
 
-<!-- CTA BANNER -->
+<!-- WHAT IT RETURNED -->
+<section class="alt-bg">
+  <div class="wrap">
+    <div class="section-head" style="max-width:700px;">
+      <div class="kicker">What It Returned</div>
+      <h2>What the Rate Bought Them</h2>
+    </div>
+    <div class="val-grid">
+      <div class="val-card">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <q>He's doing exactly what I asked him to do, which is being very proactive in devising systems to get me in front of more people, to make more money.</q>
+        <span class="by">Ken Foster &middot; 14-day check-in</span>
+      </div>
+      <div class="val-card">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <q>I want to continue to build our business and our volume so that we can get two or three Leias.</q>
+        <span class="by">Courtney Okanlomo &middot; 60-day check-in</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING FAQ -->
 <section>
+  <div class="wrap">
+    <div class="section-head" style="max-width:700px;">
+      <div class="kicker">Pricing Questions</div>
+      <h2>What a Virtual Assistant Costs</h2>
+    </div>
+    <div class="faq-list">
+      <div>
+        <div class="faq-q">How much does a virtual assistant cost?</div>
+        <p class="faq-a">$800 a month part-time and $1,500 a month full-time, invoiced on the 20th. The rate does not change with your industry, with the skills your assistant specializes in, or with the hours you pick.</p>
+      </div>
+      <div>
+        <div class="faq-q">Are there setup fees, overage charges or per-task pricing?</div>
+        <p class="faq-a">No. There is no setup or onboarding fee, no overage charge, and nothing is billed per task. The monthly rate covers the reserved hours.</p>
+      </div>
+      <div>
+        <div class="faq-q">Is there a minimum commitment?</div>
+        <p class="faq-a">Three months, on both the part-time and the full-time plan.</p>
+      </div>
+      <div>
+        <div class="faq-q">Does a bilingual assistant or evening coverage cost more?</div>
+        <p class="faq-a">No. A bilingual assistant is the same rate, and hours outside standard business hours can be arranged with no after-hours upcharge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="alt-bg">
   <div class="wrap">
     <div class="cta-banner">
       <h2>Ready to Get Your Time Back?</h2>
