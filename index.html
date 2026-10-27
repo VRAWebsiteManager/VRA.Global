@@ -315,13 +315,11 @@ html{scroll-padding-top:148px;}
   .section-head p{color:var(--gray);font-size:16px;}
 
   /* VALUE CARDS */
-  .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .card-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .card{background:var(--white);border:2px solid var(--blue);border-radius:14px;padding:28px 22px;text-align:left;}
   .card .icon{width:46px;height:46px;border-radius:10px;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
   .card h3{font-size:17px;margin-bottom:8px;}
   .card p{font-size:14px;color:var(--gray);}
-  @media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.card-grid{grid-template-columns:1fr;}}
 
   .alt-bg{background:#dfeaf1;}
 
@@ -329,7 +327,8 @@ html{scroll-padding-top:148px;}
   .trust-bar{padding:26px 0;background:var(--white);border-top:4px solid var(--light-blue);border-bottom:4px solid var(--light-blue);}
   .trust-label{text-align:center;font-size:12.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray);margin-bottom:26px;}
   .trust-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);}
-  .trust-track{display:flex;align-items:center;gap:40px;width:max-content;animation:scrollTrack 60s linear infinite reverse;}
+  .trust-track{display:flex;align-items:center;gap:40px;width:max-content;animation:scrollTrack 60s linear infinite reverse;animation-play-state:paused;}
+  .trust-marquee.in-view .trust-track{animation-play-state:running;}
   .trust-marquee:hover .trust-track{animation-play-state:paused;}
   .trust-slot{height:42px;display:flex;align-items:center;justify-content:center;flex:none;}
   .trust-slot img{height:100%;width:auto;max-width:150px;object-fit:contain;}
@@ -352,23 +351,18 @@ html{scroll-padding-top:148px;}
 
   /* SERVICES */
   .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  .service-card{background:var(--white);border:2px solid var(--blue);border-radius:16px;padding:30px;}
-  .service-card h3{font-size:19px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-  .service-card h3:before{content:"";width:8px;height:8px;background:var(--blue);border-radius:50%;}
-  .service-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-  .service-card ul li{font-size:14.5px;color:var(--gray);padding-left:22px;position:relative;}
-  .service-card ul li:before{content:"—";position:absolute;left:0;color:var(--blue);}
-  .service-card.compact{padding:18px 26px;}
-  .service-card.compact h3{font-size:15.5px;margin-bottom:8px;}
-  .service-card.compact ul{gap:5px;}
-  .service-card.compact ul li{font-size:12.5px;padding-left:18px;}
+  .service-card{background:var(--white);border:2px solid var(--blue);border-radius:16px;padding:24px 26px;}
+  .service-card h3{font-size:17px;margin-bottom:12px;}
+  .service-card ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .service-card ul li{font-size:14px;line-height:1.5;color:var(--gray);}
   .service-card.wide{grid-column:1 / -1;}
-  .service-card.wide ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
+  .service-card.wide ul{display:block;column-count:2;column-gap:30px;}
+  .service-card.wide ul li{break-inside:avoid;margin-bottom:7px;}
   .service-card.wide ul a{color:var(--blue);font-weight:600;}
   .service-card.wide ul a:hover{text-decoration:underline;}
   .service-card ul li a{color:var(--blue);font-weight:600;}
   .service-card ul li a:hover{text-decoration:underline;}
-  @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
+  @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{column-count:1;}}
 
   /* PRICING */
   .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:28px;}
@@ -449,9 +443,14 @@ html{scroll-padding-top:148px;}
 
   /* ASSISTANT MARQUEE */
   .assistant-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);}
-  .assistant-track{display:flex;gap:20px;width:max-content;animation:scrollTrack 60s linear infinite;}
+  .assistant-track{display:flex;gap:20px;width:max-content;animation:scrollTrack 60s linear infinite;animation-play-state:paused;}
+  .assistant-marquee.in-view .assistant-track{animation-play-state:running;}
   .assistant-marquee:hover .assistant-track{animation-play-state:paused;}
   @keyframes scrollTrack{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion: reduce){
+    .assistant-track,.trust-track{animation:none;}
+    .assistant-marquee,.trust-marquee{overflow-x:auto;}
+  }
   .assistant-card{display:block;flex:0 0 auto;width:150px;text-align:center;cursor:pointer;background:none;border:none;padding:0;font-family:inherit;}
   .assistant-photo{position:relative;display:block;width:150px;height:150px;border-radius:14px;overflow:hidden;background:var(--light-blue);border:1px solid var(--border);box-shadow:0 6px 18px rgba(1,1,16,.12);transition:transform .2s ease, box-shadow .2s ease;}
   .assistant-card:hover .assistant-photo{transform:translateY(-4px);box-shadow:0 12px 26px rgba(1,1,16,.22);}
@@ -899,7 +898,7 @@ html{scroll-padding-top:148px;}
           <li>Coordinate events, classes &amp; training sessions &mdash; logistics, scheduling, materials prep</li>
         </ul>
       </div>
-      <div class="service-card compact" id="email-management">
+      <div class="service-card" id="email-management">
         <h3>Email Management</h3>
         <ul>
           <li>Weed out any spam</li>
@@ -908,7 +907,7 @@ html{scroll-padding-top:148px;}
           <li>Carry out email marketing campaigns and manage email lists</li>
         </ul>
       </div>
-      <div class="service-card compact" id="social-media-management">
+      <div class="service-card" id="social-media-management">
         <h3>Social Media Management</h3>
         <ul>
           <li>Create content to share on your business pages</li>
@@ -919,7 +918,7 @@ html{scroll-padding-top:148px;}
           <li><a href="/digital-marketing-virtual-assistant">See our full Digital Marketing VA page &rarr;</a></li>
         </ul>
       </div>
-      <div class="service-card compact" id="website-management">
+      <div class="service-card" id="website-management">
         <h3>Website Management</h3>
         <ul>
           <li>Develop and update your website</li>
@@ -928,7 +927,7 @@ html{scroll-padding-top:148px;}
           <li>Monitor site performance and fix broken links</li>
         </ul>
       </div>
-      <div class="service-card compact" id="lead-management">
+      <div class="service-card" id="lead-management">
         <h3>Lead Management</h3>
         <ul>
           <li>Follow up with new leads and inquiries</li>
@@ -937,7 +936,7 @@ html{scroll-padding-top:148px;}
           <li>Nurture campaigns &amp; drip follow-ups</li>
         </ul>
       </div>
-      <div class="service-card compact" id="customer-service">
+      <div class="service-card" id="customer-service">
         <h3>Customer Service</h3>
         <ul>
           <li>Respond to customer inquiries &amp; requests</li>
@@ -946,7 +945,7 @@ html{scroll-padding-top:148px;}
           <li>Gather &amp; respond to customer reviews</li>
         </ul>
       </div>
-      <div class="service-card compact" id="ai-enabled-support">
+      <div class="service-card" id="ai-enabled-support">
         <h3>AI-Enabled Support</h3>
         <ul>
           <li>VRA Skills Accelerator-certified in AI tools (Anthropic, OpenAI Academy, and more)</li>
@@ -955,7 +954,7 @@ html{scroll-padding-top:148px;}
           <li>Build AI-supported workflows for your business</li>
         </ul>
       </div>
-      <div class="service-card compact" id="graphic-design">
+      <div class="service-card" id="graphic-design">
         <h3>Graphic Design</h3>
         <ul>
           <li>Canva-certified design support</li>
@@ -965,7 +964,7 @@ html{scroll-padding-top:148px;}
           <li><a href="/digital-marketing-virtual-assistant">See our full Digital Marketing VA page &rarr;</a></li>
         </ul>
       </div>
-      <div class="service-card compact" id="billing-receivables">
+      <div class="service-card" id="billing-receivables">
         <h3>Billing &amp; Receivables</h3>
         <ul>
           <li>Prepare and send invoices from your system</li>
@@ -975,7 +974,7 @@ html{scroll-padding-top:148px;}
           <li>Follow up on outstanding quotes until you get an answer</li>
         </ul>
       </div>
-      <div class="service-card compact" id="process-documentation">
+      <div class="service-card" id="process-documentation">
         <h3>Process Documentation</h3>
         <ul>
           <li>Record how the work is actually done, exceptions included</li>
@@ -1095,11 +1094,11 @@ html{scroll-padding-top:148px;}
     </div>
     <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;">
       <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/kwcommand-icon.png" alt="KW Command" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">KW Command</div></div><span class="tool-name">KW Command</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/dotloop-icon.png" alt="DotLoop" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">DotLoop</div></div><span class="tool-name">DotLoop</span></div>
+      <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/dotloop-icon.png" alt="DotLoop" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">DotLoop</div></div><span class="tool-name">DotLoop</span></div>
       <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/docusign-icon3.png" alt="DocuSign" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">DocuSign</div></div><span class="tool-name">DocuSign</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/quickbooks-icon.png" alt="QuickBooks" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">QuickBooks</div></div><span class="tool-name">QuickBooks</span></div>
+      <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/quickbooks-icon.png" alt="QuickBooks" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">QuickBooks</div></div><span class="tool-name">QuickBooks</span></div>
       <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/gworkspace-icon.png" alt="Google Workspace" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Google Workspace</div></div><span class="tool-name">Google Workspace</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/slack-icon.png" alt="Slack" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Slack</div></div><span class="tool-name">Slack</span></div>
+      <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/slack-icon.png" alt="Slack" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Slack</div></div><span class="tool-name">Slack</span></div>
       <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/canva-icon.png" alt="Canva" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Canva</div></div><span class="tool-name">Canva</span></div>
       <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/claude-icon.png" alt="Claude" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Claude</div></div><span class="tool-name">Claude</span></div>
     </div>
@@ -1744,5 +1743,25 @@ document.addEventListener('keydown', (e) => { if(e.key === 'Escape') overlay.cla
   <script src="/js/attribution.js" defer></script>
   <script src="/js/analytics-events.js" defer></script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1962ebe458e14bbf999d2b9759090384"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+/* The marquees sit well below the fold. Running them from page load means a
+   visitor arrives to a strip already mid-cycle, and the gallery's re-render
+   when the live sheet lands resets it visibly. Holding them at the start and
+   beginning on first sight gives a full row that starts moving on arrival. */
+(function(){
+  var bars = document.querySelectorAll('.assistant-marquee,.trust-marquee');
+  if(!bars.length) return;
+  if(!('IntersectionObserver' in window)){
+    bars.forEach(function(b){ b.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.25});
+  bars.forEach(function(b){ io.observe(b); });
+})();
+</script>
 </body>
 </html>

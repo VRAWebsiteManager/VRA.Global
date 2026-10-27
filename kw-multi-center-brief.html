@@ -108,20 +108,20 @@ html{scroll-padding-top:148px;}
 
   /* SERVICES */
   .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  .service-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:30px;}
-  .service-card h3{font-size:19px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-  .service-card h3:before{content:"";width:8px;height:8px;background:var(--blue);border-radius:50%;}
-  .service-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-  .service-card ul li{font-size:14.5px;color:var(--gray);padding-left:22px;position:relative;}
-  .service-card ul li:before{content:"—";position:absolute;left:0;color:var(--blue);}
+  .service-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px 26px;}
+  .service-card h3{font-size:17px;margin-bottom:12px;}
+  .service-card ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .service-card ul li{font-size:14px;line-height:1.5;color:var(--gray);}
   .service-card.wide{grid-column:1 / -1;}
-  .service-card.wide ul{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;}
+  .service-card.wide ul{display:block;column-count:2;column-gap:30px;}
+  .service-card.wide ul li{break-inside:avoid;margin-bottom:7px;}
   .service-card ul li a{color:var(--blue);font-weight:600;}
   .service-card ul li a:hover{text-decoration:underline;}
-  @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{grid-template-columns:1fr;}}
+  @media(max-width:900px){.service-grid{grid-template-columns:1fr;}.service-card.wide ul{column-count:1;}}
 
   /* TRUST / DATA BOUNDARIES */
-  .trust-no ul li:before{content:"\2715";color:#b33a3a;}
+  .trust-no ul li{padding-left:22px;position:relative;}
+  .trust-no ul li:before{content:"¹5";position:absolute;left:0;color:#b33a3a;}
   .trust-closing{max-width:760px;margin:28px auto 0;text-align:center;color:var(--gray);font-size:15px;}
 
   /* VIDEO TESTIMONIAL */
