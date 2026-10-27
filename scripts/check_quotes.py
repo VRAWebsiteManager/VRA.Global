@@ -88,12 +88,17 @@ QUOTE_PATS = [
     r'&ldquo;(.{40,900}?)&rdquo;',
     r'<q>(.{40,900}?)</q>',
     r'class="milestone-quote">"(.{40,900}?)"</div>',
+    # js/reviews-marquee.js holds the review carousel's lines as data rather
+    # than markup. They are client words like any other, so they are checked
+    # like any other -- the attribution sits on the next line, inside the
+    # window the credit lookup already reads.
+    r'quote:\s*"(.{40,900}?)",',
 ]
 JUNK = re.compile(r'src=|viewbox|https?:|<div|<span|class=|&ldquo;|&rdquo;|“|”', re.I)
 
 def site_quotes():
     seen, out = set(), []
-    for f in sorted(glob.glob('*.html') + glob.glob('insights/*.html')):
+    for f in sorted(glob.glob('*.html') + glob.glob('insights/*.html') + glob.glob('js/*.js')):
         raw = io.open(f, encoding='utf-8').read()
         raw = re.sub(r'<script type="application/ld\+json">.*?</script>', ' ', raw, flags=re.S)
         for pat in QUOTE_PATS:

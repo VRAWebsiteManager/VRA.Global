@@ -41,6 +41,40 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://vra.global/contact",
+  "name": "Contact Virtual Realty Assistants",
+  "description": "Book a free consultation or send a message to Virtual Realty Assistants about hiring a trained virtual assistant.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Virtual Realty Assistants",
+    "alternateName": "VRA",
+    "url": "https://vra.global",
+    "email": "contact@vrealtyassistants.com",
+    "telephone": "+1-281-612-9678",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+1-281-612-9678",
+        "email": "contact@vrealtyassistants.com",
+        "url": "https://vra.global/contact",
+        "areaServed": "US",
+        "availableLanguage": ["English", "Spanish", "Portuguese"]
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vra.global/"},
@@ -109,6 +143,41 @@ html{scroll-padding-top:148px;}
   .contact-info .needs-box{margin-top:24px;padding-top:24px;border-top:1px solid var(--border);}
   .contact-info .needs-box h4{font-size:16px;margin-bottom:8px;}
   .contact-info .needs-box p{margin-bottom:14px;}
+
+  /* BOOK + PROOF */
+  .book-head{text-align:center;max-width:680px;margin:0 auto 26px;}
+  .book-head h2{font-size:27px;margin-bottom:10px;}
+  .book-head p{color:var(--gray);font-size:16px;}
+  .book-act{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:40px;}
+  .book-reach{font-size:15px;color:var(--gray);text-align:center;}
+  .book-reach a{color:var(--blue);font-weight:700;}
+  .review-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);}
+  .review-track{display:flex;gap:20px;width:max-content;animation:scrollTrack 80s linear infinite;animation-play-state:paused;}
+  .review-marquee.in-view .review-track{animation-play-state:running;}
+  .review-marquee:hover .review-track{animation-play-state:paused;}
+  @keyframes scrollTrack{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .review-card{flex:0 0 auto;width:300px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;flex-direction:column;}
+  .review-card .stars{color:#f5b301;font-size:13px;letter-spacing:2px;margin-bottom:9px;}
+  .review-card q{font-size:14.5px;font-style:italic;color:var(--darker-blue);line-height:1.5;margin-bottom:12px;flex-grow:1;}
+  .review-card .by{font-size:12.5px;color:var(--gray);border-top:1px solid var(--border);padding-top:11px;}
+  .review-all{text-align:center;margin-top:22px;font-size:14.5px;}
+  .review-all a{color:var(--blue);font-weight:700;}
+  @media(prefers-reduced-motion: reduce){
+    .review-track{animation:none;}
+    .review-marquee{overflow-x:auto;}
+  }
+
+  /* WHAT HAPPENS NEXT */
+  .next-head{text-align:center;max-width:680px;margin:0 auto 28px;}
+  .next-head h2{font-size:25px;margin-bottom:10px;}
+  .next-head p{color:var(--gray);font-size:15.5px;}
+  .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:30px;}
+  .next-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px 22px;}
+  .next-num{width:36px;height:36px;border-radius:50%;background:var(--dark-blue);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:13px;}
+  .next-card h3{font-size:16px;margin-bottom:7px;}
+  .next-card p{font-size:14.5px;color:var(--gray);line-height:1.55;}
+  .next-close{text-align:center;}
+  @media(max-width:900px){.next-grid{grid-template-columns:1fr;}}
 
   /* FORM */
   .contact-form{max-width:760px;background:var(--white);border:1px solid var(--border);border-radius:18px;padding:44px;}
@@ -311,24 +380,41 @@ html{scroll-padding-top:148px;}
 <section class="page-hero">
   <div class="wrap">
     <div class="kicker">Get in Touch</div>
-    <h1>Contact Us</h1>
-    <p>Questions about hiring a Virtual Assistant? Send us a message and our team will get back to you.</p>
+    <h1>Talk to Us About a Virtual Assistant</h1>
+    <p>Book a free Zoom to talk through what your business needs, or send a message and we&rsquo;ll come back to you.</p>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- BOOK -->
 <section>
+  <div class="wrap">
+    <div class="book-head">
+      <h2>Book a Free Consultation</h2>
+      <p>Under 30 minutes on Zoom, at no cost and with no obligation. We walk through how your business runs and where the hours are going &mdash; there is nothing to fill out first.</p>
+    </div>
+    <div class="book-act">
+      <a href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=contact" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consult</a>
+      <p class="book-reach">Or reach us directly at <a href="tel:1-281-612-9678">(281) 612-9678</a> or <a href="mailto:contact@vrealtyassistants.com">contact@vrealtyassistants.com</a></p>
+    </div>
+    <div class="review-marquee" id="reviewMarquee" aria-label="What clients say">
+      <div class="review-track"></div>
+    </div>
+    <p class="review-all"><a href="/reviews">Read every review and watch the video testimonials &rarr;</a></p>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="alt-bg">
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-info">
-        <h3>Reach Us Directly</h3>
+        <h3>Rather Send a Message?</h3>
+        <p>Tell us what you need and we&rsquo;ll get back to you. A message works just as well as a call to get started.</p>
         <a href="mailto:contact@vrealtyassistants.com" target="_blank" rel="noopener">contact@vrealtyassistants.com</a>
         <a href="tel:1-281-612-9678" target="_blank" rel="noopener">(281) 612-9678</a>
         <p>Keller Williams Memorial, Houston, TX</p>
         <div class="needs-box">
-          <h4>Not sure where to start?</h4>
-          <p>Take our free 2-minute needs assessment and find out exactly where a Virtual Assistant could give you your time back.</p>
-          <a href="/needs-assessment" class="btn btn-outline" style="width:100%;text-align:center;">Take Our Needs Assessment</a>
+          <p>Want to come to the call with a plan? <a href="/needs-assessment" style="color:var(--blue);font-weight:700;">Take the free needs assessment &rarr;</a></p>
         </div>
       </div>
 
@@ -346,26 +432,46 @@ html{scroll-padding-top:148px;}
           <input type="tel" id="c-phone" name="phone" placeholder="Phone number (optional)">
         </div>
         <div class="form-group">
-          <textarea id="c-message" name="message" placeholder="How can we help?" required></textarea>
+          <textarea id="c-message" name="message" placeholder="Anything you want us to know before we talk (optional)"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" id="contact-submit-btn">Send Message</button>
       </form>
 
       <div id="contact-success" style="display:none;max-width:760px;background:var(--white);border:1px solid var(--border);border-radius:18px;padding:44px;text-align:center;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;margin:0 auto 16px;">✓</div>
-        <h2 style="margin-bottom:10px;">Thanks — We've Got It!</h2>
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--light-blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;margin:0 auto 18px;">&#10003;</div>
+        <h2 style="margin-bottom:10px;">Thanks &mdash; We've Got It!</h2>
         <p style="color:var(--gray);">Your message has been sent. We'll get back to you shortly.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="alt-bg">
+<!-- WHAT HAPPENS NEXT -->
+<section>
   <div class="wrap">
-    <div class="cta-banner">
-      <h2>Prefer to Talk It Through?</h2>
-      <p>Skip the form and book a free consultation directly with our team.</p>
+    <div class="next-head">
+      <div class="kicker">What Happens Next</div>
+      <h2>What Happens After You Reach Out</h2>
+      <p>However you get in touch, the path from here is the same.</p>
+    </div>
+    <div class="next-grid">
+      <div class="next-card">
+        <div class="next-num">1</div>
+        <h3>We Talk It Through</h3>
+        <p>A Zoom of under 30 minutes to understand how your business runs and which hours you want back. No cost, and nothing to prepare.</p>
+      </div>
+      <div class="next-card">
+        <div class="next-num">2</div>
+        <h3>You Interview and Choose</h3>
+        <p>You meet the assistants matched to your business on Zoom and pick the one you want. Every one of them has already cleared screening and a four-week training program.</p>
+      </div>
+      <div class="next-card">
+        <div class="next-num">3</div>
+        <h3>Your Assistant Starts</h3>
+        <p>We handle hiring and onboarding, and your assistant can start within 24 hours of your selection. Flat rate, no upcharges, and you can swap at any point at no extra cost.</p>
+      </div>
+    </div>
+    <div class="next-close">
       <a href="https://calendly.com/michael2582/virtual-realty-assistants-consultation-interview?utm_source=vra-site&amp;utm_medium=cta&amp;utm_campaign=consult&amp;utm_content=contact" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consult</a>
     </div>
   </div>
@@ -499,6 +605,8 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
 
   <script src="/js/attribution.js" defer></script>
   <script src="/js/analytics-events.js" defer></script>
+  <script src="/js/reviews-marquee.js" defer></script>
   <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1962ebe458e14bbf999d2b9759090384"}'></script><!-- End Cloudflare Web Analytics -->
+
 </body>
 </html>
