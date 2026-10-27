@@ -391,9 +391,10 @@ html{scroll-padding-top:148px;}
   @media(max-width:560px){.milestone-grid{grid-template-columns:1fr;}}
 
   /* TOOLS & PLATFORMS */
-  .tools-marquee-wrap{display:flex;flex-direction:column;gap:22px;}
+  .tools-marquee-wrap{display:flex;flex-direction:column;gap:18px;margin-bottom:26px;}
   .tools-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);}
-  .tools-track{display:flex;gap:22px;width:max-content;animation:scrollTrack 18s linear infinite;}
+  .tools-track{display:flex;gap:14px;width:max-content;animation:scrollTrack 70s linear infinite;animation-play-state:paused;}
+  .tools-marquee.in-view .tools-track{animation-play-state:running;}
   .tools-track.reverse{animation-direction:reverse;}
   .tools-marquee:hover .tools-track{animation-play-state:paused;}
   .tool-tile{flex:0 0 auto;width:126px;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px 10px;text-align:center;}
@@ -448,8 +449,8 @@ html{scroll-padding-top:148px;}
   .assistant-marquee:hover .assistant-track{animation-play-state:paused;}
   @keyframes scrollTrack{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   @media(prefers-reduced-motion: reduce){
-    .assistant-track,.trust-track{animation:none;}
-    .assistant-marquee,.trust-marquee{overflow-x:auto;}
+    .assistant-track,.trust-track,.tools-track{animation:none;}
+    .assistant-marquee,.trust-marquee,.tools-marquee{overflow-x:auto;}
   }
   .assistant-card{display:block;flex:0 0 auto;width:150px;text-align:center;cursor:pointer;background:none;border:none;padding:0;font-family:inherit;}
   .assistant-photo{position:relative;display:block;width:150px;height:150px;border-radius:14px;overflow:hidden;background:var(--light-blue);border:1px solid var(--border);box-shadow:0 6px 18px rgba(1,1,16,.12);transition:transform .2s ease, box-shadow .2s ease;}
@@ -1092,15 +1093,91 @@ html{scroll-padding-top:148px;}
       <h2>Our VAs Come With a Tech Stack</h2>
       <p>Your Virtual Assistant comes ready to work inside the platforms you already use every day &mdash; plus AI-supported tools that speed up invoicing, reporting, and everyday admin work. We commit to 90% proficiency in your systems within 5 business days of starting with you.</p>
     </div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;">
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/kwcommand-icon.png" alt="KW Command" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">KW Command</div></div><span class="tool-name">KW Command</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/dotloop-icon.png" alt="DotLoop" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">DotLoop</div></div><span class="tool-name">DotLoop</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/docusign-icon3.png" alt="DocuSign" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">DocuSign</div></div><span class="tool-name">DocuSign</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/quickbooks-icon.png" alt="QuickBooks" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">QuickBooks</div></div><span class="tool-name">QuickBooks</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/gworkspace-icon.png" alt="Google Workspace" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Google Workspace</div></div><span class="tool-name">Google Workspace</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/slack-icon.png" alt="Slack" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Slack</div></div><span class="tool-name">Slack</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/canva-icon.png" alt="Canva" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Canva</div></div><span class="tool-name">Canva</span></div>
-      <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/claude-icon.png" alt="Claude" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="tool-icon-fallback" style="display:none">Claude</div></div><span class="tool-name">Claude</span></div>
+    <div class="tools-marquee-wrap">
+      <div class="tools-marquee">
+        <div class="tools-track">
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/kwcommand-icon.png" alt="KW Command" loading="lazy"></div><span class="tool-name">KW Command</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/dotloop-icon.png" alt="DotLoop" loading="lazy"></div><span class="tool-name">DotLoop</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/docusign-icon3.png" alt="DocuSign" loading="lazy"></div><span class="tool-name">DocuSign</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/qualia-icon.png" alt="Qualia" loading="lazy"></div><span class="tool-name">Qualia</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/lonewolf-icon.png" alt="Lone Wolf" loading="lazy"></div><span class="tool-name">Lone Wolf</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/brokerkit-icon.png" alt="BrokerKit" loading="lazy"></div><span class="tool-name">BrokerKit</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/courted-icon.png" alt="Courted" loading="lazy"></div><span class="tool-name">Courted</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/agentsonly-icon.png" alt="AgentsOnly" loading="lazy"></div><span class="tool-name">AgentsOnly</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/mls-icon.png" alt="MLS" loading="lazy"></div><span class="tool-name">MLS</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/gworkspace-icon.png" alt="Google Workspace" loading="lazy"></div><span class="tool-name">Google Workspace</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/office-icon.png" alt="Microsoft Office" loading="lazy"></div><span class="tool-name">Microsoft Office</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/slack-icon.png" alt="Slack" loading="lazy"></div><span class="tool-name">Slack</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/zoom-icon.png" alt="Zoom" loading="lazy"></div><span class="tool-name">Zoom</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/dialpad-icon.png" alt="Dialpad" loading="lazy"></div><span class="tool-name">Dialpad</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/whatsapp-icon.png" alt="WhatsApp" loading="lazy"></div><span class="tool-name">WhatsApp</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/calendly-icon.png" alt="Calendly" loading="lazy"></div><span class="tool-name">Calendly</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/asana-icon.png" alt="Asana" loading="lazy"></div><span class="tool-name">Asana</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/trello-icon.png" alt="Trello" loading="lazy"></div><span class="tool-name">Trello</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/zapier-icon.png" alt="Zapier" loading="lazy"></div><span class="tool-name">Zapier</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/kwcommand-icon.png" alt="KW Command" loading="lazy"></div><span class="tool-name">KW Command</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/dotloop-icon.png" alt="DotLoop" loading="lazy"></div><span class="tool-name">DotLoop</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/docusign-icon3.png" alt="DocuSign" loading="lazy"></div><span class="tool-name">DocuSign</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/qualia-icon.png" alt="Qualia" loading="lazy"></div><span class="tool-name">Qualia</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/lonewolf-icon.png" alt="Lone Wolf" loading="lazy"></div><span class="tool-name">Lone Wolf</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/brokerkit-icon.png" alt="BrokerKit" loading="lazy"></div><span class="tool-name">BrokerKit</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/courted-icon.png" alt="Courted" loading="lazy"></div><span class="tool-name">Courted</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/agentsonly-icon.png" alt="AgentsOnly" loading="lazy"></div><span class="tool-name">AgentsOnly</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/mls-icon.png" alt="MLS" loading="lazy"></div><span class="tool-name">MLS</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/gworkspace-icon.png" alt="Google Workspace" loading="lazy"></div><span class="tool-name">Google Workspace</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/office-icon.png" alt="Microsoft Office" loading="lazy"></div><span class="tool-name">Microsoft Office</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/slack-icon.png" alt="Slack" loading="lazy"></div><span class="tool-name">Slack</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/zoom-icon.png" alt="Zoom" loading="lazy"></div><span class="tool-name">Zoom</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/dialpad-icon.png" alt="Dialpad" loading="lazy"></div><span class="tool-name">Dialpad</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/whatsapp-icon.png" alt="WhatsApp" loading="lazy"></div><span class="tool-name">WhatsApp</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/calendly-icon.png" alt="Calendly" loading="lazy"></div><span class="tool-name">Calendly</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/asana-icon.png" alt="Asana" loading="lazy"></div><span class="tool-name">Asana</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/trello-icon.png" alt="Trello" loading="lazy"></div><span class="tool-name">Trello</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/zapier-icon.png" alt="Zapier" loading="lazy"></div><span class="tool-name">Zapier</span></div>
+        </div>
+      </div>
+      <div class="tools-marquee">
+        <div class="tools-track reverse">
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/quickbooks-icon.png" alt="QuickBooks" loading="lazy"></div><span class="tool-name">QuickBooks</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/accountedge-icon.png" alt="AccountEdge" loading="lazy"></div><span class="tool-name">AccountEdge</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/zoho-icon.png" alt="Zoho" loading="lazy"></div><span class="tool-name">Zoho</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/claude-icon.png" alt="Claude" loading="lazy"></div><span class="tool-name">Claude</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/chatgpt-icon.png" alt="ChatGPT" loading="lazy"></div><span class="tool-name">ChatGPT</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/grokbot-icon.png" alt="Grok Bot" loading="lazy"></div><span class="tool-name">Grok Bot</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/canva-icon.png" alt="Canva" loading="lazy"></div><span class="tool-name">Canva</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/mailchimp-icon.png" alt="Mailchimp" loading="lazy"></div><span class="tool-name">Mailchimp</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/wordpress-icon.png" alt="WordPress" loading="lazy"></div><span class="tool-name">WordPress</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap wide"><img src="logos/wix-icon.png" alt="Wix" loading="lazy"></div><span class="tool-name">Wix</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/googleads-icon.png" alt="Google Ads" loading="lazy"></div><span class="tool-name">Google Ads</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/meta-icon.png" alt="Meta Ads" loading="lazy"></div><span class="tool-name">Meta Ads</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/googleanalytics-icon.png" alt="Google Analytics" loading="lazy"></div><span class="tool-name">Google Analytics</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/gmb-icon.png" alt="Google My Business" loading="lazy"></div><span class="tool-name">Google My Business</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/facebook-icon.png" alt="Facebook" loading="lazy"></div><span class="tool-name">Facebook</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/instagram-icon.png" alt="Instagram" loading="lazy"></div><span class="tool-name">Instagram</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/youtube-icon.png" alt="YouTube" loading="lazy"></div><span class="tool-name">YouTube</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/tiktok-icon.png" alt="TikTok" loading="lazy"></div><span class="tool-name">TikTok</span></div>
+        <div class="tool-tile"><div class="tool-icon-wrap"><img src="logos/tubebuddy-icon.png" alt="TubeBuddy" loading="lazy"></div><span class="tool-name">TubeBuddy</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/quickbooks-icon.png" alt="QuickBooks" loading="lazy"></div><span class="tool-name">QuickBooks</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/accountedge-icon.png" alt="AccountEdge" loading="lazy"></div><span class="tool-name">AccountEdge</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/zoho-icon.png" alt="Zoho" loading="lazy"></div><span class="tool-name">Zoho</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/claude-icon.png" alt="Claude" loading="lazy"></div><span class="tool-name">Claude</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/chatgpt-icon.png" alt="ChatGPT" loading="lazy"></div><span class="tool-name">ChatGPT</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/grokbot-icon.png" alt="Grok Bot" loading="lazy"></div><span class="tool-name">Grok Bot</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/canva-icon.png" alt="Canva" loading="lazy"></div><span class="tool-name">Canva</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/mailchimp-icon.png" alt="Mailchimp" loading="lazy"></div><span class="tool-name">Mailchimp</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/wordpress-icon.png" alt="WordPress" loading="lazy"></div><span class="tool-name">WordPress</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap wide"><img src="logos/wix-icon.png" alt="Wix" loading="lazy"></div><span class="tool-name">Wix</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/googleads-icon.png" alt="Google Ads" loading="lazy"></div><span class="tool-name">Google Ads</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/meta-icon.png" alt="Meta Ads" loading="lazy"></div><span class="tool-name">Meta Ads</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/googleanalytics-icon.png" alt="Google Analytics" loading="lazy"></div><span class="tool-name">Google Analytics</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/gmb-icon.png" alt="Google My Business" loading="lazy"></div><span class="tool-name">Google My Business</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/facebook-icon.png" alt="Facebook" loading="lazy"></div><span class="tool-name">Facebook</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/instagram-icon.png" alt="Instagram" loading="lazy"></div><span class="tool-name">Instagram</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/youtube-icon.png" alt="YouTube" loading="lazy"></div><span class="tool-name">YouTube</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/tiktok-icon.png" alt="TikTok" loading="lazy"></div><span class="tool-name">TikTok</span></div>
+        <div class="tool-tile" aria-hidden="true"><div class="tool-icon-wrap"><img src="logos/tubebuddy-icon.png" alt="TubeBuddy" loading="lazy"></div><span class="tool-name">TubeBuddy</span></div>
+        </div>
+      </div>
     </div>
     <p class="trust-closing"><a href="/tools-and-platforms">See every platform your assistant works in, and what they do in each &rarr;</a></p>
   </div>
@@ -1749,7 +1826,7 @@ document.addEventListener('keydown', (e) => { if(e.key === 'Escape') overlay.cla
    when the live sheet lands resets it visibly. Holding them at the start and
    beginning on first sight gives a full row that starts moving on arrival. */
 (function(){
-  var bars = document.querySelectorAll('.assistant-marquee,.trust-marquee');
+  var bars = document.querySelectorAll('.assistant-marquee,.trust-marquee,.tools-marquee');
   if(!bars.length) return;
   if(!('IntersectionObserver' in window)){
     bars.forEach(function(b){ b.classList.add('in-view'); });
