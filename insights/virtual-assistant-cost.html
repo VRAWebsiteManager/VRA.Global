@@ -81,6 +81,13 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:var(--black);background:var(--white);line-height:1.6;}
   a{text-decoration:none;color:inherit;}
+  /* Links in running copy were inheriting the paragraph's gray from the rule
+     above, with no underline and no weight, so a reader could not tell a link
+     from a sentence. Scoped to <section> so the nav, the footer and the hero
+     buttons keep their own styling, and .btn is excluded for the CTAs that do
+     sit inside a paragraph. */
+  section p a:not(.btn), section li a:not(.btn){color:var(--blue);font-weight:700;}
+  section p a:not(.btn):hover, section li a:not(.btn):hover{text-decoration:underline;}
   img{max-width:100%;display:block;height:auto;}
   .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
   h1,h2,h3,h4{color:var(--darker-blue);font-weight:800;line-height:1.2;}
