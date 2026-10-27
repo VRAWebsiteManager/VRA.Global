@@ -198,17 +198,19 @@ html{scroll-padding-top:148px;}
   .cta-banner .btn-primary:hover{background:var(--light-blue);}
 
   /* ASSISTANT SPOTLIGHT */
-  .hiw-intro{display:grid;grid-template-columns:1fr 250px;gap:56px;align-items:center;max-width:920px;margin:0 auto 44px;}
-  .hiw-intro .section-head{text-align:left;margin:0;max-width:none;}
-  .va-spotlight{text-align:center;}
+  .meet-block{max-width:860px;margin:0 auto;}
+  .meet-block h2{font-size:26px;margin-bottom:16px;}
+  .meet-block p{font-size:16.5px;color:var(--gray);margin-bottom:16px;}
+  .va-spotlight{float:right;width:212px;margin:4px 0 14px 40px;text-align:center;shape-outside:circle(52% at 50% 36%);}
   .va-stage{transition:opacity .18s ease;}
   .va-stage.fading{opacity:0;}
-  .va-pic{width:168px;height:168px;border-radius:50%;margin:0 auto 12px;overflow:hidden;background:var(--light-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:42px;color:var(--darker-blue);}
+  .va-pic{width:200px;height:200px;border-radius:50%;margin:0 auto 12px;overflow:hidden;background:var(--light-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:48px;color:var(--darker-blue);}
   .va-pic img{width:100%;height:100%;object-fit:cover;display:block;}
   .va-nm{font-size:14px;font-weight:700;color:var(--darker-blue);}
   .va-badge{display:block;margin-top:3px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);}
   .va-badge.empty{display:none;}
-  @media(max-width:900px){.hiw-intro{grid-template-columns:1fr;gap:32px;}.hiw-intro .section-head{text-align:center;}}
+  .meet-block:after{content:"";display:block;clear:both;}
+  @media(max-width:720px){.va-spotlight{float:none;width:auto;margin:0 auto 24px;shape-outside:none;}}
   /* TWO-PATH CARDS */
   .path-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .path-card{background:var(--white);border:2px solid var(--blue);border-radius:16px;padding:32px;}
@@ -420,23 +422,30 @@ html{scroll-padding-top:148px;}
   </div>
 </section>
 
-<section style="background:var(--white);border-top:4px solid var(--light-blue);border-bottom:4px solid var(--light-blue);">
+
+<!-- WHO YOU MEET -->
+<section>
   <div class="wrap">
-    <div class="hiw-intro">
-    <div class="section-head">
-      <h2>Two ways to start</h2>
-      <p>Two easy ways to get started — pick whichever fits you best.</p>
-      <p style="margin-top:8px;"><a href="/how-to-hire-a-virtual-assistant" style="color:var(--blue);font-weight:700;">First time hiring an assistant? Read the guide &rarr;</a></p>
-    </div>
-    <div class="va-spotlight" id="vaSpotlight" hidden aria-label="Assistants available to interview">
-      <div class="va-rail">
+    <div class="meet-block">
+      <div class="va-spotlight" id="vaSpotlight" hidden aria-label="Assistants available to interview">
         <div class="va-stage">
           <div class="va-pic"></div>
           <div class="va-nm"></div>
           <span class="va-badge empty"></span>
         </div>
       </div>
+      <h2>The people you will be choosing between</h2>
+      <p>Every VRA assistant comes through screening and a mandatory four-week, instructor-led training program before they ever touch client work. In our latest intake, 1,800 applications produced 16 graduating assistants.</p>
+      <p>So the interview is not a screening round. It is you choosing between people who have already cleared one &mdash; and whoever you pick is yours, with check-ins at 14, 30, 60 and 90 days after they start.</p>
     </div>
+  </div>
+</section>
+<section style="background:var(--white);border-top:4px solid var(--light-blue);border-bottom:4px solid var(--light-blue);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Two ways to start</h2>
+      <p>Two easy ways to get started — pick whichever fits you best.</p>
+      <p style="margin-top:8px;"><a href="/how-to-hire-a-virtual-assistant" style="color:var(--blue);font-weight:700;">First time hiring an assistant? Read the guide &rarr;</a></p>
     </div>
     <div class="path-grid">
       <div class="path-card">
