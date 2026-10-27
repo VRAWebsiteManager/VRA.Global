@@ -39,7 +39,6 @@
   var nm    = wrap.querySelector('.va-nm');
   var badge = wrap.querySelector('.va-badge');
   var line  = wrap.querySelector('.va-line');
-  var count = wrap.querySelector('.va-count');
 
   function key(n){ var w=(n||'').trim().split(/\s+/); return ((w[0]||'')+'|'+(w[w.length-1]||'')).toLowerCase(); }
   function shortName(n){
@@ -89,7 +88,6 @@
     function play(){ if(!reduce && !timer) timer = setInterval(function(){ go(1); }, EVERY); }
     function stop(){ if(timer){ clearInterval(timer); timer = null; } }
 
-    count.textContent = people.length + ' assistants available now';
     wrap.querySelector('.va-prev').addEventListener('click', function(){ stop(); go(-1); });
     wrap.querySelector('.va-next').addEventListener('click', function(){ stop(); go(1); });
     wrap.addEventListener('mouseenter', stop);
