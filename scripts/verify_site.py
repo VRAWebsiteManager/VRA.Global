@@ -48,8 +48,21 @@ BRITISH = {
     'fulfil': 'fulfill', 'fulfilment': 'fulfillment',
     'enrolment': 'enrollment', 'instalment': 'installment',
     'cheque': 'check', 'sceptical': 'skeptical', 'judgement': 'judgment',
+    # Idioms, not spellings. A British turn of phrase reads as foreign to a US
+    # reader even when every word in it is spelled the American way, and no
+    # spell check will ever flag one. "queue" is deliberately absent: the title
+    # and insurance pages use "service queue" and "renewal queue" correctly.
+    'straight away': 'right away', 'whilst': 'while', 'amongst': 'among',
+    'fortnight': 'two weeks', 'at the weekend': 'on the weekend',
+    'different to': 'different from', 'in hospital': 'in the hospital',
 }
 BRITISH_RE = re.compile(r'\b(' + '|'.join(sorted(BRITISH, key=len, reverse=True)) + r')\b', re.I)
+
+# Phrases that take a word in the middle ("weighing us up"), so a flat list of
+# alternatives cannot catch them.
+BRITISH_PATTERNS = [
+    (re.compile(r'\bweigh(?:s|ed|ing)?\s+(?:\w+\s+){0,2}up\b', re.I), 'comparing'),
+]
 
 # A client's own words are never edited to satisfy a copy rule, so if a quote ever
 # carries a British spelling, add the exact (file, word) pair here rather than
@@ -95,9 +108,14 @@ def check_pages():
             bad.append('%s: unbalanced comment markers' % f)
         if len(re.findall(r'<div[ >]', s)) != s.count('</div>'):
             bad.append('%s: div open/close mismatch' % f)
-        for w in sorted({m.group(1).lower() for m in BRITISH_RE.finditer(visible_text(s))}):
+        vis = visible_text(s)
+        for w in sorted({m.group(1).lower() for m in BRITISH_RE.finditer(vis)}):
             if (f, w) not in BRITISH_ALLOW:
-                bad.append('%s: British spelling "%s" (use "%s")' % (f, w, BRITISH[w]))
+                bad.append('%s: British usage "%s" (use "%s")' % (f, w, BRITISH[w]))
+        for pat, suggestion in BRITISH_PATTERNS:
+            for p in sorted({m.group(0).lower() for m in pat.finditer(vis)}):
+                if (f, p) not in BRITISH_ALLOW:
+                    bad.append('%s: British usage "%s" (use "%s")' % (f, p, suggestion))
     return len(files), bad
 
 def check_plaintext():
