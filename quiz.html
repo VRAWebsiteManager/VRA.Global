@@ -492,6 +492,7 @@ html{scroll-padding-top:148px;}
               <input type="hidden" name="hours" id="fHours">
               <input type="hidden" name="business" id="fBiz">
               <input type="hidden" name="answers" id="fAnswers">
+              <input type="hidden" name="_subject" id="fSubject">
               <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
               <button class="btn btn-primary" type="submit" id="qSend">Email me the plan</button>
             </div>
@@ -648,19 +649,55 @@ html{scroll-padding-top:148px;}
   };
 
   var LEVELS = [
-    { max:6,  name:"Lone Ranger", head:"You are running lean, and that is a choice rather than a problem.",
+    { max:6,  name:"Running Lean", head:"You are running lean, and that is a choice rather than a problem.",
       body:"The hours are not the bottleneck yet. At this stage it is usually interruption: the small things that break your focus rather than fill your week. The task worth handing over first is not the biggest one. It is the one that interrupts you most." },
     { max:13, name:"Ready to Delegate", head:"You are at the point where handing one process over pays for itself.",
       body:"There is enough repeatable work here to be worth someone else\u2019s week, and not so much that you would struggle to explain it. Starting with one process rather than a list is what makes this stick." },
-    { max:21, name:"Bottleneck Boss", head:"The business is waiting on you, and that is the expensive kind of busy.",
+    { max:21, name:"Everything Waits on You", head:"The business is waiting on you, and that is the expensive kind of busy.",
       body:"Work is queueing behind one person. That shows up as slower answers to clients long before it shows up in the numbers, which is why it is easy to carry for another quarter without noticing." },
-    { max:999,name:"Time to Scale", head:"You are doing two jobs, and one of them is not the one you are good at.",
+    { max:999,name:"Past Capacity", head:"You are doing two jobs, and one of them is not the one you are good at.",
       body:"At this level the admin is not overflow any more, it is a role. The question has stopped being whether to hand it over and become which half goes first." }
   ];
   var WANT = { grow:"That is time you said would go into growing.",
                serve:"That is time you said would go to your clients.",
                evening:"That is your evenings.",
                holiday:"That is a real vacation." };
+
+  /* Short labels for the summary that reaches the inbox. The on-screen option
+     text is written to be tapped; these are written to be read in an email. */
+  var LBL = {
+    biz:  {insurance:"Insurance agency", cpa:"Accounting or bookkeeping", re:"Real estate",
+           lending:"Mortgage or title", other:"Another small business"},
+    hours:{a:"Under 3 a week", b:"3 to 7 a week", c:"8 to 15 a week", d:"15+ a week"},
+    dread:{sched:"Scheduling", follow:"Following up", data:"Data entry",
+           bill:"Billing and invoices", social:"Social and marketing", calls:"Client calls and messages"},
+    when: {a:"During business hours", b:"Evenings", c:"Weekends", d:"It doesn\u2019t get done"},
+    slip: {a:"None that they know of", b:"One or two", c:"Three to five", d:"Doesn\u2019t know"},
+    sop:  {a:"Yes, they have procedures", b:"Some of it", c:"All in their head"},
+    want: {grow:"Growing the business", serve:"Looking after clients", evening:"Their evenings back", holiday:"A vacation"}
+  };
+  var ROW = [["biz","Business"],["hours","Hours on email and phone"],["dread","Puts off"],
+             ["when","When admin happens"],["slip","Leads slipping per month"],
+             ["sop","Anything written down"],["want","Wants the time for"]];
+  function summarize(level, lo, hi, list){
+    var out = [];
+    ROW.forEach(function(r){
+      var v = ans[r[0]], map = LBL[r[0]], txt;
+      /* A multi question left empty is an answer too -- Melissa should see that
+         they flagged nothing, not a row quietly missing from the email. */
+      if (v === undefined && (r[0] === "dread" || r[0] === "when")) v = [];
+      if (v === undefined || v === null) return;
+      if (Object.prototype.toString.call(v) === "[object Array]")
+        txt = v.length ? v.map(function(k){ return map[k] || k; }).join(", ") : "nothing selected";
+      else txt = map[v] || v;
+      out.push(r[1] + ": " + txt);
+    });
+    out.push("");
+    out.push("Result: " + level + " (" + lo + "\u2013" + hi + " hrs a week)");
+    out.push("Start with:");
+    list.forEach(function(t, n){ out.push("  " + (n+1) + ". " + t); });
+    return out.join("\n");
+  }
 
   var i = 0, ans = {};
   var $ = function(id){ return document.getElementById(id); };
@@ -729,13 +766,14 @@ html{scroll-padding-top:148px;}
     var s = score(), lv = LEVELS[0];
     for (var k = 0; k < LEVELS.length; k++){ if (s <= LEVELS[k].max){ lv = LEVELS[k]; break; } }
     var lo = Math.max(1, Math.round(s * 0.6)), hi = Math.max(lo + 1, Math.round(s * 0.95));
+    var list = tasks();
     $("qBar").style.width = "100%";
     $("rBadge").textContent = lv.name;
     $("rHead").textContent = lv.head;
     $("rBody").textContent = lv.body + (WANT[ans.want] ? " " + WANT[ans.want] : "");
     $("rHours").innerHTML = lo + "&ndash;" + hi + " hrs<span>a week you could hand over</span>";
     var ul = $("rTasks"); ul.innerHTML = "";
-    tasks().forEach(function(t, n){
+    list.forEach(function(t, n){
       var li = document.createElement("li");
       li.innerHTML = "<b>" + (n+1) + ".</b><span></span>";
       li.lastChild.textContent = t;
@@ -747,7 +785,10 @@ html{scroll-padding-top:148px;}
     }
     $("rCal").href = CAL;
     $("fLevel").value = lv.name; $("fHours").value = lo + "-" + hi;
-    $("fBiz").value = ans.biz || ""; $("fAnswers").value = JSON.stringify(ans);
+    $("fBiz").value = (LBL.biz[ans.biz] || ans.biz || "");
+    $("fAnswers").value = summarize(lv.name, lo, hi, list);
+    $("fSubject").value = "Quiz: " + (LBL.biz[ans.biz] || "Unknown") + " \u2014 " + lv.name
+                        + " (" + lo + "-" + hi + " hrs)";
     play.hidden = true; res.hidden = false;
     res.scrollIntoView({ behavior: "smooth", block: "start" });
     ev("quiz_complete", { quiz_level: lv.name, quiz_hours: lo + "-" + hi, quiz_business: ans.biz || "" });
