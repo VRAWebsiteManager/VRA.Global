@@ -25,18 +25,18 @@
   gtag('config', 'G-ZLM9HBC8PK');
 </script>
 <title>What's Your Delegation Level? | VRA</title>
-<meta name="description" content="A 60-second quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.">
+<meta name="description" content="A 2-minute quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://vra.global/quiz">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Virtual Realty Assistants">
 <meta property="og:title" content="What&#39;s Your Delegation Level? | Virtual Realty Assistants">
-<meta property="og:description" content="A 60-second quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.">
+<meta property="og:description" content="A 2-minute quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.">
 <meta property="og:url" content="https://vra.global/quiz">
 <meta property="og:image" content="https://vra.global/photos/og-quiz.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What&#39;s Your Delegation Level? | Virtual Realty Assistants">
-<meta name="twitter:description" content="A 60-second quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.">
+<meta name="twitter:description" content="A 2-minute quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.">
 <meta name="twitter:image" content="https://vra.global/photos/og-quiz.png">
 <script type="application/ld+json">
 {
@@ -64,7 +64,7 @@
   "@type": "WebPage",
   "url": "https://vra.global/quiz",
   "name": "What's Your Delegation Level? | VRA",
-  "description": "A 60-second quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.",
+  "description": "A 2-minute quiz. Answer seven questions and see roughly how many hours a week you could hand off, and which five tasks are worth starting with.",
   "datePublished": "2026-10-28",
   "dateModified": "2026-10-28",
   "publisher": {
@@ -238,6 +238,9 @@ html{scroll-padding-top:148px;}
           font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:9px 18px;border-radius:99px;margin-bottom:16px;}
   .qhours{font-size:50px;font-weight:800;color:var(--darker-blue);line-height:1.05;margin:6px 0 2px;}
   .qhours span{font-size:19px;font-weight:700;color:var(--gray);display:block;margin-top:6px;}
+  .qask{margin:28px 0 0;padding:20px 22px;background:#eaf4fb;border:1px solid var(--border);border-radius:13px;}
+  .qask h3{font-size:18px;margin-bottom:6px;}
+  .qask p{margin:0;font-size:15px;color:var(--gray);}
   .qtasks{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
   .qtasks li{display:flex;gap:12px;font-size:15.5px;color:var(--black);background:#f6fbfe;border:1px solid var(--border);
              border-radius:11px;padding:13px 16px;}
@@ -264,7 +267,7 @@ html{scroll-padding-top:148px;}
   /* Printing turns the result into the plan itself, so someone who is not ready
      to talk can keep it without handing over an email. */
   @media print{
-    header, footer, .page-hero, #quizStart, #quizPlay, .qctas, .qmail, .qrestart, #qPrint{display:none !important;}
+    header, footer, .page-hero, #quizStart, #quizPlay, .qctas, .qask, .qmail, .qrestart, #qPrint{display:none !important;}
     body{background:#fff;}
     .quiz-card{border:none;box-shadow:none;padding:0;}
     .quiz-stage{max-width:none;}
@@ -439,7 +442,7 @@ html{scroll-padding-top:148px;}
 </header>
 <section class="page-hero" style="padding-bottom:26px;">
   <div class="wrap" style="text-align:center;">
-    <div class="kicker">60-Second Quiz</div>
+    <div class="kicker">2-Minute Quiz</div>
     <h1>What&rsquo;s Your Delegation Level?</h1>
   </div>
 </section>
@@ -451,9 +454,9 @@ html{scroll-padding-top:148px;}
       <div class="quiz-card" id="quizStart">
         <div class="quiz-kicker">Start here</div>
         <h2>How much of your week could you hand off?</h2>
-        <p class="lead">Seven questions, no typing, and an answer at the end: roughly how many hours a week you could get back, and the five tasks worth handing over first.</p>
-        <button class="btn btn-primary" id="qGo" type="button">Let&rsquo;s go</button>
-        <p class="quiz-note">No email needed to see your result.</p>
+        <p class="lead">Seven questions, no typing, about two minutes. At the end you&rsquo;ll see where your hours are actually going, roughly how many you could get back, and the five tasks worth starting with.</p>
+        <button class="btn btn-primary" id="qGo" type="button">Let&rsquo;s find out</button>
+        <p class="quiz-note">No email needed, nothing to book. Just the answer.</p>
       </div>
 
       <div class="quiz-card" id="quizPlay" hidden>
@@ -478,6 +481,10 @@ html{scroll-padding-top:148px;}
         <ul class="qtasks" id="rTasks"></ul>
         <div class="qtip" id="rTip" hidden></div>
         <p class="qprint-head" style="font-weight:700;color:#275ea3;margin-bottom:10px;">Your delegation plan &middot; vra.global/quiz</p>
+        <div class="qask">
+          <h3>Want someone to look at this with you?</h3>
+          <p>Fifteen minutes with Michael, at no cost. He has read a few hundred of these, so he will tell you which of the five to hand over first and what that actually looks like in your week. You keep the plan either way.</p>
+        </div>
         <div class="qctas">
           <a class="btn btn-primary" id="rCal" href="#" target="_blank" rel="noopener">Talk it through with Michael (15 min)</a>
           <a class="btn btn-outline" id="rRead" href="/insights/sops-for-small-business">Read how to start</a>
