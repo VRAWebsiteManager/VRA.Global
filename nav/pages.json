@@ -121,6 +121,10 @@
         "path": "/needs-assessment"
       },
       {
+        "title": "What's Your Delegation Level? (Quiz)",
+        "path": "/quiz"
+      },
+      {
         "title": "Delegation Mastery: Free Scripts and Templates for Owners",
         "path": "/delegation-guide"
       },
