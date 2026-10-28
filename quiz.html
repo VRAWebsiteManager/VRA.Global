@@ -595,7 +595,7 @@ html{scroll-padding-top:148px;}
     { id:"dread", t:"Which of these do you put off?", multi:true, opts:[
       ["sched","Scheduling and the reschedules"], ["follow","Following up"], ["data","Data entry"],
       ["bill","Billing and invoices"], ["social","Social and marketing"], ["calls","Client calls and messages"]] },
-    { id:"when", t:"When does the admin actually get done?", score:{a:0,b:3,c:4,d:5}, opts:[
+    { id:"when", t:"When does the admin actually get done?", multi:true, score:{a:0,b:3,c:4,d:5}, opts:[
       ["a","During business hours"], ["b","Evenings"], ["c","Weekends"], ["d","Honestly, it doesn\u2019t"]] },
     { id:"slip", t:"How many leads or clients slip through in a month?", score:{a:0,b:2,c:4,d:3}, opts:[
       ["a","None that I know of"], ["b","One or two"], ["c","Three to five"], ["d","No idea, and that\u2019s the worrying part"]] },
@@ -700,11 +700,19 @@ html{scroll-padding-top:148px;}
     ev("quiz_question_" + (i+1), { quiz_answer: String(ans[Q[i].id]) });
     if (i < Q.length - 1){ i++; render(); } else { finish(); }
   }
+  /* Several answers can be true at once here. Evenings AND weekends is worse than
+     either alone, so take the heaviest answer and add one for each extra. */
+  function multiScore(map, picked){
+    if (!picked || !picked.length) return 0;
+    var top = 0;
+    picked.forEach(function(k){ if ((map[k]||0) > top) top = map[k]||0; });
+    return top + (picked.length - 1);
+  }
   function score(){
     var s = 0;
     s += (Q[1].score[ans.hours] || 0);
     s += (ans.dread || []).length;
-    s += (Q[3].score[ans.when] || 0);
+    s += multiScore(Q[3].score, ans.when);
     s += (Q[4].score[ans.slip] || 0);
     s = s * (Q[5].mult[ans.sop] || 1);
     return s;
