@@ -261,6 +261,17 @@ html{scroll-padding-top:148px;}
     .qctas .btn{flex:1 1 100%;}
   }
   @media(prefers-reduced-motion:reduce){.qbar{transition:none;}}
+  /* Printing turns the result into the plan itself, so someone who is not ready
+     to talk can keep it without handing over an email. */
+  @media print{
+    header, footer, .page-hero, #quizStart, #quizPlay, .qctas, .qmail, .qrestart, #qPrint{display:none !important;}
+    body{background:#fff;}
+    .quiz-card{border:none;box-shadow:none;padding:0;}
+    .quiz-stage{max-width:none;}
+    .qtasks li{background:#fff;border:1px solid #ccc;}
+    .qprint-head{display:block !important;}
+  }
+  .qprint-head{display:none;}
 </style></head>
 <body>
 
@@ -466,14 +477,16 @@ html{scroll-padding-top:148px;}
         <h3 style="margin-top:26px;font-size:18px;">Where we would start</h3>
         <ul class="qtasks" id="rTasks"></ul>
         <div class="qtip" id="rTip" hidden></div>
+        <p class="qprint-head" style="font-weight:700;color:#275ea3;margin-bottom:10px;">Your delegation plan &middot; vra.global/quiz</p>
         <div class="qctas">
           <a class="btn btn-primary" id="rCal" href="#" target="_blank" rel="noopener">Talk it through with Michael (15 min)</a>
           <a class="btn btn-outline" id="rRead" href="/insights/sops-for-small-business">Read how to start</a>
+          <button class="btn btn-outline" id="qPrint" type="button">Save or print this plan</button>
         </div>
 
         <div class="qmail" id="rMail">
-          <h3>Want the full plan in writing?</h3>
-          <p>We&rsquo;ll send your result and the task list over, with a short note on how to hand the first one over. A person writes it, so give us a few hours rather than a few minutes.</p>
+          <h3>Rather have it in your inbox?</h3>
+          <p>Your plan is on this page and the button above saves it. If you would rather we sent it, we will &mdash; with a short note on how to hand the first task over. A person writes that, so look for it later today.</p>
           <form id="qForm" action="https://formspree.io/f/mgaolpwb" method="POST">
             <div class="qfields">
               <input type="text" name="name" placeholder="First name" autocomplete="given-name" required>
@@ -800,6 +813,7 @@ html{scroll-padding-top:148px;}
   $("qAgain").onclick = function(){ i = 0; ans = {}; res.hidden = true; start.hidden = false;
                                     window.scrollTo({ top: 0, behavior: "smooth" }); };
   $("rCal").addEventListener("click", function(){ ev("quiz_calendly_click"); });
+  $("qPrint").addEventListener("click", function(){ ev("quiz_print"); window.print(); });
 
   $("qForm").addEventListener("submit", function(e){
     e.preventDefault();
