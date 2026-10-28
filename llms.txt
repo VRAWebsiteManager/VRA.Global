@@ -110,11 +110,11 @@
 - [Home](https://vra.global/)
 - [About VRA](https://vra.global/about): the leadership and support team by name, how assistants are screened and trained (DISC and Keller assessments, a mandatory four-week instructor-led program, 0.89% of applicants through the most recent cohort), and what VRA commits to after placement.
 - [Pricing](https://vra.global/pricing)
-- [How hiring works](https://vra.global/how-it-works): the two ways to start — complete the Needs Assessment online beforehand, or walk through it together on the call — then interview the matched assistants on Zoom and choose. Once selected, an assistant can start within 24 hours.
+- [How hiring works](https://vra.global/how-it-works): the two ways to start — take the delegation quiz online beforehand, or walk through it together on the call — then interview the matched assistants on Zoom and choose. Once selected, an assistant can start within 24 hours.
 - [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a commitment to 90% proficiency in a client's own software within 5 business days.
 - [Frequently asked questions](https://vra.global/faq)
 - [Client reviews and video testimonials](https://vra.global/reviews)
 - [Insights](https://vra.global/insights)
-- [Needs Assessment](https://vra.global/needs-assessment)
+- [Delegation Quiz](https://vra.global/quiz)
 - [Bilingual VA waitlist](https://vra.global/bilingual-waitlist)
 - [Contact](https://vra.global/contact)
