@@ -12,6 +12,9 @@ Exits 1 if anything fails, so it can gate a commit. Checks:
            contains no HTML entities, since a parser reads "&amp;" literally
            and the schema then disagrees with the visible text; balanced tags;
            US spelling in visible copy and JSON-LD.
+  dates    no page's JSON-LD dateModified is older than the day the file was
+           last edited. Search engines and answer engines read dateModified as
+           freshness, so a stale one understates a page that has just changed.
   nav      header and footer match nav/*.html once the three per-page
            parameters are applied.
   quotes   every client quote is a faithful excerpt of its video transcript.
@@ -130,6 +133,37 @@ def check_plaintext():
     return bad
 
 
+def check_dates():
+    """A page edited after the date its schema claims is a page search engines
+    will treat as older than it is. Uncommitted edits count as today."""
+    bad = []
+    # one git pass: most recent commit date per file
+    out = subprocess.run(['git', 'log', '--name-only', '--format=%x00%cs'],
+                         capture_output=True, text=True, cwd=ROOT).stdout
+    last = {}
+    date = None
+    for line in out.splitlines():
+        if line.startswith('\x00'):
+            date = line[1:].strip()
+        elif line.strip() and date:
+            last.setdefault(line.strip(), date)
+    dirty = {l[3:].strip() for l in subprocess.run(['git', 'status', '--short'],
+             capture_output=True, text=True, cwd=ROOT).stdout.splitlines()}
+    today = subprocess.run(['date', '+%Y-%m-%d'], capture_output=True, text=True).stdout.strip()
+    for f in sorted(glob.glob('*.html') + glob.glob('insights/*.html')):
+        t = io.open(f, encoding='utf-8').read()
+        claimed = re.findall(r'"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})', t)
+        if not claimed:
+            continue
+        edited = today if f in dirty else last.get(f)
+        if not edited:
+            continue
+        for c in sorted(set(claimed)):
+            if c < edited:
+                bad.append('%s: dateModified %s but last edited %s' % (f, c, edited))
+    return bad
+
+
 def run(script, *args):
     r = subprocess.run([sys.executable, '-I', os.path.join('scripts', script)] + list(args),
                        capture_output=True, text=True, cwd=ROOT)
@@ -148,6 +182,12 @@ def main():
     for b in pbad[:10]:
         print('        ' + b)
     fails += bool(pbad)
+    dbad = check_dates()
+    print('DATES   %s' % ('ok - schema dates match last edit'
+                          if not dbad else '%d stale' % len(dbad)))
+    for b in dbad[:15]:
+        print('        ' + b)
+    fails += bool(dbad)
     for label, script in (('NAV', 'build_nav.py'), ('QUOTES', 'check_quotes.py')):
         code, out = run(script, '--check') if script == 'build_nav.py' else run(script)
         head = out.splitlines()[0] if out else ''
