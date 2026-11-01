@@ -133,6 +133,41 @@ def check_plaintext():
     return bad
 
 
+def _nav_only_change(path):
+    """True if a file's uncommitted edit touches nothing outside the nav blocks.
+
+    build_nav.py stamps nav/header.html and nav/footer.html into all 98 pages,
+    so adding one footer link rewrites every page. Those rewrites are not
+    content changes, and bumping 49 dateModified values to claim otherwise is
+    the freshness inflation this check exists to catch. So a working-tree diff
+    confined to the stamped <header> and <footer> blocks does not make a page
+    count as edited today.
+    """
+    diff = subprocess.run(['git', 'diff', '-U0', '--', path],
+                          capture_output=True, text=True, cwd=ROOT).stdout
+    hunks = re.findall(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@', diff, re.M)
+    if not hunks:
+        return False                      # untracked, or nothing to compare
+    text = io.open(os.path.join(ROOT, path), encoding='utf-8').read()
+    spans = []
+    for tag in ('header', 'footer'):
+        for m in re.finditer(r'<%s>.*?</%s>' % (tag, tag), text, re.S):
+            spans.append((text.count('\n', 0, m.start()) + 1,
+                          text.count('\n', 0, m.end()) + 1))
+    if not spans:
+        return False
+    inside = lambda n: any(a <= n <= b for a, b in spans)
+    for start, count in hunks:
+        start, count = int(start), 1 if count in ('', None) else int(count)
+        if count == 0:                    # pure deletion: check the seam
+            if not inside(start) or not inside(start + 1):
+                return False
+            continue
+        if not all(inside(n) for n in range(start, start + count)):
+            return False
+    return True
+
+
 def check_dates():
     """A page edited after the date its schema claims is a page search engines
     will treat as older than it is. Uncommitted edits count as today."""
@@ -155,7 +190,8 @@ def check_dates():
         claimed = re.findall(r'"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})', t)
         if not claimed:
             continue
-        edited = today if f in dirty else last.get(f)
+        is_dirty = f in dirty and not _nav_only_change(f)
+        edited = today if is_dirty else last.get(f)
         if not edited:
             continue
         for c in sorted(set(claimed)):

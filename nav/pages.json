@@ -388,6 +388,10 @@
         "path": "/reviews"
       },
       {
+        "title": "Press",
+        "path": "/press"
+      },
+      {
         "title": "Contact Us",
         "path": "/contact"
       },

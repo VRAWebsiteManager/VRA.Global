@@ -124,6 +124,7 @@
 - [Software and platforms](https://vra.global/tools-and-platforms): the systems VRA assistants work in for clients today (KW Command, Qualia, Dotloop, Lone Wolf, HAR MLS, AccountEdge, BrokerKit, Courted, Mailchimp, QuickBooks, Canva, Google Workspace, Slack, Claude), plus a commitment to 90% proficiency in a client's own software within 5 business days.
 - [Frequently asked questions](https://vra.global/faq)
 - [Client reviews and video testimonials](https://vra.global/reviews)
+- [Press](https://vra.global/press): coverage of VRA and the people behind it. Today it carries the founder section: Michael Bossart was named 2019 Managing Broker of the Year by Houston Agent Magazine and has been quoted by KPRC 2 Houston on home buying, disclosure and the Houston market. None of that coverage names VRA itself.
 - [Insights](https://vra.global/insights)
 - [Delegation Quiz](https://vra.global/quiz)
 - [Bilingual VA waitlist](https://vra.global/bilingual-waitlist)
