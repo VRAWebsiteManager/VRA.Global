@@ -133,39 +133,62 @@ def check_plaintext():
     return bad
 
 
-def _nav_only_change(path):
-    """True if a file's uncommitted edit touches nothing outside the nav blocks.
-
-    build_nav.py stamps nav/header.html and nav/footer.html into all 98 pages,
-    so adding one footer link rewrites every page. Those rewrites are not
-    content changes, and bumping 49 dateModified values to claim otherwise is
-    the freshness inflation this check exists to catch. So a working-tree diff
-    confined to the stamped <header> and <footer> blocks does not make a page
-    count as edited today.
-    """
-    diff = subprocess.run(['git', 'diff', '-U0', '--', path],
-                          capture_output=True, text=True, cwd=ROOT).stdout
-    hunks = re.findall(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@', diff, re.M)
-    if not hunks:
-        return False                      # untracked, or nothing to compare
-    text = io.open(os.path.join(ROOT, path), encoding='utf-8').read()
+def _nav_spans(text):
+    """Line ranges of the stamped <header> and <footer> blocks, 1-indexed."""
     spans = []
     for tag in ('header', 'footer'):
         for m in re.finditer(r'<%s>.*?</%s>' % (tag, tag), text, re.S):
             spans.append((text.count('\n', 0, m.start()) + 1,
                           text.count('\n', 0, m.end()) + 1))
-    if not spans:
+    return spans
+
+
+def _nav_only(diff, text):
+    """True if every hunk in `diff` falls inside a nav block of `text`."""
+    hunks = re.findall(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@', diff, re.M)
+    spans = _nav_spans(text)
+    if not hunks or not spans:
         return False
     inside = lambda n: any(a <= n <= b for a, b in spans)
     for start, count in hunks:
-        start, count = int(start), 1 if count in ('', None) else int(count)
-        if count == 0:                    # pure deletion: check the seam
-            if not inside(start) or not inside(start + 1):
+        start = int(start)
+        count = 1 if count in ('', None) else int(count)
+        if count == 0:                        # pure deletion: check the seam
+            if not (inside(start) and inside(start + 1)):
                 return False
-            continue
-        if not all(inside(n) for n in range(start, start + count)):
+        elif not all(inside(n) for n in range(start, start + count)):
             return False
     return True
+
+
+def _git(*args):
+    return subprocess.run(['git'] + list(args), capture_output=True,
+                          text=True, cwd=ROOT).stdout
+
+
+def _last_content_edit(path, dirty):
+    """When this page's content last changed, ignoring nav stamps.
+
+    build_nav.py writes nav/header.html and nav/footer.html into all 98 pages,
+    so adding one footer link rewrites every page -- in the working tree and
+    then in the commit. Neither is a content change, and bumping 48
+    dateModified values to claim otherwise is the freshness inflation this
+    check exists to catch. So walk back to the most recent edit that touched
+    something outside the stamped blocks, and date the page from that.
+    """
+    if path in dirty:
+        text = io.open(os.path.join(ROOT, path), encoding='utf-8').read()
+        if not _nav_only(_git('diff', '-U0', '--', path), text):
+            return subprocess.run(['date', '+%Y-%m-%d'],
+                                  capture_output=True, text=True).stdout.strip()
+    for line in _git('log', '--format=%H %cs', '--', path).splitlines():
+        sha, date = line.split(None, 1)
+        text = _git('show', '%s:%s' % (sha, path))
+        if not text:
+            return date.strip()               # added or renamed here
+        if not _nav_only(_git('show', '-U0', '--format=', sha, '--', path), text):
+            return date.strip()
+    return None
 
 
 def check_dates():
@@ -190,8 +213,7 @@ def check_dates():
         claimed = re.findall(r'"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})', t)
         if not claimed:
             continue
-        is_dirty = f in dirty and not _nav_only_change(f)
-        edited = today if is_dirty else last.get(f)
+        edited = _last_content_edit(f, dirty)
         if not edited:
             continue
         for c in sorted(set(claimed)):
