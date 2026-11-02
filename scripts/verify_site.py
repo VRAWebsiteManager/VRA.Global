@@ -246,8 +246,9 @@ def main():
     for b in dbad[:15]:
         print('        ' + b)
     fails += bool(dbad)
-    for label, script in (('NAV', 'build_nav.py'), ('QUOTES', 'check_quotes.py')):
-        code, out = run(script, '--check') if script == 'build_nav.py' else run(script)
+    for label, script in (('NAV', 'build_nav.py'), ('REVIEWS', 'build_reviews.py'),
+                          ('QUOTES', 'check_quotes.py')):
+        code, out = run(script) if script == 'check_quotes.py' else run(script, '--check')
         head = out.splitlines()[0] if out else ''
         print('%-7s %s' % (label, 'ok - ' + head if code == 0 else 'FAILED'))
         if code:

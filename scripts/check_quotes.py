@@ -9,6 +9,19 @@ may not change anything in between.
   3. No substitution - not a word altered inside the run, contractions included.
   4. No ellipsis  - unnecessary once 1 and 2 hold.
 
+Amended (Kami, 2026-11-02): an excerpt may also drop a discourse marker from the
+very start -- "As I was saying," or "Um," -- because it is a seam left by the
+sentence before, not something the client said about the work. Only at the start,
+only from the list in MARKERS, and only when a comma follows it, which is what
+separates a marker from the same word doing a job ("Like, she's great" against
+"Like a machine, she ...").
+
+Markers that carry stance, contrast or hedging are deliberately not on the list.
+Dropping "But" from "But instead of this entry-level associate ..." removes the
+contrast the sentence is built on, and dropping "I think" from "I think she's
+been doing a phenomenal job" promotes an opinion into a statement of fact. Those
+are changes to what a client said, which is the thing this check exists to stop.
+
 A quote PASSES when it is a run of consecutive whole sentences from one speaker's
 turn in one transcript. Pass/fail does not depend on the attribution next to it;
 the attribution is checked separately, so a quote credited to the wrong person is
@@ -73,14 +86,33 @@ def load_transcripts():
             out[os.path.basename(f)[:-5]] = turns
     return out
 
+MARKERS = ('as i was saying', 'um', 'uh', 'you know', 'i mean',
+           'like', 'yeah', 'okay', 'ok', 'well', 'so')
+MARKER_RE = re.compile(r'^(?:%s)\s*,\s*' % '|'.join(MARKERS), re.I)
+
+
+def without_marker(text):
+    """The run with a leading discourse marker dropped, or None if there is none."""
+    stripped = MARKER_RE.sub('', soft(text), count=1)
+    return stripped if stripped and stripped != soft(text) else None
+
+
 def faithful_runs(turns):
-    """Every legal excerpt: each consecutive run of whole sentences in a turn."""
+    """Every legal excerpt: each consecutive run of whole sentences in a turn.
+
+    Each run is registered twice when it opens on a discourse marker: as spoken,
+    and without it. See the amendment in the module docstring.
+    """
     runs = {}
     for spk, txt in turns:
         sents = sentences(txt)
         for i in range(len(sents)):
             for j in range(i + 1, len(sents) + 1):
-                runs.setdefault(key(' '.join(sents[i:j])), (spk, ' '.join(sents[i:j])))
+                run = ' '.join(sents[i:j])
+                runs.setdefault(key(run), (spk, run))
+                trimmed = without_marker(run)
+                if trimmed:
+                    runs.setdefault(key(trimmed), (spk, trimmed))
     return runs
 
 # --------------------------------------------------------------- site quotes

@@ -21,7 +21,7 @@
       by: "Emily Zakhem, Keller Williams Memorial &middot; 60-day check-in" },
     { quote: "I am surprised that we didn't take this step earlier.",
       by: "Montse Foster, Keller Williams Memorial &middot; 90-day check-in" },
-    { quote: "As I was saying, I don't know how I made it this long without even having a VA.",
+    { quote: "I don't know how I made it this long without even having a VA.",
       by: "Rayan Saleh &middot; Owner, The Butcher&rsquo;s Grille" },
     { quote: "He&rsquo;s given me my life back, so I&rsquo;m not working 16 hours a day.",
       by: "Lisa Rigdon, REALTOR&reg; &middot; Keller Williams Memorial Rookie of the Year" },
