@@ -103,9 +103,39 @@
     for (var i = 0; i < fields.length; i++) fields[i].value = window.vraSource();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', stamp);
-  } else {
+  /* The /consult links are hand-written with utm_source=vra-site, which tells
+     Calendly nothing: every booking looks identical whether the visitor came
+     from LinkedIn, a search or an AI assistant. First touch is known here but
+     dies at the redirect, so rewrite the links before anyone clicks one and
+     carry it across the handoff.
+
+     utm_source becomes the real first touch and utm_term the page they entered
+     on. utm_medium, utm_campaign and utm_content are left alone -- utm_content
+     already records which page the button sat on, which is the last touch. If
+     first touch is unknown the link is left exactly as authored. */
+  function tagConsultLinks() {
+    var ft = first || current();
+    if (!ft || !ft.source) return;
+    var links = document.querySelectorAll('a[href*="/consult"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i], href = a.getAttribute('href'), u;
+      if (!href) continue;
+      try { u = new URL(href, window.location.origin); } catch (e) { continue; }
+      if (u.pathname !== '/consult') continue;
+      u.searchParams.set('utm_source', ft.source);
+      if (ft.landing) u.searchParams.set('utm_term', ft.landing);
+      a.setAttribute('href', u.pathname + u.search + u.hash);
+    }
+  }
+
+  function onReady() {
     stamp();
+    tagConsultLinks();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
   }
 })();
