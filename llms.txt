@@ -108,6 +108,7 @@
 - [Exit planning advisors](https://vra.global/exit-planning-advisors): implementation capacity behind a readiness recommendation the owner has agreed to but has no hours to act on.
 - [Your first 100 days after buying a business](https://vra.global/insights/first-100-days-after-buying-a-business): a week-by-week plan for a new owner — what to learn before changing anything, which administrative work to hand off first, and the order in which an owner stops being the bottleneck.
 - [How to make a business run without you](https://vra.global/insights/how-to-make-your-business-run-without-you): owner dependency as a solvable problem — what to document, what to delegate, and what has to stay with the owner.
+- [Key person risk in a business sale](https://vra.global/insights/key-person-risk-in-a-business-sale): written for brokers, SBA lenders and exit planning advisors — what owner dependence costs a deal, why none of the parties fixes it, and who pays to close the gap.
 
 ## Free guides
 - [How to hire a virtual assistant](https://vra.global/how-to-hire-a-virtual-assistant): what to decide before hiring, part-time versus full-time versus hourly, six questions to ask any VA company before signing, and how long hiring actually takes.

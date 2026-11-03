@@ -81,7 +81,7 @@
 </url>
 <url>
 <loc>https://vra.global/sba-lenders</loc>
-<lastmod>2026-11-02</lastmod>
+<lastmod>2026-11-03</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -297,7 +297,13 @@
 </url>
 <url>
 <loc>https://vra.global/insights/how-to-make-your-business-run-without-you</loc>
-<lastmod>2026-10-29</lastmod>
+<lastmod>2026-11-03</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://vra.global/insights/key-person-risk-in-a-business-sale</loc>
+<lastmod>2026-11-03</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
