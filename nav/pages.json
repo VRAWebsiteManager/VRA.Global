@@ -19,6 +19,10 @@
         "path": "/commercial-real-estate-virtual-assistant"
       },
       {
+        "title": "Virtual Assistants for Commercial Brokerages",
+        "path": "/commercial-brokerage-virtual-assistant"
+      },
+      {
         "title": "Keller Williams Agents",
         "path": "/keller-williams-agent-virtual-assistant"
       },
