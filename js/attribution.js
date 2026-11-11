@@ -5,7 +5,12 @@
 
    First touch, not last touch: someone who arrives from LinkedIn, reads three
    pages and then fills in the contact form should be credited to LinkedIn, not
-   to /contact. */
+   to /contact.
+
+   The same first touch is also sent to GA4, as a user property on every event
+   and as a one-per-session first_touch event. Without it GA4 only ever sees the
+   referrer of the page that arrived, so a visitor who lands from ChatGPT, reads
+   four pages and books on the fifth shows up as a consult click from nowhere. */
 (function () {
   'use strict';
 
@@ -78,13 +83,53 @@
   }
 
   var first = stored();
+  var isNewTouch = false;
   if (!first || !first.source) {
     var now = current();
     if (now.source) {
       first = now;
+      isNewTouch = true;
       try { sessionStorage.setItem(KEY, JSON.stringify(now)); } catch (e) {}
     }
   }
+
+  /* Collapse the labels into a handful of channels, so AI traffic can be read as
+     one channel without listing every assistant by name, while first_touch_source
+     still says which one it was. */
+  function channelOf(source) {
+    if (!source) return 'unknown';
+    /* utm_source arrives as "linkedin/eta-launch", a referrer as plain "linkedin",
+       so match on the part before the slash or both spellings split apart. */
+    var base = String(source).split('/')[0];
+    if (base === 'ai') return 'ai';
+    if (base === 'google' || base === 'bing' || base === 'duckduckgo') return 'search';
+    if (base === 'linkedin' || base === 'facebook' || base === 'x') return 'social';
+    if (base === 'direct') return 'direct';
+    return 'referral';
+  }
+
+  /* gtag is defined synchronously in the page head and queues into dataLayer, so
+     this runs correctly even before the async GA4 script has finished loading. */
+  function sendToGA4(ft, isNew) {
+    if (!ft || !ft.source || typeof gtag !== 'function') return;
+    try {
+      /* Rides along on every later event in the session, so a conversion can be
+         read back to where the visitor originally came from. */
+      gtag('set', 'user_properties', {
+        first_touch_source: String(ft.source).slice(0, 36),
+        first_touch_channel: channelOf(ft.source)
+      });
+      if (!isNew) return;
+      gtag('event', 'first_touch', {
+        source: String(ft.source).slice(0, 100),
+        channel: channelOf(ft.source),
+        landing_page: String(ft.landing || '/').slice(0, 100),
+        medium: String(ft.medium || '').slice(0, 100)
+      });
+    } catch (e) {}
+  }
+
+  sendToGA4(first, isNewTouch);
 
   /* A single readable line for the sheet, e.g.
      "linkedin/eta-launch | entered /just-bought-a-business | sent from /contact" */
