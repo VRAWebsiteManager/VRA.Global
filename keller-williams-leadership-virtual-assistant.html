@@ -339,6 +339,24 @@ html{scroll-padding-top:148px;}
     .arc-step,.arc-step:not(:last-child),.arc-step:last-child{margin-left:0;padding-left:16px;padding-top:34px;}
     .arc-day{left:0;top:0;}
   }
+
+  /* Content Engine callout -- deliberately unlike the VA sections */
+  .ce-callout{background:var(--dark-blue);border-left:6px solid var(--light-blue);
+    border-radius:8px;overflow:hidden;display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);
+    gap:0;align-items:stretch;max-width:980px;margin:0 auto;}
+  .ce-callout img{display:block;width:100%;height:100%;object-fit:cover;min-width:0;}
+  .ce-body{padding:30px 32px;color:var(--white);min-width:0;}
+  .ce-tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+    color:var(--light-blue);margin:0 0 10px;}
+  .ce-body h2{color:#fff;font-size:24px;line-height:1.25;margin:0 0 12px;}
+  .ce-body p{color:#c3d2db;font-size:16px;line-height:1.6;margin:0 0 14px;}
+  .ce-body p:last-of-type{margin-bottom:18px;}
+  .ce-body a.ce-link{display:inline-block;background:var(--light-blue);color:var(--dark-blue);
+    font-weight:700;font-size:15px;text-decoration:none;padding:11px 22px;border-radius:5px;}
+  .ce-body a.ce-link:hover{background:#fff;}
+  @media(max-width:760px){.ce-callout{grid-template-columns:1fr;}
+    .ce-callout img{height:220px;}
+    .ce-body{padding:24px 22px;}}
 </style>
 </head>
 <body>
@@ -835,6 +853,23 @@ html{scroll-padding-top:148px;}
       Your VA's reserved hours, hands-on matching &amp; onboarding to get you paired with the right person from day one, and ongoing VRA support with check-ins at 14/30/60/90 days &mdash; no hidden fees, ever. If your VA is not the right fit, you can swap in a different VA at any point, at no extra cost.
     </div>
     <div class="pricing-note" style="margin-top:18px;"><strong>Against a payroll hire:</strong> Full-time here is $18,000 a year. The Bureau of Labor Statistics puts median pay for secretaries and administrative assistants at $48,310 as of May 2025, and benefits at 30% of total compensation, which puts that seat near $69,000 a year.</div>
+  </div>
+</section>
+
+
+<!-- CONTENT ENGINE CALLOUT -->
+<section>
+  <div class="wrap">
+    <div class="ce-callout">
+      <img src="/photos/content-engine-tile.png" alt="VRA Content Engine &mdash; produced in your building" width="800" height="1000" loading="lazy">
+      <div class="ce-body">
+        <p class="ce-tag">A separate offering</p>
+        <h2>A Video and Podcast Producer for Your Market Center</h2>
+        <p>Everything above is assistant placement at the flat rate. The Content Engine is not that. It places a video and podcast producer who writes the script, directs the shoot while the agent stands in your room, cuts the footage and gets it back to them &mdash; a role VRA defines and staffs rather than one your office briefs.</p>
+        <p>It comes out of the agent attraction and retention budget, not the back office one, and it is priced per engagement. The flat rate for assistant placements is unchanged.</p>
+        <a class="ce-link" href="/content-engine">See how the Content Engine works &rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 
