@@ -2,3 +2,9 @@
 # so the file can't rank in place of the landing page that captures the email.
 /guides/*
   X-Robots-Tag: noindex
+
+# Nav templates: build_nav.py stamps these into every page, but Netlify also
+# serves them at their own URLs as bare fragments with no doctype, title or
+# content. Crawlable so the header is read, never indexable as a page.
+/nav/*
+  X-Robots-Tag: noindex

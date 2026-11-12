@@ -18,6 +18,12 @@ Exits 1 if anything fails, so it can gate a commit. Checks:
   nav      header and footer match nav/*.html once the three per-page
            parameters are applied.
   quotes   every client quote is a faithful excerpt of its video transcript.
+  identity nodes sharing an @id agree on name, description, url and logo; the
+           Organization node carries what an answer engine needs to resolve it;
+           noindex and sitemap.xml never disagree; every sitemapped URL has a
+           page behind it; canonicals are self-referential; no two pages share
+           a title or description; robots.txt lets the search and answer
+           crawlers through.
 """
 import io, json, re, subprocess, sys, os, glob, html as H
 
@@ -227,6 +233,141 @@ def run(script, *args):
                        capture_output=True, text=True, cwd=ROOT)
     return r.returncode, (r.stdout + r.stderr).strip()
 
+SKIP_DIRS = ('_review', 'website-backup-', 'deploy-')
+# Not pages: nav/ holds the templates build_nav.py stamps into real pages (served
+# as bare fragments and noindexed in _headers), and the google*.html files are
+# Search Console verification tokens that must stay reachable and unlisted.
+NOT_PAGES = re.compile(r'^(nav/|google[0-9a-f]+(_\d+)?\.html$)')
+SITE = 'https://vra.global'
+
+def site_pages():
+    """Every page Netlify actually publishes."""
+    return [p for p in sorted(glob.glob('**/*.html', recursive=True))
+            if not any(p.startswith(d) or ('/' + d) in p for d in SKIP_DIRS)
+            and not NOT_PAGES.match(p)]
+
+def clean_url(path):
+    p = path[:-5] if path.endswith('.html') else path
+    return SITE + '/' if p == 'index' else SITE + '/' + p
+
+def ld_nodes(src):
+    for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', src, re.S):
+        try:
+            j = json.loads(b)
+        except Exception:
+            continue
+        g = j.get('@graph') if isinstance(j, dict) and j.get('@graph') else (j if isinstance(j, list) else [j])
+        for n in g:
+            if isinstance(n, dict):
+                yield n
+
+def check_identity():
+    """The checks that would have caught what actually went wrong on this site.
+
+    Two Organization nodes once shared @id https://vra.global/#organization while
+    giving different descriptions, the vetting stat reached ten wordings, and a
+    page can be sitemapped and noindexed at the same time without anything here
+    noticing. An entity is only worth declaring if every page declares it the
+    same way, so a disagreement is a build failure, not a style note."""
+    bad = []
+    pages = site_pages()
+
+    # 1. nodes sharing an @id must agree on the fields that define the entity
+    byid = {}
+    for p in pages:
+        src = io.open(p, encoding='utf-8').read()
+        for n in ld_nodes(src):
+            nid = n.get('@id')
+            if not nid:
+                continue
+            for field in ('name', 'description', 'url', 'logo'):
+                if field not in n:
+                    continue
+                val = json.dumps(n[field], sort_keys=True)
+                byid.setdefault((nid, field), {}).setdefault(val, []).append(p)
+    for (nid, field), variants in sorted(byid.items()):
+        if len(variants) > 1:
+            where = '; '.join('%s in %s' % (v[:40].replace('\n', ' '), ', '.join(f[:28] for f in files[:2]))
+                              for v, files in list(variants.items())[:3])
+            bad.append('%s disagrees on "%s" across %d spellings: %s' % (nid, field, len(variants), where))
+
+    # 2. the Organization node carries what an answer engine needs to resolve it
+    org_required = ('name', 'alternateName', 'url', 'logo', 'description', 'sameAs')
+    seen_org = False
+    for p in ('index.html',):
+        src = io.open(p, encoding='utf-8').read()
+        for n in ld_nodes(src):
+            if n.get('@id', '').endswith('#organization'):
+                seen_org = True
+                missing = [k for k in org_required if not n.get(k)]
+                if missing:
+                    bad.append('%s: Organization node missing %s' % (p, ', '.join(missing)))
+    if not seen_org:
+        bad.append('index.html: no Organization node with an #organization @id')
+
+    # 3. noindex and the sitemap must not disagree
+    sm = io.open('sitemap.xml', encoding='utf-8').read() if os.path.exists('sitemap.xml') else ''
+    sitemapped = set(re.findall(r'<loc>([^<]+)</loc>', sm))
+    for p in pages:
+        src = io.open(p, encoding='utf-8').read()
+        m = re.search(r'<meta name="robots" content="([^"]*)"', src)
+        noindex = bool(m and 'noindex' in m.group(1).lower())
+        url = clean_url(p)
+        if noindex and url in sitemapped:
+            bad.append('%s: noindex but listed in sitemap.xml' % p)
+        if not noindex and url not in sitemapped and p != 'site-map.html':
+            bad.append('%s: indexable but missing from sitemap.xml (%s)' % (p, url))
+
+    # 4. every sitemap URL has a file behind it
+    have = {clean_url(p) for p in pages}
+    for url in sorted(sitemapped - have):
+        bad.append('sitemap.xml lists %s with no page behind it' % url)
+
+    # 5. canonical points at the page's own clean URL
+    for p in pages:
+        src = io.open(p, encoding='utf-8').read()
+        m = re.search(r'<link rel="canonical" href="([^"]*)"', src)
+        if m and m.group(1).rstrip('/') != clean_url(p).rstrip('/'):
+            bad.append('%s: canonical is %s, expected %s' % (p, m.group(1), clean_url(p)))
+
+    # 6. titles and descriptions are unique. Two pages with one description are
+    #    two pages competing to be the same answer.
+    for label, pat in (('title', r'<title>(.*?)</title>'),
+                       ('description', r'<meta name="description" content="(.*?)">')):
+        seen = {}
+        for p in pages:
+            src = io.open(p, encoding='utf-8').read()
+            m = re.search(pat, src, re.S)
+            if m:
+                seen.setdefault(H.unescape(m.group(1)).strip(), []).append(p)
+        for val, files in sorted(seen.items()):
+            if len(files) > 1:
+                bad.append('%d pages share one %s (%s): %s'
+                           % (len(files), label, val[:48], ', '.join(files[:4])))
+
+    # 7. robots.txt lets the crawlers that matter through
+    if not os.path.exists('robots.txt'):
+        bad.append('robots.txt is missing')
+    else:
+        rb = io.open('robots.txt', encoding='utf-8').read()
+        if 'Sitemap:' not in rb:
+            bad.append('robots.txt has no Sitemap: directive')
+        group = None
+        for line in rb.splitlines():
+            line = line.strip()
+            if line.lower().startswith('user-agent:'):
+                group = line.split(':', 1)[1].strip().lower()
+            elif line.lower().startswith('disallow:') and group is not None:
+                rule = line.split(':', 1)[1].strip()
+                if rule == '/':
+                    bad.append('robots.txt blocks the whole site for "%s"' % group)
+        for bot in ('oai-searchbot', 'gptbot', 'chatgpt-user', 'googlebot', 'bingbot'):
+            m = re.search(r'user-agent:\s*' + bot + r'\b(.*?)(?=user-agent:|\Z)', rb, re.S | re.I)
+            if m and re.search(r'disallow:\s*/\s*$', m.group(1), re.M | re.I):
+                bad.append('robots.txt disallows %s' % bot)
+    return bad
+
+
 def main():
     os.chdir(ROOT)
     fails = 0
@@ -246,6 +387,12 @@ def main():
     for b in dbad[:15]:
         print('        ' + b)
     fails += bool(dbad)
+    ibad = check_identity()
+    print('IDENTITY %s' % ('ok - one entity, unique pages, crawlers allowed'
+                           if not ibad else '%d problem(s)' % len(ibad)))
+    for b in ibad[:25]:
+        print('        ' + b)
+    fails += bool(ibad)
     for label, script in (('NAV', 'build_nav.py'), ('REVIEWS', 'build_reviews.py'),
                           ('QUOTES', 'check_quotes.py')):
         code, out = run(script) if script == 'check_quotes.py' else run(script, '--check')
