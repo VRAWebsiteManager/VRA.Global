@@ -35,6 +35,10 @@
         "path": "/kw-virtual-mca-assistant"
       },
       {
+        "title": "Market Center Video Production (Content Engine)",
+        "path": "/content-engine"
+      },
+      {
         "title": "Mortgage & Lending",
         "path": "/mortgage-virtual-assistant"
       },
@@ -268,6 +272,18 @@
       {
         "title": "Virtual Assistant or First Employee?",
         "path": "/insights/virtual-assistant-or-first-employee"
+      },
+      {
+        "title": "Turning Market Center Events Into Agent Content",
+        "path": "/insights/turning-market-center-events-into-content"
+      },
+      {
+        "title": "How Video Builds a Real Estate Business",
+        "path": "/insights/how-video-builds-a-real-estate-business"
+      },
+      {
+        "title": "How a Podcast Builds a Real Estate Business",
+        "path": "/insights/how-a-podcast-builds-a-real-estate-business"
       }
     ]
   },
