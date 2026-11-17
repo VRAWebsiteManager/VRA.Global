@@ -93,6 +93,10 @@
       {
         "title": "Executive Virtual Assistant",
         "path": "/executive-virtual-assistant"
+      },
+      {
+        "title": "The Virtual Assistant Built for City Government",
+        "path": "/municipal-virtual-assistant"
       }
     ]
   },
@@ -182,6 +186,18 @@
         "path": "/insights/breaking-the-growth-ceiling"
       },
       {
+        "title": "Business Retention Is a Record-Keeping Problem",
+        "path": "/insights/business-retention-what-to-track"
+      },
+      {
+        "title": "Adding Capacity at City Hall Without Adding a Position",
+        "path": "/insights/city-hall-capacity-without-a-position"
+      },
+      {
+        "title": "Commercial Real Estate Deal Coordination",
+        "path": "/insights/commercial-real-estate-transaction-coordinator"
+      },
+      {
         "title": "How Commercial Agents Use a Virtual Assistant",
         "path": "/insights/commercial-real-estate-virtual-assistants"
       },
@@ -194,16 +210,28 @@
         "path": "/insights/first-100-days-after-buying-a-business"
       },
       {
+        "title": "How a Podcast Builds a Real Estate Business",
+        "path": "/insights/how-a-podcast-builds-a-real-estate-business"
+      },
+      {
+        "title": "How Small Cities Find the Grants They're Missing",
+        "path": "/insights/how-small-cities-find-grants"
+      },
+      {
         "title": "How to Make Your Business Run Without You",
         "path": "/insights/how-to-make-your-business-run-without-you"
       },
       {
-        "title": "Key Person Risk in a Business Sale",
-        "path": "/insights/key-person-risk-in-a-business-sale"
+        "title": "How Video Builds a Real Estate Business",
+        "path": "/insights/how-video-builds-a-real-estate-business"
       },
       {
         "title": "14 to 90 Days In: Real Results From Keller Williams Agents",
         "path": "/insights/keller-williams-agent-14-and-60-day-results"
+      },
+      {
+        "title": "Key Person Risk in a Business Sale",
+        "path": "/insights/key-person-risk-in-a-business-sale"
       },
       {
         "title": "Loan Officer Assistant vs Virtual Assistant: What Each Costs",
@@ -222,6 +250,14 @@
         "path": "/insights/one-market-center-ten-virtual-assistants"
       },
       {
+        "title": "Policy Checking, Endorsements and Renewal Prep",
+        "path": "/insights/policy-checking-virtual-assistant"
+      },
+      {
+        "title": "What to Film and What to Record",
+        "path": "/insights/real-estate-video-and-podcast-topics"
+      },
+      {
         "title": "Virtual Assistant for Restaurants and Chefs: What to Hand Off, and What to Keep",
         "path": "/insights/restaurant-virtual-assistant-tasks"
       },
@@ -230,8 +266,20 @@
         "path": "/insights/sops-for-small-business"
       },
       {
+        "title": "Remote Title Assistants and ALTA Best Practices",
+        "path": "/insights/title-assistant-alta-best-practices"
+      },
+      {
         "title": "From One VA to Three: Virtual Assistants in Title and Escrow",
         "path": "/insights/title-company-virtual-assistants"
+      },
+      {
+        "title": "What a Title Assistant Does From Order to Close",
+        "path": "/insights/title-virtual-assistant-order-to-close"
+      },
+      {
+        "title": "Turning Office Events Into Agent Content",
+        "path": "/insights/turning-office-events-into-content"
       },
       {
         "title": "“I would say, honestly, she's already paid for her first year of work.”",
@@ -246,52 +294,24 @@
         "path": "/insights/virtual-assistant-for-catering-and-events"
       },
       {
-        "title": "Virtual Assistant for Vacation Rentals",
-        "path": "/insights/virtual-assistant-for-vacation-rentals"
-      },
-      {
-        "title": "Who Pays to Train Your Virtual Assistant?",
-        "path": "/insights/who-pays-to-train-your-virtual-assistant"
-      },
-      {
-        "title": "What a Title Assistant Does From Order to Close",
-        "path": "/insights/title-virtual-assistant-order-to-close"
-      },
-      {
-        "title": "Remote Title Assistants and ALTA Best Practices",
-        "path": "/insights/title-assistant-alta-best-practices"
-      },
-      {
-        "title": "Policy Checking, Endorsements and Renewal Prep",
-        "path": "/insights/policy-checking-virtual-assistant"
-      },
-      {
-        "title": "Commercial Real Estate Deal Coordination",
-        "path": "/insights/commercial-real-estate-transaction-coordinator"
-      },
-      {
         "title": "Virtual Assistant for Loan Officers: What to Hand Off",
         "path": "/insights/virtual-assistant-for-loan-officers"
+      },
+      {
+        "title": "Virtual Assistant for Vacation Rentals",
+        "path": "/insights/virtual-assistant-for-vacation-rentals"
       },
       {
         "title": "Virtual Assistant or First Employee?",
         "path": "/insights/virtual-assistant-or-first-employee"
       },
       {
-        "title": "Turning Office Events Into Agent Content",
-        "path": "/insights/turning-office-events-into-content"
+        "title": "Where to Find a Virtual Assistant, and What Each Route Costs You",
+        "path": "/insights/where-to-find-a-virtual-assistant"
       },
       {
-        "title": "How Video Builds a Real Estate Business",
-        "path": "/insights/how-video-builds-a-real-estate-business"
-      },
-      {
-        "title": "How a Podcast Builds a Real Estate Business",
-        "path": "/insights/how-a-podcast-builds-a-real-estate-business"
-      },
-      {
-        "title": "What to Film and What to Record",
-        "path": "/insights/real-estate-video-and-podcast-topics"
+        "title": "Who Pays to Train Your Virtual Assistant?",
+        "path": "/insights/who-pays-to-train-your-virtual-assistant"
       }
     ]
   },
