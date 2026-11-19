@@ -97,6 +97,10 @@
       {
         "title": "The Virtual Assistant Built for City Government",
         "path": "/municipal-virtual-assistant"
+      },
+      {
+        "title": "The Transaction Coordinator Built for Agents and Teams",
+        "path": "/transaction-coordinator-virtual-assistant"
       }
     ]
   },
@@ -276,6 +280,10 @@
       {
         "title": "What a Title Assistant Does From Order to Close",
         "path": "/insights/title-virtual-assistant-order-to-close"
+      },
+      {
+        "title": "What a Transaction Coordinator Does From Contract to Close",
+        "path": "/insights/transaction-coordinator-contract-to-close"
       },
       {
         "title": "Turning Office Events Into Agent Content",
