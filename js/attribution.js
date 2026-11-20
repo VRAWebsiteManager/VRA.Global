@@ -102,6 +102,13 @@
        so match on the part before the slash or both spellings split apart. */
     var base = String(source).split('/')[0];
     if (base === 'ai') return 'ai';
+    /* First touches recorded before label() learned the AI hosts are stored in the
+       visitor's browser as a bare hostname and are never overwritten, so a returning
+       ChatGPT visitor still arrives here as "chatgpt.com". Catch those too, or they
+       are counted as plain referrals and the ai channel reads as empty. */
+    if (base === 'chatgpt.com' || base === 'openai.com' || base === 'perplexity.ai' ||
+        base === 'claude.ai' || base === 'copilot.microsoft.com' ||
+        base === 'gemini.google.com') return 'ai';
     if (base === 'google' || base === 'bing' || base === 'duckduckgo') return 'search';
     if (base === 'linkedin' || base === 'facebook' || base === 'x') return 'social';
     if (base === 'direct') return 'direct';
